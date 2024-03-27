@@ -32,6 +32,6 @@ Angie Herrera Cáceres\
 Correo: angela.herrera@bbva.com\
 Celular: 981 679 819
 
-**[Regresar a opciones de empresas](..\empresas.md)**
+**[Regresar a opciones de empresas](../empresas.md)**
 
 ***[Regresar al índice](../../README.md)***
