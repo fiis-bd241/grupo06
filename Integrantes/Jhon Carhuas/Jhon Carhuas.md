@@ -10,4 +10,4 @@ Mi nombre es Jhon Jesus Carhuas Romero, soy estudiante de la Universidad Naciona
 
 **[Ver a integrantes](../integrantes.md)**
 
-***[Regresar al índice](../../proyecto.md)***
+***[Regresar al índice](../../README.md)***

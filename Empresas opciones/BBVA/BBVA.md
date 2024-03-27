@@ -34,4 +34,4 @@ Celular: 981 679 819
 
 **[Regresar a opciones de empresas](..\empresas.md)**
 
-***[Regresar al índice](../../proyecto.md)***
+***[Regresar al índice](../../README.md)***

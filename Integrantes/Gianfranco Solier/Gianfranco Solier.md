@@ -10,4 +10,4 @@ Estudiante de Ingeniería de Sistemas cursando el séptimo ciclo. Gran interés 
 
 **[Ver a integrantes](../integrantes.md)**
 
-***[Regresar al índice](../../proyecto.md)***
+***[Regresar al índice](../../README.md)***

@@ -10,4 +10,4 @@ Mi nombre es William Gerardo Valencia Grey, soy estudiante de la Universidad Nac
 
 **[Ver a integrantes](../integrantes.md)**
 
-***[Regresar al índice](../../proyecto.md)***
+***[Regresar al índice](../../README.md)***

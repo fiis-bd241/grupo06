@@ -7,4 +7,4 @@
 - [William Valencia](William%20Valencia/William.md)
 - [Juan Villanueva](Juan%20Villanueva/Juan%20Villanueva.md)
   
-**[Regresar al índice](../proyecto.md)**
+**[Regresar al índice](../README.md)**

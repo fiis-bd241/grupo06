@@ -10,4 +10,4 @@ Javier Arteaga, estudiante de la Universidad Nacional de Ingeniería de la carre
 
 **[Ver a integrantes](../integrantes.md)**
 
-***[Regresar al índice](../../proyecto.md)***
+***[Regresar al índice](../../README.md)***

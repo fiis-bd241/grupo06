@@ -10,4 +10,4 @@ Soy un estudiante de la Universidad Nacional de Ingeniería, donde actualmente e
 
 **[Ver a integrantes](../integrantes.md)**
 
-***[Regresar al índice](../../proyecto.md)***
+***[Regresar al índice](../../README.md)***

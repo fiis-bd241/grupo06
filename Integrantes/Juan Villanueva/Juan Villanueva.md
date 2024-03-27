@@ -11,4 +11,4 @@ actualmente me encuentro en sexto ciclo relativo de la carrera de Ingenieria de 
 
 **[Ver a integrantes](../integrantes.md)**
 
-***[Regresar al índice](../../proyecto.md)***
+***[Regresar al índice](../../README.md)***
