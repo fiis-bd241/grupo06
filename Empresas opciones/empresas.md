@@ -2,6 +2,6 @@
 
 Estas son las opciones de empresas que hemos visto
 
--[BBVA](BBVA/BBVA.md)
--[]
--[Vircatex](Vircatex/Vircatex.md)
+- [BBVA](BBVA/BBVA.md)
+- []
+- [Vircatex](Vircatex/Vircatex.md)
