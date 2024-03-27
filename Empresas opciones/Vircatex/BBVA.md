@@ -14,16 +14,15 @@ Ser la mejor franquicia financiera del mundo, un referente global en innovación
 - Seguros
 - Inversiones
 
+## Tema para trabajo académico
+El tema de préstamos de BBVA ofrece una gran variedad de opciones para desarrollar un trabajo académico sobre diseño de bases de datos.
+
 ## Préstamos
 BBVA ofrece una amplia gama de préstamos para diferentes necesidades, como:
 - Préstamos personales
 - Préstamos hipotecarios
 - Préstamos para autos
 - Préstamos para empresas
-
-## Tema para trabajo académico
-El tema de préstamos de BBVA ofrece una gran variedad de opciones para desarrollar un trabajo académico sobre diseño de bases de datos. Algunas ideas a considerar:
-
 
 ## Recursos adicionales
 [Sitio web de BBVA Perú](https://www.bbva.pe/)
