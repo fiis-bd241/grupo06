@@ -2,7 +2,7 @@
 
 ![William Valencia](William.jpg)
 
-Mi nombre es William Gerardo Valencia Grey, soy estudiante de la Universidad Nacional de Ingenieria, actualmente estoy en 7mo ciclo relativo de la carrera Ingenieria de Sistemas.
+William Valencia es un estudiante de la Universidad Nacional de Ingenieria que cursa el 7mo ciclo relativo de la carrera ingeniería de sistemas, con código de estudiante 20204019F.
 
 - Correo personal: wgvalenciag@gmail.com
 - Correo institucional: william.valencia.g@uni.pe

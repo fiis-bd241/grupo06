@@ -2,7 +2,7 @@
 
 ![Javier Arteaga Gonzales](jav.jpg)
 
-Javier Arteaga, estudiante de la Universidad Nacional de Ingeniería de la carrera de Ingeniería de Sistemas (FIIS - UNI)
+Javier Arteaga es un estudiante de la Universidad Nacional de Ingeniería de la carrera de ingeniería de sistemas (FIIS - UNI)
 
 - Correo personal: javalejan12@gmail.com
 - Correo institucional: jarteagag@uni.pe

@@ -2,7 +2,7 @@
 
 ![Gianfranco Solier](Gian.png)
 
-Estudiante de Ingeniería de Sistemas cursando el séptimo ciclo. Gran interés en el ámbito de desarrollador.
+Gianfranco Solier es un estudiante dee la Universidad Nacional de Ingeniería que cursa el 7mo ciclo de la carrera de ingeniería de sistemas. Tiene un gran interés en el ámbito de desarrollador.
 
 - Correo personal: gsolierg@gmail.com
 - Correo institucional: gsolierg@uni.pe
