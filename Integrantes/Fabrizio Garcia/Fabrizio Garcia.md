@@ -7,3 +7,7 @@ Soy un estudiante de la Universidad Nacional de Ingeniería, donde actualmente e
 - Correo personal: garcia.rivera123456@gmail.com
 - Correo institucional: fabrizio.garcia.r@uni.pe
 - Usuario de Github: [FabrizioGarc](https://github.com/FabrizioGarc)
+
+[Ver integrantes](../integrantes.md)
+
+[Regresar al índice](../../README.md)
