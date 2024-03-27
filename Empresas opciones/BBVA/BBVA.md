@@ -28,8 +28,8 @@ BBVA ofrece una amplia gama de préstamos para diferentes necesidades, como:
 [Sitio web de BBVA Perú](https://www.bbva.pe/)
 
 ## Contacto
-Angie Herrera Cáceres
-Correo: angela.herrera@bbva.com
-Celular: 981 679 819
+Angie Herrera Cáceres\
+Correo: angela.herrera@bbva.com\
+Celular: 981 679 819\
 
 **[Regresar a opciones de empresas](..\empresas.md)**
