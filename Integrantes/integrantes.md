@@ -4,5 +4,6 @@
 - [Javier Arteaga](Javier%20Arteaga/javier.md)
 - [William](William/William.md)
 - [Jhon Carhuas](Jhon%Carhuas/Jhon%Carhuas.md)
-  
+- [Gianfranco Solier](Gianfranco%Solier/Gianfranco%Solier.md)
+ 
 [Regresar al índice](../proyecto.md)
