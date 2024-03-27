@@ -1,5 +1,5 @@
 # BBVA
-![BBVA](Logo-BBVA.png)
+![BBVA](Logo-BBVA.png)\
 **Rubro:** Banca y Finanzas
 
 ## Misión
