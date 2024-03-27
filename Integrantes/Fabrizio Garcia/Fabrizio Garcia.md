@@ -1,6 +1,8 @@
 # Fabrizio Garcia
 
-Soy un estudiante de la Universidad Nacional de Ingeniería, donde actualmente estoy cursando el 5to ciclo de la carrera de ingeniería de sistemas, con código de estudiante 20237012K. Siempre estoy en la búsqueda de desafíos que me impulsen a crecer, tanto a nivel personal como en mi carrera.
+![Fabrizio Jose](Fabrizio Garcia.jpeg)
+
+Soy un estudiante de la Universidad Nacional de Ingeniería, donde actualmente estoy cursando el 5to ciclo de la carrera de ingeniería de sistemas, con código de estudiante 20237012K. Busco amplair mis conocimientos en todo momento sobre todo en temas de tecnologias para poder saber resolver problemas que sean de utilidad y necesidad.
 
 - Correo personal: garcia.rivera123456@gmail.com
 - Correo institucional: fabrizio.garcia.r@uni.pe
