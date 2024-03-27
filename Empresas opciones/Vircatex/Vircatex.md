@@ -1,4 +1,5 @@
 # Vircatex
+![Vircatex](Logo-Vircatex.jpg)
 **Rubro:** Textil
 
 ## Misión
