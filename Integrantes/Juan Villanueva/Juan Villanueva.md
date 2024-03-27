@@ -1,6 +1,6 @@
 # Juan Villanueva
 
-![Juan Villanueva](foto_axel.jpg)
+![Juan Villanueva](Juan%20Villanueva.jpg)
 
 Juan Villanueva es un estudiante de la Universidad Nacional de Ingeniería que cursa el 6to ciclo relativo de la carrera de ingeniería de sistemas, con código de estudiante 20184028E.
 

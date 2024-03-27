@@ -1,6 +1,6 @@
 # Fabrizio Garcia
 
-![Fabrizio Garcia](Fabrizio.jpg)
+![Fabrizio Garcia](Fabrizio%20Garcia.jpg)
 
 Fabrizio Garcia es un estudiante de la Universidad Nacional de Ingeniería que cursa el 5to ciclo de la carrera de ingeniería de sistemas, con código de estudiante 20237012K. Busca ampliar sus conocimientos en todo momento, sobre todo en temas de tecnologias para ser capaz resolver problemas que sean de utilidad y necesidad.
 

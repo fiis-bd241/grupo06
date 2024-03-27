@@ -1,6 +1,6 @@
 # William Valencia
 
-![William Valencia](William.jpg)
+![William Valencia](William%20Valencia.jpg)
 
 William Valencia es un estudiante de la Universidad Nacional de Ingenieria que cursa el 7mo ciclo relativo de la carrera ingeniería de sistemas, con código de estudiante 20204019F.
 

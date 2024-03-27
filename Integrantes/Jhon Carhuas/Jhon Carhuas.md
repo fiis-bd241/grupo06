@@ -1,6 +1,6 @@
 # Jhon Carhuas
 
-![Jhon Carhuas](Jhon_Carhuas.png)
+![Jhon Carhuas](Jhon%20Carhuas.png)
 
 Jhon Carhuas es un estudiante de la Universidad Nacional de Ingenieria que cursa el 6to ciclo relativo de la carrera Ingenieria de Sistemas.
 
