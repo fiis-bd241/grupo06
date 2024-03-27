@@ -1,6 +1,6 @@
 # Javier Arteaga
 
-![Javier Arteaga Gonzales](Javier%20Arteaga.jpg)
+![Javier Arteaga](Javier%20Arteaga.jpg)
 
 Javier Arteaga es un estudiante de la Universidad Nacional de Ingeniería de la carrera de ingeniería de sistemas (FIIS - UNI)
 
