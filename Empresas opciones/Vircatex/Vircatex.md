@@ -25,3 +25,5 @@ William Enrique Valencia Mallma
 Cargo: Contador general
 Correo: wvalencia@vircatex.com
 Celular: 945 298 505
+
+**[Regresar a opciones de empresas](..\empresas.md)**
