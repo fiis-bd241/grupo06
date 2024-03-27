@@ -1,6 +1,6 @@
 # Jhon Carhuas
 
-![Jhon_Carhuas](Jhon_Carhuas.jpg)
+![Jhon Carhuas](Jhon_Carhuas.jpg)
 
 Mi nombre es Jhon Jesus Carhuas Romero, soy estudiante de la Universidad Nacional de Ingenieria, actualmente estoy en 6to ciclo relativo de la carrera Ingenieria de Sistemas.
 
