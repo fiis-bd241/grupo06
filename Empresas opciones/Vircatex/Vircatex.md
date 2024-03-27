@@ -27,3 +27,5 @@ Correo: wvalencia@vircatex.com\
 Celular: 945 298 505
 
 **[Regresar a opciones de empresas](..\empresas.md)**
+
+***[Regresar al índice](../../proyecto.md)***

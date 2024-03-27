@@ -7,3 +7,7 @@ Mi nombre es Jhon Jesus Carhuas Romero, soy estudiante de la Universidad Naciona
 - Correo personal: jhoncr885@gmail.com
 - Correo institucional: jhon.carhuas.r@uni.pe
 - Usuario de Github: [JhonCarhuas](https://github.com/JhonCarhuas)
+
+**[Ver a integrantes](../integrantes.md)**
+
+***[Regresar al índice](../../proyecto.md)***

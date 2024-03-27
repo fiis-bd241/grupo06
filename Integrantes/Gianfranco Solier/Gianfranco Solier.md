@@ -7,3 +7,7 @@ Estudiante de Ingeniería de Sistemas cursando el séptimo ciclo. Gran interés 
 - Correo personal: gsolierg@gmail.com
 - Correo institucional: gsolierg@uni.pe
 - Usuario de Github: [Ganimbus](https://github.com/Ganimbus)
+
+**[Ver a integrantes](../integrantes.md)**
+
+***[Regresar al índice](../../proyecto.md)***

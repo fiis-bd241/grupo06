@@ -7,3 +7,7 @@ Mi nombre es William Gerardo Valencia Grey, soy estudiante de la Universidad Nac
 - Correo personal: wgvalenciag@gmail.com
 - Correo institucional: william.valencia.g@uni.pe
 - Usuario de Github: [williamvalenciak](https://github.com/williamvalenciaK)
+
+**[Ver a integrantes](../integrantes.md)**
+
+***[Regresar al índice](../../proyecto.md)***

@@ -8,3 +8,7 @@ actualmente me encuentro en sexto ciclo relativo de la carrera de Ingenieria de 
 - Correo personal: jaxelvillar@gmail.com
 - Correo institucional: juan.villanueva.r@uni.pe
 - Usuario de Github: [Juan Villanueva](https://github.com/axelvrrmc)
+
+**[Ver a integrantes](../integrantes.md)**
+
+***[Regresar al índice](../../proyecto.md)***

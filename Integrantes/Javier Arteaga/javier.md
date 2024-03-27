@@ -8,6 +8,6 @@ Javier Arteaga, estudiante de la Universidad Nacional de Ingeniería de la carre
 - Correo institucional: jarteagag@uni.pe
 - Usuario de Github: [javierargo](https://github.com/javierargo)
 
-[Ver integrantes](../integrantes.md)
+**[Ver a integrantes](../integrantes.md)**
 
-[Regresar al índice](../../proyecto.md)
+***[Regresar al índice](../../proyecto.md)***
