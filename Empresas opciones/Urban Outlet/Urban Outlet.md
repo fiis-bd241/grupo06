@@ -18,7 +18,7 @@ Somos una empresa dedica a la venta de prendas de vestir de caballero con buena 
 - En proceso de entrega
 
 ## Recursos adicionales
-[Facebook de Vircatex](https://www.facebook.com/URBANOUTLET.BARRANCA/?locale=es_LA)
+[Facebook de Urban Outlet](https://www.facebook.com/URBANOUTLET.BARRANCA/?locale=es_LA)
 
 ## Contacto
 Garcia Rivera Fabrizio Jose\
