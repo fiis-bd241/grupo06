@@ -30,6 +30,6 @@ BBVA ofrece una amplia gama de préstamos para diferentes necesidades, como:
 ## Contacto
 Angie Herrera Cáceres\
 Correo: angela.herrera@bbva.com\
-Celular: 981 679 819\
+Celular: 981 679 819
 
 **[Regresar a opciones de empresas](..\empresas.md)**

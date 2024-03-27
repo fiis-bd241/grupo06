@@ -24,6 +24,6 @@ En un plazo de cinco años, Vitex se visualiza como el líder indiscutible en la
 William Enrique Valencia Mallma\
 Cargo: Contador general\
 Correo: wvalencia@vircatex.com\
-Celular: 945 298 505\
+Celular: 945 298 505
 
 **[Regresar a opciones de empresas](..\empresas.md)**
