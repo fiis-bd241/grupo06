@@ -8,6 +8,3 @@ Soy un estudiante de la Universidad Nacional de Ingeniería, donde actualmente e
 - Correo institucional: fabrizio.garcia.r@uni.pe
 - Usuario de Github: [FabrizioGarc](https://github.com/FabrizioGarc)
 
-[Ver integrantes](../integrantesdegrupo.md)
-
-[Regresar al índice](../../LÉAME.md)
