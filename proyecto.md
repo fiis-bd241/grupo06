@@ -4,4 +4,4 @@ Bienvenidos al repositorio del Proyecto del Curso del Grupo 6. Aquí encontrará
 
 ## Índice
 
-1. [Integrantes del grupo](01.%20Integrantes/integrantes.md)
+1. [Integrantes del grupo](Integrantes/integrantes.md)
