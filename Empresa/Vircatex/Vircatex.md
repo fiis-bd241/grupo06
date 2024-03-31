@@ -18,14 +18,21 @@ En un plazo de cinco años, Vitex se visualiza como el líder indiscutible en la
 ## Diagrama del proceso de negocio
 ![Proceso de negocio](Proceso%20de%20negocio-Vircatex.png)
 
+## Tema para trabajo académico
+Crear una base de datos que maneje su flujo de operaciones.
+
 ## Recursos adicionales
 [Sitio web de Vircatex](https://vircatex.com)
 
-## Contacto
+## Contactos
 William Enrique Valencia Mallma\
 Cargo: Contador general\
 Correo: wvalencia@vircatex.com\
 Celular: 945 298 505
+
+Jhonatan Bazan\
+Cargo: Coordinador de operaciones\
+Celular: 939 963 001
 
 **[Regresar a opciones de empresas](../empresas.md)**
 

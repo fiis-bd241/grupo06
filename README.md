@@ -4,4 +4,4 @@ Bienvenidos al repositorio del Proyecto del Curso de diseño de base de datos (D
 ## Índice
 
 1. [Integrantes del grupo](Integrantes/integrantes.md)
-2. [Empresa](Empresas%20opciones/empresas.md)
+2. [Empresa](Empresa/empresa.md)
