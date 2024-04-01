@@ -18,6 +18,8 @@ En un plazo de cinco años, Vitex se visualiza como el líder indiscutible en la
 ## Diagrama del proceso de negocio
 ![Proceso de negocio](Proceso%20de%20negocio-Vircatex.png)
 
+Diagrama de procesos elegidos: https://lucid.app/lucidchart/4e1b64b9-b538-4c39-8055-ec071c24a962/edit?viewport_loc=102%2C182%2C1690%2C1096%2C0_0&invitationId=inv_4a10cfdb-e4d7-4012-9a72-99d6e7094360
+
 ## Tema para trabajo académico
 Crear una base de datos que maneje su flujo de operaciones.
 
