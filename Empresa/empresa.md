@@ -2,7 +2,10 @@
 
 La empresa que elegimos para nuestro proyecto es:
 
-- [Vircatex](Vircatex/Vircatex.md)
+## Vircatex
+
+- [Sobre la empresa](Vircatex/Vircatex.md)
+- [Entrevista](Vircatex/Entrevista.md)
 
 **[Regresar al índice](../README.md)**
 

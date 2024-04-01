@@ -36,6 +36,6 @@ Jhonatan Bazan\
 Cargo: Coordinador de operaciones\
 Celular: 939 963 001
 
-**[Regresar a opciones de empresas](../empresas.md)**
+**[Regresar a empresa](../empresa.md)**
 
 ***[Regresar al índice](../../README.md)***
