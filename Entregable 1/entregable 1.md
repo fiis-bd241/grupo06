@@ -103,6 +103,7 @@ Este rol se enfoca en la gestión y organización eficiente del almacén de pren
 | 5    | Se almacena la materia prima en el lugar adecuado según su tipo y características. |
 | 6    | Se selecciona la materia prima según el pedido de producción y se prepara para su entrega al área de producción. |
 | 7    | Se entrega la materia prima en el área de producción junto con la documentación correspondiente. |
+| 7    | Finaliza el caso. |
 
 **Caso de uso N°5: Registro y Control de Prendas Acabadas**
 
