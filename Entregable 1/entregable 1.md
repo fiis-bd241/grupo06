@@ -43,6 +43,24 @@ Este rol se enfoca en la gestión y organización eficiente del almacén de pren
 
 ### 1.3 Diagrama de Procesos
 
+- Área de Almacen Central
+
+| Codigo | Nombre Actividad               | Descripcion                                                                                     | Area Responsable  |
+|--------|--------------------------------|------------------------------------------------------------------------------------------------|-------------------|
+| 1      | Recepción de materias primas | Se verifica la calidad de las materias primas y se almacenan en el lugar adecuado. | Jefe de almacen |
+| 2      | Crear plan de almacenamiento | Se define la ubicación de cada materia prima en el almacén.        | Jefe de almacén |
+| 3      | Almacenar materias primas              | Se guardan las materias primas en el lugar asignado. | Almacenero |
+| 4      | Preparar lote de telas            | Se seleccionan las telas según el pedido de producción. | Almacenero |
+| 5      | Enviar lote de telas a corte                       | Se transportan las telas al área de corte.               | Jefe de almacén |
+| 6      | Preparar lote de cortes                       | Se selecciona las telas cortadas para preparar su envío a confección.                    | Almacenero |
+| 7      | Enviar cortes a confección                       |  Se transportan los cortes al área de confección.          | Jefe de almacén |
+| 8      | Preparar lote de prendas sin terminar              | Se selecciona las prendas que aún falta confeccionar                   | Almacenero |
+| 9      | Enviar lote de prendas sin terminar a confección            | Se transportan las prendas sin terminar a la siguiente etapa de confección. | Jefe de almacén |
+| 10     | Preparar lote total de confección           | Se terminan las prendas y se realiza un control de calidad. | Supervisor de Acabado |
+| 11     | Preparar lote de avios           | Se seleccionan los avios (botones, cremalleras, etc.) necesarios para las prendas. | Almacenero |
+| 12     | Enviar lote total de confección a almacén de tránsito     | Se transportan las prendas terminadas al almacén de tránsito. | Jefe de almacén |
+| 13     | Enviar lote de avios al almacén de tránsito    | Se transportan los avios al almacén de tránsito. | Jefe de almacén |
+
 - Área de Acabados
 
 | Codigo | Nombre Actividad               | Descripcion                                                                                     | Area Responsable  |
