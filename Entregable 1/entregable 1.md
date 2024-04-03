@@ -35,9 +35,6 @@ Este rol despliega una competencia integral en la gestión y supervisión de las
 - **Operario de Máquinas**
 Este rol se encarga de ejecutar las tareas operativas esenciales en el proceso de acabado de prendas. Desde el recibimiento de las prendas hasta su embalaje final, el operario de máquinas opera los equipos de planchado, colgado, embolsado y empaquetado con precisión y destreza. Su labor garantiza la correcta finalización de cada prenda, asegurando su presentación óptima y listas para su distribución. Además, mantiene un alto estándar de seguridad y mantenimiento de los equipos bajo su responsabilidad.
 
-- **Inspector de Calidad**
-Este rol desempeña una función crítica en la garantía de la calidad del producto final. Encargado de realizar inspecciones exhaustivas en cada etapa del proceso de acabado, desde la recepción de las prendas hasta su embalaje final, el inspector de calidad identifica y evalúa cualquier imperfección o irregularidad que pueda afectar la calidad del producto. Su experiencia y conocimientos técnicos permiten una detección precisa de defectos, asegurando que solo las prendas que cumplan con los estándares de calidad establecidos sean enviadas al siguiente proceso o a los clientes.
-
 - **Almacenero**
 Este rol se enfoca en la gestión y organización eficiente del almacén de prendas, incluyendo aquellas que no cumplen con los estándares de calidad y necesitan ser almacenadas temporalmente para su posterior análisis o disposición. Responsable de recibir, almacenar y gestionar el inventario de prendas defectuosas, el almacenero garantiza un control adecuado de los productos almacenados, asegurando su fácil identificación y disposición según los procedimientos establecidos por la empresa y las regulaciones aplicables.
 
