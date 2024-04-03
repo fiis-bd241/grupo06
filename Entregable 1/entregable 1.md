@@ -23,6 +23,18 @@ Este rol es representado por una persona altamente calificada y con experiencia,
 - **Almacenero**
 Este rol se enfoca en la gestión y organización eficiente del almacén de prendas, incluyendo aquellas que no cumplen con los estándares de calidad y necesitan ser almacenadas temporalmente para su posterior análisis o disposición. Responsable de recibir, almacenar y gestionar el inventario de prendas defectuosas, el almacenero garantiza un control adecuado de los productos almacenados, asegurando su fácil identificación y disposición según los procedimientos establecidos por la empresa y las regulaciones aplicables.
 
+**1.2.2. Procesos de Corte**
+
+El proceso inicia con la recepcón de tela para el corte de las piezas, con ello el jefe prepara la documentación necesaria para llevar a cabo el corte de acuerdo a las especificaciones requeridas de la pauta de corte, luego el operario de corte programa el funcionamiento de las maquinas de corte, se lleva a cabo el corte de la tela siguiendo las indicaciones y medidas establecidas, se verifica si hay merma, si hay se devuelve esta merma al almacen central, sino se clasifican las piezas cortadas de acuerdo a su tipo, tamaño o cualquier otra característica relevante, se etiquetan las piezas cortadas para su identificación y posterior manipulación y se envian al almacen central.
+
+**Roles:**
+
+- **Jefe de corte**
+Es el responsable de supervisar y coordinar todas las actividades relacionadas con el corte de tela. Se encarga de la planificación, organización y control de las operaciones en el área de corte, asegurando que se cumplan los estándares de calidad y eficiencia establecidos. El jefe de corte también es el encargado de tomar decisiones importantes, resolver problemas y garantizar el cumplimiento de los plazos de entrega.
+
+- **Operario de corte**
+Es el encargado de llevar a cabo las tareas de corte de tela de acuerdo a las instrucciones y especificaciones proporcionadas. El operario de corte opera las máquinas de corte, realiza el corte de las piezas siguiendo las indicaciones dadas, clasifica las piezas cortadas, etiqueta las piezas y se asegura de que se cumplan las pautas y estándares de corte establecidos.
+
 **1.2.5. Procesos de Acabados**
 
 El proceso de acabados en nuestra empresa textil comienza con la recepción y clasificación de las prendas por el Supervisor de Acabado, seguido por su procesamiento mediante actividades como planchado, hangteado, embolsado y embalaje, llevadas a cabo por los operarios de máquinas. Posteriormente, las prendas son sometidas a una rigurosa inspección de calidad a cargo del Inspector de Calidad para garantizar que cumplan con los estándares establecidos. En caso de detectarse prendas defectuosas, se genera un informe y se gestionan adecuadamente. Finalmente, las prendas aprobadas son despachadas por el Supervisor de Acabado para su distribución a clientes o puntos de venta, marcando así el cierre del proceso de acabados. Este flujo de trabajo garantiza la calidad y eficiencia en la preparación de nuestras prendas antes de llegar a manos de nuestros clientes.
