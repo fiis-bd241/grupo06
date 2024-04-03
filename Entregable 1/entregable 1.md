@@ -283,3 +283,5 @@ Este rol se encarga de las inspecciones de calidad de los distintos lotes que ll
 - **Prenda acabada**: Es aquella prenda que ha sido sometida al proceso de acabado respecto a algunas características, como apariencia, tacto, etc., según las especificaciones de calidad.
 - **Planchado**: Proceso que consiste en usar una máquina industrial para quitar las arrugas y defectos de doblaje de las prendas acabadas.
 - **Prendas defectuosas**: Prendas terminadas que no pasan los estándares de calidad.
+
+**[Regresar al índice](../README.md)**
