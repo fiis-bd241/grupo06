@@ -5,6 +5,13 @@
 
 ### 1.2 Procesos de la empresa Vircatex
 
+**1.2.1. Procesos de Almacenaje Central**
+
+El proceso de almacenaje inicia con la recepción de las telas y avios que se enviarán posteriormente para su corte según la orden de trabajo correspondiente, adempas de ello, también se creará el plan de almacenamiento. Luego, las telas, tras el proceso de corte serán enviadas para su confección, donde puede ocurrir que no se termine de confeccionar todas las prendas, razón por la cual se vuelve a enviar dicho lote inconcluso a confección. Terminada la etapa de confección, tanto los lotes de confección como de avios serán enviados al almacen de tránsito, finalizando así todo este proceso inicial. Por último, paralelamente a todo este proceso, un encargado denominado almacenero se encarga de preparar los lotes correspondientes para cada una de las etapas de este proceso.
+
+
+
+
 **1.2.5. Procesos de Acabados**
 
 El proceso de acabados en nuestra empresa textil comienza con la recepción y clasificación de las prendas por el Supervisor de Acabado, seguido por su procesamiento mediante actividades como planchado, hangteado, embolsado y embalaje, llevadas a cabo por los operarios de máquinas. Posteriormente, las prendas son sometidas a una rigurosa inspección de calidad a cargo del Inspector de Calidad para garantizar que cumplan con los estándares establecidos. En caso de detectarse prendas defectuosas, se genera un informe y se gestionan adecuadamente. Finalmente, las prendas aprobadas son despachadas por el Supervisor de Acabado para su distribución a clientes o puntos de venta, marcando así el cierre del proceso de acabados. Este flujo de trabajo garantiza la calidad y eficiencia en la preparación de nuestras prendas antes de llegar a manos de nuestros clientes.
