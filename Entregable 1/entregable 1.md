@@ -42,6 +42,13 @@ Este rol se enfoca en la gestión y organización eficiente del almacén de pren
 
 El proceso de inspección de calidad de nuestra empresa textil comienza caundo se recibe un mensaje de las distintas áreas para inspeccionar un lote de materias primas, lote de corte, prototipo, lote de confeccion total o lote de prendas. Para un lote de materias primas, lote de confeccion total y lote de prendas se realiza una inspeccion de calidad en donde se separa una muestra representativa y se procede a medir el AQL(Acceptable Quality Level), si tras esta primera revision supera el nivel aceptable de calidad se confirma la calidad de este lote, si no se realiza una segunda inspección en donde si esta supera la prueba se confirma la calidad del lote y si no se procede a una correción, para un lote de materias primas y un lote de confeccion total se hace un reporte de correciones a planeamientoy para el lote de prendas se envia un reporte de prendsa defectuosas y se devuelven al almacén central, finalmente se envia un reporte general a gerencia para todos estos casos. Para un lote de corte se procede a convalidar medidas, si se encuentran desperfectos se agrupan corte de mala tela, se devuelve al almacén central y se solicita materias primas a planeamiento y enviar reporte general a gerencia, caso contrario se envia directamente el reporte general. Para prototipos se debe revisar si las costuras son correctas, si estas no son correctas se genera un reporte a correciones a desarrollo, caso contrario se envia directamente el reporte general.
 
+**Roles:**
+
+- **Jefe de calidad**
+Este rol se encarga del planeamiento y organización de los procedimientos de inspección de calidad, recibir los mensajes de distintas áreas para empezar el proceso y generar los reportes generales a gerencia. Para esto debe ser un profesional calificado y capacitado en este tipo de tareas.
+- **Auditor de calidad**
+Este rol se encarga de las inspecciones de calidad de los distintos lotes que llegan a esta área. Es un rol que requiere conocer distintos protocolos con actividades específicas dentro de cada uno, se usa un protocolo por cada lote y para esto se requiere que este personal este altamente capacitado.
+
 ### 1.3 Diagrama de Procesos
 
 - Área de Almacen Central
