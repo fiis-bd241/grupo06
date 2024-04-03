@@ -46,6 +46,21 @@ Es el responsable de supervisar todas las actividades relacionadas con la costur
 - **Costurero**
 Es el encargado de llevar a cabo las tareas de costura de acuerdo a las instrucciones y especificaciones proporcionadas. El costurero opera las máquinas de costura, realiza el tipo de costura que se le indico siguiendo las indicaciones dadas.
 
+#### **1.2.4. Procesos de Transporte**
+
+El proceso inicia con la recepción de cajas que contiene las prendas y fueron enviadas por el area de confeccion, posterior a ellos se realiza el conteo de la cantidad de cajas que enviaron del area de confeccion para corroborrar las cantidades segun el OTE, si llegaran la cantidad incorrecta o faltantes se crea un reporte de faltante para ser enviado al area de planeamiento y tome las medidas correspondientes, caso contrario de existir un cuadre se procede a clasificar las cajas segun el OTE de corte para un mejor conteo y se procede a desempaquetar las cajas y retirar las prendas para verficar el estado de estas mismas, de igual modo con el conteo de cajas, si existiera prendas falladas se genera un reporte de faltante y se envia al area de planeamiento, caso contrario se comienza con el conteo de prendas segun el OTE de cajas, una vez realizado, se registra y compara el conteo segun el OTE de corte del area de confeccion, de existir faltantes se realiza el proceso n veces has conegui el cuadre de las prendas en el conteo, de no ser asi se genera el reporte de faltante y se envia al area de planeamiento, caso contrario se genera un informe de conteo de las prendas para ser enviado como reporte general de cada caja segun su OTE, posterior a ello se derivan las prendasal area de acados donde finaliza el proceso de transporte.
+
+**Roles:**
+
+- **Jefe de almacen interno**
+Es el reponsable de generar los reportes de faltante de prendas o prendas dañadas dentro de una caja segun de OTE, este mismo enviara el reporte al area de planeamiento.
+
+- **Operario de recepcion**
+Es el responsable de recepcionar las cajas con prendas enviadas por el area de confeccion, contarlas e informa de algun faltante al Jefe de almacen interno, tabmien se encarga de clasificar las cajas recepcionadas segun el OTE de corte para desempaquetar las cajas verificar el estado de las prendas, de existir prendas fallas se lo comunica al jefe de almacen y este pueda generar los informes correspondientes, caso contrario lo deriva al operario de conteo para iniciar con el conteo.
+
+- **Operario de conteo**
+Es el encargado de realizar el proceso de conteo tantas n veces como los crea convenientes luego de registrar sus conteo y compararlos segun el OTE de corte, debe conseguir el cuadre del numero de prendas con el numero de la caja de OTE enviada de no ser asi se comunica con el jefe de almacen interno para generar el informe de faltante, tambien es el encargado de generar el informe sobre el conteo de prendas y enviarlo como reporte general al area correspondiente, para finalizarsu labor derivando las prendas al area de acabados. 
+
 #### **1.2.5. Procesos de Acabados**
 
 El proceso de acabados en nuestra empresa textil comienza con la recepción y clasificación de las prendas por el Supervisor de Acabado, seguido por su procesamiento mediante actividades como planchado, hangteado, embolsado y embalaje, llevadas a cabo por los operarios de máquinas. Posteriormente, las prendas son sometidas a una rigurosa inspección de calidad a cargo del Inspector de Calidad para garantizar que cumplan con los estándares establecidos. En caso de detectarse prendas defectuosas, se genera un informe y se gestionan adecuadamente. Finalmente, las prendas aprobadas son despachadas por el Supervisor de Acabado para su distribución a clientes o puntos de venta, marcando así el cierre del proceso de acabados. Este flujo de trabajo garantiza la calidad y eficiencia en la preparación de nuestras prendas antes de llegar a manos de nuestros clientes.
