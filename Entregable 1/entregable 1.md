@@ -88,6 +88,22 @@ Este rol se enfoca en la gestión y organización eficiente del almacén de pren
 
 ### 2.1 Requerimientos funcionales
 
+**Caso de uso N°1: Abastecimiento de materia prima para producción**
+
+| **Objetivo:** | Abastecer de manera eficiente y oportuna la materia prima necesaria para la producción de prendas en Vircatex.|
+|------|--------|
+| **Descripción:** | Este caso de uso describe el proceso de abastecimiento de materia prima, desde la recepción de pedidos de producción hasta la entrega de la materia prima en el área de producción. | 
+| **Actores Primarios:** | Jefe de almacén, Almacenero.| 
+| **Precondiciones:** | Se cuenta con un sistema de gestión de inventario actualizado, además de conocer los proveedores y poseer las condiciones para almacenar la materia prima y posteriores materiales.| 
+| Paso | Acción |
+| 1    | El jefe de almacen realiza la recepción del pedido y también continua con la planificación |
+| 2    | Se verifica en el sistema de gestión de inventario si hay suficiente materia prima disponible para el pedido. |
+| 3    | Si no hay suficiente materia prima disponible, se genera un pedido al proveedor. |
+| 4    | Se recibe la materia prima del proveedor y se verifica su calidad. |
+| 5    | Se almacena la materia prima en el lugar adecuado según su tipo y características. |
+| 6    | Se selecciona la materia prima según el pedido de producción y se prepara para su entrega al área de producción. |
+| 7    | Se entrega la materia prima en el área de producción junto con la documentación correspondiente. |
+
 **Caso de uso N°5: Registro y Control de Prendas Acabadas**
 
 | **Objetivo:** | Permitir que los inspectores de calidad registren y controlen el proceso de inspección de las prendas acabadas para garantizar su calidad antes del envío.|
