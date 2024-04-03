@@ -7,7 +7,7 @@
 
 ### 1.2 Procesos de la empresa Vircatex
 
-#### **1.2.1. Procesos de Almacenaje Central**
+#### **1.2.1. Procesos de Almacén Central**
 
 El proceso de almacenaje inicia con la recepción de las telas y avios que se enviarán posteriormente para su corte según la orden de trabajo correspondiente, adempas de ello, también se creará el plan de almacenamiento. Luego, las telas, tras el proceso de corte serán enviadas para su confección, donde puede ocurrir que no se termine de confeccionar todas las prendas, razón por la cual se vuelve a enviar dicho lote inconcluso a confección. Terminada la etapa de confección, tanto los lotes de confección como de avios serán enviados al almacén  de tránsito, finalizando así todo este proceso inicial. Por último, paralelamente a todo este proceso, un encargado denominado almacenero se encarga de preparar los lotes correspondientes para cada una de las etapas de este proceso.
 
@@ -284,4 +284,5 @@ Este rol se encarga de las inspecciones de calidad de los distintos lotes que ll
 - **Planchado**: Proceso que consiste en usar una máquina industrial para quitar las arrugas y defectos de doblaje de las prendas acabadas.
 - **Prendas defectuosas**: Prendas terminadas que no pasan los estándares de calidad.
 
+[Ver diagramas](Diagramas/diagramas.md)
 **[Regresar al índice](../README.md)**
