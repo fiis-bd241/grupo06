@@ -34,6 +34,31 @@ El proceso de acabados en nuestra empresa textil comienza con la recepción y cl
 | 17     | Despacho a distribución         | Despacho de las cajas de prendas a los clientes o puntos de venta para su distribución final.     | Supervisor de Acabado |
 
 
+## 2. Requerimientos
+
+### 2.1 Requerimientos funcionales
+
+**Caso de uso N°5: Registro y Control de Prendas Acabadas**
+
+| **Objetivo:** | Permitir que los inspectores de calidad registren y controlen el proceso de inspección de las prendas acabadas para garantizar su calidad antes del envío.|
+|------|--------|
+| **Descripción:** | Este caso de uso describe el proceso mediante el cual los inspectores de calidad llevan a cabo la inspección final de las prendas acabadas para asegurar que cumplan con los estándares de calidad establecidos por la empresa textil antes de su envío. | 
+| **Actores Primarios:** | Inspector de Calidad, Operario de Máquinas.| 
+| **Precondiciones:** | Las prendas han pasado por el proceso de acabado y están listas para la inspección final de calidad.| 
+| Paso | Acción |
+| 1    | El Inspector de Calidad accede al sistema de registro y control de calidad. |
+| 2    | El sistema muestra las prendas disponibles para inspección junto con los detalles de su proceso de acabado. |
+| 3    | El Inspector de Calidad selecciona una prenda para inspeccionar y registra la información correspondiente en el sistema, como el tipo de prenda y el número de lote. |
+| 4    | El Inspector de Calidad lleva a cabo la inspección visual y funcional de la prenda, verificando aspectos como costuras, tejido, color y cualquier defecto o irregularidad. |
+| 5    | Si se encuentran defectos, el Inspector de Calidad registra los detalles y la acción correctiva necesaria en el sistema. |
+| 6    | Si la prenda pasa la inspección, el Inspector de Calidad marca la prenda como aprobada en el sistema. |
+| 7    | El sistema actualiza el estado de la prenda y registra la información de la inspección. |
+| 8    | El Operario de Máquinas recibe la notificación de que la prenda ha pasado la inspección y procede con el embalaje y preparación para el envío. |
+| 9    | El Inspector de Calidad continúa con la inspección de las siguientes prendas de manera similar. |
+| 10   | El caso termina. |
+
+
+
 ### GLOSARIO
 
 - **WIP**: Work in Progress, documento en Excel para hacer seguimiento a cada área de negocio en la empresa.
@@ -47,4 +72,3 @@ El proceso de acabados en nuestra empresa textil comienza con la recepción y cl
 - **Prenda acabada**: Es aquella prenda que ha sido sometida al proceso de acabado respecto a algunas características, como apariencia, tacto, etc., según las especificaciones de calidad.
 - **Planchado**: Proceso que consiste en usar una máquina industrial para quitar las arrugas y defectos de doblaje de las prendas acabadas.
 - **Prendas defectuosas**: Prendas terminadas que no pasan los estándares de calidad.
-
