@@ -5,13 +5,27 @@
 
 ### 1.2 Procesos de la empresa Vircatex
 
-1.2.5. Procesos de Acabados
+**1.2.5. Procesos de Acabados**
 
 El proceso de acabados en nuestra empresa textil comienza con la recepción y clasificación de las prendas por el Supervisor de Acabado, seguido por su procesamiento mediante actividades como planchado, hangteado, embolsado y embalaje, llevadas a cabo por los operarios de máquinas. Posteriormente, las prendas son sometidas a una rigurosa inspección de calidad a cargo del Inspector de Calidad para garantizar que cumplan con los estándares establecidos. En caso de detectarse prendas defectuosas, se genera un informe y se gestionan adecuadamente. Finalmente, las prendas aprobadas son despachadas por el Supervisor de Acabado para su distribución a clientes o puntos de venta, marcando así el cierre del proceso de acabados. Este flujo de trabajo garantiza la calidad y eficiencia en la preparación de nuestras prendas antes de llegar a manos de nuestros clientes.
 
+**Roles:**
+
+- **Supervisor de Acabado**
+Este rol despliega una competencia integral en la gestión y supervisión de las actividades relacionadas con el acabado de prendas. Responsable de coordinar eficientemente la recepción, clasificación y envío de las prendas completadas, garantizando la integridad y calidad del proceso. Supervisa de manera directa el flujo de trabajo en las diferentes etapas, asegurando la eficacia y el cumplimiento de los estándares establecidos. Es el enlace clave entre las distintas áreas, facilitando la comunicación fluida y el cumplimiento de los objetivos del departamento de acabados.
+
+- **Operario de Máquinas**
+Este rol se encarga de ejecutar las tareas operativas esenciales en el proceso de acabado de prendas. Desde el recibimiento de las prendas hasta su embalaje final, el operario de máquinas opera los equipos de planchado, colgado, embolsado y empaquetado con precisión y destreza. Su labor garantiza la correcta finalización de cada prenda, asegurando su presentación óptima y listas para su distribución. Además, mantiene un alto estándar de seguridad y mantenimiento de los equipos bajo su responsabilidad.
+
+- **Inspector de Calidad**
+Este rol desempeña una función crítica en la garantía de la calidad del producto final. Encargado de realizar inspecciones exhaustivas en cada etapa del proceso de acabado, desde la recepción de las prendas hasta su embalaje final, el inspector de calidad identifica y evalúa cualquier imperfección o irregularidad que pueda afectar la calidad del producto. Su experiencia y conocimientos técnicos permiten una detección precisa de defectos, asegurando que solo las prendas que cumplan con los estándares de calidad establecidos sean enviadas al siguiente proceso o a los clientes.
+
+- **Almacenero**
+Este rol se enfoca en la gestión y organización eficiente del almacén de prendas, incluyendo aquellas que no cumplen con los estándares de calidad y necesitan ser almacenadas temporalmente para su posterior análisis o disposición. Responsable de recibir, almacenar y gestionar el inventario de prendas defectuosas, el almacenero garantiza un control adecuado de los productos almacenados, asegurando su fácil identificación y disposición según los procedimientos establecidos por la empresa y las regulaciones aplicables.
+
 ### 1.3 Diagrama de Procesos
 
-- Procesos de Acabados
+- Área de Acabados
 
 | Codigo | Nombre Actividad               | Descripcion                                                                                     | Area Responsable  |
 |--------|--------------------------------|------------------------------------------------------------------------------------------------|-------------------|
