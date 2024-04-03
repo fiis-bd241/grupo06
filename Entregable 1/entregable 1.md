@@ -3,6 +3,12 @@
 ### 1.1 Descripción de la empresa
 **1.1.1 Datos generales:**
 
+**- Nombre de la empresa:** Vircatex.
+
+**-Tipo empresa:** Empresa textil.
+
+**Página web de la empresa:** [Facebook CEIIS](https://vircatex.com/)
+
 ### 1.2 Procesos de la empresa Vircatex
 
 **1.2.1. Procesos de Almacenaje Central**
