@@ -9,8 +9,13 @@
 
 El proceso de almacenaje inicia con la recepción de las telas y avios que se enviarán posteriormente para su corte según la orden de trabajo correspondiente, adempas de ello, también se creará el plan de almacenamiento. Luego, las telas, tras el proceso de corte serán enviadas para su confección, donde puede ocurrir que no se termine de confeccionar todas las prendas, razón por la cual se vuelve a enviar dicho lote inconcluso a confección. Terminada la etapa de confección, tanto los lotes de confección como de avios serán enviados al almacen de tránsito, finalizando así todo este proceso inicial. Por último, paralelamente a todo este proceso, un encargado denominado almacenero se encarga de preparar los lotes correspondientes para cada una de las etapas de este proceso.
 
+**Roles:**
 
+- **Jefe de almacen**
+Este rol es representado por una persona altamente calificada y con experiencia, que juega un papel fundamental en la gestión eficiente y segura del almacén central, garantizando el flujo adecuado de materiales para la producción.
 
+- **Almacenero**
+Este rol se enfoca en la gestión y organización eficiente del almacén de prendas, incluyendo aquellas que no cumplen con los estándares de calidad y necesitan ser almacenadas temporalmente para su posterior análisis o disposición. Responsable de recibir, almacenar y gestionar el inventario de prendas defectuosas, el almacenero garantiza un control adecuado de los productos almacenados, asegurando su fácil identificación y disposición según los procedimientos establecidos por la empresa y las regulaciones aplicables.
 
 **1.2.5. Procesos de Acabados**
 
