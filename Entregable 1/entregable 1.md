@@ -7,7 +7,7 @@
 
 **-Tipo empresa:** Empresa textil.
 
-**Página web de la empresa:** [Facebook CEIIS](https://vircatex.com/)
+**Página web de la empresa:** [Vircatex](https://vircatex.com/)
 
 ### 1.2 Procesos de la empresa Vircatex
 
