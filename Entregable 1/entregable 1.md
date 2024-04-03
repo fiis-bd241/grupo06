@@ -1,5 +1,5 @@
 # Entregable 1 del proyecto
-## 1. Descripción de la Empresa, del Proceso de Negocio Elegido y Motivación
+## 1. Descripción de la Empresa, del Proceso de Negocio Elegido
 ### 1.1 Descripción de la empresa
 **1.1.1 Datos generales:**
 
@@ -32,3 +32,19 @@ El proceso de acabados en nuestra empresa textil comienza con la recepción y cl
 | 15     | Recepción de prendas defectuosas | Recepción y almacenamiento de las prendas defectuosas para su posterior análisis o disposición.   | Almacenero        |
 | 16     | Recepción de cajas              | Recepción de las cajas de prendas después de la inspección final de calidad para su distribución. | Supervisor de Acabado |
 | 17     | Despacho a distribución         | Despacho de las cajas de prendas a los clientes o puntos de venta para su distribución final.     | Supervisor de Acabado |
+
+
+### GLOSARIO
+
+- **WIP**: Work in Progress, documento en Excel para hacer seguimiento a cada área de negocio en la empresa.
+- **AQL**: (Acceptable Quality Level en inglés) se traduce como Límite de Calidad Aceptable en español y es un término relacionado con la cantidad máxima de defectos que los compradores y proveedores acordaron en un lote.
+- **Ficha técnica**: documento de cada área donde se registran los datos pertinentes de seguimiento.
+- **Packing o Embalaje**: Empaque de cada unidad de pedido en una caja de ropa.
+- **Auditoría**: Son procedimientos especializados que consisten en revisar, verificar, investigar y evaluar procesos específicos, gestión, energía, etc. A fin de subsanar, rediseñar según sea el caso.
+- **Confección**: Es el proceso productivo para elaborar una prenda.
+- **Corte**: Es un proceso de la industria de la confección, donde se corta el tizado, el cual contiene todos los patrones de la prenda.
+- **Hangtado**: Subproceso de colocado de avíos de plástico y metal en prendas o telas para dar un acabado a la ropa.
+- **Prenda acabada**: Es aquella prenda que ha sido sometida al proceso de acabado respecto a algunas características, como apariencia, tacto, etc., según las especificaciones de calidad.
+- **Planchado**: Proceso que consiste en usar una máquina industrial para quitar las arrugas y defectos de doblaje de las prendas acabadas.
+- **Prendas defectuosas**: Prendas terminadas que no pasan los estándares de calidad.
+
