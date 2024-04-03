@@ -91,6 +91,23 @@ Este rol se encarga de las inspecciones de calidad de los distintos lotes que ll
 | 16     | Recepción de cajas              | Recepción de las cajas de prendas después de la inspección final de calidad para su distribución. | Supervisor de Acabado |
 | 17     | Despacho a distribución         | Despacho de las cajas de prendas a los clientes o puntos de venta para su distribución final.     | Supervisor de Acabado |
 
+- Área de Almacen Central
+
+| Codigo | Nombre Actividad               | Descripcion                                                                                     | Area Responsable  |
+|--------|--------------------------------|------------------------------------------------------------------------------------------------|-------------------|
+| 1      | Esperar mensajes de áreas                     | Se verifica la calidad de las materias primas y se almacenan en el lugar adecuado. | Jefe de almacen |
+| 2      | Separar muestra representativa                | Se define la ubicación de cada materia prima en el almacén.        | Jefe de almacén |
+| 3      | Medir AQL                                     | Se guardan las materias primas en el lugar asignado. | Almacenero |
+| 4      | Convalidar medidas                            | Se seleccionan las telas según el pedido de producción. | Almacenero |
+| 5      | Reivsar prototipos                            | Se transportan las telas al área de corte.               | Jefe de almacén |
+| 6      | Agrupar cortes de mala tela                   | Se selecciona las telas cortadas para preparar su envío a confección.                    | Almacenero |
+| 7      | Devolver a almacén central                    | Se transportan los cortes al área de confección.          | Jefe de almacén |
+| 8      | Solicitar materias primas a planeamiento      | Se selecciona las prendas que aún falta confeccionar                   | Almacenero |
+| 9      | Reporte de correcciones a desarrollo          | Se transportan las prendas sin terminar a la siguiente etapa de confección. | Jefe de almacén |
+| 10     | Enviar reporte prendas defectuosas            | Se terminan las prendas y se realiza un control de calidad. | Supervisor de Acabado |
+| 11     | Enviar prendas defectuosas al almacen central | Se seleccionan los avios (botones, cremalleras, etc.) necesarios para las prendas. | Almacenero |
+| 12     | Reporte de correcciones a planeamiento        | Se transportan las prendas terminadas al almacén de tránsito. | Jefe de almacén |
+| 13     | Enviar Reporte general a gerencia             | Se transportan los avios al almacén de tránsito. | Jefe de almacén |
 
 ## 2. Requerimientos
 
