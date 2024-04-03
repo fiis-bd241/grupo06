@@ -1,17 +1,13 @@
 # Entregable 1 del proyecto
 ## 1. Descripción de la Empresa, del Proceso de Negocio Elegido
 ### 1.1 Descripción de la empresa
-**1.1.1 Datos generales:**
 
-**- Nombre de la empresa:** Vircatex.
-
-**-Tipo empresa:** Empresa textil.
-
-**Página web de la empresa:** [Vircatex](https://vircatex.com/)
+- [Sobre la empresa](Vircatex/Vircatex.md)
+- [Entrevista](Vircatex/Entrevista.md)
 
 ### 1.2 Procesos de la empresa Vircatex
 
-**1.2.1. Procesos de Almacenaje Central**
+#### **1.2.1. Procesos de Almacenaje Central**
 
 El proceso de almacenaje inicia con la recepción de las telas y avios que se enviarán posteriormente para su corte según la orden de trabajo correspondiente, adempas de ello, también se creará el plan de almacenamiento. Luego, las telas, tras el proceso de corte serán enviadas para su confección, donde puede ocurrir que no se termine de confeccionar todas las prendas, razón por la cual se vuelve a enviar dicho lote inconcluso a confección. Terminada la etapa de confección, tanto los lotes de confección como de avios serán enviados al almacen de tránsito, finalizando así todo este proceso inicial. Por último, paralelamente a todo este proceso, un encargado denominado almacenero se encarga de preparar los lotes correspondientes para cada una de las etapas de este proceso.
 
@@ -23,7 +19,7 @@ Este rol es representado por una persona altamente calificada y con experiencia,
 - **Almacenero**
 Este rol se enfoca en la gestión y organización eficiente del almacén de prendas, incluyendo aquellas que no cumplen con los estándares de calidad y necesitan ser almacenadas temporalmente para su posterior análisis o disposición. Responsable de recibir, almacenar y gestionar el inventario de prendas defectuosas, el almacenero garantiza un control adecuado de los productos almacenados, asegurando su fácil identificación y disposición según los procedimientos establecidos por la empresa y las regulaciones aplicables.
 
-**1.2.2. Procesos de Corte**
+#### **1.2.2. Procesos de Corte**
 
 El proceso inicia con la recepcón de tela para el corte de las piezas, con ello el jefe prepara la documentación necesaria para llevar a cabo el corte de acuerdo a las especificaciones requeridas de la pauta de corte, luego el operario de corte programa el funcionamiento de las maquinas de corte, se lleva a cabo el corte de la tela siguiendo las indicaciones y medidas establecidas, se verifica si hay merma, si hay se devuelve esta merma al almacen central, sino se clasifican las piezas cortadas de acuerdo a su tipo, tamaño o cualquier otra característica relevante, se etiquetan las piezas cortadas para su identificación y posterior manipulación y se envian al almacen central.
 
@@ -35,7 +31,22 @@ Es el responsable de supervisar y coordinar todas las actividades relacionadas c
 - **Operario de corte**
 Es el encargado de llevar a cabo las tareas de corte de tela de acuerdo a las instrucciones y especificaciones proporcionadas. El operario de corte opera las máquinas de corte, realiza el corte de las piezas siguiendo las indicaciones dadas, clasifica las piezas cortadas, etiqueta las piezas y se asegura de que se cumplan las pautas y estándares de corte establecidos.
 
-**1.2.5. Procesos de Acabados**
+#### **1.2.3. Procesos de Confección**
+
+El proceso inicia con la recepción de las telas cortadas y el plan de confección, con ello el jefe prepara planes de confección para cada division encargada del tipo de costura correspondiente al plan de confección. Luego lo envía a cada supervisor de división con el cual se creara primero un prototipo que se le envia al área de calidad. Cuando el jefe recibe la confirmacion de calidad, se inicia la confeccion diaria donde cada costurero confecciona la costura la cual esta encargada y al final del dia el jefe cuenta la prendas y envia un reporte con el progreso diario de confeccion al jefe, el cual realiza un reporte total de la confeccion y envia el lote diario de confeccion al almacen central. Cuando el progreso se completa, el jefe envia el lote final al almacen central.
+
+**Roles:**
+
+- **Jefe de confección**
+Es el responsable de coordinar todas las actividades relacionadas con la confeccion de tela y recibir la senal del inicio del proceso. Se encarga de la planificación y organización, asegurando que se cumplan los estándares de calidad y eficiencia establecidos. El jefe de confección también es el encargado de tomar decisiones importantes, resolver problemas y garantizar el cumplimiento de los plazos de entrega.
+
+- **Supervisor de división**
+Es el responsable de supervisar todas las actividades relacionadas con la costura de tela de su división. Se encarga del control de las operaciones en su división, asegurando que se cumplan los estándares de calidad y eficiencia establecidos. El jefe de confección también es el encargado de contar las prendas que se confeccionó al día y da un reporte del progreso diario.
+
+- **Costurero**
+Es el encargado de llevar a cabo las tareas de costura de acuerdo a las instrucciones y especificaciones proporcionadas. El costurero opera las máquinas de costura, realiza el tipo de costura que se le indico siguiendo las indicaciones dadas.
+
+#### **1.2.5. Procesos de Acabados**
 
 El proceso de acabados en nuestra empresa textil comienza con la recepción y clasificación de las prendas por el Supervisor de Acabado, seguido por su procesamiento mediante actividades como planchado, hangteado, embolsado y embalaje, llevadas a cabo por los operarios de máquinas. Posteriormente, las prendas son sometidas a una rigurosa inspección de calidad a cargo del Inspector de Calidad para garantizar que cumplan con los estándares establecidos. En caso de detectarse prendas defectuosas, se genera un informe y se gestionan adecuadamente. Finalmente, las prendas aprobadas son despachadas por el Supervisor de Acabado para su distribución a clientes o puntos de venta, marcando así el cierre del proceso de acabados. Este flujo de trabajo garantiza la calidad y eficiencia en la preparación de nuestras prendas antes de llegar a manos de nuestros clientes.
 
@@ -50,7 +61,7 @@ Este rol se encarga de ejecutar las tareas operativas esenciales en el proceso d
 - **Almacenero**
 Este rol se enfoca en la gestión y organización eficiente del almacén de prendas, incluyendo aquellas que no cumplen con los estándares de calidad y necesitan ser almacenadas temporalmente para su posterior análisis o disposición. Responsable de recibir, almacenar y gestionar el inventario de prendas defectuosas, el almacenero garantiza un control adecuado de los productos almacenados, asegurando su fácil identificación y disposición según los procedimientos establecidos por la empresa y las regulaciones aplicables.
 
-**1.2.6. Procesos de inspección de Calidad**
+#### **1.2.6. Procesos de inspección de Calidad**
 
 El proceso de inspección de calidad de nuestra empresa textil comienza caundo se recibe un mensaje de las distintas áreas para inspeccionar un lote de materias primas, lote de corte, prototipo, lote de confeccion total o lote de prendas. Para un lote de materias primas, lote de confeccion total y lote de prendas se realiza una inspeccion de calidad en donde se separa una muestra representativa y se procede a medir el AQL(Acceptable Quality Level), si tras esta primera revision supera el nivel aceptable de calidad se confirma la calidad de este lote, si no se realiza una segunda inspección en donde si esta supera la prueba se confirma la calidad del lote y si no se procede a una correción, para un lote de materias primas y un lote de confeccion total se hace un reporte de correciones a planeamientoy para el lote de prendas se envia un reporte de prendsa defectuosas y se devuelven al almacén central, finalmente se envia un reporte general a gerencia para todos estos casos. Para un lote de corte se procede a convalidar medidas, si se encuentran desperfectos se agrupan corte de mala tela, se devuelve al almacén central y se solicita materias primas a planeamiento y enviar reporte general a gerencia, caso contrario se envia directamente el reporte general. Para prototipos se debe revisar si las costuras son correctas, si estas no son correctas se genera un reporte a correciones a desarrollo, caso contrario se envia directamente el reporte general.
 
@@ -63,7 +74,7 @@ Este rol se encarga de las inspecciones de calidad de los distintos lotes que ll
 
 ### 1.3 Diagrama de Procesos
 
-- Área de Almacen Central
+#### Área de Almacen Central
 
 | Codigo | Nombre Actividad               | Descripcion                                                                                     | Area Responsable  |
 |--------|--------------------------------|------------------------------------------------------------------------------------------------|-------------------|
@@ -81,7 +92,7 @@ Este rol se encarga de las inspecciones de calidad de los distintos lotes que ll
 | 12     | Enviar lote total de confección a almacén de tránsito     | Se transportan las prendas terminadas al almacén de tránsito. | Jefe de almacén |
 | 13     | Enviar lote de avios al almacén de tránsito    | Se transportan los avios al almacén de tránsito. | Jefe de almacén |
 
-- Área de Corte
+#### Área de Corte
 
 | Codigo | Nombre Actividad               | Descripcion                                                                                     | Area Responsable  |
 |--------|--------------------------------|------------------------------------------------------------------------------------------------|-------------------|
@@ -94,7 +105,7 @@ Este rol se encarga de las inspecciones de calidad de los distintos lotes que ll
 | 7      | Etiquetado de piezas | Se etiquetan las piezas cortadas para su identificación.        | Operario de corte |
 | 8      | Envio de piezas al almacen central | Las piezas cortadas son enviadas al almacén central.        | Operario de corte |
 
-- Área de Acabados
+#### Área de Acabados
 
 | Codigo | Nombre Actividad               | Descripcion                                                                                     | Area Responsable  |
 |--------|--------------------------------|------------------------------------------------------------------------------------------------|-------------------|
@@ -116,7 +127,7 @@ Este rol se encarga de las inspecciones de calidad de los distintos lotes que ll
 | 16     | Recepción de cajas              | Recepción de las cajas de prendas después de la inspección final de calidad para su distribución. | Supervisor de Acabado |
 | 17     | Despacho a distribución         | Despacho de las cajas de prendas a los clientes o puntos de venta para su distribución final.     | Supervisor de Acabado |
 
-- Área de Inspección de calidad
+#### Área de Inspección de calidad
 
 | Codigo | Nombre Actividad               | Descripcion                                                                                     | Area Responsable  |
 |--------|--------------------------------|------------------------------------------------------------------------------------------------|-------------------|
@@ -138,7 +149,7 @@ Este rol se encarga de las inspecciones de calidad de los distintos lotes que ll
 
 ### 2.1 Requerimientos funcionales
 
-**Caso de uso N°1: Abastecimiento de materia prima para producción**
+#### **Caso de uso N°1: Abastecimiento de materia prima para producción**
 
 | **Objetivo:** | Abastecer de manera eficiente y oportuna la materia prima necesaria para la producción de prendas en Vircatex.|
 |------|--------|
@@ -155,7 +166,7 @@ Este rol se encarga de las inspecciones de calidad de los distintos lotes que ll
 | 7    | Se entrega la materia prima en el área de producción junto con la documentación correspondiente. |
 | 8    | Finaliza el caso. |
 
-**Caso de uso N°5: Registro y Control de Prendas Acabadas**
+#### **Caso de uso N°5: Registro y Control de Prendas Acabadas**
 
 | **Objetivo:** | Permitir que los inspectores de calidad registren y controlen el proceso de inspección de las prendas acabadas para garantizar su calidad antes del envío.|
 |------|--------|
@@ -174,7 +185,7 @@ Este rol se encarga de las inspecciones de calidad de los distintos lotes que ll
 | 9    | El Inspector de Calidad continúa con la inspección de las siguientes prendas de manera similar. |
 | 10   | El caso termina. |
 
-**Caso de uso N°6: Inspección de calidad de avíos**
+#### **Caso de uso N°6: Inspección de calidad de avíos**
 
 | **Objetivo:** | Inspeccionar la calidad de un lote de materias primas que recibe a la empresa textil |
 |------|--------|
