@@ -109,19 +109,20 @@ Este rol se encarga de las inspecciones de calidad de los distintos lotes que ll
 
 | Codigo | Nombre Actividad               | Descripcion                                                                                     | Area Responsable  |
 |--------|--------------------------------|------------------------------------------------------------------------------------------------|-------------------|
-| 1      | Recepcion de cajas con prendas | Se recibe las prendas en cajas segun su OTE | Operario de recepcion |
-| 2      |Conteo de cajas recepcionadas | Se realiza el conteo de cajas recibidas por parte del area de confeccion | Operario de recepcion |
-| 3      | Clasificar cajas  segun lotes de corte | Se programa el funcionamiento de las máquinas de corte.        | Operario de corte |
-| 4      | Verificar el estado de prendas |  Se lleva a cabo el corte de la tela siguiendo las indicaciones.        | Operario de corte |
-| 5      | Contar prendas segun lote | Se devuelve cualquier material sobrante al almacén central.        | Jefe de Corte |
-| 6      |  | Se clasifican las piezas cortadas de acuerdo a su tipo, etc.        | Operario de corte |
-| 7      |  | Se etiquetan las piezas cortadas para su identificación.        | Operario de corte |
-| 8      |  | Las piezas cortadas son enviadas al almacén central.        | Operario de corte |
-| 9      |  | Se clasifican las piezas cortadas de acuerdo a su tipo, etc.        | Operario de corte |
-| 10      |  | Se etiquetan las piezas cortadas para su identificación.        | Operario de corte |
-| 11      |  | Las piezas cortadas son enviadas al almacén central.        | Operario de corte |
-
-
+| 1      | Recepcion de cajas con prendas | Se recibe las prendas en cajas segun su OTE. | Operario de recepcion |
+| 2      | Conteo de cajas recepcionadas | Se realiza el conteo de cajas recibidas por parte del area de confeccion. | Operario de recepcion |
+| 3      | Clasificar cajas  segun lotes de corte | Se clasifican las cajas recibidas segun los OTE existentes.       | Operario de recepcion |
+| 4      | Desempaquetar cajas | Se abren las cajas y se retiran las prendas.       | Operario de recepcion |
+| 5      | Verificar el estado de prendas |  Se verifica si alguna prendas vino fallada dentro de un OTE        | Operario de recepcion |
+| 6      | Contar prendas segun lote | Se comienza comienza con el conteo de prendas.        | Operario de conteo |
+| 7      | Registrar  conteo | Se registra el conteo y datos realizados        | Operario de conteo |
+| 8      | Comparar conteo segun lote OTE | Se comparan los datos obtenidos con los numeros de OTE de cortes        | Operario de conteo |
+| 9      | Conteo de prendas + | Se realiza un "n" conteo para verificar si existieran faltantes.        | Operario de conteo |
+| 10      | Crear reporte de faltante | Se realiza un reporte de faltante si existiera prendas falladas, faltantes en una caja de Ote recibida o no cuadre sefgun su OTE de corte.        | Jefe de Almacen de transito |
+| 11     | Enviar el reporte al area de planeamiento | Se envia el reporte de faltante al area de planeamiento para comunicarlos faltantes correspondientes.        | Jefe de Almacen de transito |
+| 12     | Generar informe sobre conteo de prendas | Se genera un informe del conteo de prendas .        | Operario de conteo |
+| 13     | Enviar reporte general de conteo | El reporte general es enviado al area de correspondiente.        | Operario de conteo |
+| 14     | Derivar las prendas al Area de acabados | Las cajas con prendas son enviadas al area de acabdos.        | Operario de conteo |
 
 #### Área de Acabados
 
