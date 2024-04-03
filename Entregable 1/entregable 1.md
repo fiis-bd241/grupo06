@@ -149,7 +149,22 @@ Este rol se encarga de las inspecciones de calidad de los distintos lotes que ll
 | 9    | El Inspector de Calidad continúa con la inspección de las siguientes prendas de manera similar. |
 | 10   | El caso termina. |
 
+**Caso de uso N°6: Inspección de calidad de avíos**
 
+| **Objetivo:** | Inspeccionar la calidad de un lote de materias primas que recibe a la empresa textil |
+|------|--------|
+| **Descripción:** | Este caso de uso se centrará en un tipo de lote de avíos (botones), el cual se debe someter a un proceso de inspección de calidad para poder proceder a su uso dentro de la fabricación de prendas| 
+| **Actores Primarios:** | Jefe de calidad, Auditor de calidad.| 
+| **Precondiciones:** | El lote de botones se encuentra en el almacén y se encuentra listo para poder realizar la inspección de calidad. | 
+| Paso | Acción |
+| 1    | El jefe de calidad recibe un mensaje del área de almacén que han recibido un lote de botones y requiere una inspección de calidad |
+| 2    | El jefe de calidad comunica al auditor de calidad que realice una inspección de calidad |
+| 3    | El auditor de calidad separa una muestra representativa del lote de botones |
+| 4    | El auditor de calidad procede a medir el nivel aceptable de calidad, que debe ser mínimo del 10% |
+| 5    | El auditor de calidad repite el proceso en caso el primer resultado no sea satisfactorio |
+| 6    | El auditor de calidad informa al jefe de calidad sobre los resultados en el lote de botones |
+| 7    | El jefe de calidad procede a redactar un reporte general a gerencia sobre los resultados de inspección de calidad en el lote de botones |
+| 8    | El caso termina |
 
 ### GLOSARIO
 
