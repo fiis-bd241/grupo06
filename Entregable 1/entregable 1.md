@@ -105,6 +105,24 @@ Este rol se encarga de las inspecciones de calidad de los distintos lotes que ll
 | 7      | Etiquetado de piezas | Se etiquetan las piezas cortadas para su identificación.        | Operario de corte |
 | 8      | Envio de piezas al almacen central | Las piezas cortadas son enviadas al almacén central.        | Operario de corte |
 
+#### Área de Transporte
+
+| Codigo | Nombre Actividad               | Descripcion                                                                                     | Area Responsable  |
+|--------|--------------------------------|------------------------------------------------------------------------------------------------|-------------------|
+| 1      | Recepcion de cajas con prendas | Se recibe las prendas en cajas segun su OTE | Operario de recepcion |
+| 2      |Conteo de cajas recepcionadas | Se realiza el conteo de cajas recibidas por parte del area de confeccion | Operario de recepcion |
+| 3      | Clasificar cajas  segun lotes de corte | Se programa el funcionamiento de las máquinas de corte.        | Operario de corte |
+| 4      | Verificar el estado de prendas |  Se lleva a cabo el corte de la tela siguiendo las indicaciones.        | Operario de corte |
+| 5      | Contar prendas segun lote | Se devuelve cualquier material sobrante al almacén central.        | Jefe de Corte |
+| 6      |  | Se clasifican las piezas cortadas de acuerdo a su tipo, etc.        | Operario de corte |
+| 7      |  | Se etiquetan las piezas cortadas para su identificación.        | Operario de corte |
+| 8      |  | Las piezas cortadas son enviadas al almacén central.        | Operario de corte |
+| 9      |  | Se clasifican las piezas cortadas de acuerdo a su tipo, etc.        | Operario de corte |
+| 10      |  | Se etiquetan las piezas cortadas para su identificación.        | Operario de corte |
+| 11      |  | Las piezas cortadas son enviadas al almacén central.        | Operario de corte |
+
+
+
 #### Área de Acabados
 
 | Codigo | Nombre Actividad               | Descripcion                                                                                     | Area Responsable  |
