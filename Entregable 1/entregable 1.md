@@ -73,8 +73,6 @@ Este rol despliega una competencia integral en la gestión y supervisión de las
 - **Operario de Máquinas**
 Este rol se encarga de ejecutar las tareas operativas esenciales en el proceso de acabado de prendas. Desde el recibimiento de las prendas hasta su embalaje final, el operario de máquinas opera los equipos de planchado, colgado, embolsado y empaquetado con precisión y destreza. Su labor garantiza la correcta finalización de cada prenda, asegurando su presentación óptima y listas para su distribución. Además, mantiene un alto estándar de seguridad y mantenimiento de los equipos bajo su responsabilidad.
 
-- **Almacenero**
-Este rol se enfoca en la gestión y organización eficiente del almacén de prendas, incluyendo aquellas que no cumplen con los estándares de calidad y necesitan ser almacenadas temporalmente para su posterior análisis o disposición. Responsable de recibir, almacenar y gestionar el inventario de prendas defectuosas, el almacenero garantiza un control adecuado de los productos almacenados, asegurando su fácil identificación y disposición según los procedimientos establecidos por la empresa y las regulaciones aplicables.
 
 #### **1.2.6. Procesos de Inspección de Calidad**
 
@@ -184,13 +182,8 @@ Este rol se encarga de las inspecciones de calidad de los distintos lotes que ll
 | 8      | Embalaje                        | Empaquetado de las prendas embolsadas en cajas para su almacenamiento o envío.                   | Operario de máquinas |
 | 9      | Enviar lote de cajas            | Envío de lotes de cajas con prendas embaladas a áreas posteriores para su gestión y distribución. | Operario de Acabado |
 | 10     | Recibe lote de cajas            | Recepción de los lotes de cajas enviados desde procesos anteriores para su posterior manipulación. | Supervisor de Acabado |
-| 11     | Agrupar lote de cajas           | Agrupación y organización de los lotes de cajas recibidos para facilitar la inspección final de calidad. | Supervisor de Acabado |
-| 12     | Inspección final de calidad     | Verificación de la calidad de las prendas antes de su envío, garantizando que cumplan con los estándares requeridos. | Inspector de Calidad |
-| 13     | Devolver prendas defectuosas    | Identificación y declaración de prendas que no cumplen con los estándares de calidad establecidos. | Inspector de Calidad |
-| 14     | Enviar reporte prendas defectuosas | Envío de un informe detallado sobre las prendas defectuosas para su registro y acción correctiva. | Inspector de Calidad |
-| 15     | Recepción de prendas defectuosas | Recepción y almacenamiento de las prendas defectuosas para su posterior análisis o disposición.   | Almacenero        |
-| 16     | Recepción de cajas              | Recepción de las cajas de prendas después de la inspección final de calidad para su distribución. | Supervisor de Acabado |
-| 17     | Despacho a distribución         | Despacho de las cajas de prendas a los clientes o puntos de venta para su distribución final.     | Supervisor de Acabado |
+| 11    | Esperar confirmación de calidad     | Verificación de la calidad de las prendas antes de su envío, garantizando que cumplan con los estándares requeridos. | Inspector de Calidad |
+| 12     | Despacho a distribución         | Despacho de las cajas de prendas a los clientes o puntos de venta para su distribución final.     | Supervisor de Acabado |
 
 #### Área de Inspección de calidad
 
