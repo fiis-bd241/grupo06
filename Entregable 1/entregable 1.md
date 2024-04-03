@@ -81,6 +81,19 @@ Este rol se encarga de las inspecciones de calidad de los distintos lotes que ll
 | 12     | Enviar lote total de confección a almacén de tránsito     | Se transportan las prendas terminadas al almacén de tránsito. | Jefe de almacén |
 | 13     | Enviar lote de avios al almacén de tránsito    | Se transportan los avios al almacén de tránsito. | Jefe de almacén |
 
+- Área de Corte
+
+| Codigo | Nombre Actividad               | Descripcion                                                                                     | Area Responsable  |
+|--------|--------------------------------|------------------------------------------------------------------------------------------------|-------------------|
+| 1      | Recepción de Tela | Se recibe la tela que será utilizada para el corte de las piezas. | Jefe de Corte |
+| 2      | Preparación de la orden de corte | Se prepara la documentacion necesaria para llevar a cabo el corte.        | Jefe de Corte |
+| 3      | Programacion de las maquinas de corte | Se programa el funcionamiento de las máquinas de corte.        | Operario de corte |
+| 4      | Corte de Tela |  Se lleva a cabo el corte de la tela siguiendo las indicaciones.        | Operario de corte |
+| 5      | Devolver merma a almacén central | Se devuelve cualquier material sobrante al almacén central.        | Jefe de Corte |
+| 6      | Clasificacion de las piezas cortadas | Se clasifican las piezas cortadas de acuerdo a su tipo, etc.        | Operario de corte |
+| 7      | Etiquetado de piezas | Se etiquetan las piezas cortadas para su identificación.        | Operario de corte |
+| 8      | Envio de piezas al almacen central | Las piezas cortadas son enviadas al almacén central.        | Operario de corte |
+
 - Área de Acabados
 
 | Codigo | Nombre Actividad               | Descripcion                                                                                     | Area Responsable  |
