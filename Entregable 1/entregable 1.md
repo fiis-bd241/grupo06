@@ -226,7 +226,26 @@ Este rol se encarga de las inspecciones de calidad de los distintos lotes que ll
 | 7    | Se entrega la materia prima en el área de producción junto con la documentación correspondiente. |
 | 8    | Finaliza el caso. |
 
-#### **Caso de uso N°2: Registro y Control de Prendas Acabadas**
+#### **Caso de uso N°2: Gesrión del proceso de corte**
+
+| **Objetivo:** | Permitir gestión de las actividades del área de corte, permitiendo a los usuarios coordinar eficientemente el proceso de corte de tela.|
+|------|--------|
+| **Descripción:** | Este caso de uso describe el proceso donde se mortrará las tareas y etapas del proceso de corte, así como permitirá la interacción para programar las máquinas, clasificar piezas y gestionar la merma., finalmente se entrega las piezas al almacen central. | 
+| **Actores Primarios:** | Jefe de corte, Operario de corte.| 
+| **Precondiciones:** | La cantidad de telas confimadas con las pautas de corte.| 
+| Paso | Acción |
+| 1    | El jefe de corde accede al módulo de corte desde el panel de control principal. |
+| 2    | Se muestra un resumen de las órdenes de corte pendientes, indicando la cantidad de tela requerida y la prioridad. |
+| 3    | El jefe de corde puede seleccionar una orden de corte para ver los detalles, como las medidas y el tipo de tela. |
+| 4    | Se despliega una pantalla con las opciones de programación de las máquinas de corte, donde se pueden asignar las órdenes de corte a cada máquina. |
+| 5    | El operario recibe la opcion y programa las máquinas de corte según la disponibilidad y las especificaciones de las órdenes. |
+| 6    | Una vez realizados los cortes, se muestra una lista de las piezas cortadas para su clasificación. |
+| 7    | Se verifica si hay merma. |
+| 8    | El operario etiqueta y clasifica las piezas cortadas según el patrón y el destino. |
+| 9    | Los cortes se envian al almacén central. |
+| 10    | Finaliza el caso. |
+
+#### **Caso de uso N°3: Registro y Control de Prendas Acabadas**
 
 | **Objetivo:** | Permitir que los inspectores de calidad registren y controlen el proceso de inspección de las prendas acabadas para garantizar su calidad antes del envío.|
 |------|--------|
@@ -245,7 +264,7 @@ Este rol se encarga de las inspecciones de calidad de los distintos lotes que ll
 | 9    | El Inspector de Calidad continúa con la inspección de las siguientes prendas de manera similar. |
 | 10   | El caso termina. |
 
-#### **Caso de uso N°3: Inspección de calidad de avíos**
+#### **Caso de uso N°4: Inspección de calidad de avíos**
 
 | **Objetivo:** | Inspeccionar la calidad de un lote de materias primas que recibe a la empresa textil |
 |------|--------|
