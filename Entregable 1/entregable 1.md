@@ -390,6 +390,30 @@ Este rol se encarga de las inspecciones de calidad de los distintos lotes que ll
 | - | Finaliza el caso. | 
 | **Poscondiciones:** | - | 
 
+| **Objetivo:** | 6.7 Envío a distribución |
+|------|--------|
+| **Descripción:** | Este caso de uso describe el proceso de verificación de aprobación del área de calidad para luego realizar el lote a despacho o distrubución de la empresa  | 
+| **Actores Primarios:** | Supervisor de acabados | 
+| **Precondiciones:** | El Operario de máquinas tiene que haber de acabado con los procesos de acabados y registrado en el sistema el último proceso con estado de Terminado.  | 
+| Paso | Acción |
+| 1    | El Supervisor de acabados ingresa al sistema. |
+| 2    | El Supervisor de acabados ingresa al área de acabados en el submenú "acabados". |
+| 3    | El Supervisor de acabados  mira la lista de lotes de prendas en el sistema |
+| 4    | El Supervisor de acabados hace visualiza el número de lote y hace clic en la lupa  situada junto a él. |
+| 5    | El Supervisor de acabados visualiza el detalle de las etapas y con estado de "Terminado". |
+| 6    | El Supervisor de acabados da clic en "enviar lote". |
+| 7    | El Supervisor de acabados visualiza un popup donde visualiza ¿Está seguro de enviar lote? y Acepta. |
+| 8    | El Sistema abre una nueva ventana. |
+| 9    | El Supervisor de acabados registra los datos de envío en el sistema. |
+| 10    | El Supervisor de acabados Acepta el envío del lote con el botón "Aceptar". |
+| 11    | El Supervisor de acabados Cierra sesión. |
+| 8   | Finaliza el caso. |
+| **Flujo alternativo:** | 7.1 Si el supervisor no está seguro hace clic en el botón "cancelar"  | 
+| - | Finaliza el caso. | 
+| **Flujo alternativo:** | 9.1 Si el supervisor no está seguro hace clic en el botón "cancelar"  |
+| - | Finaliza el caso. | 
+| **Poscondiciones:** | En el detalle del lote aparece el campo distribución: "Enviado". | 
+
 ### GLOSARIO
 
 - **WIP**: Work in Progress, documento en Excel para hacer seguimiento a cada área de negocio en la empresa.
