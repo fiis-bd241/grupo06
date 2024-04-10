@@ -206,6 +206,6 @@ Este rol se encarga de las inspecciones de calidad de los distintos lotes que ll
 
 [Ver diagramas](Diagramas/diagramas.md)
 
-**[Ir a la seccion 2]**(entregable%201-2.md)
+**[Ir a la seccion 2](entregable%201-2.md)**
 
 ***[Regresar al índice](../README.md)***
