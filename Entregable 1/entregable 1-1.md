@@ -204,6 +204,13 @@ Este rol se encarga de las inspecciones de calidad de los distintos lotes que ll
 | 12     | Reporte de correcciones a planeamiento        | Se envía un reporte detallado con correcciones de los prototipos a planeamiento          | Jefe de calidad    |
 | 13     | Enviar Reporte general a gerencia             | Se envía un reporte general y total a gerencia sobre le proceso de inspección de calidad | Jefe de calidad    |
 
+#### Área de PCP
+
+![Diagrama de Área de PCP](Diagramas/Diagrama%20de%20procesos%20de%20Vircatex%20-%20Area%20de%20PCP.png)
+
+| Codigo | Nombre Actividad               | Descripcion                                                                                     | Area Responsable  |
+|--------|--------------------------------|------------------------------------------------------------------------------------------------|-------------------|
+
 [Ver diagramas](Diagramas/diagramas.md)
 
 **[Ir a la seccion 2](entregable%201-2.md)**
