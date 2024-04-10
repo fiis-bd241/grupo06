@@ -216,7 +216,7 @@ Este rol se encarga de la revisión de la producción misma, es decir, verifica 
 | 12     | Reporte de correcciones a planeamiento        | Se envía un reporte detallado con correcciones de los prototipos a planeamiento          | Jefe de calidad    |
 | 13     | Enviar Reporte general a gerencia             | Se envía un reporte general y total a gerencia sobre le proceso de inspección de calidad | Jefe de calidad    |
 
-#### Área de PCP
+#### Área de Planificación y Control de Producción
 
 ![Diagrama de Área de PCP](Diagramas/As%20is/Diagrama%20de%20procesos%20de%20Vircatex%20-%20Area%20de%20PCP.png)
 
