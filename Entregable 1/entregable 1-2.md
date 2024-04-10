@@ -107,18 +107,109 @@
 
 | **Objetivo:** | 5.1 Registrar plan de confeccion por división |
 |------|--------|
-| **Descripción:** | | 
-| **Actores Primarios:** |  | 
-| **Precondiciones:** | | 
+| **Descripción:** | Este caso de uso se centra en elaborar un plan de confeccion para cada división de acuerdo al plan de confección hecho por PCP. | 
+| **Actores Primarios:** | Jefe de Confección | 
+| **Precondiciones:** | PCP ha elaborado un plan de confección para la orden de trabajo recibida. | 
 | Paso | Acción |
-| 1    | |
-| 2    |  |
-| 3    |  |
-| 4    |  |
-| 5   |  |
-| **Flujo alternativo:** |  | 
-| - | Finaliza el caso. | 
-| **Poscondiciones:** | - | 
+| 1   | El jefe de Confección recibe la notificacion de un plan de confección. |
+| 2   | El jefe de Confección accede al sistema. |
+| 3   | El jefe de Confección revisa el plan de confección. |
+| 4   | El jefe de Confección elabora planes de confección para cada división. |
+| 5   | El jefe de Confección guarda los planes de confección por división. |
+| 6   | El jefe de Confección cierra el sistema. |
+| 7   | Finaliza el caso. | 
+| **Flujo alternativo:** | 5.1 El jefe hace clic en "cancelar" para no guardar los planes de confección por división. | 
+| **Poscondiciones:** | EL sistema almacena los planes de confección por división y notifica a cada supervisor de división |
+
+| **Objetivo:** | 5.2 Registrar guía de confección |
+|------|--------|
+| **Descripción:** | Este caso de uso se centra en elaborar un guía de confección de acuerdo al plan de confección por división. | 
+| **Actores Primarios:** | Supervisor de división | 
+| **Precondiciones:** | El jefe de Confección ha elaborado un plan de confección por división. | 
+| Paso | Acción |
+| 1   | El supervisor de división recibe la notificacion de un plan de confección para su división. |
+| 2   | El supervisor de división accede al sistema. |
+| 3   | El supervisor de división revisa el plan de confección de su división. |
+| 4   | El supervisor de división elabora una guía de confección. |
+| 5   | El supervisor de división guarda los planes de confeccion por division. |
+| 6   | El supervisor de división cierra el sistema. |
+| 7   | Finaliza el caso. |
+| **Flujo alternativo:** | 5.1 El supervisor hace clic en "cancelar" para no guardar la guía de confección. | 
+| **Poscondiciones:** | EL sistema almacena la guía de confección y notifica a todos los costureros de su división. |
+
+| **Objetivo:** | 5.3 Visualizar guía de confección |
+|------|--------|
+| **Descripción:** | Este caso de uso se centra la visualización de la guía de confección. | 
+| **Actores Primarios:** | Costurero | 
+| **Precondiciones:** | El supervisor de división ha elaborado una guía de confección. | 
+| Paso | Acción |
+| 1   | El costurero recibe la notificacion de una guía de confección. |
+| 2   | El costurero accede al sistema. |
+| 3   | El costurero visualiza la guía de confección. |
+| 4   | Cierra el sistema. |
+| 5   | Finaliza el caso. | 
+| **Poscondiciones:** | - |
+
+| **Objetivo:** | 5.4 Registrar progreso del costurero |
+|------|--------|
+| **Descripción:** | Este caso de uso se centra en el registro del progreso diario del costurero en la confección. | 
+| **Actores Primarios:** | Supervisor de división | 
+| **Precondiciones:** | - | 
+| Paso | Acción |
+| 1   | El supervisor de división accede al sistema. |
+| 2   | El supervisor de división entra a la opción "Registrar progreso del costurero". |
+| 3   | El supervisor de división selecciona al costurero que va a registrar. |
+| 4   | El supervisor de división registrar progreso del costurero. |
+| 5   | El supervisor de división guarda el progreso del costurero. |
+| 6   | El supervisor de división selecciona otro costurero. |
+| 7   | Finaliza el caso. | 
+| **Poscondiciones:** | - |
+
+| **Objetivo:** | 5.5 Registrar reporte de confección diaria |
+|------|--------|
+| **Descripción:** | Este caso de uso se centra en elaborar un reporte de confección diaria. | 
+| **Actores Primarios:** | Supervisor de división | 
+| **Precondiciones:** | El Supervisor de división debe haber registrado el progreso de todos los costureros. | 
+| Paso | Acción |
+| 1   | Al registrar a todos los costureros, el supervisor de división recibe la pantalla de "Registrar reporte". |
+| 2   | El supervisor de división selecciona la opción "Aceptar". |
+| 3   | El supervisor de división elabora un reporte de confección diaria. |
+| 4   | El supervisor de división guarda el reporte de confección diaria. |
+| 5   | Cierra el sistema. |
+| 6   | Finaliza el caso. |
+| **Flujo alternativo:** | 5.1 El supervisor hace clic en "cancelar" para no guardar la guía de confección. | 
+| **Poscondiciones:** | EL sistema almacena el reporte de confección diaria y notifica al jefe de Confección. |
+
+| **Objetivo:** | 5.6 Verificar guía de confección |
+|------|--------|
+| **Descripción:** | Este caso de uso se centra en verificar el reporte de confección diaria. | 
+| **Actores Primarios:** | Jefe de Confección | 
+| **Precondiciones:** | El Supervisor de división ha elaborado un reporte de confección diaria. | 
+| Paso | Acción |
+| 1   | El jefe de Confección recibe la notificacion de un reporte de confección diaria. |
+| 2   | El jefe de Confección accede al sistema. |
+| 3   | El jefe de Confección revisa el reporte de confección diaria. |
+| 4   | El jefe de Confección selecciona la opción "Verificado". |
+| 6   | Cierra el sistema. |
+| 7   | Finaliza el caso. |
+| **Flujo alternativo:** | 4.1 El jefe de Confección selecciona la opción "Corregir". | 
+| **Poscondiciones:** | - |
+
+| **Objetivo:** | 5.5 Registrar reporte de confección final |
+|------|--------|
+| **Descripción:** | Este caso de uso se centra en elaborar un reporte de confección final. | 
+| **Actores Primarios:** | Jefe de Confección | 
+| **Precondiciones:** | El Supervisor de división debe haber indicado el fin de la confección. | 
+| Paso | Acción |
+| 1   | El jefe de Confección recibe la notificacion de la finalizacion de la confección. |
+| 2   | El jefe de Confección accede al sistema. |
+| 3   | El jefe de Confección revisa los reportes de confección diaria de la orden de trabajo. |
+| 4   | El jefe de Confección elabora un reporte de confección final. |
+| 4   | El jefe de Confección guarda el reporte de confección final. |
+| 5   | Cierra el sistema. |
+| 6   | Finaliza el caso. |
+| **Flujo alternativo:** | - | 
+| **Poscondiciones:** | EL sistema almacena el reporte de confección final. |
 
 #### **Casos de uso N°6: Área de acabados**
 
