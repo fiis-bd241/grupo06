@@ -129,21 +129,20 @@ Este rol se encarga de las inspecciones de calidad de los distintos lotes que ll
 
 | Codigo | Nombre Actividad               | Descripcion                                                                                     | Area Responsable  |
 |--------|--------------------------------|------------------------------------------------------------------------------------------------|-------------------|
-| 1      | Recibir cortes de almacén  central | Se recibe la tela cortada que será utilizada para la confección. | Jefe de Confección |
-| 2      | Preparar plan de confección para cada división | Se prepara la documentacion necesaria para llevar a cabo la confección, dividiendola por división de costura.        | Jefe de Confección |
-| 3      | Enviar plan de confección por división | Se envía el plan de confección a cada supervisor de división de acuerdo a su división encargada.        | Jefe de Confección |
-| 4      | Recibir plan de confección por división |  Se envía el plan de confección de su división.        | Supervisor de división |
-| 5      | Preparar guía de confección | Se prepara la guía para los costureros a los cuales esta a cargo.        | Supervisor de división |
-| 6      | Enviar guía de confección | Se envía la guía a cada costurero.        | Supervisor de división |
-| 7      | Crear prototipo | Se crea el primer producto confeccionado completo llamado prototipo.        | Costurero |
-| 8      | Enviar prototipo a Calidad | Se envía el prototipo a calidad para su inspección.        | Jefe de Confección |
-| 9      | Confeccionar | Cuando se recibe la confirmación de calidad, se empieza a confeccionar de manera diaria.        | Costurero |
-| 10      | Contar progreso de confección | Se cuenta la cantidad de costuras que se realizó cada costurero en el día.        | Supervisor de división |
-| 11      | Crear reporte de confección diaria | Se crea un reporte diario indicando el progreso del día.        | Supervisor de división |
-| 12      | Revisar reporte de confección diaria | Se revisa el reporte diaria para su próxima integración.        | Jefe de Confección |
-| 13      | Enviar lote diario de confección a almacén central | Se envía el lote diario al almacén central.        | Jefe de Confección |
-| 14      | Enviar reporte de confección total | Se envía un reporte de confección total semanalmente.        | Jefe de Confección |
-| 15      | Enviar lote final al almacén  central | Cuando se llega al 100% del progreso, el lote final se envía al almacen central para su próxima inspección.        | Jefe de Confección |
+| CO1      | Elaborar plan de confección para cada división | Se prepara la documentacion necesaria para llevar a cabo la confección, dividiendola por división de costura.        | Jefe de Confección |
+| CO2      | Enviar plan de confección por división | Se envía el plan de confección a cada supervisor de división de acuerdo a su división encargada.        | Jefe de Confección |
+| CO3      | Recibir plan de confección por división |  Se envía el plan de confección de su división.        | Supervisor de división |
+| CO4      | Elaborar guía de confección | Se prepara la guía para los costureros a los cuales esta a cargo.        | Supervisor de división |
+| CO5      | Enviar guía de confección | Se envía la guía a cada costurero.        | Supervisor de división |
+| CO7      | Recibir guía de confección | Se recibe guia de confección.        | Jefe de Confección |
+| CO6      | Crear prototipo | Se crea el primer producto confeccionado completo llamado prototipo que se enviara a Calidad para su inspección.        | Costurero |
+| CO8      | Recibir cortes de almacén  central | Se recibe la tela cortada que será utilizada para la confección. | Jefe de Confección |
+| CO9      | Confeccionar | Cuando se recibe la confirmación de calidad, se empieza a confeccionar de manera diaria.        | Costurero |
+| CO10      | Contar progreso de confección | Se cuenta la cantidad de costuras que se realizó cada costurero en el día.        | Supervisor de división |
+| CO11      | Elaborar reporte de confección diaria | Se crea un reporte diario indicando el progreso del día.        | Supervisor de división |
+| CO12      | Revisar reporte de confección diaria | Se revisa el reporte diaria para controlar el proceso de confección.        | Jefe de Confección |
+| CO13      | Enviar lote diario de confección a almacén central | Se envía el lote diario al almacén central.        | Jefe de Confección |
+| CO14      | Enviar reporte de confección total | Al finalizar la confección, se envía un reporte de confección total.        | Jefe de Confección |
 
 #### Área de Almacén de Tránsito
 
