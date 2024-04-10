@@ -105,7 +105,7 @@
 
 #### **Casos de uso N°5: Área de confección**
 
-| **Objetivo:** | 5.1 Registrar el ingreso de lotes de prendas |
+| **Objetivo:** | 5.1 Registrar plan de confeccion por división |
 |------|--------|
 | **Descripción:** | | 
 | **Actores Primarios:** |  | 
