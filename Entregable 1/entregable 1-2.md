@@ -2,7 +2,7 @@
 
 ## 2. Diagrama de Procesos - To BE
 
-#### Área de Almacén  Central
+### Área de Almacén  Central
 
 ![Diagrama de Área de Almacén Central](Diagramas/To%20be/Diagrama%20de%20procesos%20de%20Vircatex%20-%20Almacen%20central%20V2.png)
 
