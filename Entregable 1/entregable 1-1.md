@@ -2,8 +2,8 @@
 ## 1. Descripción de la Empresa, del Proceso de Negocio Elegido
 ### 1.1 Descripción de la empresa
 
-- [Sobre la empresa](Vircatex/Vircatex.md)
-- [Entrevista](Vircatex/Entrevista.md)
+- [Sobre la empresa](https://github.com/fiis-bd241/grupo06/blob/main/Empresa/empresa.md)
+- [Entrevista](https://github.com/fiis-bd241/grupo06/blob/main/Empresa/Vircatex/Entrevista.md)
 
 ### 1.2 Procesos de la empresa Vircatex
 
