@@ -5,4 +5,4 @@ Bienvenidos al repositorio del Proyecto del Curso de diseño de base de datos (D
 
 1. [Integrantes del grupo](Integrantes/integrantes.md)
 2. [Empresa](Empresa/empresa.md)
-3. [Entregable 1](Entregable%201/entregable%201.md)
+3. [Entregable 1](Entregable%201/entregable%201-indice.md)
