@@ -76,6 +76,23 @@
 | 7    | El jefe de calidad procede a redactar un reporte general a gerencia sobre los resultados de inspección de calidad en el lote de botones |
 | 8    | El caso termina |
 
+#### **Casos de uso N°5: Área de confección**
+
+| **Objetivo:** | 5.1 Registrar el ingreso de lotes de prendas |
+|------|--------|
+| **Descripción:** | | 
+| **Actores Primarios:** |  | 
+| **Precondiciones:** | | 
+| Paso | Acción |
+| 1    | |
+| 2    |  |
+| 3    |  |
+| 4    |  |
+| 5   |  |
+| **Flujo alternativo:** |  | 
+| - | Finaliza el caso. | 
+| **Poscondiciones:** | - | 
+
 #### **Casos de uso N°6: Área de acabados**
 
 | **Objetivo:** | 6.1 Registrar el ingreso de lotes de prendas |
