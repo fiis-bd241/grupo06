@@ -222,6 +222,19 @@ Este rol se encarga de la revisión de la producción misma, es decir, verifica 
 
 | Codigo | Nombre Actividad               | Descripcion                                                                                     | Area Responsable  |
 |--------|--------------------------------|------------------------------------------------------------------------------------------------|-------------------|
+| 1      | Programar plazos de todas las áreas          | Se programan las metas de todas las áreas de producción.                                  | Jefe de PCP     |
+| 2      | Pedir materias primas a compras              | Se solicita las materias acorde a las metas.                                   
+           | Jefe de PCP     |
+| 3      | Ingreso a la línea de producción             | Se ingresa a la línea de producción las metas asignadas.                                  | Analista de PCP | 
+| 4      | Programar el WIP                             | Se programa el centro de actividades para un posterior control.                           | Analista de PCP |
+| 5      | Ingresar al GANTT                            | Se registra los plazos en un workspace del WIP.                                  | Analista de PCP |
+| 6      | Controlar áreas de producción                | Se realiza el control y comparación de lo planificado vs ejecutado.                       | Analista de PCP |
+| 7      | Analizar cuellos de botella                  | Se evalúa las razones por la cual no hay un correcto performance.                         | Analista de PCP |
+| 8      | Reprogramar plazos                           | Se reprograman los plazos asignados en caso exista un retraso.                            | Jefe de PCP     |
+| 9      | Actualizar el GANTT                          | Se actualiza los plazos en caso no exista un retraso.                                     | Analista de PCP |
+| 10     | Actualizar el WIP                            | Se actualiza el centro de actividades posterior al GANTT.                                 | Analista de PCP |
+| 11     | Registrar salidas de producción              | Se registra la producción final.                                               
+           | Analista de PCP |
 
 [Ver diagramas](Diagramas/diagramas.md)
 
