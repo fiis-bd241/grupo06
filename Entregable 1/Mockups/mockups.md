@@ -39,3 +39,32 @@
 ![Revisar Inspecciones Tipo 3](Inspeccion%20de%20calidad/Revisar%20Inspecciones%20Tipo%203.png)
 
 ## Trasnporte
+
+![Conteo cajas](Trasnporte/Conteo_Cajas.PNG)
+
+![Cuadre_Prendas](Trasnporte/Cuadre_Prendas.PNG)
+
+![Descargar_Plantilla](Trasnporte/Descargar_Plantilla.PNG)
+
+![Diferencia_Conteo](Trasnporte/Diferencia_Conteo.PNG)
+
+![Enviar_Reporte](Trasnporte/Enviar_Reporte.PNG)
+
+![Generar_Plantilla](Trasnporte/Generar_Plantilla)
+
+![Generar_Reporte_General](Trasnporte/Generar_Reporte_General.PNG)
+
+![Generar_Reporte_Prendas.PNG](Trasnporte/Generar_Reporte_Prendas.PNG)
+
+![Registar_2doConteo](Trasnporte/Registar_2doConteo.PNG)
+
+![Registrar_Conteo](Trasnporte/Registrar_Conteo.PNG)
+
+![Seleccionar_Lote.PNG](Trasnporte/Seleccionar_Lote.PNG)
+
+![Verificar_2doConteo.PNG](Trasnporte/Verificar_2doConteo.PNG)
+
+![Verificar_Cantidad.PNG](Trasnporte/Verificar_Cantidad.PNG)
+
+![Verificar_Prenda_Fallada.PNG](Trasnporte/Verificar_Prenda_Fallada.PNG)
+
