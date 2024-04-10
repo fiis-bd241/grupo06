@@ -118,10 +118,10 @@ Este rol se encarga de las inspecciones de calidad de los distintos lotes que ll
 | 2      | Preparación de la orden de corte | Se prepara la documentacion necesaria para llevar a cabo el corte.        | Jefe de Corte |
 | 3      | Programacion de las maquinas de corte | Se programa el funcionamiento de las máquinas de corte.        | Operario de corte |
 | 4      | Corte de Tela |  Se lleva a cabo el corte de la tela siguiendo las indicaciones.        | Operario de corte |
-| 5      | Devolver merma a almacén central | Se devuelve cualquier material sobrante al almacén central.        | Jefe de Corte |
+| 5      | Agrupar merma | Se agrupa material sobrante para su devolución al almacén central.        | Operario de Corte |
 | 6      | Clasificacion de las piezas cortadas | Se clasifican las piezas cortadas de acuerdo a su tipo, etc.        | Operario de corte |
 | 7      | Etiquetado de piezas | Se etiquetan las piezas cortadas para su identificación.        | Operario de corte |
-| 8      | Envio de piezas al almacén  central | Las piezas cortadas son enviadas al almacén central.        | Operario de corte |
+| 8      | Enviar lote de corte a Calidad | Se en via el lote de corte para que calidad lo verifique y realizar el respectivo reporte.        | Jefe de corte |
 
 #### Área de Confección
 
