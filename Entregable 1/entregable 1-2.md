@@ -1,8 +1,35 @@
 # Entregable 1 del proyecto
 
-## 2. Requerimientos
+## 2. Diagrama de Procesos - To BE
 
-### 2.1 Requerimientos funcionales
+#### Área de Almacén  Central
+
+![Diagrama de Área de Almacén Central](Diagramas/To%20be/Diagrama%20de%20procesos%20de%20Vircatex%20-%20Almacen%20central%20V2.png)
+
+### Área de Corte
+
+![Diagrama de Área de Corte](Diagramas/To%20be/Diagrama%20de%20procesos%20de%20Vircatex%20-%20Area%20de%20Corte%20V2.png)
+
+### Área de Confección
+
+![Diagrama de Área de Confección](Diagramas/To%20be/Diagrama%20de%20procesos%20de%20Vircatex%20-%20Area%20de%20Confeccion%20V2.png)
+
+
+### Área de Almacén de Tránsito
+
+![Diagrama de Área de Almacén de Tránsito](Diagramas/To%20be/Diagrama%20de%20procesos%20de%20Vircatex%20-%20Almacen%20de%20transito%20V2.png)
+
+### Área de Inspección de calidad
+
+![Diagrama de Área de Calidad](Diagramas/To%20be/Diagrama%20de%20procesos%20de%20Vircatex%20-%20Area%20de%20calidad%20V2.png)
+
+### Área de PCP
+
+![Diagrama de Área de PCP](Diagramas/To%20be/Diagrama%20de%20procesos%20de%20Vircatex%20-%20Area%20de%20PCP%20V2.png)
+
+## 3. Requerimientos
+
+### 3.1 Requerimientos funcionales
 
 #### **Caso de uso N°1: Abastecimiento de materia prima para producción**
 

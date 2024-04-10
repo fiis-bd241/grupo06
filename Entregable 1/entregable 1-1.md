@@ -85,11 +85,11 @@ Este rol se encarga del planeamiento y organización de los procedimientos de in
 - **Auditor de calidad**
 Este rol se encarga de las inspecciones de calidad de los distintos lotes que llegan a esta área. Es un rol que requiere conocer distintos protocolos con actividades específicas dentro de cada uno, se usa un protocolo por cada lote y para esto se requiere que este personal este altamente capacitado.
 
-### 1.3 Diagrama de Procesos
+### 1.3 Diagrama de Procesos - AS IS
 
 #### Área de Almacén  Central
 
-![Diagrama de Área de Almacén Central](Diagramas/Diagrama%20de%20procesos%20de%20Vircatex%20-%20Almacen%20central.png)
+![Diagrama de Área de Almacén Central](Diagramas/As%20is/Diagrama%20de%20procesos%20de%20Vircatex%20-%20Almacen%20central.png)
 
 | Codigo | Nombre Actividad               | Descripcion                                                                                     | Area Responsable  |
 |--------|--------------------------------|------------------------------------------------------------------------------------------------|-------------------|
@@ -109,7 +109,7 @@ Este rol se encarga de las inspecciones de calidad de los distintos lotes que ll
 
 #### Área de Corte
 
-![Diagrama de Área de Corte](Diagramas/Diagrama%20de%20procesos%20de%20Vircatex%20-%20Area%20de%20Corte.png)
+![Diagrama de Área de Corte](Diagramas/As%20is/Diagrama%20de%20procesos%20de%20Vircatex%20-%20Area%20de%20Corte.png)
 
 
 | Codigo | Nombre Actividad               | Descripcion                                                                                     | Area Responsable  |
@@ -125,7 +125,7 @@ Este rol se encarga de las inspecciones de calidad de los distintos lotes que ll
 
 #### Área de Confección
 
-![Diagrama de Área de Confección](Diagramas/Diagrama%20de%20procesos%20de%20Vircatex%20-%20Area%20de%20Confeccion.png)
+![Diagrama de Área de Confección](Diagramas/As%20is/Diagrama%20de%20procesos%20de%20Vircatex%20-%20Area%20de%20Confeccion.png)
 
 | Codigo | Nombre Actividad               | Descripcion                                                                                     | Area Responsable  |
 |--------|--------------------------------|------------------------------------------------------------------------------------------------|-------------------|
@@ -146,7 +146,7 @@ Este rol se encarga de las inspecciones de calidad de los distintos lotes que ll
 
 #### Área de Almacén de Tránsito
 
-![Diagrama de Área de Almacén de Tránsito](Diagramas/Diagrama%20de%20procesos%20de%20Vircatex%20-%20Almacen%20de%20transito.png)
+![Diagrama de Área de Almacén de Tránsito](Diagramas/As%20is/Diagrama%20de%20procesos%20de%20Vircatex%20-%20Almacen%20de%20transito.png)
 
 | Codigo | Nombre Actividad               | Descripcion                                                                                     | Area Responsable  |
 |--------|--------------------------------|------------------------------------------------------------------------------------------------|-------------------|
@@ -167,7 +167,7 @@ Este rol se encarga de las inspecciones de calidad de los distintos lotes que ll
 
 #### Área de Acabados
 
-![Diagrama de Área de Acabados](Diagramas/Diagrama%20de%20procesos%20de%20Vircatex%20-%20Area%20de%20acabados.png)
+![Diagrama de Área de Acabados](Diagramas/As%20is/Diagrama%20de%20procesos%20de%20Vircatex%20-%20Area%20de%20acabados.png)
 
 | Codigo | Nombre Actividad               | Descripcion                                                                                     | Area Responsable  |
 |--------|--------------------------------|------------------------------------------------------------------------------------------------|-------------------|
@@ -186,7 +186,7 @@ Este rol se encarga de las inspecciones de calidad de los distintos lotes que ll
 
 #### Área de Inspección de calidad
 
-![Diagrama de Área de Calidad](Diagramas/Diagrama%20de%20procesos%20de%20Vircatex%20-%20Area%20de%20calidad.png)
+![Diagrama de Área de Calidad](Diagramas/As%20is/Diagrama%20de%20procesos%20de%20Vircatex%20-%20Area%20de%20calidad.png)
 
 | Codigo | Nombre Actividad               | Descripcion                                                                                     | Area Responsable  |
 |--------|--------------------------------|------------------------------------------------------------------------------------------------|-------------------|
@@ -206,7 +206,7 @@ Este rol se encarga de las inspecciones de calidad de los distintos lotes que ll
 
 #### Área de PCP
 
-![Diagrama de Área de PCP](Diagramas/Diagrama%20de%20procesos%20de%20Vircatex%20-%20Area%20de%20PCP.png)
+![Diagrama de Área de PCP](Diagramas/As%20is/Diagrama%20de%20procesos%20de%20Vircatex%20-%20Area%20de%20PCP.png)
 
 | Codigo | Nombre Actividad               | Descripcion                                                                                     | Area Responsable  |
 |--------|--------------------------------|------------------------------------------------------------------------------------------------|-------------------|
