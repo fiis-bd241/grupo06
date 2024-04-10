@@ -4,7 +4,11 @@
 
 Estudiante de séptimo ciclo relativo de la especialidad de Ingenieria de Sistemas.
 
-Código: 20161266G.
-Github: NielsChavezA.
-Correo: niels.chavez.a@uni.pe
-Correo personal: niels.chavez.a@gmail.com
+- Código: 20161266G
+- Github: [NielsChavezA](https://github.com/NielsChavezA)
+- Correo: niels.chavez.a@uni.pe
+- Correo personal: niels.chavez.a@gmail.com
+
+**[Ver a integrantes](../integrantes.md)**
+
+***[Regresar al índice](../../README.md)***
