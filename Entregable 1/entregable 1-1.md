@@ -85,6 +85,18 @@ Este rol se encarga del planeamiento y organización de los procedimientos de in
 - **Auditor de calidad**
 Este rol se encarga de las inspecciones de calidad de los distintos lotes que llegan a esta área. Es un rol que requiere conocer distintos protocolos con actividades específicas dentro de cada uno, se usa un protocolo por cada lote y para esto se requiere que este personal este altamente capacitado.
 
+
+#### **1.2.7. Procesos de Planeamiento y Control de Producción**
+
+El proceso inicia cuando el Departamento de PCP programa los plazos y actividades a todas las áreas, estas son enviadas por correo. Una vez enviado, se ingresa a la línea de producción las metas por semana, en caso se tenga alguna corrección se considera para la programación reprogramación en el WIP. En el WIP, se ingresa en el diarama de GANTT, para luego controlar los tiempos y cuotas en las áreas de producción. Toda producción es analizada por si se encuentran cuellos de botella y se verifica si hay retrasos de por medio. En caso haya retrasos,se reprograman plazos y se notifican via email; en caso no haya se procede a actualizar el GANTT, después el WIP y finalmente registrar las salidas de producción.
+
+**Roles:**
+
+- **Jefe de PCP**
+Este rol se encarga de hacer la planificación de todas las metas, establecerlos en plazos y notificar a las demás áreas. Asimismo, si exsite alguna regularización, es el encargado de proporcionar la información de la misma a todas las áreas. Todo esto en comunicación también con la coordinación de recursos para cumplir las actividades y metas.
+- **Analista de PCP**
+Este rol se encarga de la revisión de la producción misma, es decir, verifica si dentro de las cuotas programas existe algún retraso, en caso ocurra, se analiza y notifica para el reajuste. Posteriormente, realiza las actualizaciones en las principales plataformas, en este caso en el WIP, su centro de producciones, y su GANTT.
+
 ### 1.3 Diagrama de Procesos - AS IS
 
 #### Área de Almacén  Central
