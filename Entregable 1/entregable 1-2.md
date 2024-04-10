@@ -380,4 +380,6 @@
 
 [Ver diagramas](Diagramas/diagramas.md)
 
+**[Ir a la seccion 3](entregable%201-3.md)**
+
 **[Regresar al índice](../README.md)**
