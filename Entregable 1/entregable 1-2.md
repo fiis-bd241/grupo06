@@ -359,6 +359,6 @@
 - **Planchado**: Proceso que consiste en usar una máquina industrial para quitar las arrugas y defectos de doblaje de las prendas acabadas.
 - **Prendas defectuosas**: Prendas terminadas que no pasan los estándares de calidad.
 
-[Ver diagramas](Diagramas/diagramas.md) \
+[Ver diagramas](Diagramas/diagramas.md)
 
 **[Regresar al índice](../README.md)**
