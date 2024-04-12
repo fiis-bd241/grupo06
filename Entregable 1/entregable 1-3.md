@@ -4,12 +4,12 @@
 
 ### Mockups
 
-[Mockups](Entregable%201/Mockups/mockups.md)
+[Mockups](Mockups/mockups.md)
 
 
 ### Mockups en Figma
 
-[Ver Mockups en figma](Entregable%201/Mockups%20-%20Figma/figma.md)
+[Ver Mockups en figma](Mockups%20-%20Figma/figma.md)
 
 
 ### Figma
