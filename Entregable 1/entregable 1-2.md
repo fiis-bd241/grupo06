@@ -21,7 +21,7 @@
 
 ### Área de Acabados
 
-![Diagrama de Área de Acabados](Diagramas/To%20be/Diagrama%20de%20procesos%20de%20Vircatex%20-%20Area%20de%20Acabados%20V2.png)
+![Diagrama de Área de Acabados](Diagramas/To%20be/Diagrama%20de%20procesos%20de%20Vircatex%20-%20Area%20de%20acabados%20V2.png)
 
 
 ### Área de Inspección de calidad
