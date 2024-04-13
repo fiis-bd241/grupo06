@@ -19,6 +19,11 @@
 
 ![Diagrama de Área de Almacén de Tránsito](Diagramas/To%20be/Diagrama%20de%20procesos%20de%20Vircatex%20-%20Almacen%20de%20transito%20V2.png)
 
+### Área de Acabados
+
+![Diagrama de Área de Acabados](Diagramas/To%20be/Diagrama%20de%20procesos%20de%20Vircatex%20-%20Area%20de%20Acabados%20V2.png)
+
+
 ### Área de Inspección de calidad
 
 ![Diagrama de Área de Calidad](Diagramas/To%20be/Diagrama%20de%20procesos%20de%20Vircatex%20-%20Area%20de%20calidad%20V2.png)
