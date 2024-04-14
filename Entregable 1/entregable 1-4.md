@@ -30,6 +30,15 @@
 | fechaNac     | date           | DD/MM/AAAA | calendario          |            |                 | Fecha de nacimiento de una persona | Fecha de nacimiento de la persona que es empleado en la empresa |
 | cargo        | char           | xxxxxxxxxxx| Cadena              |            |                 | Cargo actual de la persona en la empresa |  |
 
+**Entidad:	Área**
+
+**Semántica:	Unidad de negocio con procesos para un objetivo en específico**
+
+| **Atributo** | **Naturaleza** | **Formato** | **Valores válidos** | **Unidad** | **Derivada de** | **Semántica** | **Ontología** |
+|--------------|----------------|-------------|---------------------|------------|-----------------|---------------|---------------|
+| IdArea       | int            | XXX999      | Cadena y números    |            |                 | Número de identificación único de área en el sistema | Identificador principal del área en la empresa |
+| nombre       | char           | xxxxxxxx    | Cadena              |            |                 | Nombre del área | Nombre del área en el negocio |
+
 
 
 ### 6. Inspeccion de Calidad
