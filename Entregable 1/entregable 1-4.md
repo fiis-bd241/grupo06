@@ -79,8 +79,29 @@
 | IdCaja       | int            | XXX999999   | Cadena y números    |            |                 | Identificador de caja como conjunto de prendas | Identificador de prenda de ropa en el sistema |
 | capacidad    | int            | 99999999    | 8 dígitos           |            |                 | Capacidad máxima de caja | Capacidad máxima en la cual se puede llenar de prendas |
 
+**Entidad:	Lote**
 
+**Semántica:	Agrupación de cajas con prendas para envío a distribución.**
 
+| **Atributo**   | **Naturaleza** | **Formato** | **Valores válidos** | **Unidad** | **Derivada de** | **Semántica** | **Ontología** |
+|----------------|----------------|-------------|---------------------|------------|-----------------|---------------|---------------|
+| IdLote         | int            | XXX999999   | Cadena y números    |            |                 | Identificador de lote como conjunto de prendas | Identificador de prenda de ropa en el sistema |
+| fecha_creacion | date           | DD/MM/AAAA  | calendario          |            |                 | Fecha de creación de lote que se designa en el área de acabados para el inicio de procesos | Parámetro inicial para comenzar trabajo de acabados |
+| fecha_envío    | date           | DD/MM/AAAA  | calendario          |            |                 | Fecha de envío de lote a distribución | Fecha máxima para realizar las tareas de acabados y envío a distribución |
+
+**REGLAS DE NEGOCIO**
+
+* **Supervisor - Reporte**
+
+El supervisor de aŕea debe realizar un reporte diario del sistema y un reporte mensual.
+
+* **Operario - Reporte**
+
+Cada operario debe realizar un reporte diario del sistema y un reporte mensual.
+
+* **Operario - Acabados**
+
+Cada operario debe realizar cada acabado en forma secuencial y registrarlo en el sistema según su estado. Un mismo operario puede realizar todos los acabados con maquinaria.
 
 
 
