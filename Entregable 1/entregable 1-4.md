@@ -14,7 +14,7 @@
 
 ### 5. Acabados
 
-![Acabados ER](Diagramas-ER/acabados_ER.png)
+![Acabados ER](Diagramas-ER/Acabados_ER_v2.png)
 
 #### Diccionario de datos: 
 
