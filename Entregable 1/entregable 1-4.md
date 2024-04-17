@@ -18,6 +18,10 @@
 
 ![Acabados ER](Diagramas-ER/acabados_ER.png)
 
+### 6. Inspeccion de Calidad
+
+![Inspeccion_calidad ER](Diagramas-ER/Calidad_ER.png)
+
 #### Diccionario de datos: 
 
 **Entidad:	Empleado**
@@ -107,9 +111,7 @@ Cada operario debe realizar cada acabado en forma secuencial y registrarlo en el
 
 
 
-### 6. Inspeccion de Calidad
 
-![Inspeccion_calidad ER](Diagramas-ER/inspeccion_calidad_ER.png)
 
 ### 7. PCP
 
