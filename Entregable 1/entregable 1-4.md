@@ -16,12 +16,12 @@
 
 | **Atributo** | **Naturaleza** | **Formato** | **Valores válidos** | **Unidad** | **Derivada de** | **Semántica** | **Ontología** |
 |--------------|----------------|-------------|---------------------|------------|-----------------|---------------|---------------|
-| Cod_empleCor | int           | 999999    | 6 dígitos           |            |                 | Número de identificación único de la persona en el sistema | Identificador principal de la persona en la empresa |
+| Cod_empleCor | int            | 999999      | 6 dígitos           |            |                 | Número de identificación único de la persona en el sistema | Identificador principal de la persona en la empresa |
 | dni          | int            | 99999999    | 8 dígitos           |            |                 | Número de identificación de la persona | Identificador de la persona |
 | nombre       | char           | xxxxxxxxx   | Cadena              |            |                 | Nombre Completo del cliente | Nombre del trabajador en el negocio |
-| telefono     | int            | 99999999999| 10 dígitos          |            |                 | Número de teléfono de contacto de la persona | Número de teléfono asociado a la persona en la empresa |
-| correo       | CHAR           | X*@X*.X* |  cadena         |            |                 | Dirección de correo electrónico del empleado | Permite la comunicación con el empleado en la empresa |
-| cargo        | char           | xxxxxxxxxxx| Cadena              |            |                 | Cargo actual de la persona en la empresa |  |
+| telefono     | int            | 99999999999 | 10 dígitos          |            |                 | Número de teléfono de contacto de la persona | Número de teléfono asociado a la persona en la empresa |
+| correo       | CHAR           | X*@X*.X*    |  cadena             |            |                 | Dirección de correo electrónico del empleado | Permite la comunicación con el empleado en la empresa |
+| cargo        | char           | xxxxxxxxxxx | Cadena              |            |                 | Cargo actual de la persona en la empresa |  |
 
 ### 3. Confección
 
