@@ -218,35 +218,149 @@
 
 |-----------------------------------------------------------------------------------------------------------------------|
 
-#### **Caso de uso N°6: Monitorear el proceso de producción de las prendas**
+#### **Caso de uso N°6: Area de transporte**
 
-| **Objetivo:** | Controlar que los niveles de producción estén acorde a lo planificado |
+| **Objetivo:** | 6.1 Verificar el numero de cajas |
 |------|--------|
-| **Descripción:** | Este caso de uso describe las revisiones periódicas de los niveles de producción de las áreas operativas.| 
-| **Actores Primarios:** | Jefe de PCP, Analista PCP.| 
-| **Precondiciones:** | El Jefe de PCP ha designado las actividades y metas semanales a las áreas de producción. | 
+| **Descripción:** | Este caso de uso describe el proceso de registro del conteo por parte del de cajas recibidas que fueron enviadas por el area de confeccion | 
+| **Actores Primarios:** | Jefe de almacen de transito | 
+| **Precondiciones:** | El lote de prendas en cajas ingresa al área de transporte desde el area de confeccion | 
 | Paso | Acción |
-| 1    | Los jefes de área reciben un correo con notificación de sus metas de producción. |
-| 2    | El Analista de PCP centraliza las metas en el WIP, principal herramienta de gestión. |
-| 3    | El Analista de PCP programa los plazos para la salida de producción por áreas.|
-| 4    | El Analista de PCP revisa la ejecución una semana después de la programación. |
-| 5    | El Analista de PCP concluye si existió o no algún retraso en la salida de programación. |
-| 6    | El Jefe de PCP reprograma las metas y reajusta las materias primas a utilizar. |
-| 7    | El Analista de PCP actualiza los plazos para la salida de producción por áreas. |
-| 8    | El Analista de PCP actualiza el WIP con los nuevos niveles de producción asignados. |
-| 9    | El Jefe de PCP notifica a las demás áreas por los cambios realizados. |
-| 10    | Finaliza el caso. |
+| 1    | El Jefe de almacen de transito ingresa al sistema|
+| 2    | El Jefe de almacen de transito contabiliza las cajas recibidas |
+| 3    | El Jefe de almacen de transito ingresa en cada campo las cantidades y datos correspondientes segun su conteo |
+| 4    | El Jefe de almacen de transito da click en "Continuar" |
+| 5    | El Jefe de almacen de transito pasara al siguiente frame automaticamente si los datos estan correctos|
+| 6   | Finaliza el caso. |
+| **Flujo alternativo:** | 4.1 El Jefe de almacen de transito visualizara un mensaje "Al parecer la cantidad contada no coincide con el envio" |
+                         | 4.2 El Jefe de almacen de transito dara click en "actualiza conteo" actualizara los datos del conteo y dara click en "Siguiente" |
+| -   | Finaliza el caso. |
+| **Flujo alternativo:** | 4.1.1 El Jefe de almacen de transito dara click en "generar reporte" |
+| - | Finaliza el caso. | 
+| **Poscondiciones:** | - | 
 
+| **Objetivo:** | 6.2 Verificar prendas falladas |
+|------|--------|
+| **Descripción:** | Este caso de uso describe el proceso de registro del conteo de prendas falladas que fueron enviadas por el area de confeccion | 
+| **Actores Primarios:** | Operario de recepccion | 
+| **Precondiciones:** | Contabilizacion y clasificacion de cajas recepcionadas en el area de almacen de transito | 
+| Paso | Acción |
+| 1    | El Operario de recepccion realiza la verificacion manual de las prendas por lote |
+| 2    | El Operario de recepccion ingresa en cada campo las cantidades y datos correspondientes segun su verificacion |
+| 3    | El Operario de recepccion dara click en "agregar" |
+| 4    | El Operario de recepccion visualizara los datos agregados en la tabla |
+| 5    | El Operario de recepccion dara click en "Continuar" |
+| 6    | El Operario de recepccion pasara al siguiente frame automaticamente si no existen datos en la tabla |
+| 7   | Finaliza el caso. |
+| **Flujo alternativo:** | 5.1 El Operario de recepccion visualizara un mensaje "¿Desea generar el reporte?" |
+                         | 5.2 El Operario de recepccion dara click en "actualizar datos" actualizara los datos de la verificacion y dara click en "Siguiente" |
+| -   | Finaliza el caso. |
+| **Flujo alternativo:** | 5.1.1 El El Operario de recepccion dara click en "generar reporte" |
+| - | Finaliza el caso. | 
+| **Poscondiciones:** | - | 
+
+| **Objetivo:** | 6.3 Seleccionar lote a inventariar |
+|------|--------|
+| **Descripción:** | Este caso de uso describe el proceso de seleccion del lote a realizar el conteo | 
+| **Actores Primarios:** | Operario de conteo | 
+| **Precondiciones:** | Exclusion de prendas falladas | 
+| Paso | Acción |
+| 1    | El Operario de conteo ingresa los datos correpondientes en los campos asignados |
+| 2    | El Operario de conteo da click en "siguiente" |
+| - | Finaliza el caso. | 
+| **Poscondiciones:** | - |
+
+| **Objetivo:** | 6.4 Generar plantilla de conteo por lote |
+|------|--------|
+| **Descripción:** | Este caso de uso describe el proceso de generacion de una tirilla de conteo por lote para el conteo | 
+| **Actores Primarios:** | Operario de conteo | 
+| **Precondiciones:** | Seleccionar el lote a inventariar | 
+| Paso | Acción |
+| 1    | El Operario de conteo ingresa el codigo de barra del producto o lo pistolea con un lector de codigo de barras |
+| 2    | El Operario de conteo da click en "Insertar" |
+| 3    | El Operario de conteo visualizara los datos en la tbla y dara click en "siguiente"|
+| - | Finaliza el caso. | 
+| **Poscondiciones:** | - |
+
+| **Objetivo:** | 6.5 Impresion de plantilla de conteo |
+|------|--------|
+| **Descripción:** | Este caso de uso describe la seleccion de la plantilla de conteo y su impresion| 
+| **Actores Primarios:** | Operario de conteo | 
+| **Precondiciones:** | Generar la plantilla de conteo | 
+| Paso | Acción |
+| 1    | El Operario de conteo dara click en "ingresar plantilla" y la visualizara en la tabla  |
+| 2    | El Operario de conteo da click en "imprimir plantilla" |
+| - | Finaliza el caso. | 
+| **Poscondiciones:** | - |
+
+| **Objetivo:** | 6.6 Inicio de conteo |
+|------|--------|
+| **Descripción:** | Este caso de uso describe el proceso de conteo de prendas del lote seleccionado | 
+| **Actores Primarios:** | Operario de conteo | 
+| **Precondiciones:** | Seleccion del lote a inventariar | 
+| Paso | Acción |
+| 1    | El Operario de conteo realiza el conteo manual de las prendas por lote |
+| 2    | El Operario de conteo ingresa en cada campo de la tabla las cantidades y datos correspondientes segun su conteo |
+| 3    | El Operario de conteo dara click en "agregar dato" para su guardado |
+| 4    | El Operario de conteo dara click en "Siguiente" para ver las diferencias |
+| - | Finaliza el caso. | 
+| **Poscondiciones:** | - | 
+
+| **Objetivo:** | 6.7 Visualizacion de diferencias |
+|------|--------|
+| **Descripción:** | Este caso de uso describe la visualizacion de las primeras diferencias del conteo realizado| 
+| **Actores Primarios:** | Operario de conteo | 
+| **Precondiciones:** | Realizar el conteo de prendas | 
+| Paso | Acción |
+| 1    | El Operario de conteo visualizara su conteo y las difernecias positivas o ngetivas obtenidas segun el sistema  |
+| 2    | El Operario de conteo da click en "continuar" |
+| - | Finaliza el caso. | 
+| **Poscondiciones:** | - |
+
+| **Objetivo:** | 6.8 Inicio del 2do conteo |
+|------|--------|
+| **Descripción:** | Este caso de uso describe el proceso del 2do conteo de prendas del lote seleccionado | 
+| **Actores Primarios:** | Operario de conteo | 
+| **Precondiciones:** | Realizar primer conteo | 
+| Paso | Acción |
+| 1    | El Operario de conteo realiza el conteo manual de las prendas por lote |
+| 2    | El Operario de conteo ingresa en cada campo de la tabla las cantidades y datos correspondientes segun su conteo |
+| 3    | El Operario de conteo dara click en "agregar dato" para su guardado |
+| 4    | El Operario de conteo dara click en "Siguiente" para ver las diferencias |
+| - | Finaliza el caso. | 
+| **Poscondiciones:** | - | 
+
+| **Objetivo:** | 6.9 Visualizacion de diferencias |
+|------|--------|
+| **Descripción:** | Este caso de uso describe la visualizacion las diferencias del 2do conteo realizado| 
+| **Actores Primarios:** | Operario de conteo | 
+| **Precondiciones:** | Realizar el 2do conteo de prendas | 
+| Paso | Acción |
+| 1    | El Operario de conteo visualizara su conteo y las difernecias positivas o ngetivas obtenidas segun el sistema  |
+| 2    | El Operario de conteo da click en "continuar" |
+| - | Finaliza el caso. | 
+| **Poscondiciones:** | - |
+
+| **Objetivo:** | 7 Cuadre de prendas |
+|------|--------|
+| **Descripción:** | Este caso de uso describe el cuadre exitoso del los 2 conteos realizados| 
+| **Actores Primarios:** | Operario de conteo | 
+| **Precondiciones:** | Realizar los 2 conteos de prendas | 
+| Paso | Acción |
+| 1    | El Operario de conteo visualizara el mensaje "Cuadre exitoso"  |
+| 2    | El Operario de conteo da click en "Generar reporte general" |
+| - | Finaliza el caso. | 
+| **Poscondiciones:** | - |
 
 |-----------------------------------------------------------------------------------------------------------------------|
 
-#### **Casos de uso N°7: Área de acabados**
+#### **Casos de uso N°8: Área de acabados**
 
-| **Objetivo:** | 7.1 Registrar el ingreso de lotes de prendas |
+| **Objetivo:** | 8.1 Registrar el ingreso de lotes de prendas |
 |------|--------|
 | **Descripción:** | Este caso de uso describe el proceso de registro del nuevo lote al área de acabados por el Supervisor| 
-| **Actores Primarios:** | Supervisor de Acabado | 
-| **Precondiciones:** | El lote de prendas ingresa al área de acabados desde almacén| 
+| **Actores Primarios:** | Supervisor | 
+| **Precondiciones:** | El lote de prendas ingresa al área de acabados desde almacén | 
 | Paso | Acción |
 | 1    | El supervisor ingresa al sistema|
 | 2    | El supervisor mira el reporte de lotes |
@@ -258,7 +372,7 @@
 | **Poscondiciones:** | - | 
 
 
-| **Objetivo:** | 7.2 Realizar registro de procesos de acabados |
+| **Objetivo:** | 8.2 Realizar registro de procesos de acabados |
 |------|--------|
 | **Descripción:** | Este caso de uso describe los procesos registro de cada proceso de acabados (Hanteado, planchado, embalado) | 
 | **Actores Primarios:** | Operario de máquinas | 
@@ -275,7 +389,7 @@
 | 9   | Finaliza el caso. |
 | **Poscondiciones:** | - | 
 
-| **Objetivo:** | 7.3 Realizar reporte de acabados |
+| **Objetivo:** | 8.3 Realizar reporte de acabados |
 |------|--------|
 | **Descripción:** | Este caso de uso describe el proceso de la generacion e impresión del reporte del detalle de los procesos de acabados | 
 | **Actores Primarios:** | Operario de máquinas | 
@@ -294,7 +408,7 @@
 | **Poscondiciones:** | - | 
 
 
-| **Objetivo:** | 7.4 Realizar reporte de lote de prendas |
+| **Objetivo:** | 8.4 Realizar reporte de lote de prendas |
 |------|--------|
 | **Descripción:** | Este caso de uso describe el proceso de la generacion e impresión del reporte del detalle de los lotes de prendas | 
 | **Actores Primarios:** | Supervisor de acabados | 
@@ -312,7 +426,7 @@
 | **Poscondiciones:** | - | 
 
 
-| **Objetivo:** | 7.5 Búsqueda de un lote de prenda |
+| **Objetivo:** | 8.5 Búsqueda de un lote de prenda |
 |------|--------|
 | **Descripción:** | Este caso de uso describe el proceso búsqueda de un lote de prendas por el número de lote | 
 | **Actores Primarios:** | Supervisor de acabados | 
@@ -330,7 +444,7 @@
 | - | Finaliza el caso. | 
 | **Poscondiciones:** | - | 
 
-| **Objetivo:** | 7.6 Búsqueda de un lote en acabados |
+| **Objetivo:** | 8.6 Búsqueda de un lote en acabados |
 |------|--------|
 | **Descripción:** | Este caso de uso describe el proceso búsqueda de un lote la sección de acabados.  | 
 | **Actores Primarios:** | Operario de máquinas | 
@@ -349,7 +463,7 @@
 | - | Finaliza el caso. | 
 | **Poscondiciones:** | - | 
 
-| **Objetivo:** | 7.7 Envío a distribución |
+| **Objetivo:** | 8.7 Envío a distribución |
 |------|--------|
 | **Descripción:** | Este caso de uso describe el proceso de verificación de aprobación del área de calidad para luego realizar el lote a despacho o distrubución de la empresa  | 
 | **Actores Primarios:** | Supervisor de acabados | 
@@ -373,7 +487,7 @@
 | - | Finaliza el caso. | 
 | **Poscondiciones:** | En el detalle del lote aparece el campo distribución: "Enviado". | 
 
-#### **Caso de uso N°8: Monitorear el proceso de producción de las prendas**
+#### **Caso de uso N°9: Monitorear el proceso de producción de las prendas**
 
 | **Objetivo:** | Controlar que los niveles de producción estén acorde a lo planificado |
 |------|--------|
