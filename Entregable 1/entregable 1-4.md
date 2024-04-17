@@ -178,6 +178,42 @@ Cada operario debe realizar cada acabado en forma secuencial y registrarlo en el
 
 ![Inspeccion_calidad ER](Diagramas-ER/Inspeccion_calidad_ER.png)
 
+#### Diccionario de datos: 
+
+**Entidad:	Lote de prototipos**
+
+**Semántica:	Agrupación de prototipos de alguna prenda**
+
+| **Atributo** | **Naturaleza** | **Formato** | **Valores válidos** | **Unidad** | **Derivada de** | **Semántica** | **Ontología** |
+|--------------|----------------|-------------|---------------------|------------|-----------------|---------------|---------------|
+| id_prototipo | int            | 999999      | 6 dígitos           |            |                 | Número de identificación único del lote de prototipos en el sistema | Identificador principal del lote de prototipos |
+| tipo_prototipo          | char            | xxxxxxxxx    | Cadena           |            |                 | Tipo de prototipo que se va a inspeccionar | Tipo de prototipo de acuerdo a una solicitud previa |
+
+**Entidad:	Lote de corte**
+
+**Semántica:	Agrupación de cortes de tela a inspeccionar**
+
+| **Atributo** | **Naturaleza** | **Formato** | **Valores válidos** | **Unidad** | **Derivada de** | **Semántica** | **Ontología** |
+|--------------|----------------|-------------|---------------------|------------|-----------------|---------------|---------------|
+| medidas_corte        | char            | xxxxxxxxx    | Cadena           |            |                 | Todas las medidas de un lote de corte segun programación | Medidas para validar la calidad de un lote de corte de telas |
+
+**Entidad:	Lote de materias primas**
+
+**Semántica:	Agrupación de materias primas (avíos o no avíos)**
+
+| **Atributo** | **Naturaleza** | **Formato** | **Valores válidos** | **Unidad** | **Derivada de** | **Semántica** | **Ontología** |
+|--------------|----------------|-------------|---------------------|------------|-----------------|---------------|---------------|
+| tipo_materia_prima        | char            | xxxxxxxxx    | Cadena           |            |                 | Tipo de materia prima | Tipo de materia prima que se va a enviar a inspeccionar |
+
+**Entidad:	Lote de confeccion total**
+
+**Semántica:	Agrupación de confecciones**
+
+| **Atributo** | **Naturaleza** | **Formato** | **Valores válidos** | **Unidad** | **Derivada de** | **Semántica** | **Ontología** |
+|--------------|----------------|-------------|---------------------|------------|-----------------|---------------|---------------|
+| tipo_materia_prima        | char            | xxxxxxxxx    | Cadena           |            |                 | Tipo de materia prima | Tipo de materia prima que se va a enviar a inspeccionar |
+
+
 ### 7. PCP
 
 
