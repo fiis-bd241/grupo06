@@ -6,7 +6,7 @@
 
 ### 2. Corte
 
-![Corte ER](Diagramas-ER/Corte_ER.png)
+![Corte ER](Diagramas-ER/Corte_ER_v2.png)
 
 ### 3. Confección
 
