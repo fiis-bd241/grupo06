@@ -83,7 +83,102 @@ Una máquina al terminar el corte se divide en varios lotes de corte, pero un lo
 Una orden de trabajo se va a dividir en varios lotes de corte, ya que una pieza de corte estaria perteneciendo a una orden de trabajo, y una orden de trabajo tendria varios lotes de corte
 
 ### 3. Confección
-![Confección ER](Diagramas-ER/Vircatex-ER-Confección.png)
+
+![Confección ER](Diagramas-ER/Vircatex-ER-Confeccion.png)
+
+### 3. Confección
+
+![Confección ER](Diagramas-ER/Vircatex-ER-Confeccion.png)
+
+**Entidad:	Empleado**
+
+**Semántica:	Personas de la empresa que ocupan un puesto (jefe, supervisor, operario) y realizan labores.**
+
+| **Atributo** | **Naturaleza** | **Formato** | **Valores válidos** | **Unidad** | **Derivada de** | **Semántica** | **Ontología** |
+|--------------|----------------|-------------|---------------------|------------|-----------------|---------------|---------------|
+| Codigo | int            | 999999      | 6 dígitos           |            |                 | Número de identificación único de la persona en el sistema | Identificador principal de la persona en la empresa |
+| dni          | int            | 99999999    | 8 dígitos           |            |                 | Número de identificación de la persona | Identificador de la persona |
+| nombre       | char           | xxxxxxxxx   | Cadena              |            |                 | Nombre Completo del cliente | Nombre del trabajador en el negocio |
+| telefono     | int            | 99999999999 | 10 dígitos          |            |                 | Número de teléfono de contacto de la persona | Número de teléfono asociado a la persona en la empresa |
+| dirección       | CHAR           | xxxxxxx    |  cadena             |            |                 | Dirección de residencia del empleado | Permite la ubicación con el empleado en la empresa |
+| cargo        | char           | xxxxxxxxxxx | Cadena              |            |                 | Cargo actual de la persona en la empresa | Puede ser: jefe, supervisor y operario |
+| fecha_nacimiento| datetime           | xx/xx/xxxx | datetime      |            |                 | Fecha de nacimiento de la persona |  |
+
+**Entidad:	Orden_confección**
+
+**Semántica:	Representa el detalle general para la confección de la orden de trabajo.**
+
+| **Atributo** | **Naturaleza** | **Formato** | **Valores válidos** | **Unidad** | **Derivada de** | **Semántica** | **Ontología** |
+|--------------|----------------|-------------|---------------------|------------|-----------------|---------------|---------------|
+| codigo    | int            | 99999       | 5 dígitos           |            |                 | Número de identificación del orden de confección | Identificador parcial del orden de confección en el area de confección que se complementa con el codigo de orden de trabajo |
+| plan_costuras    | char           | xxxxxxxxx   | Cadena              |            |                 | Costuras que se deben realizar y la cantidad por cada tipo de costura| costuras de acuerdo al orden de trabajo  |
+
+**Entidad:	Plan de confección**
+
+**Semántica:	Representa el detalle general para la confección de la orden de trabajo que se encarga la division.**
+
+| **Atributo** | **Naturaleza** | **Formato** | **Valores válidos** | **Unidad** | **Derivada de** | **Semántica** | **Ontología** |
+|--------------|----------------|-------------|---------------------|------------|-----------------|---------------|---------------|
+| codigo    | int            | 99999       | 5 dígitos           |            |                 | Número de identificación del plan de confección | Identificador parcial del plan de confección en el area de confección que se complementa con el identificador de orden de confección |
+| descripcion_costuras    | char           | xxxxxxxxx   | Cadena              |            |                 | Costuras que se deben realizar | costuras de acuerdo al orden de trabajo  |
+
+**Entidad:	Guia de confección**
+
+**Semántica:	Representa el manual para la confección de la orden de trabajo que se encarga el operario de confección.**
+
+| **Atributo** | **Naturaleza** | **Formato** | **Valores válidos** | **Unidad** | **Derivada de** | **Semántica** | **Ontología** |
+|--------------|----------------|-------------|---------------------|------------|-----------------|---------------|---------------|
+| codigo    | int            | 99999       | 5 dígitos           |            |                 | Número de identificación del plan de confección | Identificador parcial del plan de confección en el area de confección que se complementa con el identificador de plan de confección |
+| pasos_costuras    | char           | xxxxxxxxx   | Cadena              |            |                 | Instrucciones en que lado de la tela coser | costuras de acuerdo al orden de trabajo  |
+
+**Entidad:	Prototipo**
+
+**Semántica:	Representa el prototipo de confección para verificar que es el producto deseado y sea de buena calidad.**
+
+| **Atributo** | **Naturaleza** | **Formato** | **Valores válidos** | **Unidad** | **Derivada de** | **Semántica** | **Ontología** |
+|--------------|----------------|-------------|---------------------|------------|-----------------|---------------|---------------|
+| codigo    | int            | 99999       | 5 dígitos           |            |                 | Número de identificación único del prototipo | |
+| descripcion    | char           | xxxxxxxxx   | Cadena              |            |                 | descripcion del prototipo que se confecciono | De acuerdo a la guia de trabajo  |
+
+**Entidad:	Reporte diario**
+
+**Semántica:	Representa el registro del progreso del costurero, por ende,de las ordenes de confección a su cargo.**
+
+| **Atributo** | **Naturaleza** | **Formato** | **Valores válidos** | **Unidad** | **Derivada de** | **Semántica** | **Ontología** |
+|--------------|----------------|-------------|---------------------|------------|-----------------|---------------|---------------|
+| codigo    | int            | 99999       | 5 dígitos           |            |                 | Número de identificación único del reporte diario |  |
+
+**Entidad:	Reporte final**
+
+**Semántica:	Representa el registro de la confección completada, por ende, la conclusión de la orden de confección.**
+
+| **Atributo** | **Naturaleza** | **Formato** | **Valores válidos** | **Unidad** | **Derivada de** | **Semántica** | **Ontología** |
+|--------------|----------------|-------------|---------------------|------------|-----------------|---------------|---------------|
+| codigo    | int            | 99999       | 5 dígitos           |            |                 | Número de identificación único del reporte final | |
+
+**Entidad:	Confección**
+
+**Semántica:	Representa el subtipo de lote que se usa para la confección.**
+
+| **Atributo** | **Naturaleza** | **Formato** | **Valores válidos** | **Unidad** | **Derivada de** | **Semántica** | **Ontología** |
+|--------------|----------------|-------------|---------------------|------------|-----------------|---------------|---------------|
+| codigo    | int            | 99999       | 5 dígitos           |            |                 | Número de identificación único del lote de confección | |
+| cantidad    | int            | 99999       | 5 dígitos           |            |                 | Cantidad de confecciones que tiene el lote | |
+| color    | char            | xxxxx       | Cadena           |            |                 | El color de la tela que esta hecha las confecciones | |
+| tipo_prenda    | char            | xxxxx       | Cadena           |            |                 | Tipo de prenda que contiene el lote de confección | puede ser jeans, camisa, polo, chaqueta, etc. |
+| estado    | char            | xxxxx       | Cadena           |            |                 | Identifica el estado en que se encuentra el lote de confección | Puede ser: no iniciado, en proceso y completado |
+
+**REGLAS DE NEGOCIO**
+
+* **Empleado(operario) - Guia de confección**
+
+Un operario recibe varios guias de confección de acuerdo del día, la prioridad que pueda tener, y una orden de trabajo puede ser supervisado por un supervisor. Ademas la cantidad de guias asignadas no puede sobrepasar a la capacidad promedio que tienen los operarios para confeccionar.
+
+* **Guia de confección - Empleado(operario)**
+
+La misma guia de confección se puede entregar a varios operarios para que se pueda realizar la orden de trabajo más rapido
+
+
 ### 4. Almacén de Tránsito
 
 ![Transporte ER](Diagramas-ER/Transporte_ER.png)
