@@ -4,7 +4,15 @@
 
 ![Inicio de Sesión](Abastecimiento%20de%20materia%20prima/Resumen.png)
 
-![Solicitud](Abastecimiento%20de%20materia%20prima/Solicitud.png)
+![Resumen](Abastecimiento%20de%20materia%20prima/Resumen.png)
+
+![Solicitud](Abastecimiento%20de%20materia%20prima/Solicitud%20v2.png)
+
+![Estado de Solicitudes](Abastecimiento%20de%20materia%20prima/Estado%20de%20solicitudes.png)
+
+![Filtros](Abastecimiento%20de%20materia%20prima/Filtros.png)
+
+![Detalles](Abastecimiento%20de%20materia%20prima/Detalle%20de%20la%20Solicitud.png)
 
 ## Acabados
 
