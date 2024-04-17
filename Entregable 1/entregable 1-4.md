@@ -12,11 +12,11 @@
 
 ### 4. Almacén de Tránsito
 
-![Transporte ER](Diagramas-ER/Corte_ER.png)
+![Transporte ER](Diagramas-ER/TransporteER.png)
 
 ### 5. Acabados
 
-![Acabados ER](Diagramas-ER/Transporte ER.png)
+![Acabados ER](Diagramas-ER/acabados_ER.png)
 
 #### Diccionario de datos: 
 
