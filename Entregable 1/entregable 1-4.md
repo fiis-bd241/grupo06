@@ -3,7 +3,7 @@
 ## 5. Diseño Conceptual
 
 ### 1. Almacén Central
-
+![Vircatex ER](Diagramas-ER/Vircatex-ER.png)
 ### 2. Corte
 
 ![Corte ER](Diagramas-ER/Corte_ER_v2.png)
