@@ -12,7 +12,7 @@
 
 ### 4. Almacén de Tránsito
 
-![Transporte ER](Diagramas-ER/TransporteER.png)
+![Transporte ER](Diagramas-ER/Transporte ER.png)
 
 ### 5. Acabados
 
