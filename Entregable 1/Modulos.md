@@ -7,6 +7,7 @@
   - Descripción: El área de corte en la industria textil es un sector fundamental donde se lleva a cabo el proceso de corte de las telas para la confección de prendas. En esta área, se reciben las telas, se preparan las órdenes de corte, se programan las máquinas de corte, se realizan los cortes de tela siguiendo patrones específicos, se clasifican en lotes las piezas cortadas y se envían al almacén central. Además, en el área de corte se gestionan las mermas, que son los desperdicios generados durante el proceso de corte.
     
   - Responsabilidades:
+
     
     A.	Preparación de la orden de corte: Organizar y preparar las órdenes de corte, asegurando la correcta distribución de las telas y los patrones a seguir.
     
@@ -44,6 +45,7 @@
 El proceso de acabados en nuestra empresa textil comienza con la recepción y clasificación de las prendas por el Supervisor de Acabado, seguido por su procesamiento mediante actividades como planchado, hangteado, embolsado y embalaje, llevadas a cabo por los operarios de máquinas. Posteriormente, las prendas son sometidas a una rigurosa inspección de calidad a cargo del Inspector de Calidad para garantizar que cumplan con los estándares establecidos. En caso de detectarse prendas defectuosas, se genera un informe y se gestionan adecuadamente. Finalmente, las prendas aprobadas son despachadas por el Supervisor de Acabado para su distribución a clientes o puntos de venta, marcando así el cierre del proceso de acabados. Este flujo de trabajo garantiza la calidad y eficiencia en la preparación de nuestras prendas antes de llegar a manos de nuestros clientes.
 
   - Responsabilidades:
+
     A. Verificación de lotes de prendas: Se registra que todo tipo de prenda esté completo para su trabajo con los acabados.
 
     B. Resgistro de acabados: Registrar el estado de cada acabado según la secuencia interna de la empresa y la necesidad de acabados por prendas.
