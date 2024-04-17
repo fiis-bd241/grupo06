@@ -23,6 +23,43 @@
 | correo       | CHAR           | X*@X*.X*    |  cadena             |            |                 | Dirección de correo electrónico del empleado | Permite la comunicación con el empleado en la empresa |
 | cargo        | char           | xxxxxxxxxxx | Cadena              |            |                 | Cargo actual de la persona en la empresa |  |
 
+**Entidad:	Orden_de_trabajo**
+
+**Semántica:	Representa el detalle de orden de trabajo para el corte de tela.**
+
+| **Atributo** | **Naturaleza** | **Formato** | **Valores válidos** | **Unidad** | **Derivada de** | **Semántica** | **Ontología** |
+|--------------|----------------|-------------|---------------------|------------|-----------------|---------------|---------------|
+| Num_Orden    | int            | 99999       | 5 dígitos           |            |                 | Número de identificación único del orden de trabajo | Identificador principal del orden de trbajo en el area de corte |
+| Tipo_tela    | char           | xxxxxxxxx   | Cadena              |            |                 | Tipo de tela del corte que se va a programar | Tipo de tela de acuerdo al orden de trabajo  |
+| color_tela   | char           | xxxxxxxxx   | Cadena              |            |                 | Tipo de color de tela del corte que se va a programar | Tipo del color de tela de acuerdo al orden de trabajo |
+| tipo_corte   | char           | xxxxxxxxx   | Cadena              |            |                 | Tipo de corte de la tela que se va a programar  | Tipo de corte de acuerdo al orden de trabajo |
+| cantidad_corte| int           | xxxxx       |  5 digitos          |            |                 | Cantidad de la tela que se va a cortar | Cantidad de tela de acuerdo al orden de trbajo|
+| prioridad    | int            | x           | 1 digito            |            |                 | Prioridad del orden de trabajo del corte | Priorida del corte de la tela segun el tiempo, calidad|
+
+**Entidad:	Maquina**
+
+**Semántica:	Dispositivo que se utiliza en el corte de tela.**
+
+| **Atributo** | **Naturaleza** | **Formato** | **Valores válidos** | **Unidad** | **Derivada de** | **Semántica** | **Ontología** |
+|--------------|----------------|-------------|---------------------|------------|-----------------|---------------|---------------|
+| id_maquina     | int            | 9999       | 4 dígitos           |            |                 | Número de identificación único dela máquina de corte | Identificador principal de la máquina de corte |
+| velocidad_corte| int           | 9999   | 4 digitos             |            |                 | Velocidad de corte de la tela | Velocidad de cuanto puede cortar en un deteminado tiempo  |
+| capacidad_corte| int           | 99999   | 5 digitos              |            |                 | Cantidad de corte de la máquina | Cantidad máxima que la máquina puede cortar  |
+
+**Entidad:	Lote_corte**
+
+**Semántica:	Agrupación de la tela para que se envia a almacén central .**
+
+| **Atributo** | **Naturaleza** | **Formato** | **Valores válidos** | **Unidad** | **Derivada de** | **Semántica** | **Ontología** |
+|--------------|----------------|-------------|---------------------|------------|-----------------|---------------|---------------|
+| Cod_lote_corte | int           | 99999       | 5 dígitos           |            |                 | Identificador de lote como conjunto de tela | Identificador de la tela en el sistema |
+| tipo_corte_terminado | char           | xxxxxxxxx   | Cadena              |            |                 | Tipo de corte terminado del lote| Tipo de corte terminado que se envia a almacén |
+| color_lote   | char           | xxxxxxxxx   | Cadena              |            |                 | Tipo de color de tela del conjunto de lote | Tipo del color de tela de corte terminado que se envia a almacén |
+| tamaño_lote   | char           | xxxxxxxxx   | Cadena              |            |                 | Tamaño del corte de la tela del conjunto de lote | Tamaño de la tela del lote que se envia a almacén |
+| estilo_lote   | char           | xxxxxxxxx   | Cadena              |            |                 | Estilo del corte de la tela del conjunto de lote | Estilo de tela de corte terminado que se envia a almacén |
+| fecha  | date          | DD/MM/AAAA   | calendario             |            |                 | Fecha de la finalización de la maquina de corte | Parámetro de final de la finalización de la máquina |
+| hora   | time        | HH:MM   | Tiempo              |            |                 | Hora de la finalización de la maquina de corte| Parámetro de final de la finalización de la maquina  |
+
 ### 3. Confección
 
 ### 4. Almacén de Tránsito
