@@ -37,3 +37,22 @@
     E.	Registro de reportes finales: Registrar el reporte de la orden de confección finalizada confirmando el termino de la orden de confección.
     
   - Interacción:Con el módulo de **PCP**, ya que de esa área se reciben las ordenes de trabajo; con el módulo de **almacén central** ya que ellos guardan los lotes de confección en proceso y con el módulo de **calidad** que inspecciona el prototipo elaborado.
+
+
+#### **- Procesos de Acabados**
+
+El proceso de acabados en nuestra empresa textil comienza con la recepción y clasificación de las prendas por el Supervisor de Acabado, seguido por su procesamiento mediante actividades como planchado, hangteado, embolsado y embalaje, llevadas a cabo por los operarios de máquinas. Posteriormente, las prendas son sometidas a una rigurosa inspección de calidad a cargo del Inspector de Calidad para garantizar que cumplan con los estándares establecidos. En caso de detectarse prendas defectuosas, se genera un informe y se gestionan adecuadamente. Finalmente, las prendas aprobadas son despachadas por el Supervisor de Acabado para su distribución a clientes o puntos de venta, marcando así el cierre del proceso de acabados. Este flujo de trabajo garantiza la calidad y eficiencia en la preparación de nuestras prendas antes de llegar a manos de nuestros clientes.
+
+  - Responsabilidades:
+    A. Verificación de lotes de prendas: Se registra que todo tipo de prenda esté completo para su trabajo con los acabados.
+
+    B. Resgistro de acabados: Registrar el estado de cada acabado según la secuencia interna de la empresa y la necesidad de acabados por prendas.
+
+    C. Registro de reportes finales: Registrar los diferencetes reportes por encargados del área para el seguimiento de procesos internos.
+
+  - Interacción:
+
+  Con el módulo de almacén de tránsito: Para que le envíe los lotes que serán procesados por los acabados.
+  Con el módulo de Calidad: Para que dé el visto bueno a los cabados y los registre en el sistema, luego de ello, el supervisor podrá dar por acabado el proceso total de acabados del pedido inicial por parte del cliente final.
+
+
