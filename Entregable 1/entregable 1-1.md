@@ -21,7 +21,7 @@ Este rol se enfoca en la gestión y organización eficiente del almacén de pren
 
 #### **1.2.2. Procesos de Corte**
 
-El proceso inicia con la recepcón de tela para el corte de las piezas, con ello el jefe prepara la documentación necesaria para llevar a cabo el corte de acuerdo a las especificaciones requeridas de la pauta de corte, luego el operario de corte programa el funcionamiento de las maquinas de corte, se lleva a cabo el corte de la tela siguiendo las indicaciones y medidas establecidas, se verifica si hay merma, si hay se devuelve esta merma al almacén  central, sino se clasifican las piezas cortadas de acuerdo a su tipo, tamaño o cualquier otra característica relevante, se etiquetan las piezas cortadas para su identificación y posterior manipulación y se envian al almacén  central.
+El proceso inicia con la recepcón de tela para el corte de las piezas, con ello el jefe prepara la documentación necesaria para llevar a cabo el corte de acuerdo a las especificaciones requeridas de la pauta de corte, luego el operario de corte programa el funcionamiento de las maquinas de corte, se lleva a cabo el corte de la tela siguiendo las indicaciones y medidas establecidas, se verifica si hay merma, si hay se devuelve esta merma al almacén  central, sino se clasifican las piezas cortadas de acuerdo a su tipo, tamaño o cualquier otra característica relevante, se etiquetan las piezas cortadas para su identificación y posterior manipulación y se envian al área de calidad.
 
 **Roles:**
 
