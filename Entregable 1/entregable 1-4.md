@@ -136,15 +136,6 @@ Una orden de trabajo se va a dividir en varios lotes de corte, ya que una pieza 
 | TipoAcabado  | char           | xxxxxxxxx   | Cadena              |            |                 | Nombre del proceso de acabado | Nombre del proceso de acabados |
 | Estado       | booleano       | true - false| true - false        |            |                 | Estado de cada proceso interno del área de acabados | Parámetro que permitirá avanzar por cada proceso de acabado en secuencia. |
 
-**Entidad:	Prenda**
-
-**Semántica:	unidad mínima del sistema, producto final del área de confección y elemento de los lotes de prendas.**
-
-| **Atributo** | **Naturaleza** | **Formato** | **Valores válidos** | **Unidad** | **Derivada de** | **Semántica** | **Ontología** |
-|--------------|----------------|-------------|---------------------|------------|-----------------|---------------|---------------|
-| IdPrenda     | int            | XXX999999   | Cadena y números    |            |                 | Identificador de prenda de ropa | Identificador de prenda de ropa en el sistema |
-| nombre       | char           | xxxxxxxxx   | Cadena              |            |                 | Nombre de la prenda asignada | Nombre de prendas del negocio |
-| TipoPrenda   | char           | xxxxxxxxx   | Cadena              |            |                 | Tipo de prenda según la clasificación en el sistema | Tipo de prendas registradas en el negocio |
 
 **Entidad:	Caja**
 
@@ -169,15 +160,15 @@ Una orden de trabajo se va a dividir en varios lotes de corte, ya que una pieza 
 
 * **Supervisor - Reporte**
 
-El supervisor de aŕea debe realizar un reporte diario del sistema y un reporte mensual.
+El supervisor de aŕea debe realizar un reporte diario del sistema y un reporte mensual. Debe tener dos datos previsto, la fecha inicial y la fecha final es cual serán parámetros dindamentales por cada reporte
 
 * **Operario - Reporte**
 
-Cada operario debe realizar un reporte diario del sistema y un reporte mensual.
+Cada operario debe realizar un reporte diario del sistema y un reporte mensual.Debe tener dos datos previsto, la fecha inicial y la fecha final es cual serán parámetros dindamentales por cada reporte.
 
 * **Operario - Acabados**
 
-Cada operario debe realizar cada acabado en forma secuencial y registrarlo en el sistema según su estado. Un mismo operario puede realizar todos los acabados con maquinaria.
+Cada operario debe realizar cada acabado en forma secuencial y registrarlo en el sistema según su estado. Un mismo operario puede realizar todos los acabados con maquinaria. Debe ingresar múltiples veces para actualizar el estado en una sola pantalla hasta el subproceso final de encaje.
 
 
 
