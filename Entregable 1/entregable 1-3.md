@@ -21,6 +21,6 @@
 
 [Sistema Vircatex](https://www.figma.com/proto/830jiRxDHKktRks42E4usn/Sistema-Vircatex?type=design&node-id=112-5477&t=Mdt0OrL9vlecL5W3-1&scaling=min-zoom&page-id=0%3A1&starting-point-node-id=112%3A5477&mode=design)
 
-**[Ir a videos](entregable%201-videos.md)**
+**[Ir a Seccion 4](entregable%201-4.md)**
 
 **[Regresar al índice](../README.md)**
