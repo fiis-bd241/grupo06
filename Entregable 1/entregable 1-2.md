@@ -378,7 +378,7 @@
 | - | Finaliza el caso. | 
 | **Poscondiciones:** | - |
 
-| **Objetivo:** | 7.0 Cuadre de prendas |
+| **Objetivo:** | 6.10 Cuadre de prendas |
 |------|--------|
 | **Descripción:** | Este caso de uso describe el cuadre exitoso del los 2 conteos realizados| 
 | **Actores Primarios:** | Operario de conteo | 
@@ -391,19 +391,16 @@
 
 #### **Casos de uso N°7: Área de acabados**
 
-| **Objetivo:** | 7.1 Registrar el ingreso de lotes de prendas |
+| **Objetivo:** | 7.1 Verificar ingreso de lote |
 |------|--------|
-| **Descripción:** | Este caso de uso describe el proceso de registro del nuevo lote al área de acabados por el Supervisor| 
+| **Descripción:** | Este caso de uso describe verificación del nuevo lote al área de acabados por el Supervisor| 
 | **Actores Primarios:** | Supervisor | 
 | **Precondiciones:** | El lote de prendas ingresa al área de acabados desde almacén | 
 | Paso | Acción |
 | 1    | El supervisor ingresa al sistema|
 | 2    | El supervisor mira el reporte de lotes |
-| 3    | El supervisor hace clic en "agregar lote" e ingresa los detalles del nuevo lote y sus fechas |
-| 4    | El supervisor hace clic en "Aceptar" |
-| 5   | Finaliza el caso. |
-| **Flujo alternativo:** | 4.1 El supervisor hace clic en "cancelar" para no agregar lote. | 
-| - | Finaliza el caso. | 
+| 3    | El supervisor ubica los reporte en la lista de la pantalla  |
+| 4   | Finaliza el caso. |
 | **Poscondiciones:** | - | 
 
 
@@ -498,9 +495,9 @@
 | - | Finaliza el caso. | 
 | **Poscondiciones:** | - | 
 
-| **Objetivo:** | 7.7 Envío a distribución |
+| **Objetivo:** | 7.7 Verificar la finalización de procesos de acabados |
 |------|--------|
-| **Descripción:** | Este caso de uso describe el proceso de verificación de aprobación del área de calidad para luego realizar el lote a despacho o distrubución de la empresa  | 
+| **Descripción:** | Este caso de uso describe la verificación del supervisor del término de las subárea de acabados, el proceso de verificación de aprobación del área de calidad para luego realizar el lote a despacho o distrubución de la empresa  | 
 | **Actores Primarios:** | Supervisor de acabados | 
 | **Precondiciones:** | El Operario de máquinas tiene que haber de acabado con los procesos de acabados y registrado en el sistema el último proceso con estado de Terminado.  | 
 | Paso | Acción |
@@ -509,17 +506,7 @@
 | 3    | El Supervisor de acabados  mira la lista de lotes de prendas en el sistema |
 | 4    | El Supervisor de acabados hace visualiza el número de lote y hace clic en la lupa  situada junto a él. |
 | 5    | El Supervisor de acabados visualiza el detalle de las etapas y con estado de "Terminado". |
-| 6    | El Supervisor de acabados da clic en "enviar lote". |
-| 7    | El Supervisor de acabados visualiza un popup donde visualiza ¿Está seguro de enviar lote? y Acepta. |
-| 8    | El Sistema abre una nueva ventana. |
-| 9    | El Supervisor de acabados registra los datos de envío en el sistema. |
-| 10    | El Supervisor de acabados Acepta el envío del lote con el botón "Aceptar". |
-| 11    | El Supervisor de acabados Cierra sesión. |
-| 8   | Finaliza el caso. |
-| **Flujo alternativo:** | 7.1 Si el supervisor no está seguro hace clic en el botón "cancelar"  | 
-| - | Finaliza el caso. | 
-| **Flujo alternativo:** | 9.1 Si el supervisor no está seguro hace clic en el botón "cancelar"  |
-| - | Finaliza el caso. | 
+| 6   | Finaliza el caso. |
 | **Poscondiciones:** | En el detalle del lote aparece el campo distribución: "Enviado". | 
 
 #### **Caso de uso N°8: Monitorear el proceso de producción de las prendas**
