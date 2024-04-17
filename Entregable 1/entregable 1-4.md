@@ -135,6 +135,7 @@ Una orden de trabajo se va a dividir en varios lotes de corte, ya que una pieza 
 | IdAcabado    | int            | XXX999      | Cadena y números    |            |                 | Número de Id del proceso interno de acabados | Identificador principal del de los proceso de acabados |
 | TipoAcabado  | char           | xxxxxxxxx   | Cadena              |            |                 | Nombre del proceso de acabado | Nombre del proceso de acabados |
 | Estado       | booleano       | true - false| true - false        |            |                 | Estado de cada proceso interno del área de acabados | Parámetro que permitirá avanzar por cada proceso de acabado en secuencia. |
+| Observaciones      | Cadena       | -| -      |            |                 | Anotaciones de texto largo que serán registrado por los actores del sistema. | Parámetro opcional ingresado por cada actor del sistema. |
 
 
 **Entidad:	Caja**
@@ -155,6 +156,7 @@ Una orden de trabajo se va a dividir en varios lotes de corte, ya que una pieza 
 | IdLote         | int            | XXX999999   | Cadena y números    |            |                 | Identificador de lote como conjunto de prendas | Identificador de prenda de ropa en el sistema |
 | fecha_creacion | date           | DD/MM/AAAA  | calendario          |            |                 | Fecha de creación de lote que se designa en el área de acabados para el inicio de procesos | Parámetro inicial para comenzar trabajo de acabados |
 | fecha_envío    | date           | DD/MM/AAAA  | calendario          |            |                 | Fecha de envío de lote a distribución | Fecha máxima para realizar las tareas de acabados y envío a distribución |
+| Observaciones      | Cadena       | -| -      |            |                 | Anotaciones de texto largo que serán registrado por los actores del sistema. | Parámetro opcional ingresado por cada actor del sistema. |
 
 **REGLAS DE NEGOCIO**
 
