@@ -4,7 +4,10 @@ Bienvenida
 Sesion terminada
 Bienvenida al sistema
 
-- Abastecimiento de materia prima
-- Acabados
+- Almacén central
 - Corte
+- Confección
+- Almacén de tránsito
+- Acabados
 - Inspeccion de calidad
+- PCP - abastecimiento de materia prima
