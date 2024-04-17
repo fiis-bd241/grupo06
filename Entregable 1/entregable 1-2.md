@@ -99,7 +99,7 @@
 | 7    | El Operario de corte vizualiza el detalle programar maquina para confirmar la progrmacion de la máquina. |
 | 8    | Finaliza el caso. |
 
-| **Objetivo:** | 2.4 Detalle lote de corte |
+| **Objetivo:** | 2.4 Verificar detalle lote de corte |
 |------|--------|
 | **Descripción:** | El caso de uso se centra en la visualización del corte realizado de la tela, sus caracteristicas finales, si presenta merma. | 
 | **Actores Primarios:** | Operario de corte.| 
