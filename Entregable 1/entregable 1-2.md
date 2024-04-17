@@ -216,9 +216,33 @@
 | **Flujo alternativo:** | - | 
 | **Poscondiciones:** | EL sistema almacena el reporte de confección final. |
 
-#### **Casos de uso N°6: Área de acabados**
+|-----------------------------------------------------------------------------------------------------------------------|
 
-| **Objetivo:** | 6.1 Registrar el ingreso de lotes de prendas |
+#### **Caso de uso N°6: Monitorear el proceso de producción de las prendas**
+
+| **Objetivo:** | Controlar que los niveles de producción estén acorde a lo planificado |
+|------|--------|
+| **Descripción:** | Este caso de uso describe las revisiones periódicas de los niveles de producción de las áreas operativas.| 
+| **Actores Primarios:** | Jefe de PCP, Analista PCP.| 
+| **Precondiciones:** | El Jefe de PCP ha designado las actividades y metas semanales a las áreas de producción. | 
+| Paso | Acción |
+| 1    | Los jefes de área reciben un correo con notificación de sus metas de producción. |
+| 2    | El Analista de PCP centraliza las metas en el WIP, principal herramienta de gestión. |
+| 3    | El Analista de PCP programa los plazos para la salida de producción por áreas.|
+| 4    | El Analista de PCP revisa la ejecución una semana después de la programación. |
+| 5    | El Analista de PCP concluye si existió o no algún retraso en la salida de programación. |
+| 6    | El Jefe de PCP reprograma las metas y reajusta las materias primas a utilizar. |
+| 7    | El Analista de PCP actualiza los plazos para la salida de producción por áreas. |
+| 8    | El Analista de PCP actualiza el WIP con los nuevos niveles de producción asignados. |
+| 9    | El Jefe de PCP notifica a las demás áreas por los cambios realizados. |
+| 10    | Finaliza el caso. |
+
+
+|-----------------------------------------------------------------------------------------------------------------------|
+
+#### **Casos de uso N°7: Área de acabados**
+
+| **Objetivo:** | 7.1 Registrar el ingreso de lotes de prendas |
 |------|--------|
 | **Descripción:** | Este caso de uso describe el proceso de registro del nuevo lote al área de acabados por el Supervisor| 
 | **Actores Primarios:** | Supervisor de Acabado | 
@@ -234,7 +258,7 @@
 | **Poscondiciones:** | - | 
 
 
-| **Objetivo:** | 6.2 Realizar registro de procesos de acabados |
+| **Objetivo:** | 7.2 Realizar registro de procesos de acabados |
 |------|--------|
 | **Descripción:** | Este caso de uso describe los procesos registro de cada proceso de acabados (Hanteado, planchado, embalado) | 
 | **Actores Primarios:** | Operario de máquinas | 
@@ -251,7 +275,7 @@
 | 9   | Finaliza el caso. |
 | **Poscondiciones:** | - | 
 
-| **Objetivo:** | 6.3 Realizar reporte de acabados |
+| **Objetivo:** | 7.3 Realizar reporte de acabados |
 |------|--------|
 | **Descripción:** | Este caso de uso describe el proceso de la generacion e impresión del reporte del detalle de los procesos de acabados | 
 | **Actores Primarios:** | Operario de máquinas | 
@@ -270,7 +294,7 @@
 | **Poscondiciones:** | - | 
 
 
-| **Objetivo:** | 6.4 Realizar reporte de lote de prendas |
+| **Objetivo:** | 7.4 Realizar reporte de lote de prendas |
 |------|--------|
 | **Descripción:** | Este caso de uso describe el proceso de la generacion e impresión del reporte del detalle de los lotes de prendas | 
 | **Actores Primarios:** | Supervisor de acabados | 
@@ -288,7 +312,7 @@
 | **Poscondiciones:** | - | 
 
 
-| **Objetivo:** | 6.5 Búsqueda de un lote de prenda |
+| **Objetivo:** | 7.5 Búsqueda de un lote de prenda |
 |------|--------|
 | **Descripción:** | Este caso de uso describe el proceso búsqueda de un lote de prendas por el número de lote | 
 | **Actores Primarios:** | Supervisor de acabados | 
@@ -306,7 +330,7 @@
 | - | Finaliza el caso. | 
 | **Poscondiciones:** | - | 
 
-| **Objetivo:** | 6.6 Búsqueda de un lote en acabados |
+| **Objetivo:** | 7.6 Búsqueda de un lote en acabados |
 |------|--------|
 | **Descripción:** | Este caso de uso describe el proceso búsqueda de un lote la sección de acabados.  | 
 | **Actores Primarios:** | Operario de máquinas | 
@@ -325,7 +349,7 @@
 | - | Finaliza el caso. | 
 | **Poscondiciones:** | - | 
 
-| **Objetivo:** | 6.7 Envío a distribución |
+| **Objetivo:** | 7.7 Envío a distribución |
 |------|--------|
 | **Descripción:** | Este caso de uso describe el proceso de verificación de aprobación del área de calidad para luego realizar el lote a despacho o distrubución de la empresa  | 
 | **Actores Primarios:** | Supervisor de acabados | 
@@ -349,7 +373,7 @@
 | - | Finaliza el caso. | 
 | **Poscondiciones:** | En el detalle del lote aparece el campo distribución: "Enviado". | 
 
-#### **Caso de uso N°7: Monitorear el proceso de producción de las prendas**
+#### **Caso de uso N°8: Monitorear el proceso de producción de las prendas**
 
 | **Objetivo:** | Controlar que los niveles de producción estén acorde a lo planificado |
 |------|--------|
