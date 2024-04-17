@@ -53,24 +53,63 @@
 | 7    | Se entrega la materia prima en el área de producción junto con la documentación correspondiente. |
 | 8    | Finaliza el caso. |
 
-#### **Caso de uso N°2: Gesrión del proceso de corte**
+#### **Caso de uso N°2: Área de corte**
 
-| **Objetivo:** | Permitir gestión de las actividades del área de corte, permitiendo a los usuarios coordinar eficientemente el proceso de corte de tela.|
+| **Objetivo:** | 2.1 Visualizar el orden de tranajo |
 |------|--------|
-| **Descripción:** | Este caso de uso describe el proceso donde se mortrará las tareas y etapas del proceso de corte, así como permitirá la interacción para programar las máquinas, clasificar piezas y gestionar la merma., finalmente se entrega las piezas al almacen central. | 
-| **Actores Primarios:** | Jefe de corte, Operario de corte.| 
-| **Precondiciones:** | La cantidad de telas confimadas con las pautas de corte.| 
+| **Descripción:** | El caso de uso se centra en la recepción y la visualización el detalle de orden de trabajo, los detalles que debe tener el corte. | 
+| **Actores Primarios:** | Jefe de corte.| 
+| **Precondiciones:** | La orden de trabajo se recibe de almacén.| 
 | Paso | Acción |
-| 1    | El jefe de corde accede al módulo de corte desde el panel de control principal. |
-| 2    | Se muestra un resumen de las órdenes de corte pendientes, indicando la cantidad de tela requerida y la prioridad. |
-| 3    | El jefe de corde puede seleccionar una orden de corte para ver los detalles, como las medidas y el tipo de tela. |
-| 4    | Se despliega una pantalla con las opciones de programación de las máquinas de corte, donde se pueden asignar las órdenes de corte a cada máquina. |
-| 5    | El operario recibe la opcion y programa las máquinas de corte según la disponibilidad y las especificaciones de las órdenes. |
-| 6    | Una vez realizados los cortes, se muestra una lista de las piezas cortadas para su clasificación. |
-| 7    | Se verifica si hay merma. |
-| 8    | El operario etiqueta y clasifica las piezas cortadas según el patrón y el destino. |
-| 9    | Los cortes se envian al almacén central. |
-| 10    | Finaliza el caso. |
+| 1    | El jefe de corte accede al sistema de Vircatex. |
+| 2    | El jefe de corte selecciona el dia para ver los detalles de orden de trabajo. |
+| 3    | El jefe de corte recibe los detalles de ordenes de trabajo. |
+| 4    | El jefe de corte visualiza un resumen de las órdenes de corte pendientes, indicando la cantidad de tela requerida y la prioridad. |
+| 5    | El jefe de corte revisa correctamente las ordenes de trabajo. |
+| 6    | El jefe de corte cierra el sistema. |
+| 7    | Finaliza el caso. |
+
+| **Objetivo:** | 2.2 Agregar ordenes de trabajo |
+|------|--------|
+| **Descripción:** | El caso de uso se centra en agregar las ordenes de trabajo, si almacen omiió una orden de trabajo se le agrega. | 
+| **Actores Primarios:** | Jefe de corte.| 
+| **Precondiciones:** | Revision de detalles de orden de trabajo.| 
+| Paso | Acción |
+| 1    | El jefe de corte accede al sistema de Vircatex. |
+| 2    | El jefe de corte selecciona el dia para ver los detalles de orden de trabajo. |
+| 3    | El jefe de corte recibe los detalles de ordenes de trabajo. |
+| 4    | El jefe de corte visualiza un resumen de las órdenes de corte pendientes, indicando la cantidad de tela requerida y la prioridad. |
+| 5    | El jefe de corte revisa correctamente las ordenes de trabajo. |
+| 6    | El jefe de corte observa que falta ordenes de trabajo. |
+| 7    | El jefe de corte agrega las ordenes de trabajo restantes. |
+| 8    | El jefe de corte cierra el sistema. |
+| 9    | Finaliza el caso. |
+
+| **Objetivo:** | 2.3 Programar maquinas |
+|------|--------|
+| **Descripción:** | El caso de uso se centra en programar las máquinas de corte de acuerdo al orden de trabajo. | 
+| **Actores Primarios:** | Operario de corte.| 
+| **Precondiciones:** | Revisión correcta de detalles de orden de trabajo.| 
+| Paso | Acción |
+| 1    | El Operario de corte accede al sistema de Vircatex. |
+| 2    | El Operario de corte recibe los detalles de orden de trabajo verificado. |
+| 4    | El Operario de corte visualiza un resumen de las órdenes de corte pendientes, indicando la cantidad de tela requerida y la prioridad. |
+| 5    | El Operario de corte presiona programar, donde se visualizará las configuraciones. |
+| 6    | El Operario de corte selecciona maquiana, estilo, tamaño, y hora inico. 
+| 7    | El Operario de corte vizualiza el detalle programar maquina para confirmar la progrmacion de la máquina. |
+| 8    | Finaliza el caso. |
+
+| **Objetivo:** | 2.4 Detalle lote de corte |
+|------|--------|
+| **Descripción:** | El caso de uso se centra en la visualización del corte realizado de la tela, sus caracteristicas finales, si presenta merma. | 
+| **Actores Primarios:** | Operario de corte.| 
+| **Precondiciones:** | Revision correcta de detalles de orden de trabajo.| 
+| Paso | Acción |
+| 1    | El Operario de corte accede al sistema de Vircatex. |
+| 2    | El Operario de corte visualiza el detalle de corte. |
+| 3    | El Operario de corte verifica si todo esta en orden, si presenta merma o no. |
+| 4    | Si presenta corte el lote para se envia la merma al almacén. |
+| 5   | Finaliza el caso. |
 
 #### **Caso de uso N°3: Registro y Control de Prendas Acabadas**
 
