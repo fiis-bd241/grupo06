@@ -233,7 +233,7 @@
 | 5    | El Jefe de almacen de transito pasara al siguiente frame automaticamente si los datos estan correctos|
 | 6   | Finaliza el caso. |
 | **Flujo alternativo:** | 4.1 El Jefe de almacen de transito visualizara un mensaje "Al parecer la cantidad contada no coincide con el envio" |
-                         | 4.2 El Jefe de almacen de transito dara click en "actualiza conteo" actualizara los datos del conteo y dara click en "Siguiente" |
+                         || 4.2 El Jefe de almacen de transito dara click en "actualiza conteo" actualizara los datos del conteo y dara click en "Siguiente" |
 | -   | Finaliza el caso. |
 | **Flujo alternativo:** | 4.1.1 El Jefe de almacen de transito dara click en "generar reporte" |
 | - | Finaliza el caso. | 
@@ -253,7 +253,7 @@
 | 6    | El Operario de recepccion pasara al siguiente frame automaticamente si no existen datos en la tabla |
 | 7   | Finaliza el caso. |
 | **Flujo alternativo:** | 5.1 El Operario de recepccion visualizara un mensaje "¿Desea generar el reporte?" |
-                         | 5.2 El Operario de recepccion dara click en "actualizar datos" actualizara los datos de la verificacion y dara click en "Siguiente" ||
+                         || 5.2 El Operario de recepccion dara click en "actualizar datos" actualizara los datos de la verificacion y dara click en "Siguiente" ||
 | -   | Finaliza el caso. |
 | **Flujo alternativo:** | 5.1.1 El El Operario de recepccion dara click en "generar reporte" |
 | - | Finaliza el caso. | 
