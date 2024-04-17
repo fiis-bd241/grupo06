@@ -1,9 +1,9 @@
 # Entregable 1 del proyecto
 
 ## 5. Diseño Conceptual
-
-### 1. Almacén Central
 ![Vircatex ER](Diagramas-ER/Vircatex-ER.png)
+### 1. Almacén Central
+
 ### 2. Corte
 
 ![Corte ER](Diagramas-ER/Corte_ER_v2.png)
