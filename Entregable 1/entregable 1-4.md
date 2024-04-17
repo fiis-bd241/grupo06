@@ -330,7 +330,9 @@ Todo empleado de Inspección de calidad debe conocer los protocolos de inspecci�
 
 ### 7. PCP
 
+![PCP ER](Diagramas-ER/pcp.png)
 
+**[Ir a videos](entregable%201-videos.md)**
 
 **[Regresar al índice](../README.md)**
 
