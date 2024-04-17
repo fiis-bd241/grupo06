@@ -253,7 +253,7 @@
 | 6    | El Operario de recepccion pasara al siguiente frame automaticamente si no existen datos en la tabla |
 | 7   | Finaliza el caso. |
 | **Flujo alternativo:** | 5.1 El Operario de recepccion visualizara un mensaje "¿Desea generar el reporte?" |
-                         | 5.2 El Operario de recepccion dara click en "actualizar datos" actualizara los datos de la verificacion y dara click en "Siguiente" |
+                         | 5.2 El Operario de recepccion dara click en "actualizar datos" actualizara los datos de la verificacion y dara click en "Siguiente" ||
 | -   | Finaliza el caso. |
 | **Flujo alternativo:** | 5.1.1 El El Operario de recepccion dara click en "generar reporte" |
 | - | Finaliza el caso. | 
