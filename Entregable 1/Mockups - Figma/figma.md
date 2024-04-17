@@ -75,7 +75,37 @@
 
 - ## Almacén de tránsito
 
-![Inicio de Sesión](Almacen-transito/)
+![bienvenida_area_transporte.png](Almacen-transito/bienvenida_area_transporte.png)
+
+![Generar_Reporte_Prendas.png](Almacen-transito/Generar_Reporte_Prendas.png)
+
+![Verificar_prenda_fallada.png](Almacen-transito/Verificar_prenda_fallada.png)
+
+![conteo cajas.png](Almacen-transito/conteo%20cajas.png)
+
+![descargar_plantilla.png](Almacen-transito/descargar_plantilla.png)
+
+![diferencia_conteo.png](Almacen-transito/diferencia_conteo.png)
+
+![enviar_reporte.png](Almacen-transito/enviar_reporte.png)
+
+![generar_plantilla.png](Almacen-transito/generar_plantilla.png)
+
+![generar_reporte_general.png](Almacen-transito/generar_reporte_general.png)
+
+![registrar_conteo.png](Almacen-transito/registrar_conteo.png)
+
+![seleccionar_lote.png](Almacen-transito/seleccionar_lote.png)
+
+![verificar.png](Almacen-transito/verificar.png)
+
+![verificar_2doconteo.png](Almacen-transito/verificar_2doconteo.png)
+
+![verificar_cantidad (1).png](Almacen-transito/verificar_cantidad%20(1).png)
+
+![verificar_cantidad.png](Almacen-transito/verificar_cantidad.png)
+
+
 
 - ## Acabados
 
@@ -113,10 +143,37 @@
 
 ![ver_prendas_acabados.png](Acabados/ver_prendas_acabados.png)
 
+
+
 - ## Inspección de Calidad
 
-![Inicio de Sesión](Inspeccio%20de%20Calidad/)
+![bienvenida_calidad.png](Inspeccio%20de%20Calidad/bienvenida_calidad.png)
+
+![tipo 1.png](Inspeccio%20de%20Calidad/tipo%201.png)
+
+![tipo 2.png](Inspeccio%20de%20Calidad/tipo%202.png)
+
+![tipo 3.png](Inspeccio%20de%20Calidad/tipo%203.png)
+
+
 
 - ## PCP
 
-![Inicio de Sesión](pcp-Abastecimiento%20de%20materia%20prima/)
+![bienvenida_pcp.png](pcp-Abastecimiento%20de%20materia%20prima/bienvenida_pcp.png)
+
+![detalle_solicitud.png](pcp-Abastecimiento%20de%20materia%20prima/detalle_solicitud.png)
+
+![estado.png](pcp-Abastecimiento%20de%20materia%20prima/estado.png)
+
+![popup_filtro.png](pcp-Abastecimiento%20de%20materia%20prima/popup_filtro.png)
+
+![popup_guardar.png](pcp-Abastecimiento%20de%20materia%20prima/popup_guardar.png)
+
+![popup_lote_guardado.png](pcp-Abastecimiento%20de%20materia%20prima/popup_lote_guardado.png)
+
+![resumen.png](pcp-Abastecimiento%20de%20materia%20prima/resumen.png)
+
+![solicitud.png](pcp-Abastecimiento%20de%20materia%20prima/solicitud.png)
+
+
+**[Regresar al índice](https://github.com/fiis-bd241/grupo06/blob/main/Entregable%201/entregable%201-indice.md)**
