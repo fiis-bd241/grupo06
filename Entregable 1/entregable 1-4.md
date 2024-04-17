@@ -88,6 +88,8 @@ Una orden de trabajo se va a dividir en varios lotes de corte, ya que una pieza 
 
 ![Confección ER](Diagramas-ER/Vircatex-ER-Confeccion.png)
 
+#### Diccionario de datos: 
+
 **Entidad:	Empleado**
 
 **Semántica:	Personas de la empresa que ocupan un puesto (jefe, supervisor, operario) y realizan labores.**
