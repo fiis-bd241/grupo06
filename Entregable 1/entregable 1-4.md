@@ -90,11 +90,7 @@ Una orden de trabajo se va a dividir en varios lotes de corte, ya que una pieza 
 
 ### 5. Acabados
 
-![Acabados ER](Diagramas-ER/acabados_ER.png)
-
-### 6. Inspeccion de Calidad
-
-![Inspeccion_calidad ER](Diagramas-ER/Inspeccion_calidad_ER.png)
+![Acabados ER](Diagramas-ER/acabados_ER_v3.png)
 
 #### Diccionario de datos: 
 
@@ -185,7 +181,9 @@ Cada operario debe realizar cada acabado en forma secuencial y registrarlo en el
 
 
 
+### 6. Inspeccion de Calidad
 
+![Inspeccion_calidad ER](Diagramas-ER/Inspeccion_calidad_ER.png)
 
 ### 7. PCP
 
