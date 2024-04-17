@@ -13,7 +13,7 @@
 
 ## Almacen de transito - Fabrizio Garcia
 
-[![](../Integrantes/Fabrizio%20Garcia/Fabrizio%20Garcia.jpg)]()
+[![](../Integrantes/Fabrizio%20Garcia/Fabrizio%20Garcia.jpg)]
 
 ## Acabados - Javier Arteaga
 
@@ -25,4 +25,4 @@
 
 ## PCP - Niels Chavez
 
-[![](../Integrantes/Niels%20Chavez/Niels%20Chavez.jpg)]()
+[![](../Integrantes/Niels%20Chavez/Niels%20Chavez.jpg)]
