@@ -60,6 +60,28 @@
 | fecha  | date          | DD/MM/AAAA   | calendario             |            |                 | Fecha de la finalización de la maquina de corte | Parámetro de final de la finalización de la máquina |
 | hora   | time        | HH:MM   | Tiempo              |            |                 | Hora de la finalización de la maquina de corte| Parámetro de final de la finalización de la maquina  |
 
+**REGLAS DE NEGOCIO**
+
+* **Empleado_corte - Orden_de_trabajo**
+
+Un empleado de corte recibe varios ordenes de trabajo de acuerdo del día, la prioridad que pueda tener el corte, y una orden de trabajo puede ser supervisado por un empleado.
+
+* **Empleado_corte - Máquina**
+
+Un empleado puede programar varias maquinas de acuerdo del orden de trabajo que reciba, la prioridad para realizar el orden, y una maquina es programada por un solo empleado.
+
+* **Orden_de_trabajo - Máquina**
+
+El empleado de acuerdo con el orden de trabajo va a programar la maquina, donde una maquina recibe varias ordenes de trabajo en su repectiva hora, y una orden de trabajo puede ser programada en varias maquinas ya sea por su estilo, tamaño y la relacion seria de muchos a muchos.
+
+* **Máquina - Lote_corte**
+
+Una máquina al terminar el corte se divide en varios lotes de corte, pero un lote de corte ha sido relizado por una máquina.
+
+* **Orden_de_trabajo - Lote_corte**
+
+Una orden de trabajo se va a dividir en varios lotes de corte, ya que una pieza de corte estaria perteneciendo a una orden de trabajo, y una orden de trabajo tendria varios lotes de corte
+
 ### 3. Confección
 
 ### 4. Almacén de Tránsito
