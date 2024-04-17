@@ -34,6 +34,6 @@
     
     D.	Registro de reportes diarios: Registrar el progreso de cada costurero en su labor en la realización de las ordenes de confección confirmando su envio al almacén central.
     
-    E.	Registro de reportes finales: Registrar el reporte de la orden de confección finalizada confirmando su envio al almacen central.
+    E.	Registro de reportes finales: Registrar el reporte de la orden de confección finalizada confirmando el termino de la orden de confección.
     
   - Interacción:Con el módulo de **PCP**, ya que de esa área se reciben las ordenes de trabajo; con el módulo de **almacén central** ya que ellos guardan los lotes de confección en proceso y con el módulo de **calidad** que inspecciona el prototipo elaborado.
