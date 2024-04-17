@@ -4,6 +4,8 @@
 ![Vircatex ER](Diagramas-ER/Vircatex-ER.png)
 ### 1. Almacén Central
 
+![Almacen central ER](Diagramas-ER/Abastecimiento_ER%20v2.png)
+
 ### 2. Corte
 
 ![Corte ER](Diagramas-ER/Corte_ER_v2.png)
