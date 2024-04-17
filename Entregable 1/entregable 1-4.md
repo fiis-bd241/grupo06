@@ -20,7 +20,7 @@
 | dni          | int            | 99999999    | 8 dígitos           |            |                 | Número de identificación de la persona | Identificador de la persona |
 | nombre       | char           | xxxxxxxxx   | Cadena              |            |                 | Nombre Completo del cliente | Nombre del trabajador en el negocio |
 | telefono     | int            | 99999999999| 10 dígitos          |            |                 | Número de teléfono de contacto de la persona | Número de teléfono asociado a la persona en la empresa |
-| correo       | CHAR           | X*@X*.X* |  cadena     |            |                 | Dirección de correo electrónico del empleado | Permite la comunicación con el empleado en la empresa |
+| correo       | CHAR           | X*@X*.X* |  cadena         |            |                 | Dirección de correo electrónico del empleado | Permite la comunicación con el empleado en la empresa |
 | cargo        | char           | xxxxxxxxxxx| Cadena              |            |                 | Cargo actual de la persona en la empresa |  |
 
 ### 3. Confección
