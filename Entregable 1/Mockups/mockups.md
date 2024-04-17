@@ -2,7 +2,7 @@
 
 ## Abastecimiento de materia prima
 
-![Inicio de Sesión](Abastecimiento%20de%20materia%20prima/Resumen.png)
+![Inicio de Sesión](Abastecimiento%20de%20materia%20prima/Inicio%20de%20Sesión.png)
 
 ![Resumen](Abastecimiento%20de%20materia%20prima/Resumen.png)
 
