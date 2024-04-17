@@ -207,11 +207,19 @@ Cada operario debe realizar cada acabado en forma secuencial y registrarlo en el
 
 **Entidad:	Lote de confeccion total**
 
-**Semántica:	Agrupación de confecciones**
+**Semántica:	Agrupación de confecciones de prendas**
 
 | **Atributo** | **Naturaleza** | **Formato** | **Valores válidos** | **Unidad** | **Derivada de** | **Semántica** | **Ontología** |
 |--------------|----------------|-------------|---------------------|------------|-----------------|---------------|---------------|
-| tipo_materia_prima        | char            | xxxxxxxxx    | Cadena           |            |                 | Tipo de materia prima | Tipo de materia prima que se va a enviar a inspeccionar |
+| tipo_confeccion        | char            | xxxxxxxxx    | Cadena           |            |                 | Tipo de confecciones que se han realizado | Tipo de confecciones que se va a inspeccionar en el area de inspección de calidad |
+
+**Entidad:	Lote de prendas**
+
+**Semántica:	Agrupación de prendas en caja**
+
+| **Atributo** | **Naturaleza** | **Formato** | **Valores válidos** | **Unidad** | **Derivada de** | **Semántica** | **Ontología** |
+|--------------|----------------|-------------|---------------------|------------|-----------------|---------------|---------------|
+| tipo_prenda        | char            | xxxxxxxxx    | Cadena           |            |                 | Tipo de prendas embaladas y empaquetadas | Tipo de prendas que se van a inspeccionar antes de estar listas para la venta |
 
 
 ### 7. PCP
