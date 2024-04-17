@@ -83,7 +83,7 @@ Una máquina al terminar el corte se divide en varios lotes de corte, pero un lo
 Una orden de trabajo se va a dividir en varios lotes de corte, ya que una pieza de corte estaria perteneciendo a una orden de trabajo, y una orden de trabajo tendria varios lotes de corte
 
 ### 3. Confección
-
+![Confección ER](Diagramas-ER/Vircatex-ER-Confección.png)
 ### 4. Almacén de Tránsito
 
 ![Transporte ER](Diagramas-ER/Transporte_ER.png)
