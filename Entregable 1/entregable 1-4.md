@@ -221,6 +221,19 @@ Cada operario debe realizar cada acabado en forma secuencial y registrarlo en el
 |--------------|----------------|-------------|---------------------|------------|-----------------|---------------|---------------|
 | tipo_prenda        | char            | xxxxxxxxx    | Cadena           |            |                 | Tipo de prendas embaladas y empaquetadas | Tipo de prendas que se van a inspeccionar antes de estar listas para la venta |
 
+**REGLAS DE NEGOCIO**
+
+* **Empleado - Reporte**
+
+El empleado después de realizar una inspección de calidad de cualquier tipo de lote debe realizar un reporte de calidad donde detalla lo inspeccionado y confirma o rechaza que el lote siga el proceso dentro del sistema.
+
+* **Lote - Área**
+
+Todo lote posee a un área específica, antes de llegar al área de calidad, todo lote debe provenir de un área específica y el área de inspección de calidad decidirá si este debe regresar a esta misma área en caso de no haber aprobado la inspección o de continuar y ser enviado a una siguiente área.
+
+* **Empleado - Protocolo de Inspección**
+
+Todo empleado de Inspección de calidad debe conocer los protocolos de inspección de calidad para cada tipo de lote, se tiene en cuenta que cada protocolo es distinto entre lotes y que no se puede aplicar a otro tipo, sino el proceso de calidad sería erróneo.
 
 ### 7. PCP
 
