@@ -14,7 +14,7 @@
 
 ![Detalles](Abastecimiento%20de%20materia%20prima/Detalle%20de%20la%20Solicitud.png)
 
-![Estado de Inventario](Abastecimiento%20de%20materia%20prima/Estado%20de%20inventario.png)
+![Estado de Inventario](Abastecimiento%20de%20materia%20prima/Estado%20de%20Inventario.png)
 
 ## Acabados
 
