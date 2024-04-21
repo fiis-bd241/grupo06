@@ -11,7 +11,7 @@
 - Almacén de tránsito
 - Acabados
 - Inspeccion de calidad
-- PCP - abastecimiento de materia prima
+- Almacen central
 
 - ## Principales
 
@@ -21,6 +21,24 @@
 
 ![Sesion_terminada.pngg](Sesion_terminada.png)
 
+
+- ## Almacen central
+
+![bienvenida_pcp.png](almacen-central/bienvenida_pcp.png)
+
+![detalle_solicitud.png](almacen-central/detalle_solicitud.png)
+
+![estado.png](almacen-central/estado.png)
+
+![popup_filtro.png](almacen-central/popup_filtro.png)
+
+![popup_guardar.png](almacen-central/popup_guardar.png)
+
+![popup_lote_guardado.png](almacen-central/popup_lote_guardado.png)
+
+![resumen.png](almacen-central/resumen.png)
+
+![solicitud.png](almacen-central/solicitud.png)
 
 - ## Corte
 
@@ -157,23 +175,7 @@
 
 
 
-- ## PCP
 
-![bienvenida_pcp.png](pcp-Abastecimiento%20de%20materia%20prima/bienvenida_pcp.png)
-
-![detalle_solicitud.png](pcp-Abastecimiento%20de%20materia%20prima/detalle_solicitud.png)
-
-![estado.png](pcp-Abastecimiento%20de%20materia%20prima/estado.png)
-
-![popup_filtro.png](pcp-Abastecimiento%20de%20materia%20prima/popup_filtro.png)
-
-![popup_guardar.png](pcp-Abastecimiento%20de%20materia%20prima/popup_guardar.png)
-
-![popup_lote_guardado.png](pcp-Abastecimiento%20de%20materia%20prima/popup_lote_guardado.png)
-
-![resumen.png](pcp-Abastecimiento%20de%20materia%20prima/resumen.png)
-
-![solicitud.png](pcp-Abastecimiento%20de%20materia%20prima/solicitud.png)
 
 
 **[Regresar al índice](https://github.com/fiis-bd241/grupo06/blob/main/Entregable%201/entregable%201-indice.md)**
