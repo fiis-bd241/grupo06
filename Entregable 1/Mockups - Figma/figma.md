@@ -165,13 +165,13 @@
 
 - ## Inspección de Calidad
 
-![bienvenida_calidad.png](Inspeccio%20de%20Calidad/bienvenida_calidad.png)
+![bienvenida_calidad.png](Inspeccion%20de%20Calidad/bienvenida_calidad.png)
 
-![tipo 1.png](Inspeccio%20de%20Calidad/tipo%201.png)
+![tipo 1.png](Inspeccion%20de%20Calidad/tipo%201.png)
 
-![tipo 2.png](Inspeccio%20de%20Calidad/tipo%202.png)
+![tipo 2.png](Inspeccion%20de%20Calidad/tipo%202.png)
 
-![tipo 3.png](Inspeccio%20de%20Calidad/tipo%203.png)
+![tipo 3.png](Inspeccion%20de%20Calidad/tipo%203.png)
 
 
 - ## PCP
