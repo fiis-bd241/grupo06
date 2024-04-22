@@ -174,7 +174,22 @@
 ![tipo 3.png](Inspeccio%20de%20Calidad/tipo%203.png)
 
 
+- ## PCP
 
+
+![pcp.png](pcp/pcp.png)
+
+![control produccion](pcp/control_produccion.png)
+
+![orden pedido](pcp/orden-pedido.png)
+
+![orden-produccion.png](pcp/orden-produccion.png)
+
+![orden_prod.png](pcp/orden_prod.png)
+
+![resumen-abastecimiento.png](pcp/resumen-abastecimiento.png)
+
+![solicitud_pedido.png](pcp/solicitud_pedido.png)
 
 
 
