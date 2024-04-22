@@ -202,19 +202,19 @@ Este rol se encarga de la revisión de la producción misma, es decir, verifica 
 
 | Codigo | Nombre Actividad               | Descripcion                                                                                     | Area Responsable  |
 |--------|--------------------------------|------------------------------------------------------------------------------------------------|-------------------|
-| 1      | Esperar mensajes de áreas                     | Se espera un mensaje de inspección por parte de algún área                               | Jefe de calidad    |
-| 2      | Separar muestra representativa                | Se separa una muestra del lote, aproximadamente un 10%                                   | Auditor de calidad |
-| 3      | Medir AQL                                     | Se mide el nivel aceptable de calidad                                                    | Auditor de calidad |
-| 4      | Convalidar medidas                            | Se convalida si las medidas del lote de corte están correctas                            | Auditor de calidad |
-| 5      | Revisar prototipos                            | Se revisa si el prototipo se realizó de manera correcta                                   | Auditor de calidad |
-| 6      | Agrupar cortes de mala tela                   | Se separa los cortes de mala tela del resto del lote                                     | Auditor de calidad |
-| 7      | Devolver a almacén central                    | Se devuelve los corte de mala tela al almacén central                                    | Auditor de calidad |
-| 8      | Solicitar materias primas a planeamiento      | Se solicita nuevas materias primas a planeamiento                                        | Auditor de calidad |
-| 9      | Reporte de correcciones a desarrollo          | Se enviar un reporte de correciones a desarrollo                                         | Auditor de calidad |
-| 10     | Enviar reporte prendas defectuosas            | Se contabiliza y envía un reporte de prendas defectuosas                                 | Jefe de calidad    |
-| 11     | Enviar prendas defectuosas al almacén  central | Se devuelve las prendas defectuosas al almacén  central                                   | Jefe de calidad    |
-| 12     | Reporte de correcciones a planeamiento        | Se envía un reporte detallado con correcciones de los prototipos a planeamiento          | Jefe de calidad    |
-| 13     | Enviar Reporte general a gerencia             | Se envía un reporte general y total a gerencia sobre le proceso de inspección de calidad | Jefe de calidad    |
+| C1      | Esperar mensajes de áreas                     | Se espera un mensaje de inspección por parte de algún área                               | Jefe de calidad    |
+| C2      | Separar muestra representativa                | Se separa una muestra del lote, aproximadamente un 10%                                   | Auditor de calidad |
+| C3      | Medir AQL                                     | Se mide el nivel aceptable de calidad                                                    | Auditor de calidad |
+| C5      | Convalidar medidas                            | Se convalida si las medidas del lote de corte están correctas                            | Auditor de calidad |
+| C7      | Revisar prototipos                            | Se revisa si el prototipo se realizó de manera correcta                                   | Auditor de calidad |
+| C6b     | Agrupar cortes de mala tela                   | Se separa los cortes de mala tela del resto del lote                                     | Auditor de calidad |
+| C7b     | Devolver a almacén central                    | Se devuelve los corte de mala tela al almacén central                                    | Auditor de calidad |
+| C4      | Solicitar materias primas a planeamiento      | Se solicita nuevas materias primas a planeamiento                                        | Auditor de calidad |
+| C8     | Reporte de correcciones a desarrollo          | Se enviar un reporte de correciones a desarrollo                                         | Auditor de calidad |
+| C10    | Enviar reporte prendas defectuosas            | Se contabiliza y envía un reporte de prendas defectuosas                                 | Jefe de calidad    |
+| C10b    | Enviar prendas defectuosas al almacén  central | Se devuelve las prendas defectuosas al almacén  central                                   | Jefe de calidad    |
+| C8b     | Reporte de correcciones a planeamiento        | Se envía un reporte detallado con correcciones de los prototipos a planeamiento          | Jefe de calidad    |
+| C11     | Enviar Reporte general a gerencia             | Se envía un reporte general y total a gerencia sobre le proceso de inspección de calidad | Jefe de calidad    |
 
 #### Área de Planificación y Control de Producción
 
