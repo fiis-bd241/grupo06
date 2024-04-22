@@ -271,7 +271,7 @@ Cada operario debe realizar cada acabado en forma secuencial y registrarlo en el
 
 ### 6. Inspeccion de Calidad
 
-![Inspeccion_calidad ER](Diagramas-ER/Inspeccion_calidad_ER.png)
+![Inspeccion_calidad ER](Diagramas-ER/calidad_v2_ER.png)
 
 #### Diccionario de datos: 
 
