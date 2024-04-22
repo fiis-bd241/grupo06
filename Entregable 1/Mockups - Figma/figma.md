@@ -36,6 +36,8 @@
 
 ![popup_lote_guardado.png](almacen-central/popup_lote_guardado.png)
 
+![estado-inventario.png](almacen-central/estado-inventario.png)
+
 ![resumen.png](almacen-central/resumen.png)
 
 ![solicitud.png](almacen-central/solicitud.png)
