@@ -1,9 +1,10 @@
 # Entregable 2 del proyecto
 ## Tablas
-3.1 Crear tablas
+### 3.1 Crear tablas
 
+Para ver el script SQL, haz clic [aquí](dbd-vircatex.sql).
 
-3.2 Poblar tablas
+### 3.2 Poblar tablas
 
 INSERT INTO Inspeccion_muestra(id_inspeccion,cantidad_errores,tamaño_lote,cantidad_muestra,id_lote,letra_codigo_aql,mivel_inspeccion,limite_aql)VALUES
 (1234567, 3, 1000, 80, 3214537, J, 2, 2.5),
