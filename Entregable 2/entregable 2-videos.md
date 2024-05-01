@@ -13,7 +13,7 @@
 
 ## Almacen de transito - Fabrizio Garcia
 
-[![](../Integrantes/Fabrizio%20Garcia/Fabrizio%20Garcia.jpg)](https://youtu.be/Qob6rkZvqcA)
+[![](../Integrantes/Fabrizio%20Garcia/Fabrizio%20Garcia.jpg)](https://youtu.be/RhUg405ytnw?si=Qy1vWQyqEUZM_5FE)
 
 ## Acabados - Javier Arteaga
 
