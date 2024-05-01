@@ -1,3 +1,4 @@
+DROP ALL TABLES
 --Nivel 1
 CREATE TABLE Direccion
 (
@@ -92,6 +93,19 @@ CREATE TABLE Color
   nombre_color VARCHAR(15) NOT NULL,
   PRIMARY KEY (id_color),
   UNIQUE (nombre_color)
+);
+
+CREATE TABLE Guia_confeccion_talla_genero
+(
+  id_guia_confeccion NUMERIC(10) NOT NULL,
+  medida_pecho FLOAT,
+  medida_cintura FLOAT,
+  medida_cadera FLOAT,
+  medida_hombro FLOAT,
+  medida_longitud FLOAT,
+  medida_manga FLOAT,
+  medida_muslo FLOAT,
+  PRIMARY KEY (id_guia_confeccion)
 );
 
 CREATE TABLE Tipo_prenda
@@ -262,25 +276,20 @@ CREATE TABLE Dimension_materia_prima
   FOREIGN KEY (id_tipo_materia_prima) REFERENCES Tipo_materia_prima(id_tipo_materia_prima)
 );
 
-CREATE TABLE Guia_confeccion_talla_genero
+CREATE TABLE Dimension_confeccion
 (
-  id_guia_confeccion NUMERIC(10) NOT NULL,
-  medida_pecho FLOAT,
-  medida_cintura FLOAT,
-  medida_cadera FLOAT,
-  medida_hombro FLOAT,
-  medida_longitud FLOAT,
-  medida_manga FLOAT,
-  medida_muslo FLOAT,
-  id_genero NUMERIC(1) NOT NULL,
-  id_talla NUMERIC(1) NOT NULL,
+  id_dim_confeccion NUMERIC(10) NOT NULL,
   id_tipo_prenda NUMERIC(2) NOT NULL,
   id_estilo_prenda NUMERIC(2) NOT NULL,
-  PRIMARY KEY (id_guia_confeccion),
-  FOREIGN KEY (id_genero) REFERENCES Genero(id_genero),
-  FOREIGN KEY (id_talla) REFERENCES Talla(id_talla),
+  id_guia_confeccion NUMERIC(10) NOT NULL,
+  id_talla NUMERIC(1) NOT NULL,
+  id_genero NUMERIC(1) NOT NULL,
+  PRIMARY KEY (id_dim_confeccion),
   FOREIGN KEY (id_tipo_prenda) REFERENCES Tipo_prenda(id_tipo_prenda),
-  FOREIGN KEY (id_estilo_prenda) REFERENCES Estilo_prenda(id_estilo_prenda)
+  FOREIGN KEY (id_estilo_prenda) REFERENCES Estilo_prenda(id_estilo_prenda),
+  FOREIGN KEY (id_guia_confeccion) REFERENCES Guia_confeccion_talla_genero(id_guia_confeccion),
+  FOREIGN KEY (id_talla) REFERENCES Talla(id_talla),
+  FOREIGN KEY (id_genero) REFERENCES Genero(id_genero)
 );
 
 CREATE TABLE Reserva
@@ -347,16 +356,12 @@ CREATE TABLE Dimension_parte_prenda
   FOREIGN KEY (id_nombre_parte_prenda) REFERENCES Nombre_parte_prenda(id_nombre_parte_prenda)
 );
 
-CREATE TABLE Dimension_confeccion
+CREATE TABLE Dimension_prenda
 (
+  id_dim_prenda NUMERIC(10) NOT NULL,
   id_dim_confeccion NUMERIC(10) NOT NULL,
-  id_tipo_prenda NUMERIC(2) NOT NULL,
-  id_estilo_prenda NUMERIC(2) NOT NULL,
-  id_guia_confeccion NUMERIC(10) NOT NULL,
-  PRIMARY KEY (id_dim_confeccion),
-  FOREIGN KEY (id_tipo_prenda) REFERENCES Tipo_prenda(id_tipo_prenda),
-  FOREIGN KEY (id_estilo_prenda) REFERENCES Estilo_prenda(id_estilo_prenda),
-  FOREIGN KEY (id_guia_confeccion) REFERENCES Guia_confeccion_talla_genero(id_guia_confeccion)
+  PRIMARY KEY (id_dim_prenda),
+  FOREIGN KEY (id_dim_confeccion) REFERENCES Dimension_confeccion(id_dim_confeccion)
 );
 
 CREATE TABLE Orden_trabajo_x_pedido
@@ -377,24 +382,6 @@ CREATE TABLE Dimension_corte
   PRIMARY KEY (id_dim_corte),
   FOREIGN KEY (id_dim_materia_prima) REFERENCES Dimension_materia_prima(id_dim_materia_prima),
   FOREIGN KEY (id_dim_parte_prenda) REFERENCES Dimension_parte_prenda(id_dim_parte_prenda)
-);
-
-CREATE TABLE Dimension_prenda
-(
-  id_dim_prenda NUMERIC(10) NOT NULL,
-  id_dim_confeccion NUMERIC(10) NOT NULL,
-  PRIMARY KEY (id_dim_prenda),
-  FOREIGN KEY (id_dim_confeccion) REFERENCES Dimension_confeccion(id_dim_confeccion)
-);
-
---Nivel 5
-CREATE TABLE Dim_confeccion_detalle
-(
-  id_dim_confeccion NUMERIC(10) NOT NULL,
-  id_dim_corte NUMERIC(10) NOT NULL,
-  PRIMARY KEY (id_dim_confeccion, id_dim_corte),
-  FOREIGN KEY (id_dim_confeccion) REFERENCES Dimension_confeccion(id_dim_confeccion),
-  FOREIGN KEY (id_dim_corte) REFERENCES Dimension_corte(id_dim_corte)
 );
 
 CREATE TABLE Dim_prenda_detalle
@@ -435,7 +422,8 @@ CREATE TABLE Pedido_detalle
   FOREIGN KEY (id_orden_pedido) REFERENCES Orden_pedido(id_orden_pedido)
 );
 
---Nivel 6
+--Nivel 5
+
 CREATE TABLE Lote
 (
   cantidad INT NOT NULL,
@@ -453,7 +441,30 @@ CREATE TABLE Lote
   FOREIGN KEY (id_dim_materia_prima) REFERENCES Dimension_materia_prima(id_dim_materia_prima)
 );
 
---Nivel 7
+CREATE TABLE Dim_confeccion_detalle
+(
+  id_dim_confeccion NUMERIC(10) NOT NULL,
+  id_dim_corte NUMERIC(10) NOT NULL,
+  PRIMARY KEY (id_dim_confeccion, id_dim_corte),
+  FOREIGN KEY (id_dim_confeccion) REFERENCES Dimension_confeccion(id_dim_confeccion),
+  FOREIGN KEY (id_dim_corte) REFERENCES Dimension_corte(id_dim_corte)
+);
+
+CREATE TABLE Transferencia_caja
+(
+  fecha_transferencia DATE NOT NULL,
+  id_caja NUMERIC(10) NOT NULL,
+  id_reserva CHAR(10) NOT NULL,
+  area_envio NUMERIC(1) NOT NULL,
+  area_destino NUMERIC(1) NOT NULL,
+  PRIMARY KEY (id_caja, id_reserva),
+  FOREIGN KEY (id_caja) REFERENCES Caja(id_caja),
+  FOREIGN KEY (id_reserva) REFERENCES Reserva(id_reserva),
+  FOREIGN KEY (area_envio) REFERENCES Area(id_area),
+  FOREIGN KEY (area_destino) REFERENCES Area(id_area)
+);
+
+--Nivel 6
 CREATE TABLE Reporte_uso
 (
   cantidad_merma INT NOT NULL,
@@ -540,20 +551,6 @@ CREATE TABLE Transferencia_lote
   FOREIGN KEY (area_destino) REFERENCES Area(id_area)
 );
 
-CREATE TABLE Transferencia_caja
-(
-  fecha_transferencia DATE NOT NULL,
-  id_caja NUMERIC(10) NOT NULL,
-  id_reserva CHAR(10) NOT NULL,
-  area_envio NUMERIC(1) NOT NULL,
-  area_destino NUMERIC(1) NOT NULL,
-  PRIMARY KEY (id_caja, id_reserva),
-  FOREIGN KEY (id_caja) REFERENCES Caja(id_caja),
-  FOREIGN KEY (id_reserva) REFERENCES Reserva(id_reserva),
-  FOREIGN KEY (area_envio) REFERENCES Area(id_area),
-  FOREIGN KEY (area_destino) REFERENCES Area(id_area)
-);
-
 CREATE TABLE Inspeccion_calidad
 (
   fecha_inspeccion DATE NOT NULL,
@@ -575,7 +572,7 @@ CREATE TABLE Inspeccion_calidad
   FOREIGN KEY (id_resultado) REFERENCES Tipo_resultado(id_resultado)
 );
 
---Nivel 8
+--Nivel 7
 CREATE TABLE Maquina_programacion_orden
 (
   fecha_programacion DATE NOT NULL,
@@ -587,16 +584,6 @@ CREATE TABLE Maquina_programacion_orden
   FOREIGN KEY (id_orden_division) REFERENCES Orden_division(id_orden_division)
 );
 
-CREATE TABLE Caja_detalle_final
-(
-  id_caja_fin NUMERIC(10) NOT NULL,
-  id_caja NUMERIC(10) NOT NULL,
-  id_prenda NUMERIC(10) NOT NULL,
-  PRIMARY KEY (id_caja_fin),
-  FOREIGN KEY (id_caja) REFERENCES Caja(id_caja),
-  FOREIGN KEY (id_prenda) REFERENCES Prenda(id_prenda)
-);
-
 CREATE TABLE Caja_detalle_inicial
 (
   id_caja_inicio NUMERIC(10) NOT NULL,
@@ -605,6 +592,16 @@ CREATE TABLE Caja_detalle_inicial
   PRIMARY KEY (id_caja_inicio),
   FOREIGN KEY (id_caja) REFERENCES Caja(id_caja),
   FOREIGN KEY (id_confeccion) REFERENCES Confeccion(id_confeccion)
+);
+
+CREATE TABLE Caja_detalle_final
+(
+  id_caja_fin NUMERIC(10) NOT NULL,
+  id_caja NUMERIC(10) NOT NULL,
+  id_prenda NUMERIC(10) NOT NULL,
+  PRIMARY KEY (id_caja_fin),
+  FOREIGN KEY (id_caja) REFERENCES Caja(id_caja),
+  FOREIGN KEY (id_prenda) REFERENCES Prenda(id_prenda)
 );
 
 CREATE TABLE Gantt_progreso
@@ -618,7 +615,7 @@ CREATE TABLE Gantt_progreso
   FOREIGN KEY (id_orden) REFERENCES Orden_division(id_orden_division)
 );
 
---Nivel 9
+--Nivel 8
 CREATE TABLE Reporte_acabado
 (
   fecha_transformacion DATE NOT NULL,
