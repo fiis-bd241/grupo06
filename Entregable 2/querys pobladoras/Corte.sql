@@ -84,11 +84,11 @@ INSERT INTO Orden_division (id_orden_division, estado, fecha_creacion, fecha_fin
 (3000012345, 'completado', '24/04/2024', '27/04/2024', 2003127127, 2100013116, 3321000127);
 
 INSERT INTO Maquina (id_maquina, capacidad_total, estado, capacidad_usada, capacidad_disponible) VALUES
-(002, 800, funcionando, 500, 300),
-(003, 700, mantenimiento, 000, 700),
-(004, 850, funcionando, 400, 450),
-(005, 900, funcionando, 600, 300),
-(006, 950, funcionando, 500, 450);
+(002, 800, 'funcionando', 500, 300),
+(003, 700, 'mantenimiento', 000, 700),
+(004, 850, 'funcionando', 400, 450),
+(005, 900, 'funcionando', 600, 300),
+(006, 950, 'funcionando', 500, 450);
 
 INSERT INTO Maquina_programacion_orden (id_maquina, id_orden_division, fecha_programacion, cantidad) VALUES
 (002, 3000012341, '06/05/2024', 300),
