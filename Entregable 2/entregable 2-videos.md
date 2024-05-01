@@ -1,7 +1,7 @@
 # Videos individuales
 ## Almacen central - Gianfranco Solier
 
-[![](../Integrantes/Gianfranco%20Solier/Gianfranco%20Solier.png)](https://www.youtube.com/watch?v=GNOta8benAw)
+[![](../Integrantes/Gianfranco%20Solier/Gianfranco%20Solier.png)](https://www.youtube.com/watch?v=mOCzbSByemQ)
 
 ## Corte - Jhon Carhuas
 
