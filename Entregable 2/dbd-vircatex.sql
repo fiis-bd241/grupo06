@@ -1,4 +1,3 @@
-DROP ALL TABLES
 --Nivel 1
 CREATE TABLE Direccion
 (
