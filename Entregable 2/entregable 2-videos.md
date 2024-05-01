@@ -5,7 +5,7 @@
 
 ## Corte - Jhon Carhuas
 
-[![](../Integrantes/Jhon%20Carhuas/Jhon%20Carhuas.png)](https://www.youtube.com/watch?v=Ei45-wTadlg)
+[![](../Integrantes/Jhon%20Carhuas/Jhon%20Carhuas.png)](https://youtu.be/OrfrlcvKK_o)
 
 ## Confeccion - William Valencia
 
