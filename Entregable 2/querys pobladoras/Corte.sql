@@ -7,7 +7,7 @@ INSERT INTO Tipo_corte (id_tipo_corte, descripcion) VALUES
 ('128', 'Largo de costado');
 
 INSERT INTO Corte_medida (id_corte_medida, medida, id_tipo_corte) VALUES
-(1000041234, 20,8, '123'),
+(1000041234, 20.8, '123'),
 (1000041235, 21, '124'),
 (1000041236, 5, '125'),
 (1000041237, 3, '126'),
