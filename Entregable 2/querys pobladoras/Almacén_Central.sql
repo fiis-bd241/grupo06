@@ -83,11 +83,11 @@ INSERT INTO color (id_color, nombre) VALUES
 
 -- Insertar datos en la tabla tipo_materia_prima
 INSERT INTO tipo_materia_prima (id_tipo_materia_prima, nombre) VALUES
-(1, 'Tipo A'),
-(2, 'Tipo B'),
-(3, 'Tipo C'),
-(4, 'Tipo D'),
-(5, 'Tipo E');
+(1, 'Algodón'),
+(2, 'Lino'),
+(3, 'Lana'),
+(4, 'Seda'),
+(5, 'Nylon');
 
 -- Insertar datos en la tabla dimension_materia_prima
 INSERT INTO dimension_materia_prima (id_dim_materia_prima, id_tipo_materia_prima, id_color) VALUES
@@ -100,15 +100,15 @@ INSERT INTO dimension_materia_prima (id_dim_materia_prima, id_tipo_materia_prima
 -- Insertar datos en la tabla lote
 INSERT INTO lote (id_lote, id_tipo_lote, cantidad, estado, fecha_creacion, id_dim_corte, id_dim_confeccion, id_dim_materia_prima) VALUES
 (1, 1, 100, 'Disponible', CURRENT_DATE, 1, 2, 3),
-(2, 2, 200, 'Disponible', CURRENT_DATE, 2, 3, 4),
-(3, 3, 300, 'Disponible', CURRENT_DATE, 3, 4, 5),
+(2, 2, 200, 'Reservado', CURRENT_DATE, 2, 3, 4),
+(3, 3, 300, 'Reservado', CURRENT_DATE, 3, 4, 5),
 (4, 4, 400, 'Disponible', CURRENT_DATE, 4, 5, 1),
 (5, 5, 500, 'Disponible', CURRENT_DATE, 5, 1, 2);
 
 -- Insertar datos en la tabla materia_prima
 INSERT INTO materia_prima (id_materia_prima, id_lote, id_dim_materia_prima, ruc) VALUES
 (1, 1, 1, 12345678901),
-(2, 2, 2, 12345678901),
-(3, 3, 3, 12345678901),
-(4, 4, 4, 12345678901),
-(5, 5, 5, 12345678901);
+(2, 2, 2, 98765432109),
+(3, 3, 3, 56789012345),
+(4, 4, 4, 54321098765),
+(5, 5, 5, 11111111111);
