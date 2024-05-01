@@ -21,7 +21,7 @@
 
 ## Calidad - Juan Villanueva
 
-[![](../Integrantes/Juan%20Villanueva/Juan%20Villanueva.jpg)](https://www.youtube.com/watch?v=usp_cQ6e15I)
+[![](../Integrantes/Juan%20Villanueva/Juan%20Villanueva.jpg)](https://www.youtube.com/watch?v=9NMikVd2qVE)
 
 ## PCP - Niels Chavez
 
