@@ -6,5 +6,6 @@
 4. [Carga de datos](4-carga-datos.md)
 5. [Funcionalidad primaria](5-funcionalidad.md)
 6. [Stack Tecnológico](6-stack.md)
+7. [Videos Individuales](entregable%203-videos.md)
    
 **[Regresar al índice](../README.md)**
