@@ -1,10 +1,10 @@
 # Entregable 3
 ## Índice
-1. [Modelamiento](1-modelo-conceptual.md)
-2. [Requerimientos y Prototipos](2-modelo-logico.md)
-3. [Sentencias SQL](3-tablas.md)
-4. [Carga de datos](entregable%202-videos.md)
-5. [Funcionalidad primaria](entregable%202-videos.md)
-6. [Stack Tecnológico](entregable%202-videos.md)
+1. [Modelamiento](1-modelamiento.md)
+2. [Requerimientos y Prototipos](2-requerimiento-prototipo.md)
+3. [Sentencias SQL](3-sentencias-sql.md)
+4. [Carga de datos](4-carga-datos.md)
+5. [Funcionalidad primaria](5-funcionalidad.md)
+6. [Stack Tecnológico](6-stack.md)
    
 **[Regresar al índice](../README.md)**
