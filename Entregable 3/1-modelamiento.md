@@ -1,2 +1,6 @@
 # Entregable 3 del proyecto
-## Modelo Conceptual
+## Modelamiento
+### Modelo Lógico
+![Diagrama](../Entregable%203/ER.jpeg)
+
+***[Regresar al índice](../README.md)***
