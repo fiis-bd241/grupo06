@@ -27,13 +27,13 @@
 
 | N°    | Requerimiento Funcional  | Descripción                                         | Impacto <br> (1) Bajo (2) Normal<br> (3) Alto (4) Muy alto |
 |-------|--------------------------|-----------------------------------------------------|---------------------------------------------------|
-| RV601 | Revisar Inspecciones de Calidad | El sistema debe permitir al usuario revisar inspecciones de calidad | 3                                                 |
-| RV602 | Registrar Inspeccion de Calidad | El sistema debe permitir al usuario registrar datos de una inspeccion de calidad | 4                                                 |
-
+| RV601 | Registrar Inspeccion de calidad | El sistema debe permitir al usuario registrar datos de una solicitud de inspeccion de calidad | 4                                                 |
+| RV602 | Asignar Empleado a Inspeccion | El sistema debe permitir asignar un empleado(Auditor de calidad) a una inspeccion | 2                                                 |
+| RV603 | Revisar Inspecciones de Calidad | El sistema debe permitir al usuario revisar inspecciones de calidad | 3                                                 |
 
 | N°    | Interfaz | Descripción                                                                 |
 |-------|----------|-----------------------------------------------------------------------------|
-| IV601 | Revisar Inspecciones | Pantalla para visualizar datos sobre inspecciones de calidad |
-| IV602 | Registrar Inspecciones | Pantalla para ingresar datos sobre inspecciones de calidad y registrarlas |
+| IV601 | Registrar Inspecciones | Pantalla para ingresar datos de solicitudes de inspeccion de calidad, operarios y registrarlas |
+| IV602 | Revisar Inspecciones | Pantalla para visualizar datos sobre inspecciones de calidad |
 
 ### 7. PCP 
