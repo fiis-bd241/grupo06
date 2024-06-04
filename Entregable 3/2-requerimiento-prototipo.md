@@ -34,7 +34,7 @@
 | N°    | Interfaz | Descripción                                                                 |
 |-------|----------|-----------------------------------------------------------------------------|
 | IV601 | Registrar Solicitudes de Inspeccion | Pantalla para ingresar datos de solicitudes de inspeccion de calidad y registrarlas |
-| IV602 | Registrar datos de Inspeccion | Pantalla para ingresar datos de inspeccion de calidad y registrarlas |
-| IV603 | Revisar Inspecciones | Pantalla para visualizar datos sobre inspecciones de calidad |
+| IV602 | Revisar Inspecciones | Pantalla para visualizar datos sobre inspecciones de calidad |
+| IV603 | Registrar datos de Inspeccion | Pantalla para ingresar datos de inspeccion de calidad y registrarlas |
 
 ### 7. PCP 
