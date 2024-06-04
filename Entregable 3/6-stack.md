@@ -21,6 +21,8 @@
 ### Stack
 ![Stack](stack.png)
 
+### Arquitectura
+![Arquqitectura](arquitectura.png)
 
 ### Front end
 [Vircatex](https://vircatex.netlify.app/) <br>
