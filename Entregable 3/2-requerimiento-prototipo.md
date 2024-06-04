@@ -28,13 +28,12 @@
 | N°    | Requerimiento Funcional  | Descripción                                         | Impacto <br> (1) Bajo (2) Normal<br> (3) Alto (4) Muy alto |
 |-------|--------------------------|-----------------------------------------------------|---------------------------------------------------|
 | RV601 | Registrar Solicitud de Inspeccion de calidad | El sistema debe permitir al usuario registrar datos de una solicitud de inspeccion de calidad | 4                                                 |
-| RV602 | Asignar Empleado a Inspeccion | El sistema debe permitir asignar un empleado(Auditor de calidad) a una inspeccion | 2                                                 |
-| RV603 | Registrar resultados de Inspeccion de calidad | El sistema debe permitir al usuario registrar datos de una inspeccion de calidad | 4                                                 |
-| RV604 | Revisar Inspecciones de Calidad | El sistema debe permitir al usuario revisar inspecciones de calidad | 3                                                 |
+| RV602 | Registrar resultados de Inspeccion de calidad | El sistema debe permitir al usuario registrar datos de una inspeccion de calidad | 4                                                 |
+| RV603 | Revisar Inspecciones de Calidad | El sistema debe permitir al usuario revisar inspecciones de calidad | 3                                                 |
 
 | N°    | Interfaz | Descripción                                                                 |
 |-------|----------|-----------------------------------------------------------------------------|
-| IV601 | Registrar Solicitudes de Inspeccion | Pantalla para ingresar datos de solicitudes de inspeccion de calidad, operarios y registrarlas |
+| IV601 | Registrar Solicitudes de Inspeccion | Pantalla para ingresar datos de solicitudes de inspeccion de calidad y registrarlas |
 | IV602 | Registrar datos de Inspeccion | Pantalla para ingresar datos de inspeccion de calidad y registrarlas |
 | IV603 | Revisar Inspecciones | Pantalla para visualizar datos sobre inspecciones de calidad |
 
