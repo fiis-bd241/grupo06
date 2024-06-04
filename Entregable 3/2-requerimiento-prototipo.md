@@ -25,4 +25,15 @@
 
 ### 6. Calidad 
 
+| N°    | Requerimiento Funcional  | Descripción                                         | Impacto <br> (1) Bajo (2) Normal<br> (3) Alto (4) Muy alto |
+|-------|--------------------------|-----------------------------------------------------|---------------------------------------------------|
+| RV601 | Revisar Inspecciones de Calidad | El sistema debe permitir al usuario revisar inspecciones de calidad | 3                                                 |
+| RV602 | Registrar Inspeccion de Calidad | El sistema debe permitir al usuario registrar datos de una inspeccion de calidad | 4                                                 |
+
+
+| N°    | Interfaz | Descripción                                                                 |
+|-------|----------|-----------------------------------------------------------------------------|
+| IV601 | Revisar Inspecciones | Pantalla para visualizar datos sobre inspecciones de calidad |
+| IV602 | Registrar Inspecciones | Pantalla para ingresar datos sobre inspecciones de calidad y registrarlas |
+
 ### 7. PCP 
