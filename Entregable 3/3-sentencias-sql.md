@@ -681,9 +681,71 @@ WHERE cpren.id_caja =  <4>
 
 -- 6. ACABADOS: Carga la grilla de acbados por orden de produccion y
 --caja de entrada, aqui se ingresa su caja de salida.
+--Planchado
+SELECT acab.nombre, acd.id_Actividad, acd.fecha_actividad, capre.id_caja AS Caja, casa.id_salida AS Salida
+FROM Prenda pre
+Caja_prenda capre ON pre.id_caja = capre.id_caja
+JOIN Dimension_prenda_detalle dprende ON pre.id_dim_prenda = dprende.id_dim_prenda
+JOIN Acabado acab ON dprende.id_acabado = acab.id_acabado
+JOIN Empleado em ON pre.id_empleado = em.id_empleado
+JOIN Empleado_actividad emac ON em.id_empleado = emac.id_empleado
+JOIN Actividad_diaria acd ON emac.id_actividad = acd.id_actividad
+JOIN Registro_transformación_caja retca ON acd.id_actividad = retca.id_actividad
+JOIN Caja_lote calo ON retca.id_caja = calo.id_caja
+JOIN Caja_salida casa ON calo.id_caja = casa.id_caja
+WHERE capre.id_caja = <4>
+AND aca.nombre = "Planchado"
+
+
+--Hangteado
+SELECT acab.nombre, acd.id_Actividad, acd.fecha_actividad, capre.id_caja AS Caja, casa.id_salida AS Salida
+FROM Prenda pre
+Caja_prenda capre ON pre.id_caja = capre.id_caja
+JOIN Dimension_prenda_detalle dprende ON pre.id_dim_prenda = dprende.id_dim_prenda
+JOIN Acabado acab ON dprende.id_acabado = acab.id_acabado
+JOIN Empleado em ON pre.id_empleado = em.id_empleado
+JOIN Empleado_actividad emac ON em.id_empleado = emac.id_empleado
+JOIN Actividad_diaria acd ON emac.id_actividad = acd.id_actividad
+JOIN Registro_transformación_caja retca ON acd.id_actividad = retca.id_actividad
+JOIN Caja_lote calo ON retca.id_caja = calo.id_caja
+JOIN Caja_salida casa ON calo.id_caja = casa.id_caja
+WHERE capre.id_caja = <4>
+AND aca.nombre = "Hangteado"
+
+-- Embalaje
+SELECT acab.nombre, acd.id_Actividad, acd.fecha_actividad, capre.id_caja AS Caja, casa.id_salida AS Salida
+FROM Prenda pre
+Caja_prenda capre ON pre.id_caja = capre.id_caja
+JOIN Dimension_prenda_detalle dprende ON pre.id_dim_prenda = dprende.id_dim_prenda
+JOIN Acabado acab ON dprende.id_acabado = acab.id_acabado
+JOIN Empleado em ON pre.id_empleado = em.id_empleado
+JOIN Empleado_actividad emac ON em.id_empleado = emac.id_empleado
+JOIN Actividad_diaria acd ON emac.id_actividad = acd.id_actividad
+JOIN Registro_transformación_caja retca ON acd.id_actividad = retca.id_actividad
+JOIN Caja_lote calo ON retca.id_caja = calo.id_caja
+JOIN Caja_salida casa ON calo.id_caja = casa.id_caja
+WHERE capre.id_caja = <4>
+AND aca.nombre = "Embalaje"
+
+-- Empaquetado
+SELECT acab.nombre, acd.id_Actividad, acd.fecha_actividad, capre.id_caja AS Caja, casa.id_salida AS Salida
+FROM Prenda pre
+Caja_prenda capre ON pre.id_caja = capre.id_caja
+JOIN Dimension_prenda_detalle dprende ON pre.id_dim_prenda = dprende.id_dim_prenda
+JOIN Acabado acab ON dprende.id_acabado = acab.id_acabado
+JOIN Empleado em ON pre.id_empleado = em.id_empleado
+JOIN Empleado_actividad emac ON em.id_empleado = emac.id_empleado
+JOIN Actividad_diaria acd ON emac.id_actividad = acd.id_actividad
+JOIN Registro_transformación_caja retca ON acd.id_actividad = retca.id_actividad
+JOIN Caja_lote calo ON retca.id_caja = calo.id_caja
+JOIN Caja_salida casa ON calo.id_caja = casa.id_caja
+WHERE capre.id_caja = <4>
+AND aca.nombre = "Embalaje"
 
 -- 7. GUARDAR CAMBIOS: Se realiza click en guardar cambios para guardar
--- las modificaciones en Acabados.
+-- las modificaciones en Acabados y volver pantalla incial del modulo
+-- acabados/acabados
+
 
 
 --
