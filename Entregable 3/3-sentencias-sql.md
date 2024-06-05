@@ -743,6 +743,87 @@ JOIN Caja_salida casa ON calo.id_caja = casa.id_caja
 WHERE capre.id_caja = <4>
 AND aca.nombre = "Embalaje"
 
+-- ASIGNAR EN PLANCHADO:
+INSERT INTO Caja_salida (id_salida, fecha_salida, id_caja, id_area)
+SELECT
+    <1>,  -- Reemplaza esto con el valor que deseas insertar en id_salida
+    CURRENT_DATE,          -- Fecha actual
+    capre.id_caja,         -- id_caja obtenido de la consulta
+    5                      -- id_area fijo como 5
+FROM Prenda pre
+JOIN Caja_prenda capre ON pre.id_caja = capre.id_caja
+JOIN Dimension_prenda_detalle dprende ON pre.id_dim_prenda = dprende.id_dim_prenda
+JOIN Acabado acab ON dprende.id_acabado = acab.id_acabado
+JOIN Empleado em ON pre.id_empleado = em.id_empleado
+JOIN Empleado_actividad emac ON em.id_empleado = emac.id_empleado
+JOIN Actividad_diaria acd ON emac.id_actividad = acd.id_actividad
+JOIN Registro_transformación_caja retca ON acd.id_actividad = retca.id_actividad
+JOIN Caja_lote calo ON retca.id_caja = calo.id_caja
+JOIN Caja_salida casa ON calo.id_caja = casa.id_caja
+WHERE capre.id_caja = 4
+AND acab.nombre = 'Planchado';
+
+-- ASIGNAR EN HANGTEADO:
+INSERT INTO Caja_salida (id_salida, fecha_salida, id_caja, id_area)
+SELECT
+    <1>,  -- Reemplaza esto con el valor que deseas insertar en id_salida
+    CURRENT_DATE,          -- Fecha actual
+    capre.id_caja,         -- id_caja obtenido de la consulta
+    5                      -- id_area fijo como 5
+FROM Prenda pre
+JOIN Caja_prenda capre ON pre.id_caja = capre.id_caja
+JOIN Dimension_prenda_detalle dprende ON pre.id_dim_prenda = dprende.id_dim_prenda
+JOIN Acabado acab ON dprende.id_acabado = acab.id_acabado
+JOIN Empleado em ON pre.id_empleado = em.id_empleado
+JOIN Empleado_actividad emac ON em.id_empleado = emac.id_empleado
+JOIN Actividad_diaria acd ON emac.id_actividad = acd.id_actividad
+JOIN Registro_transformación_caja retca ON acd.id_actividad = retca.id_actividad
+JOIN Caja_lote calo ON retca.id_caja = calo.id_caja
+JOIN Caja_salida casa ON calo.id_caja = casa.id_caja
+WHERE capre.id_caja = 4
+AND acab.nombre = 'Hangteado';
+
+-- ASIGNAR EN EMBALAJE:
+INSERT INTO Caja_salida (id_salida, fecha_salida, id_caja, id_area)
+SELECT
+    <1>,  -- Reemplaza esto con el valor que deseas insertar en id_salida
+    CURRENT_DATE,          -- Fecha actual
+    capre.id_caja,         -- id_caja obtenido de la consulta
+    5                      -- id_area fijo como 5
+FROM Prenda pre
+JOIN Caja_prenda capre ON pre.id_caja = capre.id_caja
+JOIN Dimension_prenda_detalle dprende ON pre.id_dim_prenda = dprende.id_dim_prenda
+JOIN Acabado acab ON dprende.id_acabado = acab.id_acabado
+JOIN Empleado em ON pre.id_empleado = em.id_empleado
+JOIN Empleado_actividad emac ON em.id_empleado = emac.id_empleado
+JOIN Actividad_diaria acd ON emac.id_actividad = acd.id_actividad
+JOIN Registro_transformación_caja retca ON acd.id_actividad = retca.id_actividad
+JOIN Caja_lote calo ON retca.id_caja = calo.id_caja
+JOIN Caja_salida casa ON calo.id_caja = casa.id_caja
+WHERE capre.id_caja = 4
+AND acab.nombre = 'Embalaje';
+
+-- ASIGNAR EN EMPAQUETADO:
+INSERT INTO Caja_salida (id_salida, fecha_salida, id_caja, id_area)
+SELECT
+    <1>,  -- Reemplaza esto con el valor que deseas insertar en id_salida
+    CURRENT_DATE,          -- Fecha actual
+    capre.id_caja,         -- id_caja obtenido de la consulta
+    5                      -- id_area fijo como 5
+FROM Prenda pre
+JOIN Caja_prenda capre ON pre.id_caja = capre.id_caja
+JOIN Dimension_prenda_detalle dprende ON pre.id_dim_prenda = dprende.id_dim_prenda
+JOIN Acabado acab ON dprende.id_acabado = acab.id_acabado
+JOIN Empleado em ON pre.id_empleado = em.id_empleado
+JOIN Empleado_actividad emac ON em.id_empleado = emac.id_empleado
+JOIN Actividad_diaria acd ON emac.id_actividad = acd.id_actividad
+JOIN Registro_transformación_caja retca ON acd.id_actividad = retca.id_actividad
+JOIN Caja_lote calo ON retca.id_caja = calo.id_caja
+JOIN Caja_salida casa ON calo.id_caja = casa.id_caja
+WHERE capre.id_caja = 4
+AND acab.nombre = 'Empaquetado';
+
+
 -- 7. GUARDAR CAMBIOS: Se realiza click en guardar cambios para guardar
 -- las modificaciones en Acabados y volver pantalla incial del modulo
 -- acabados/acabados
