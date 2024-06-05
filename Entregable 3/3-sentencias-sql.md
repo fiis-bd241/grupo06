@@ -253,7 +253,6 @@
 | Imagen interfaz  |
 ![](../Entregable%203/Prototipos/calidad/Registrar%20Solicitudes%20de%20Inspeccion.png)
 | Sentencias SQL |
-| --- |
 | Eventos |
 | **1. Botón “Registrar”: Cuando el usuario presione el botón “registrar” se registrará una Inspección de calidad |
           INSERT INTO INSPECCION_CALIDAD(ID_INSPECCION,
@@ -274,9 +273,8 @@
 | --- | --- |
 | Codigo interfaz | IV602 |
 | Imagen interfaz  |
-
+![](../Entregable%203/Prototipos/calidad/Registrar%20datos%20de%20Inspeccion.png)
 | Sentencias SQL |
-| --- |
 | Eventos |
 | **1. Botón Buscar Inspección: Cuando el usuario presione el botón “buscar” se buscará las inspecciones de calidad |
           SELECT
@@ -301,9 +299,8 @@ GROUP BY I.ID_INSPECCION;
 | --- | --- |
 | Codigo interfaz |  IV603 |
 | Imagen interfaz  |
-          
+![](../Entregable%203/Prototipos/calidad/Revisar%20Inspecciones.png)
 | Sentencias SQL |
-| --- |
 | Eventos |
 | **1. Botón “Registrar datos de Inspección”: Cuando el usuario presione el botón se actualizará la inspección seleccionada previamente |
           UPDATE INSPECCION_CALIDAD SET
