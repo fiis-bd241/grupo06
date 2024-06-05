@@ -332,15 +332,16 @@ interfaz
               op.cantidad AS cantidad_orden_preproduccion,
               (SUM(l.cantidad) / op.cantidad) * 100 AS progreso_preproduccion
           FROM actividad_diaria ad
-          LEFT JOIN corte c ON ad.id_actividad = c.id_actividad
-          LEFT JOIN lote l ON c.id_lote = l.id_lote
-          LEFT JOIN dimension_corte dc ON l.id_dim_corte = dc.id_dim_corte
-          LEFT JOIN orden_producción op ON dc.id_dim_corte = op.id_dim_corte
-          LEFT JOIN dimension_prenda dp ON op.id_dim_prenda = dp.id_dim_prenda
+          JOIN orden_producción op ON ad.id_orden_producción = op.id_orden_producción
+          JOIN lote l ON ad.id_actividad = l.id_actividad
+          JOIN corte c ON l.id_lote = c.id_lote
           GROUP BY
-              ad.id_actividad, ad.fecha_actividad, op.cantidad
+              ad.id_actividad,
+              ad.fecha_actividad,
+              op.cantidad
           ORDER BY
               ad.fecha_actividad DESC;
+
 
 ####  2.7
 | Código requerimiento | RV205 |
