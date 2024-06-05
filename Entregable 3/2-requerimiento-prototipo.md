@@ -87,7 +87,21 @@
 
 ### 7. PCP 
 
+| N°    | Requerimiento Funcional  | Descripción                                         | Impacto <br> (1) Bajo (2) Normal<br> (3) Alto (4) Muy alto |
+|-------|--------------------------|-----------------------------------------------------|---------------------------------------------------|
+| RV701 | Ingresar orden de pedido a linea de producción | El sistema debe permitir al usuario revisar las órdenes de pedido e ingresar a la línea de producción.  | 4                                                 |
+| RV702 | Programar órdendes de producción | El sistema debe permitir al usuario asignar una programación a la orden de producción.       | 4                                                |
+| RV703 | Controlar órdenes de producción | El sistema debe permitir al usuario controlar las órdenes de producción. | 4                                                |
+| RV704 | Reprogramar órdenes de producción | El sistema debe permitir al usuario reprogramar parcialmente o en su totalidad las órdenes de producción | 3                                                |
+| RV705 | Visualizar órdenes de trabajo | El sistema debe permitir al usuario visualizar las órdenes de trabajo según las órdenes de producción.  | 2    |
 
+| N°    | Interfaz | Descripción                                                                 |
+|-------|----------|-----------------------------------------------------------------------------|
+| IV701 | Registro de órdenes de pedido     | Pantalla para ver el registro de las órdenes de pedido e iniciar con la programación.        |
+| IV702 | Programar producción | Pantalla para ingresar los datos para la programación de la Orden de Producción.         |
+| IV703 | Controlar producción  | Pantalla para ver el registro de las órdenes de producción e iniciar con la reprogramación en caso sea necesario. |
+| IV704 | Reprogramar producción | Pantalla para ingresar los nuevos datos para la reprogramación de la Orden de Producción. |
+| IV705 | Visualizar orden de trabajo | Pantalla para mostrar el detalle de la orden de trabajo de una orden de producción y que permitirá hacer la impresión del mismo.  |
 
 
 
