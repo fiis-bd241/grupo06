@@ -3,4 +3,6 @@
 ### Modelo Lógico
 ![Diagrama](../Entregable%203/ER.jpeg)
 
-***[Regresar al índice](../README.md)***
+**[Ir a la seccion 2](2-requerimiento-prototipo.md)**
+
+***[Regresar al índice](./entregable%203-indice.md)***
