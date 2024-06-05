@@ -451,7 +451,6 @@ JOIN Talla ta ON dimconf.id_talla = ta.id_talla
 
 
 
-### 6. Calidad
 ####  6.1
 | Código requerimiento | RV601 |
 | --- | --- |
@@ -462,6 +461,7 @@ JOIN Talla ta ON dimconf.id_talla = ta.id_talla
 | Sentencias SQL |
 | Eventos |
 | **1. Botón “Registrar”: Cuando el usuario presione el botón “registrar” se registrará una Inspección de calidad |
+
           INSERT INTO INSPECCION_CALIDAD(ID_INSPECCION,
           FECHA_INSPECCION,
           ESTADO,
@@ -485,6 +485,7 @@ JOIN Talla ta ON dimconf.id_talla = ta.id_talla
 | Sentencias SQL |
 | Eventos |
 | **1. Botón Buscar Inspección: Cuando el usuario presione el botón “buscar” se buscará las inspecciones de calidad |
+
           SELECT
           I.ID_INSPECCION,
           I.ID_LOTE,
@@ -496,11 +497,11 @@ JOIN Talla ta ON dimconf.id_talla = ta.id_talla
           I.ID_AQL_SIGNIFICANCIA,
           I.ESTADO,
           I.ID_RESULTADO
-FROM INSPECCION_CALIDAD I
-WHERE I.ID_INSPECCION = <1>
-AND I.ID_LOTE = <2>
-AND I.FECHA_INSPECCION = <3>
-GROUP BY I.ID_INSPECCION;
+          FROM INSPECCION_CALIDAD I
+          WHERE I.ID_INSPECCION = <1>
+          AND I.ID_LOTE = <2>
+          AND I.FECHA_INSPECCION = <3>
+          GROUP BY I.ID_INSPECCION;
 
 ####  6.3
 | Código requerimiento | RV603 |
@@ -512,12 +513,13 @@ GROUP BY I.ID_INSPECCION;
 | Sentencias SQL |
 | Eventos |
 | **1. Botón “Registrar datos de Inspección”: Cuando el usuario presione el botón se actualizará la inspección seleccionada previamente |
+
           UPDATE INSPECCION_CALIDAD SET
           CANTIDAD_DEFECTUOSOS = <2>,
           DESCRIPCION = <3>,
           RESULTADO = <4>
           ESTADO = 'INSPECCIONADO'
-WHERE ID_INSPECCION = <1>;
+          WHERE ID_INSPECCION = <1>;
 
 ### 7. PCP 
 
