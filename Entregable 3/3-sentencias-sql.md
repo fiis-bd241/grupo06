@@ -249,7 +249,7 @@
 |-----------------------------------------------|
 | **Código Interfaz**    : IV001        |
 | **Imagen Interfaz** | 
-|    | 
+|  ![IV001](../Entregable%203/Prototipos/acabados/caja-1.png)  | 
 | **Sentencia SQL**   | 
 | **Eventos:** |
 ```sql
@@ -306,7 +306,7 @@ WHERE
 |-----------------------------------------------|
 | **Código Interfaz**    : IV002        |
 | **Imagen Interfaz** | 
-|    | 
+|   ![IV002](../Entregable%203/Prototipos/acabados/caja-2.png)   | 
 | **Sentencia SQL**   | 
 | **Eventos:** |
 ```sql
@@ -368,7 +368,7 @@ JOIN Genero ge ON dimconf.id_genero = ge.id_genero
 |-----------------------------------------------|
 | **Código Interfaz**    : IV003        |
 | **Imagen Interfaz** | 
-|    | 
+|   ![IV003](../Entregable%203/Prototipos/acabados/caja-3.png)  | 
 | **Sentencia SQL**   | 
 | **Eventos:** |
 ```sql
@@ -385,7 +385,7 @@ JOIN Genero ge ON dimconf.id_genero = ge.id_genero
 |-----------------------------------------------|
 | **Código Interfaz**    : IV003        |
 | **Imagen Interfaz** | 
-|    | 
+|  ![IV003](../Entregable%203/Prototipos/acabados/caja-3.png)   | 
 | **Sentencia SQL**   | 
 | **Eventos:** |
 ```sql
@@ -396,7 +396,7 @@ JOIN Genero ge ON dimconf.id_genero = ge.id_genero
 |-----------------------------------------------|
 | **Código Interfaz**    : IV004        |
 | **Imagen Interfaz** | 
-|    | 
+| ![IV004](../Entregable%203/Prototipos/acabados/caja-4.png)    | 
 | **Sentencia SQL**   | 
 | **Eventos:** |
 ```sql
@@ -411,7 +411,7 @@ JOIN Caja_prenda capren ON prend.id_caja = capren.id_caja
 |-----------------------------------------------|
 | **Código Interfaz**    : IV005        |
 | **Imagen Interfaz** | 
-|    | 
+|  ![IV005](../Entregable%203/Prototipos/acabados/acabado-.png)   | 
 | **Sentencia SQL**   | 
 | **Eventos:** |
 ```sql
@@ -449,7 +449,7 @@ JOIN Talla ta ON dimconf.id_talla = ta.id_talla
 
 ```
 
-
+### 6. Calidad
 
 ####  6.1
 | Código requerimiento | RV601 |
