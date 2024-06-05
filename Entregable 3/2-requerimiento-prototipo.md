@@ -50,8 +50,8 @@
 | N°    | Requerimiento Funcional  | Descripción                                         | Impacto <br> (1) Bajo (2) Normal<br> (3) Alto (4) Muy alto |
 |-------|--------------------------|-----------------------------------------------------|---------------------------------------------------|
 | RV601 | Registrar Solicitud de Inspeccion de calidad | El sistema debe permitir al usuario registrar datos de una solicitud de inspeccion de calidad | 4                                                 |
-| RV602 | Registrar resultados de Inspeccion de calidad | El sistema debe permitir al usuario registrar datos de una inspeccion de calidad | 4                                                 |
-| RV603 | Revisar Inspecciones de Calidad | El sistema debe permitir al usuario revisar inspecciones de calidad | 3                                                 |
+| RV602 | Revisar Inspecciones de Calidad | El sistema debe permitir al usuario revisar inspecciones de calidad | 3                                                 |
+| RV603 | Registrar resultados de Inspeccion de calidad | El sistema debe permitir al usuario registrar datos de una inspeccion de calidad | 4                                                 |
 
 | N°    | Interfaz | Descripción                                                                 |
 |-------|----------|-----------------------------------------------------------------------------|
