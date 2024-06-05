@@ -62,9 +62,113 @@
 | Sentencias SQL |
 | --- |
 | Eventos |
-| **1. Botón Asignarr:** Nos dirigirá a asignar actividad |
+| **1. Botón Asignar:** Nos dirigirá a asignar actividad |
 |**INSERT INTO actividad_diaria (fecha_actividad, id_orden_producción) VALUES (<2>, <3>);**|
 |**INSERT INTO maquina_actividad (id_actividad, id_maquina, cantidad_hecha) VALUES (1, <1>, <4>);**|
+
+####  2.3
+| Código requerimiento | RV207 |
+| --- | --- |
+| Codigo interfaz |  IV203 |
+| Imagen interfaz  |
+
+![Alt texasdt]()
+
+| Sentencias SQL |
+| --- |
+| Eventos |
+| **1. Botón Operario corte:** Nos dirigirá al detalle que el oprario debe programar la maquina |
+          SELECT
+              a.fecha_actividad,
+              o.id_orden_producción,
+              o.cantidad AS cantidad_orden,
+              m.id_maquina,
+              ma.cantidad_hecha AS cantidad_realizar,
+              t.nombre AS tipo_corte
+          FROM actividad_diaria a
+          JOIN maquina_actividad ma ON a.id_actividad = ma.id_actividad
+          JOIN maquina m ON ma.id_maquina = m.id_maquina
+          JOIN orden_producción o ON a.id_orden_producción = o.id_orden_producción
+          JOIN corte c ON o.id_dim_corte = c.id_dim_corte
+          JOIN dimension_corte t ON c.id_dim_corte = t.id_dim_corte
+          WHERE a.fecha_actividad = CURRENT_DATE
+          ORDER BY o.id_orden_producción, m.id_maquina;
+
+####  2.4
+| Código requerimiento | RV208 |
+| --- | --- |
+| Codigo interfaz |  IV204 |
+| Imagen interfaz  |
+
+![Alt texasdt]()
+
+| Sentencias SQL |
+| --- |
+| Eventos |
+| **1. Botón Operaio corte:** El oprario insertara los valores del corte que se realizaxo y la cantidad de lote usado |
+|**INSERT INTO lote (id_tipo_lote, cantidad, id_dim_corte, id_dim_confeccion, id_dim_materia_prima, id_actividad, fecha_creacion) VALUES (<1>, <2>, <3>, NULL, NULL, <4>, <5>);**|
+|**INSERT INTO Registro_uso_lote (id_actividad, id_lote, cantidad_usada) VALUES (<6>, <7>, <8>);**|
+
+####  2.5
+| Código requerimiento | RV203 |
+| --- | --- |
+| Codigo interfaz |  IV205 |
+| Imagen interfaz  |
+
+![Alt texasdt]()
+
+| Sentencias SQL |
+| --- |
+| Eventos |
+| **1. Botón Detalle Corte:** El jefe de corte visualizara las actividades diarias por máquina |
+          SELECT 
+              ma.id_maquina,
+              m.capacidad_total,
+              COUNT(ad.id_actividad) AS cantidad_actividades,
+              ad.fecha_actividad
+          FROM 
+              actividad_diaria ad
+          JOIN 
+              maquina_actividad ma ON ad.id_actividad = ma.id_actividad
+          JOIN 
+              maquina m ON ma.id_maquina = m.id_maquina
+          WHERE 
+              ad.fecha_actividad = '2024-06-03'  -- Aquí especificas la fecha deseada
+          GROUP BY 
+              ma.id_maquina, m.capacidad_total, ad.fecha_actividad
+          ORDER BY 
+              cantidad_actividades DESC;  -- Ordenar la cantidad de actividades de forma descendente
+
+####  2.6
+| Código requerimiento | RV204 |
+| --- | --- |
+| Codigo interfaz |  IV206 |
+| Imagen interfaz  |
+
+![Alt texasdt]()
+
+| Sentencias SQL |
+| --- |
+| Eventos |
+| **1. Botón Ver actividad:** El jefe de corte podrá visualizar los cortes que se realizan por actividad |
+          SELECT
+              ad.id_actividad,
+              ad.fecha_actividad,
+              COUNT(c.id_corte) AS cantidad_cortes,
+              op.cantidad AS cantidad_orden_preproduccion,
+              (SUM(l.cantidad) / op.cantidad) * 100 AS progreso_preproduccion
+          FROM actividad_diaria ad
+          LEFT JOIN corte c ON ad.id_actividad = c.id_actividad
+          LEFT JOIN lote l ON c.id_lote = l.id_lote
+          LEFT JOIN dimension_corte dc ON l.id_dim_corte = dc.id_dim_corte
+          LEFT JOIN orden_producción op ON dc.id_dim_corte = op.id_dim_corte
+          LEFT JOIN dimension_prenda dp ON op.id_dim_prenda = dp.id_dim_prenda
+          GROUP BY
+              ad.id_actividad, ad.fecha_actividad, op.cantidad
+          ORDER BY
+              ad.fecha_actividad DESC;
+
+
 
 ### 3. Confección 
 ### 4. Almacén de tránsito 
