@@ -56,7 +56,7 @@
 | Codigo interfaz |  IV202 |
 | Imagen interfaz  |
 
-![Alt texasdt]()
+![](../Entregable%201/Mockups%20-%20Figma/Corte/corte_v2/asignar_actividad.png)
 
 | Sentencias SQL |
 | --- |
@@ -71,7 +71,7 @@
 | Codigo interfaz |  IV203 |
 | Imagen interfaz  |
 
-![Alt texasdt]()
+![](../Entregable%201/Mockups%20-%20Figma/Corte/corte_v2/actividades_maquina_dia.png)
 
 | Sentencias SQL |
 | --- |
@@ -99,7 +99,7 @@
 | Codigo interfaz |  IV204 |
 | Imagen interfaz  |
 
-![Alt texasdt]()
+![](../Entregable%201/Mockups%20-%20Figma/Corte/corte_v2/operario_corte.png)
 
 | Sentencias SQL |
 | --- |
@@ -114,7 +114,7 @@
 | Codigo interfaz |  IV205 |
 | Imagen interfaz  |
 
-![Alt texasdt]()
+![](../Entregable%201/Mockups%20-%20Figma/Corte/corte_v2/actividad_diaria_maquina.png)
 
 | Sentencias SQL |
 | --- |
@@ -144,7 +144,7 @@
 | Codigo interfaz |  IV206 |
 | Imagen interfaz  |
 
-![Alt texasdt]()
+![](../Entregable%201/Mockups%20-%20Figma/Corte/corte_v2/cortes_actividad.png)
 
 | Sentencias SQL |
 | --- |
@@ -173,7 +173,7 @@
 | Codigo interfaz |  IV207 |
 | Imagen interfaz  |
 
-![Alt texasdt]()
+![](../Entregable%201/Mockups%20-%20Figma/Corte/corte_v2/lotes_mes.png)
 
 | Sentencias SQL |
 | --- |
@@ -204,7 +204,7 @@
 | Codigo interfaz |  IV208|
 | Imagen interfaz  |
 
-![Alt texasdt]()
+![](../Entregable%201/Mockups%20-%20Figma/Corte/corte_v2/cortes_orden_produccion.png)
 
 | Sentencias SQL |
 | --- |
