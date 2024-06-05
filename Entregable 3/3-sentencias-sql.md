@@ -18,12 +18,12 @@ interfaz
                     mp.id_materia_prima,
                     e.id_espacio,
                     le.fecha_entrada
-FROM lote l
-JOIN materia_prima mp ON l.id_lote = mp.id_lote
-JOIN proveedor p ON mp.id_proveedor = p.id_proveedor
-JOIN espacio e ON l.id_lote = e.id_lote
-JOIN lote_entrada le ON l.id_lote = le.id_lote
-WHERE l.estado = 'En almacen';
+          FROM lote l
+          JOIN materia_prima mp ON l.id_lote = mp.id_lote
+          JOIN proveedor p ON mp.id_proveedor = p.id_proveedor
+          JOIN espacio e ON l.id_lote = e.id_lote
+          JOIN lote_entrada le ON l.id_lote = le.id_lote
+          WHERE l.estado = 'En almacen';
 
 ####  1.2
 | Código requerimiento | RV102 |
