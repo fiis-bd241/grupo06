@@ -57,6 +57,11 @@
 * **Registrar datos de inspeccion de calidad:** El usuario se encarga de ingresar los datos restantes de una inspección de calidad como la cantidad de defectos, resultado y descripcion; además el estado cambia a inspeccionado.
   
 ### PCP 
+* **Ingresar pedidos a la línea de producción:** Se designará una orden de producción por cada orden de pedido solicitado.
+* **Programar producción:** Se ingresa datos de programación de fechas, responsables y dimensiones del pedido, para luego ser registrado.
+* **Controlar producción:** El usuario puede revisar los detalles de la producción y tomar una decisión según el estado.
+* **Reprogramar producción:** Se ingresa nuevos datos de programación de fechas, responsables y dimensiones del pedido, para luego ser registrado.
+* **Visualizar orden de trabajo:** El usuario puede revisar a detalle e imprimir la orden de trabajo según la orden de producción.
 
 **[Ir a la seccion 6](6-stack.md)**
 
