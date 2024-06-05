@@ -43,7 +43,6 @@
 * **Añadir producto:** El operario de conteo podra añadir una nueva fila dentro de la tabla ya existente.
 * **Ordenar documentos de envio de cajas por cantidad de prendas enviadas o cajas enviadas:** El operario de conteo podra ordenar los documentos de envio de forma ascendente o descendente segun la cantidad de prendas enviadas o cajas enviadas.
 * **Visualizar documentos de envio de cajas por rango de fecha de envio:** El operario de conteo podra visualizar los documentos de cajas enviadas por rango de fecha de envio segun el dia/mes/año buscado.
-* **Visualizar documentos de envio de cajas por rango de fecha de envio:** El operario de conteo podra visualizar los documentos de cajas enviadas por rango de fecha de envio segun el dia/mes/año buscado.
 * **Visualizar documentos de envio de cajas segun los LS:** El operario de conteo podra visualizar los documentos de cajas enviadas segun el LS.
 
 ### Acabados
