@@ -251,7 +251,7 @@
 | --- | --- |
 | Codigo interfaz |  IV601 |
 | Imagen interfaz  |
-
+![](../Entregable%203/Prototipos/calidad/Registrar%20Solicitudes%20de%20Inspeccion.png)
 | Sentencias SQL |
 | --- |
 | Eventos |
