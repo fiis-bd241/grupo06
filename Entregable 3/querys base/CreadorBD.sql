@@ -22,7 +22,7 @@ DROP TABLE IF EXISTS aql_nivel CASCADE;
 DROP TABLE IF EXISTS aql_lote_rango CASCADE;
 DROP TABLE IF EXISTS aql_codigo CASCADE;
 DROP TABLE IF EXISTS aql_significancia CASCADE;
-DROP TABLE IF EXISTS tipo_resultado CASCADE;
+DROP TABLE IF EXISTS resultado CASCADE;
 --Nivel 2
 DROP TABLE IF EXISTS proveedor CASCADE;
 DROP TABLE IF EXISTS empleado CASCADE;
@@ -199,7 +199,7 @@ CREATE TABLE genero
 CREATE TABLE acabado
 (
   id_acabado SERIAL,
-  nombre VARCHAR(9) NOT NULL,
+  nombre VARCHAR(10) NOT NULL,
   PRIMARY KEY (id_acabado),
   UNIQUE (nombre)
 );
@@ -238,9 +238,9 @@ CREATE TABLE aql_lote_rango
 CREATE TABLE aql_codigo
 (
   id_aql_codigo CHAR(1),
-  tamano_muestra INT NOT NULL,
+  tamaño_muestra INT NOT NULL,
   PRIMARY KEY (id_aql_codigo),
-  UNIQUE (tamano_muestra)
+  UNIQUE (tamaño_muestra)
 );
 
 CREATE TABLE aql_significancia
@@ -251,7 +251,7 @@ CREATE TABLE aql_significancia
   UNIQUE (nivel_significancia)
 );
 
-CREATE TABLE tipo_resultado
+CREATE TABLE resultado
 (
   id_resultado SERIAL,
   nombre VARCHAR(15) NOT NULL,
@@ -342,6 +342,7 @@ CREATE TABLE dimension_confeccion
 CREATE TABLE orden_pedido
 (
   id_orden_pedido SERIAL,
+  cantidad INT NOT NULL,
   fecha_entrega TIMESTAMPTZ NOT NULL,
   id_estado INT NOT NULL,
   fecha_creacion TIMESTAMP NOT NULL,
@@ -493,7 +494,7 @@ CREATE TABLE orden_producción
   fecha_fin DATE NOT NULL,
   fecha_inicio DATE NOT NULL,
   cantidad INT NOT NULL,
-  estado VARCHAR(15) NOT NULL,
+  id_estado INT NOT NULL,
   id_area INT NOT NULL,
   id_dim_prenda INT,
   id_dim_confeccion INT,
@@ -501,6 +502,7 @@ CREATE TABLE orden_producción
   id_orden_trabajo INT NOT NULL,
   fecha_creacion TIMESTAMP NOT NULL,
   PRIMARY KEY (id_orden_producción),
+  FOREIGN KEY (id_estado) REFERENCES estado(id_estado),
   FOREIGN KEY (id_area) REFERENCES area(id_area),
   FOREIGN KEY (id_dim_prenda) REFERENCES dimension_prenda(id_dim_prenda),
   FOREIGN KEY (id_dim_confeccion) REFERENCES dimension_confeccion(id_dim_confeccion),
@@ -523,7 +525,7 @@ CREATE TABLE lote
 (
   id_lote SERIAL,
   cantidad INT NOT NULL,
-  estado VARCHAR(15) NOT NULL,
+  id_estado INT NOT NULL,
   id_tipo_lote INT NOT NULL,
   id_dim_corte INT,
   id_dim_confeccion INT,
@@ -531,6 +533,7 @@ CREATE TABLE lote
   id_actividad INT NOT NULL,
   fecha_creacion TIMESTAMP NOT NULL,
   PRIMARY KEY (id_lote),
+  FOREIGN KEY (id_estado) REFERENCES estado(id_estado),
   FOREIGN KEY (id_tipo_lote) REFERENCES tipo_lote(id_tipo_lote),
   FOREIGN KEY (id_dim_corte) REFERENCES dimension_corte(id_dim_corte),
   FOREIGN KEY (id_dim_confeccion) REFERENCES dimension_confeccion(id_dim_confeccion),
@@ -563,10 +566,11 @@ CREATE TABLE caja_prenda
   id_caja SERIAL,
   cantidad INT NOT NULL,
   fecha_creacion INT NOT NULL,
-  estado VARCHAR(15) NOT NULL,
+  id_estado INT NOT NULL,
   id_dim_prenda INT NOT NULL,
   id_actividad INT NOT NULL,
   PRIMARY KEY (id_caja),
+  FOREIGN KEY (id_estado) REFERENCES estado(id_estado),
   FOREIGN KEY (id_dim_prenda) REFERENCES dimension_prenda(id_dim_prenda),
   FOREIGN KEY (id_actividad) REFERENCES actividad_diaria(id_actividad)
 );
@@ -634,12 +638,13 @@ CREATE TABLE espacio
   ancho NUMERIC(4,2) NOT NULL,
   largo NUMERIC(4,2) NOT NULL,
   alto NUMERIC(4,2) NOT NULL,
-  estado VARCHAR(20) NOT NULL,
+  id_estado INT NOT NULL,
   id_lote INT,
   id_estanteria NUMERIC(7) NOT NULL,
   PRIMARY KEY (id_espacio),
   FOREIGN KEY (id_lote) REFERENCES lote(id_lote),
   FOREIGN KEY (id_estanteria) REFERENCES estanteria(id_estanteria),
+  FOREIGN KEY (id_estado) REFERENCES estado(id_estado),
   UNIQUE (id_lote)
 );
 
@@ -658,7 +663,7 @@ CREATE TABLE inspeccion_calidad
 (
   id_inspeccion SERIAL,
   fecha_inspeccion TIMESTAMP NOT NULL,
-  estado VARCHAR(15) NOT NULL,
+  id_estado INT NOT NULL,
   cantidad_defectuosos INT NOT NULL,
   id_lote INT NOT NULL,
   id_aql_lote_rango INT NOT NULL,
@@ -668,11 +673,12 @@ CREATE TABLE inspeccion_calidad
   id_descripcion INT NOT NULL,
   id_resultado INT NOT NULL,
   PRIMARY KEY (id_inspeccion),
+  FOREIGN KEY (id_estado) REFERENCES estado(id_estado),
   FOREIGN KEY (id_lote) REFERENCES lote(id_lote),
   FOREIGN KEY (id_aql_lote_rango, id_aql_nivel) REFERENCES aql_muestra(id_aql_lote_rango, id_aql_nivel),
   FOREIGN KEY (id_aql_codigo, id_aql_significancia) REFERENCES aql_resultado_rango(id_aql_codigo, id_aql_significancia),
   FOREIGN KEY (id_descripcion) REFERENCES inspeccion_descripcion(id_descripcion),
-  FOREIGN KEY (id_resultado) REFERENCES tipo_resultado(id_resultado)
+  FOREIGN KEY (id_resultado) REFERENCES resultado(id_resultado)
 );
 
 --Nivel 9
