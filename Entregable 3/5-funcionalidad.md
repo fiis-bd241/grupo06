@@ -21,9 +21,11 @@
 * **Ver Caja:** Operario verifica las cajas del lote asignado y ve detalles para realizar los acabados.
 * **Registro de acabados:** Operario registra el término del subproceso, modifica el estado del acabado mediante el sistema.
 
-
 ### Calidad 
-
+* **Registrar solicitud de Inspeccion de calidad:** Se ingresa los datos de una solicitud de inspección de calidad, solo con los datos inciales previos a la inspección, por lo que algunas se encuentran aún como NULL
+* **Revisar Inspecciones de calidad:** Ver detalles de todas o una parte de las inspecciones, según los parámetros de búsqueda que ingresa el usuario.
+* **Registrar datos de inspeccion de calidad:** El usuario se encarga de ingresar los datos restantes de una inspección de calidad como la cantidad de defectos, resultado y descripcion; además el estado cambia a inspeccionado.
+  
 ### PCP 
 
 **[Ir a la seccion 6](6-stack.md)**
