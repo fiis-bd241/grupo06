@@ -34,15 +34,22 @@
 
 | N°    | Requerimiento Funcional  | Descripción                                         | Impacto <br> (1) Bajo (2) Normal<br> (3) Alto (4) Muy alto |
 |-------|--------------------------|-----------------------------------------------------|---------------------------------------------------|
-| RV501 | Verificar ingreso de cajas| El encargado debe verificar el ingreso de órdenes de trabajo. | 3                                                 |
-| RV502 | Ver reporte por periodo   | Genera reporte por días o mes en una tabla.        | 2                                                 |
-| RV503 | Asignar Operario a acabado| Asignar operario por cada orden de trabajo para acabados | 4                                                 |
-| RV503 | Registro de Acabado       | Registrar el avance de los subprocesos de acabados  | 4                                                 |
+| RV501 | Verificar y buscar cajas | Pantalla para verificar y buscar cajas.  | 3                                                 |
+| RV502 | Detalle por Caja   | Ver los detalles generales por caja.       | 4                                                |
+| RV503 | Reporte | Pantalla para realizar el reporte online e impresion del reporte en pdf. | 2                                                |
+| RV504 | Ver Operario      | Ver detalles basicos del operario | 2                                                |
+| RV505 | Reporte por operario       | Pantalla para mostrar detalles de cajas asignadas por operarios y sus datos generales  | 4    |
+| RV506 | Datos generales de acabados     | Verificar y modificación de acabados por cajas y prendas.  | 4    |
 
 | N°    | Interfaz | Descripción                                                                 |
 |-------|----------|-----------------------------------------------------------------------------|
-| IV501 | Lote     | Pantalla para visualizar y asignar operarios, se realiza reportes.           |
-| IV502 | Acabado  | Se modifica estado de subproceso de acabado, verificación de asignación de operario. |
+| IV501 | Lote     | Pantalla para verificar y buscar cajas y hacer reporte.         |
+| IV502 | Detalle de caja  | Pantalla para mostrar datos generales de cada caja y su prenda. |
+| IV503 | Reporte  | Pantalla para realizar el reporte online e impresion del reporte en pdf. |
+| IV504 | Operario  | Popup para mostrar datos básicos del operario. |
+| IV505 | Busqueda y detalle de operario  | Pantalla para mostrar detalles de cajas asignadas por operarios y sus datos generales  |
+| IV506 | Detalle de caja y acabados | Pantalla para verificar y modificación de acabados por cajas y prendas.  |
+
 
 
 ### 6. Calidad 
