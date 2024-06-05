@@ -1113,6 +1113,17 @@ AND acab.nombre = 'Empaquetado';
 | Eventos |
 | **1. Botón “Reprogramar”: Cuando el usuario presione el botón "Reprogramar" se actualizará los campos programados inicialmente. |
 
+          SELECT * FROM orden_produccion
+          -- Actualizar datos en la tabla area
+          UPDATE area (id_area, nombre_area) SET (Texto, 'Texto'),
+          -- Actualizar datos en la tabla dim_prenda
+          UPDATE dim_prenda (id_dim_prenda, tipo_prenda, estilo_prenda, talla_prenda, genero_prenda) SET (Texto, 'Texto','Texto', 'Texto', 'Texto'),
+          -- Actualizar una nueva orden de producción
+          UPDATE orden_produccion (fecha_inicio, fecha_fin, id_area, id_dim_prenda, guia_confeccion, medidas_prenda) SET ('Texto', 'Texto', Texto, Texto, 'Texto', 'Texto');
+          -- Verificar la inserción
+          SELECT * FROM orden_produccion;
+
+
               
 ####  7.5
 | Código requerimiento | RV705 |
@@ -1124,6 +1135,17 @@ AND acab.nombre = 'Empaquetado';
 | Sentencias SQL |
 | Eventos |
 | **1. Botón "Desacargar": Cuando el usuario presione el botón “Descargar” se podrá imprimir la orden de trabajo.|
+
+    SELECT 
+    fecha_creacion,
+    fecha_inicio,
+    fecha_fin,
+    prioridad,
+    estado,
+    id_orden_pedido,
+    id_plan
+    FROM 
+    orden_trabajo;
 
 **[Ir a la seccion 4](4-carga-datos.md)**
 
