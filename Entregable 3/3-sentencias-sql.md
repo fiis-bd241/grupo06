@@ -452,8 +452,7 @@ JOIN
     orden_pedido op ON ot.id_orden_pedido = op.id_orden_pedido;
 
 ```
-| Eventos |
-| Al darle click sobre la caja de texto apareceran todas las ordenes de trabajo existente |
+| Eventos || Al darle click sobre la caja de texto apareceran todas las ordenes de trabajo existente |
 
 | Código requerimiento | RV402 |
 | --- | --- |
@@ -464,6 +463,12 @@ JOIN
 
 | Sentencias SQL |
 | --- |
+```sql
+
+INSERT INTO recepcion_documentos (numero_documento, area_remitente, nombre_receptor)
+VALUES ('204165', 'Confeccion', 'Juan Perez');
+
+```
 | Eventos |
 
 | Código requerimiento | RV403 |
@@ -475,6 +480,28 @@ JOIN
 
 | Sentencias SQL |
 | --- |
+```sql
+
+--Insertar codigo producto
+INSERT INTO recepcion (codigo_producto)
+VALUES ('BD250241');
+
+--Actualizar datos
+
+UPDATE recepcion_productos
+SET nombre = 'Polo Amarillo',
+    cantidad_original = 45,
+    cantidad_a_recepcionar = 45,
+    u_m_recepcionada = 'Unidad'
+
+WHERE codigo = 'BD250241';
+
+--Eliminar datos
+
+DELETE FROM recepcion_productos
+WHERE codigo = 'BD250241';
+
+```
 | Eventos |
 
 | Código requerimiento | RV404 |
@@ -486,6 +513,11 @@ JOIN
 
 | Sentencias SQL |
 | --- |
+```sql
+--Mostrar datos finales
+SELECT *
+FROM recepcion_productos;
+```
 | Eventos |
 
 | Código requerimiento | RV405 |
@@ -497,19 +529,15 @@ JOIN
 
 | Sentencias SQL |
 | --- |
+```sql
+
+--Mostrar datos finales
+
+SELECT *
+FROM recepcion_productos;
+
+```
 | Eventos |
-
-| Código requerimiento | RV406 |
-| --- | --- |
-| Codigo interfaz |  IV406 |
-| Imagen interfaz  |
-
-![](../Entregable%203/Prototipos/transito/1.6%20-%20Documentos%20de%20Recepcion.PNG)
-
-| Sentencias SQL |
-| --- |
-| Eventos |
-
 
 ### 5. Acabados
 | Código Requerimiento    : RV001               | 
