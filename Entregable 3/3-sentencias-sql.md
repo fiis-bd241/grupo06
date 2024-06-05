@@ -168,7 +168,80 @@
           ORDER BY
               ad.fecha_actividad DESC;
 
+####  2.7
+| Código requerimiento | RV205 |
+| --- | --- |
+| Codigo interfaz |  IV207 |
+| Imagen interfaz  |
 
+![Alt texasdt]()
+
+| Sentencias SQL |
+| --- |
+| Eventos |
+| **1. Botón Detalle corte:** El jefe de corte podrá visualizar el numero de lotes por dia en el mes |
+          SELECT 
+              l.fecha_creacion::date AS dia,
+              COUNT(l.id_lote) AS cantidad_lotes
+          FROM 
+              lote l
+          JOIN 
+              actividad_diaria ad ON l.id_actividad = ad.id_actividad
+          JOIN 
+              orden_producción op ON ad.id_orden_producción = op.id_orden_producción
+          JOIN 
+              area a ON op.id_area = a.id_area
+          WHERE 
+              a.nombre = 'Corte'  -- Suponiendo que el nombre del área de corte es 'Corte'
+              AND DATE_TRUNC('month', l.fecha_creacion) = DATE_TRUNC('month', CURRENT_DATE)  -- Filtrar por el mes actual
+          GROUP BY 
+              l.fecha_creacion::date
+          ORDER BY 
+              dia DESC;
+
+####  2.8
+| Código requerimiento | RV206 |
+| --- | --- |
+| Codigo interfaz |  IV208|
+| Imagen interfaz  |
+
+![Alt texasdt]()
+
+| Sentencias SQL |
+| --- |
+| Eventos |
+| **1. Botón Detalle corte:** El jefe de corte podrá visualizar el numero de cortes por el orden de producción |
+          SELECT
+              op.id_orden_producción,
+              op.cantidad,
+              l.id_lote,
+              l.cantidad AS cantidad_lote,
+              t.nombre AS tipo_corte,
+              COUNT(*) AS cantidad_cortes,
+              e.nombre AS estado_orden,
+              (SELECT
+                  (SUM(l2.cantidad) / op.cantidad) * 100
+              FROM lote l2
+              INNER JOIN corte c2 ON l2.id_lote = c2.id_lote
+              WHERE l2.id_orden_producción = op.id_orden_producción) AS progreso_produccion
+          FROM orden_producción op
+          INNER JOIN lote l ON op.id_orden_producción = l.id_orden_producción
+          INNER JOIN corte c ON l.id_lote = c.id_lote
+          INNER JOIN dimension_corte d ON c.id_dim_corte = d.id_dim_corte
+          INNER JOIN tipo_corte t ON d.id_tipo_corte = t.id_tipo_corte
+          INNER JOIN estado e ON op.estado = e.id_estado
+          GROUP BY
+              op.id_orden_producción,
+              op.cantidad,
+              l.id_lote,
+              l.cantidad,
+              t.nombre,
+              e.nombre
+          ORDER BY
+              op.id_orden_producción,
+              t.nombre,
+              cantidad_cortes DESC;
+          
 
 ### 3. Confección 
 ### 4. Almacén de tránsito 
