@@ -7,7 +7,7 @@
 | Codigo interfaz |  IV201 |
 | Imagen interfaz  |
 
-![Alt texasdt](Entregable%201/Mockups%20-%20Figma/Corte/cortev2/orden_produccion.png)
+![Alt texasdt](Entregable%201/Mockups%20-%20Figma/Corte/corte_v2/orden_produccion.png)
 
 ### 3. Confección 
 ### 4. Almacén de tránsito 
