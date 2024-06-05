@@ -251,6 +251,7 @@
 | --- | --- |
 | Codigo interfaz |  IV601 |
 | Imagen interfaz  |
+
 ![](../Entregable%203/Prototipos/calidad/Registrar%20Solicitudes%20de%20Inspeccion.png)
 | Sentencias SQL |
 | Eventos |
@@ -273,6 +274,7 @@
 | --- | --- |
 | Codigo interfaz | IV602 |
 | Imagen interfaz  |
+
 ![](../Entregable%203/Prototipos/calidad/Registrar%20datos%20de%20Inspeccion.png)
 | Sentencias SQL |
 | Eventos |
@@ -299,6 +301,7 @@ GROUP BY I.ID_INSPECCION;
 | --- | --- |
 | Codigo interfaz |  IV603 |
 | Imagen interfaz  |
+
 ![](../Entregable%203/Prototipos/calidad/Revisar%20Inspecciones.png)
 | Sentencias SQL |
 | Eventos |
