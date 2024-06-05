@@ -267,7 +267,7 @@
           ID_AQL_SIGNIFICANCIA,
           ID_DESCRIPCION,
           ID_RESULTADO)
-          VALUES(<4>, <3>,’SOLICITADO’,0,<1>,<6>,<2>,<7>,<5>,NULL,NULL);
+          VALUES(<4>, <3>,'SOLICITADO',0,<1>,<6>,<2>,<7>,<5>,NULL,NULL);
               
 ####  6.2
 | Código requerimiento | RV602 |
@@ -310,6 +310,7 @@ GROUP BY I.ID_INSPECCION;
           CANTIDAD_DEFECTUOSOS = <2>,
           DESCRIPCION = <3>,
           RESULTADO = <4>
+          ESTADO = 'INSPECCIONADO'
 WHERE ID_INSPECCION = <1>;
 
 ### 7. PCP 
