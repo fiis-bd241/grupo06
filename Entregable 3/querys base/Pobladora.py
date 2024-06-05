@@ -531,14 +531,14 @@ def insert_plan_produccion(cursor): # Inserta órdenes de pedido
 
             cursor.execute("""
                 INSERT INTO plan_produccion (fecha_inicio, fecha_fin, id_estado, fecha_creacion)
-                VALUES (%s, %s, %s, %s) RETURNING id_orden_pedido;
+                VALUES (%s, %s, %s, %s) RETURNING id_plan;
             """, (fecha_inicio, fecha_fin, id_estado, fecha_creacion))
-            id_orden_pedido = cursor.fetchone()[0]
-            if id_orden_pedido:
-                print(f"Inserted orden_pedido: {id_orden_pedido}, id_estado: {id_estado}, fecha_creacion: {fecha_creacion}, fecha_inicio: {fecha_inicio}, fecha_fin: {fecha_fin}")
+            id_plan = cursor.fetchone()
+            if id_plan:
+                print(f"Inserted orden_pedido: {id_plan}, id_estado: {id_estado}, fecha_creacion: {fecha_creacion}, fecha_inicio: {fecha_inicio}, fecha_fin: {fecha_fin}")
 
     except (psycopg2.Error, ValueError) as e:
-        messagebox.showerror("Error", f"Error al insertar órdenes de pedido: {e}")
+        messagebox.showerror("Error", f"Error al insertar órdenes de producción: {e}")
 
 def insert_zonas(cursor): # Inserta zonas
     try:
@@ -558,21 +558,22 @@ def insert_zonas(cursor): # Inserta zonas
             id_area = id_area[0]
 
             # Obtener el último número de zona para este id_area
-            cursor.execute("SELECT MAX(CAST(SUBSTRING(id_zona, 2) AS INTEGER)) FROM zona WHERE id_zona LIKE %s;", (f"{id_area}%",))
+            cursor.execute("SELECT MAX(id_zona) FROM zona WHERE id_zona BETWEEN %s AND %s;", (id_area * 100 + 1, id_area * 100 + 99))
+            
             last_zone_number = cursor.fetchone()[0]
 
             if last_zone_number is None:
-                last_zone_number = 0
+                last_zone_number = id_area * 100
 
             for zona in zona_list:
                 # Incrementar el número de zona
                 next_zone_number = last_zone_number + 1
-                id_zona = f"{id_area}{next_zone_number:02d}"
+                last_zone_number = next_zone_number  # Update the last zone number for the next iteration
 
-                cursor.execute("INSERT INTO zona (id_zona, nombre, id_area) VALUES (%s, %s, %s) ON CONFLICT (nombre) DO NOTHING RETURNING id_zona;", (id_zona, zona, id_area))
+                cursor.execute("INSERT INTO zona (id_zona, nombre, id_area) VALUES (%s, %s, %s) ON CONFLICT (nombre) DO NOTHING RETURNING id_zona;", (next_zone_number, zona, id_area))
                 inserted_id_zona = cursor.fetchone()
                 if inserted_id_zona:
-                    print(f"Inserted zona: {zona}, id_zona: {id_zona}, id_area: {id_area}")
+                    print(f"Inserted zona: {zona}, id_zona: {next_zone_number}, id_area: {id_area}")
 
     except (psycopg2.Error, ValueError) as e:
         messagebox.showerror("Error", f"Error al insertar zonas: {e}")
@@ -600,9 +601,9 @@ def insert_aql_muestra(cursor): #Inserta AQL muestra
         lote_rango_dict = {(lote[1], lote[2]): lote[0] for lote in lote_rangos}
 
         # Obtener todos los id_aql_codigo
-        cursor.execute("SELECT id_aql_codigo, tamaño_muestra FROM aql_codigo;")
+        cursor.execute("SELECT id_aql_codigo FROM aql_codigo;")
         codigos = cursor.fetchall()
-        codigo_dict = {codigo[1]: codigo[0] for codigo in codigos}
+        codigo_dict = {codigo[0]: codigo[0] for codigo in codigos}
 
         for nivel, rangos_codigos in aql_muestra_relations.items():
             id_aql_nivel = nivel_dict.get(nivel)
@@ -1669,6 +1670,7 @@ def insert_data(connection): #Insertar todos los datos en la base de datos
     insert_registro_transformacion_caja(cursor)
     insert_caja_salida(cursor)
     insert_lote_entrada(cursor)
+    
     
     connection.commit()
     messagebox.showinfo("Éxito", "Registros generados exitosamente")
