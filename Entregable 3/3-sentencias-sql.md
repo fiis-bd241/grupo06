@@ -1,6 +1,181 @@
 # Entregable 3 del proyecto
 ## Sentencias SQL
-### 1. Almacén central 
+### 1. Almacén central
+####  1.1
+| Código requerimiento | RV101 |
+| --- | --- |
+| Codigo interfaz |  IV101 |
+| Imagen interfaz  |
+
+interfaz
+| Sentencias SQL |
+| --- |
+| Eventos |
+| **1. Botón Buscar:** Consulta de todos los lotes que están en un estado específico, junto con la información del proveedor, la materia prima, el espacio en el que se encuentra y la fecha de entrada. |
+          SELECT    
+                    l.estado, 
+                    p.denominacion_social,
+                    mp.id_materia_prima,
+                    e.id_espacio,
+                    le.fecha_entrada
+FROM lote l
+JOIN materia_prima mp ON l.id_lote = mp.id_lote
+JOIN proveedor p ON mp.id_proveedor = p.id_proveedor
+JOIN espacio e ON l.id_lote = e.id_lote
+JOIN lote_entrada le ON l.id_lote = le.id_lote
+WHERE l.estado = 'En almacen';
+
+####  1.2
+| Código requerimiento | RV102 |
+| --- | --- |
+| Codigo interfaz |  IV102 |
+| Imagen interfaz  |
+
+interfaz
+| Sentencias SQL |
+| --- |
+| Eventos |
+| **1. Botón Buscar:** Consulta de todos los lotes que han entrado en el almacén entre dos fechas específicas junto con la información del espacio, la estantería, el proveedor y la materia prima. |
+         CREATE OR REPLACE FUNCTION get_lotes_entre_fechas(fecha_inicio DATE, fecha_fin DATE DEFAULT NULL)
+          RETURNS TABLE (
+              fecha_entrada DATE,
+              id_lote INT,
+              id_estanteria NUMERIC,
+              id_espacio NUMERIC,
+              denominacion_social VARCHAR,
+              id_materia_prima INT
+          ) AS $$
+          BEGIN
+              IF fecha_fin IS NULL THEN
+                  fecha_fin := CURRENT_DATE;
+              END IF;
+
+              RETURN QUERY
+              SELECT 
+              DATE(le.fecha_entrada), 
+              l.id_lote, 
+              e.id_estanteria, 
+              es.id_espacio, 
+              p.denominacion_social, 
+              mp.id_materia_prima
+              FROM lote_entrada le
+              JOIN lote l ON le.id_lote = l.id_lote
+              JOIN espacio es ON l.id_lote = es.id_lote
+              JOIN estanteria e ON es.id_estanteria = e.id_estanteria
+              JOIN materia_prima mp ON l.id_lote = mp.id_lote
+              JOIN proveedor p ON mp.id_proveedor = p.id_proveedor
+              WHERE le.fecha_entrada >= fecha_inicio AND le.fecha_entrada < fecha_fin + INTERVAL '1 day';
+          END; $$ LANGUAGE plpgsql;
+
+          Opciones de llamado:
+          SELECT * FROM get_lotes_entre_fechas('2022-01-01');
+          SELECT * FROM get_lotes_entre_fechas('2022-01-01', '2022-02-01');
+
+####  1.3
+| Código requerimiento | RV103 |
+| --- | --- |
+| Codigo interfaz |  IV103 |
+| Imagen interfaz  |
+
+interfaz
+| Sentencias SQL |
+| --- |
+| Eventos |
+| **1. Botón Buscar:** Consulta de todos los lotes que están en un pasillo específico, junto con la información de la zona, el área, el proveedor y la materia prima. |
+          SELECT 
+          l.id_lote, 
+          z.nombre as nombre_zona, 
+          a.nombre as nombre_area, 
+          p.denominacion_social, 
+          mp.id_materia_prima
+          FROM pasillo p
+          JOIN estanteria e ON p.id_pasillo = e.id_pasillo
+          JOIN espacio es ON e.id_estanteria = es.id_estanteria
+          JOIN lote l ON es.id_lote = l.id_lote
+          JOIN materia_prima mp ON l.id_lote = mp.id_lote
+          JOIN proveedor p ON mp.id_proveedor = p.id_proveedor
+          JOIN zona z ON p.id_zona = z.id_zona
+          JOIN area a ON z.id_area = a.id_area;
+
+####  1.4
+| Código requerimiento | RV104 |
+| --- | --- |
+| Codigo interfaz |  IV104 |
+| Imagen interfaz  |
+
+interfaz
+| Sentencias SQL |
+| --- |
+| Eventos |
+| **1. Botón Buscar:** Consulta de todos los lotes que están asociados a una actividad específica, junto con la información del proveedor y la materia prima correspondiente. |
+         SELECT 
+         a.id_actividad, 
+         COUNT(l.id_lote) as cantidad_lotes, 
+         p.denominacion_social, 
+         mp.id_materia_prima
+          FROM actividad_diaria a
+          JOIN lote l ON a.id_actividad = l.id_actividad
+          JOIN materia_prima mp ON l.id_lote = mp.id_lote
+          JOIN proveedor p ON mp.id_proveedor = p.id_proveedor
+          GROUP BY a.id_actividad, p.denominacion_social, mp.id_materia_prima; 
+
+####  1.5
+| Código requerimiento | RV105 |
+| --- | --- |
+| Codigo interfaz |  IV105 |
+| Imagen interfaz  |
+
+interfaz
+| Sentencias SQL |
+| --- |
+| Eventos |
+| **1. Botón Buscar:** Consulta de todos los lotes que están en un estado específico, junto con la información del proveedor y la materia prima correspondiente. |
+          SELECT 
+          l.estado, 
+          COUNT(l.id_lote) as cantidad_lotes, 
+          p.denominacion_social, 
+          mp.id_materia_prima
+          FROM lote l
+          JOIN materia_prima mp ON l.id_lote = mp.id_lote
+          JOIN proveedor p ON mp.id_proveedor = p.id_proveedor
+          GROUP BY l.estado, p.denominacion_social, mp.id_materia_prima;
+
+####  1.6
+| Código requerimiento | RV106 |
+| --- | --- |
+| Codigo interfaz |  IV106 |
+| Imagen interfaz  |
+
+interfaz
+| Sentencias SQL |
+| --- |
+| Eventos |
+| **1. Botón Buscar:** Consulta de todos los lotes que han entrado en el almacén en una fecha específica. |
+          SELECT 
+          le.fecha_entrada, 
+          l.id_lote
+          FROM lote_entrada le
+          JOIN lote l ON le.id_lote = l.id_lote
+          WHERE le.fecha_entrada = '2022-01-01';
+
+####  1.7
+| Código requerimiento | RV107 |
+| --- | --- |
+| Codigo interfaz |  IV107 |
+| Imagen interfaz  |
+
+interfaz
+| Sentencias SQL |
+| --- |
+| Eventos |
+| **1. Botón Buscar:** Consulta de todos los lotes que han salido del almacén en una fecha específica. |
+          SELECT 
+          ls.fecha_salida, 
+          l.id_lote
+          FROM lote_salida ls
+          JOIN lote l ON ls.id_lote = l.id_lote
+          WHERE ls.fecha_salida = '2022-01-01';
+          
 ### 2. Corte
 ####  2.1
 | Código requerimiento | RV201 |
