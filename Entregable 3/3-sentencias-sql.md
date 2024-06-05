@@ -629,7 +629,7 @@ JOIN Talla ta ON dimconf.id_talla = ta.id_talla
 |-----------------------------------------------|
 | **Código Interfaz**    : IV006        |
 | **Imagen Interfaz** | 
-|  ![IV006](../Entregable%203/Prototipos/acabados/acabado-2.png)   | 
+|  ![IV006](../Entregable%203/Prototipos/acabados/acabado-3.png)   | 
 | **Sentencia SQL**   | 
 | **Eventos:** |
 ```sql
