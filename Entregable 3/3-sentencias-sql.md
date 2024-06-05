@@ -13,7 +13,7 @@
 | Sentencias SQL |
 | --- |
 | Eventos |
-| **1. Botón Orden de Produccion:** Nos dirigira a la orden de produccion para el jefe de corte |
+| **1. Botón Orden de Produccion:** Nos dirigirá a la orden de produccion para el jefe de corte |
           SELECT
               o.id_orden_producción,
               o.fecha_inicio,
@@ -50,6 +50,21 @@
               o.id_orden_trabajo, o.fecha_creacion
           ORDER BY
               o.fecha_inicio DESC;
+              
+####  2.2
+| Código requerimiento | RV202 |
+| --- | --- |
+| Codigo interfaz |  IV202 |
+| Imagen interfaz  |
+
+![Alt texasdt]()
+
+| Sentencias SQL |
+| --- |
+| Eventos |
+| **1. Botón Asignarr:** Nos dirigirá a asignar actividad |
+|**INSERT INTO actividad_diaria (fecha_actividad, id_orden_producción) VALUES (<2>, <3>);**|
+|**INSERT INTO maquina_actividad (id_actividad, id_maquina, cantidad_hecha) VALUES (1, <1>, <4>);**|
 
 ### 3. Confección 
 ### 4. Almacén de tránsito 
