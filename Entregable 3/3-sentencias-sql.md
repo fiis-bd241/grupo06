@@ -256,7 +256,17 @@
 | --- |
 | Eventos |
 | **1. Botón “Registrar”: Cuando el usuario presione el botón “registrar” se registrará una Inspección de calidad |
-          INSERT INTO INSPECCION_CALIDAD(ID_INSPECCION, FECHA_INSPECCION, ESTADO, CANTIDAD_DEFECTUOSOS, ID_LOTE, ID_AQL_LOTE_RANGO, ID_AQL_NIVEL, ID_AQL_CODIGO, ID_AQL_SIGNIFICANCIA, ID_DESCRIPCION, ID_RESULTADO)
+          INSERT INTO INSPECCION_CALIDAD(ID_INSPECCION,
+          FECHA_INSPECCION,
+          ESTADO,
+          CANTIDAD_DEFECTUOSOS,
+          ID_LOTE,
+          ID_AQL_LOTE_RANGO,
+          ID_AQL_NIVEL,
+          ID_AQL_CODIGO,
+          ID_AQL_SIGNIFICANCIA,
+          ID_DESCRIPCION,
+          ID_RESULTADO)
           VALUES(<4>, <3>,’SOLICITADO’,0,<1>,<6>,<2>,<7>,<5>,NULL,NULL);
               
 ####  6.2
