@@ -20,3 +20,6 @@
 
 ### PCP 
 
+**[Ir a la seccion 6](6-stack.md)**
+
+***[Regresar al índice](./entregable%203-indice.md)***
