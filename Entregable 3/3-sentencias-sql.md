@@ -280,8 +280,8 @@ interfaz
 | --- |
 | Eventos |
 | **1. Botón Operaio corte:** El oprario insertara los valores del corte que se realizaxo y la cantidad de lote usado |
-|**INSERT INTO lote (id_tipo_lote, cantidad, id_dim_corte, id_dim_confeccion, id_dim_materia_prima, id_actividad, fecha_creacion) VALUES (<1>, <2>, <3>, NULL, NULL, <4>, <5>);**|
-|**INSERT INTO Registro_uso_lote (id_actividad, id_lote, cantidad_usada) VALUES (<6>, <7>, <8>);**|
+|**INSERT INTO lote (id_tipo_lote, cantidad, id_dim_corte, id_dim_confeccion, id_dim_materia_prima, id_actividad, fecha_creacion) VALUES (<1>, <2>, <3>, NULL, NULL, <4>, <6>);**|
+|**INSERT INTO Registro_uso_lote (id_actividad, id_lote, cantidad_usada) VALUES (<5>, <7>, <8>);**|
 
 ####  2.5
 | Código requerimiento | RV203 |
