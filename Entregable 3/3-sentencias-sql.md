@@ -420,6 +420,23 @@ interfaz
 
 ### 3. Confección 
 ### 4. Almacén de tránsito 
+| Código requerimiento | RV401 |
+| --- | --- |
+| Codigo interfaz |  IV401 |
+| Imagen interfaz  |
+
+![](../Entregable%201/Mockups%20-%20Figma/Corte/corte_v2/lotes_mes.png)
+
+| Sentencias SQL |
+| --- |
+| Eventos |
+
+
+
+
+
+
+
 ### 5. Acabados
 | Código Requerimiento    : RV001               | 
 |-----------------------------------------------|
