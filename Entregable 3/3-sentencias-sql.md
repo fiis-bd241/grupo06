@@ -2,6 +2,7 @@
 ## Sentencias SQL
 ### 1. Almacén central 
 ### 2. Corte
+#### 1
 | Código requerimiento | RV201 |
 | --- | --- |
 | Codigo interfaz |  IV201 |
