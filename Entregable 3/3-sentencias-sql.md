@@ -425,16 +425,67 @@ interfaz
 | Codigo interfaz |  IV401 |
 | Imagen interfaz  |
 
-![](../Entregable%203/Prototipos/transito/1.0%20-%20Recepcion%20Lote.PNG)
+![](../Entregable%203/Prototipos/transito/1.1%20-%20Buscar%20OT.PNG)
 
 | Sentencias SQL |
 | --- |
 | Eventos |
 
 
+| Código requerimiento | RV402 |
+| --- | --- |
+| Codigo interfaz |  IV402 |
+| Imagen interfaz  |
 
+![](../Entregable%203/Prototipos/transito/1.2%20-%20Recepcion.PNG)
 
+| Sentencias SQL |
+| --- |
+| Eventos |
 
+| Código requerimiento | RV403 |
+| --- | --- |
+| Codigo interfaz |  IV403 |
+| Imagen interfaz  |
+
+![](../Entregable%203/Prototipos/transito/1.3%20-%20Conteo%20Productos.PNG)
+
+| Sentencias SQL |
+| --- |
+| Eventos |
+
+| Código requerimiento | RV404 |
+| --- | --- |
+| Codigo interfaz |  IV404 |
+| Imagen interfaz  |
+
+![](../Entregable%203/Prototipos/transito/1.4%20-%20Verificacion.PNG)
+
+| Sentencias SQL |
+| --- |
+| Eventos |
+
+| Código requerimiento | RV405 |
+| --- | --- |
+| Codigo interfaz |  IV405 |
+| Imagen interfaz  |
+
+![](../Entregable%203/Prototipos/transito/1.5%20-%20Resultado%20Final.PNG)
+
+| Sentencias SQL |
+| --- |
+| Eventos |
+
+| Código requerimiento | RV406 |
+| --- | --- |
+| Codigo interfaz |  IV406 |
+| Imagen interfaz  |
+
+![](../Entregable%203/Prototipos/transito/1.6%20-%20Documentos%20de%20Recepcion.PNG)
+
+| Sentencias SQL |
+| --- |
+| Eventos |
 
 
 ### 5. Acabados
