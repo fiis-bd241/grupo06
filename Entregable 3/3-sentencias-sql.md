@@ -428,7 +428,10 @@ interfaz
 ![](../Entregable%203/Prototipos/transito/1.1%20-%20Buscar%20OT.PNG)
 
 | Sentencias SQL |
-| SELECT 
+| --- |
+```sql
+
+SELECT 
     ot.id_orden_trabajo,
     ot.fecha_inicio,
     ot.fecha_fin,
@@ -447,9 +450,10 @@ JOIN
     plan_produccion pp ON ot.id_plan = pp.id_plan
 JOIN 
     orden_pedido op ON ot.id_orden_pedido = op.id_orden_pedido;
-|
-| Eventos |
 
+```
+| Eventos |
+| Al darle click sobre la caja de texto apareceran todas las ordenes de trabajo existente |
 
 | Código requerimiento | RV402 |
 | --- | --- |
