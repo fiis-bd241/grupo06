@@ -13,6 +13,35 @@
 ### Confección 
 
 ### Almacén de tránsito 
+------------------------------------------------- Recepciones ----------------------------------------------------------------------------
+* **Buscar las ordenes de trabajo:** El Jefe de almacen de transito podra buscar y visualizas las ordenes de de trabajo para aceptar la recepcion
+* **Editar producto:** El Jefe de almacen de transito podra editar la cantidad de productos que recepcione en caso no llegue lo establecido en el sistema
+* **Eliminar producto:** El Jefe de almacen de transito podra eliminar la cantidad de productos que recepcione en caso no llegue lo establecido en el sistema
+* **Añadir producto:** El Jefe de almacen de transito podra añadir la cantidad de productos que recepcione en caso no llegue lo establecido en el sistema
+* **Visualizar documentos de recepcion:** El Jefe de almacen de transito podra visualizar los documentos de recepciom en forma de historial
+* * **Visualizar documentos de recepcion por estado:** El Jefe de almacen de transito podra visualizar el estado en que se encuentran los documentos de recepcion: Recepcionado, Pendiente, Cancelado.
+* * **Visualizar documentos de recepcion por rango de fecha:** El Jefe de almacen de transito podra visualizar los documentos de recpecion por rango de fecha segun el dia/mes/año buscado.
+------------------------------------------------- Prendas Erroneas -----------------------------------------------------------------------
+* **Editar producto:** El operario de recepcion podra editar la cantidad de productos defectuosos en caso haya colocado un dato incorrecto.
+* **Eliminar producto:** El operario de recepcion podra eliminar la cantidad de productos defectuosos en caso haya colocado un dato incorrecto.
+* **Añadir producto:** El operario de recepcion podra añadir la cantidad de productos defectuosos como una nueva fila dentro de la tabla ya existente
+* **Visualizar documentos prendas erroneas:** El operario de recepcion podra visualizar las prendas falladas registradas en forma de historial
+* **Buscar y visualizar documentos prendas erroneas por registro:** El operario de recepcion podra buscar y visualizar las prendas falladas registradas por el #Registro.
+* **Ordenar documentos de recepcion por cantidad de prendas falladas registradas:** El operario de recepcion podra ordenar los documentos de recepcion de forma ascendente o descendente segun la cantidad de prendas falladas registradas.
+* **Visualizar documentos de recepcion por rango de fecha:** El operario de recepcion podra visualizar los documentos de prendas falladas por rango de fecha segun el dia/mes/año buscado.
+------------------------------------------------- Ubicacion Cajas -----------------------------------------------------------------------
+* **Editar producto:** El operario de conteo podra editar los campos de la tabla ubicacion cajas en caso haya colocado un dato incorrecto.
+* **Eliminar producto:** El operario de conteo podra eliminar la fila de la tabla ubicacionn caja en caso haya colocado un dato incorrecto.
+* **Añadir producto:** El operario de conteo podra añadir un nuevo producto al igual que sus otros datos en latabla ya existente.
+* **Guadar cambios:** El operario de conteo una vez verificado el correcto llenado de los campos de la tabla podra guardar los cambio para actualizar la ubicacion de la cajas.
+------------------------------------------------- Envio cajas -----------------------------------------------------------------------
+* **Editar producto - cajas:** El operario de conteo podra editar los campos de la tabla existente en caso haya colocado un dato incorrecto, teniendo como principal dato su LT, cantidad de cajas y productos enviados.
+* **Eliminar producto:**El operario de conteo podra editar los campos de la tabla existente en caso haya colocado un dato incorrecto.
+* **Añadir producto:** El operario de conteo podra añadir una nueva fila dentro de la tabla ya existente.
+* **Ordenar documentos de envio de cajas por cantidad de prendas enviadas o cajas enviadas:** El operario de conteo podra ordenar los documentos de envio de forma ascendente o descendente segun la cantidad de prendas enviadas o cajas enviadas.
+* **Visualizar documentos de envio de cajas por rango de fecha de envio:** El operario de conteo podra visualizar los documentos de cajas enviadas por rango de fecha de envio segun el dia/mes/año buscado.
+* **Visualizar documentos de envio de cajas por rango de fecha de envio:** El operario de conteo podra visualizar los documentos de cajas enviadas por rango de fecha de envio segun el dia/mes/año buscado.
+* **Visualizar documentos de envio de cajas segun los LS:** El operario de conteo podra visualizar los documentos de cajas enviadas segun el LS.
 
 ### Acabados
 * **Visualizar lotes, cajas, prendas ingresantes a área:** Se verifica las órdenes de producción, cajas que incluyen, detalles de prendas y medidas con características, en una tabla.
