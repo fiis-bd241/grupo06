@@ -267,7 +267,7 @@
           ID_AQL_SIGNIFICANCIA,
           ID_DESCRIPCION,
           ID_RESULTADO)
-          VALUES(<4>, <3>,'SOLICITADO',0,<1>,<6>,<2>,<7>,<5>,NULL,NULL);
+          VALUES(<4>, <3>,'SOLICITADO',0,<1>,<2>,<6>,<7>,<5>,NULL,NULL);
               
 ####  6.2
 | Código requerimiento | RV602 |
