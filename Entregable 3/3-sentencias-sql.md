@@ -425,7 +425,7 @@ interfaz
 | Codigo interfaz |  IV401 |
 | Imagen interfaz  |
 
-![](../Entregable%201/Mockups%20-%20Figma/Corte/corte_v2/lotes_mes.png)
+![](../Entregable 3/Prototipos/transito/1.0 - Recepcion Lote.PNG)
 
 | Sentencias SQL |
 | --- |
