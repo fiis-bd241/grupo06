@@ -245,6 +245,212 @@
 ### 3. Confección 
 ### 4. Almacén de tránsito 
 ### 5. Acabados
+| Código Requerimiento    : RV001               | 
+|-----------------------------------------------|
+| **Código Interfaz**    : IV001        |
+| **Imagen Interfaz** | 
+|    | 
+| **Sentencia SQL**   | 
+| **Eventos:** |
+```sql
+
+-- 1. CARGA DE PÁGINA: Carga la página por defecto con los 50 primeros resultados
+SELECT 
+    cp.id_caja AS "ID Caja", 
+    p.id_prenda AS "ID Prenda", 
+    cp.cantidad AS "Cantidad", 
+    cp.fecha_creacion AS "Fecha creación", 
+    COALESCE(em.id_empleado::text, '-') AS "ID Operario", 
+    CONCAT(em.nombre, ' ', em.primer_apellido, ' ', em.segundo_apellido) AS Operario
+FROM 
+    Caja_prenda cp
+JOIN 
+    Prenda p ON cp.id_caja = p.id_caja
+JOIN 
+    Empleado em ON p.id_empleado = em.id_empleado
+LIMIT 50;
+
+
+
+-- 2. BUSQUEDA POR CAJAS: Coloca ID de caja en la caja y hace click en el icono de lupa para busca,
+-- luego aparece en la grilla la caja con sus atributos. 
+
+SELECT 
+    cp.id_caja AS "ID Caja", 
+    p.id_prenda AS "ID Prenda", 
+    cp.cantidad AS "Cantidad", 
+    cp.fecha_creacion AS "Fecha creación", 
+    COALESCE(em.id_empleado::text, '-') AS "ID Operario", 
+    CONCAT(em.nombre, ' ', em.primer_apellido, ' ', em.segundo_apellido) AS Operario
+FROM 
+    Caja_prenda cp
+JOIN 
+    Prenda p ON cp.id_caja = p.id_caja
+JOIN 
+    Empleado em ON p.id_empleado = em.id_empleado
+WHERE
+    cp.id_caja = 30;
+
+-- 3. ID Caja: se puede seleccionar el ID de caja que me lleva a otra pantalla
+-- para el vistazo de detalle del mismo.
+
+-- 4. OPERARIO: Se selecciona el ID Operario para ver el detalle del operario
+-- a la prenda asignada.
+
+```
+
+
+
+
+| Código Requerimiento    : RV002               | 
+|-----------------------------------------------|
+| **Código Interfaz**    : IV002        |
+| **Imagen Interfaz** | 
+|    | 
+| **Sentencia SQL**   | 
+| **Eventos:** |
+```sql
+
+-- 1. ID caja: se resupera id de caja
+SELECT
+    cpren.id_caja
+FROM
+    Caja_prenda cpren;
+
+-- 2. Fecha: se resupera fecha de creacion en carga de pagina
+SELECT
+    cpren.fecha_creacion
+FROM
+    Caja_prenda cpren;
+
+-- 3.Cantidad: Se recupera cantidad de prendas por caja en carga de pagina.
+SELECT
+    cpren.cantidad
+FROM
+    Caja_prenda cpren;
+
+-- 4. Prenda: se recupera en nombre de prenda en carga de pagina.
+SELECT tipren.nombre
+FROM Caja_prenda cpren
+JOIN Prenda pren ON cpren.id_caja = pren.id_caja
+JOIN Dimension_prenda dimpren ON pren.id_dim_prenda = dimpren.id_dim_prenda
+JOIN Dimension_confeccion dimconf ON dimpren.id_dim_confeccion = dimpren.id_dim_confeccion
+JOIN Tipo_prenda tipren ON dimconf.id_tipo_prenda = tipren.id_tipo_prenda
+
+
+-- 5. Grilla de detalle: se recupera los datos generales de prendas sus acabados en la grilla en la carga de pagina.
+
+SELECT
+    dimconf.id_dim_confeccion,
+    COALESCE(dimconf.medida_logitud, ' ') AS ml,
+    COALESCE(dimconf.medida_hombro, ' ') AS mh,
+    COALESCE(dimconf.medida_pecho, ' ') AS mp,
+    COALESCE(dimconf.medida_manga, ' ') AS mm, C
+    OALESCE(dimconf.medida_cintura, ' ') AS mc, C
+    OALESCE(dimconf.medida_cadera, ' ') AS mca,
+    COALESCE(dimconf.medida_muslo, ' ') AS mmu,
+    estpren.nombre AS "Estilo prenda",
+    ta.nombre AS "Talla", ge.nombre AS "Género",
+    aca.nombre AS "Acabados"
+FROM
+    Orden_produccion ordpro
+JOIN Dim_prenda_detalle dprende ON ordpro.id_dim_prenda = dprende.id_dim_prenda
+JOIN Acabado aca ON dprende.id_acabado = aca.id_acabado
+JOIN Dimension_confeccion dimconf ON ordpro.id_dim_confeccion = dimconf.id_dim_confeccion
+JOIN Estilo_prenda estpren ON dimconf.id_estilo_prenda = estpren.id_estilo_prenda
+JOIN Talla ta ON dimconf.id_talla = ta.id_talla
+JOIN Genero ge ON dimconf.id_genero = ge.id_genero
+
+```
+
+
+| Código Requerimiento    : RV003               | 
+|-----------------------------------------------|
+| **Código Interfaz**    : IV003        |
+| **Imagen Interfaz** | 
+|    | 
+| **Sentencia SQL**   | 
+| **Eventos:** |
+```sql
+-- 1. Fechas: Seleccionar fecha inicio y fin para reporte.
+
+-- 2. Reporte: Presentar los datos con el periodo brindado con el botón 'Buscar'.
+
+
+
+```
+
+
+| Código Requerimiento    : RV004               | 
+|-----------------------------------------------|
+| **Código Interfaz**    : IV003        |
+| **Imagen Interfaz** | 
+|    | 
+| **Sentencia SQL**   | 
+| **Eventos:** |
+```sql
+-- 3. Imprimir: Realizar impresión de reporte del periodo seleccionado en pdf con el botón 'Imprimir'.
+```
+
+| Código Requerimiento    : RV001               | 
+|-----------------------------------------------|
+| **Código Interfaz**    : IV004        |
+| **Imagen Interfaz** | 
+|    | 
+| **Sentencia SQL**   | 
+| **Eventos:** |
+```sql
+--1. Carga Operario: Ver datos básico del Operario en un popup.
+SELECT CONCAT(em.nombre,' ',em.primer_apellido,' ',em.segundo_apellido) AS Nombres, em.id_empleado AS ID, em.dni AS DNI, capren.cantidad AS "Cantidad prenda"
+FROM Prenda pren
+JOIN Empleado em ON prend.id_empleado = em.id_empleado
+JOIN Caja_prenda capren ON prend.id_caja = capren.id_caja
+
+```
+| Código Requerimiento    : RV005               | 
+|-----------------------------------------------|
+| **Código Interfaz**    : IV005        |
+| **Imagen Interfaz** | 
+|    | 
+| **Sentencia SQL**   | 
+| **Eventos:** |
+```sql
+-- 1. OPERARIO: Buscar por operario según su ID
+SELECT
+    em.id_empleado
+FROM
+    Empleado em;
+
+
+-- 2. Nombres: Recuperar nombres de empleado
+SELECT
+    CONCAT(em.nombre,' ',em.primer_apellido,' ',em.segundo_apellido)
+FROM
+    Empleado em;
+WHERE em.id_empleado = <1>
+
+-- 3. Correo: Recuperar correo de empleado
+SELECT
+    em.correo
+FROM
+    Empleado em;
+WHERE em.id_empleado = <1>
+
+-- 4. GRILLA: Mostrar las cajas asignadas al operario y sus datos básicos.
+SELECT
+    
+FROM
+    Prenda pre
+JOIN Dim_prenda_detalle dprende ON ordpro.id_dim_prenda = dprende.id_dim_prenda
+JOIN Acabado aca ON dprende.id_acabado = aca.id_acabado
+JOIN Dimension_confeccion dimconf ON ordpro.id_dim_confeccion = dimconf.id_dim_confeccion
+JOIN Estilo_prenda estpren ON dimconf.id_estilo_prenda = estpren.id_estilo_prenda
+JOIN Talla ta ON dimconf.id_talla = ta.id_talla
+
+```
+
+
+
 ### 6. Calidad
 ####  6.1
 | Código requerimiento | RV601 |
