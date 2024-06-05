@@ -32,21 +32,21 @@
 
 | N°    | Requerimiento Funcional  | Descripción                                         | Impacto <br> (1) Bajo (2) Normal<br> (3) Alto (4) Muy alto |
 |-------|--------------------------|-----------------------------------------------------|---------------------------------------------------|
-| RV301 | Verificar la orden de trabajo| El jefe de almacen de transito debe verificar si la orden trabajo que recepciona es correcta. | 4                                                 |
-| RV302 |Verificar que los datos de la orden de trabajo sean correctos para recepcionar  | El jefe de almacen de transito debera visualizar los datos segun la orden de trabajo que recepciona y completar algunios datos como la nombre de quien recepciona       | 3                                               |
-| RV303 |Verificar las cantidades de prendas llegadas en un lote  | El jefe de almacen de transito en conjunto con el operario de recepcion verificaran que las prendas que llegue en los lotes sean las estableciadas en la orden de trabajo        | 3                                               |
-| RV304 | Editar, eliminar o agregar cantidades al lote de recibido | El operario de recepcion con autorizacion del jefe de almacen de trasnito podra editar, eliminar o agregar productos al lote recibido del area de confeccion | 3                                                 |
-| RV305 | Confirmar cantidades       | El jefe de almacen de transito debera confirmar las cantidades editadas o iniciales llegadas en el lote segun la orden de trabajo para poder recepcionarlas  | 4                                                 |
-| RV306 | Imprimir y enviar los documentos de recepcion      | el operario de recepcion debera imprimir los documentos de recpcion para entregarselas al jefe de almacen de trasnito y este las envie al area correspondiente.  | 3                                                |
+| RV401 | Verificar la orden de trabajo| El jefe de almacen de transito debe verificar si la orden trabajo que recepciona es correcta. | 4                                                 |
+| RV402 |Verificar que los datos de la orden de trabajo sean correctos para recepcionar  | El jefe de almacen de transito debera visualizar los datos segun la orden de trabajo que recepciona y completar algunios datos como la nombre de quien recepciona       | 3                                               |
+| RV403 |Verificar las cantidades de prendas llegadas en un lote  | El jefe de almacen de transito en conjunto con el operario de recepcion verificaran que las prendas que llegue en los lotes sean las estableciadas en la orden de trabajo        | 3                                               |
+| RV404 | Editar, eliminar o agregar cantidades al lote de recibido | El operario de recepcion con autorizacion del jefe de almacen de trasnito podra editar, eliminar o agregar productos al lote recibido del area de confeccion | 3                                                 |
+| RV405 | Confirmar cantidades       | El jefe de almacen de transito debera confirmar las cantidades editadas o iniciales llegadas en el lote segun la orden de trabajo para poder recepcionarlas  | 4                                                 |
+| RV406 | Imprimir y enviar los documentos de recepcion      | el operario de recepcion debera imprimir los documentos de recpcion para entregarselas al jefe de almacen de trasnito y este las envie al area correspondiente.  | 3                                                |
 
 | N°    | Interfaz | Descripción                                                                 |
 |-------|----------|-----------------------------------------------------------------------------|
-| IV301 | Inicio     | Pantalla para verificar y buscar la orden de trabajo a recepcionar.         |
-| IV302 | Recepcion | Pantalla para mostrar datos generales de la orden de trabajo a recepcionar y completar los datos de quien recepciona. |
-| IV303 | Conteo de productos  | Pantalla para realizar la verificacion del contenido de cada lote que se recepciona segun la orden de trabajo. Se podra editar, eliminar o añadir de ser necesario. |
-| IV304 | Verificacion  | Pantalla que mostrara la verificacion de la recepcion si esque haya sufrido cambios para su posteior resultado final |
-| IV305 | Resultado final  | Pantalla para mostrar los datos finales que se estan recepcionando  |
-| IV306 | Documentos de recepcion | Pantalla para mostrar los documentos de recepcion e imprimirlos en formato .pdf |
+| IV401 | Inicio     | Pantalla para verificar y buscar la orden de trabajo a recepcionar.         |
+| IV402 | Recepcion | Pantalla para mostrar datos generales de la orden de trabajo a recepcionar y completar los datos de quien recepciona. |
+| IV403 | Conteo de productos  | Pantalla para realizar la verificacion del contenido de cada lote que se recepciona segun la orden de trabajo. Se podra editar, eliminar o añadir de ser necesario. |
+| IV404 | Verificacion  | Pantalla que mostrara la verificacion de la recepcion si esque haya sufrido cambios para su posteior resultado final |
+| IV405 | Resultado final  | Pantalla para mostrar los datos finales que se estan recepcionando  |
+| IV406 | Documentos de recepcion | Pantalla para mostrar los documentos de recepcion e imprimirlos en formato .pdf |
 
 
 ### 5. Acabados
