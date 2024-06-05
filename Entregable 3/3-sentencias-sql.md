@@ -428,7 +428,26 @@ interfaz
 ![](../Entregable%203/Prototipos/transito/1.1%20-%20Buscar%20OT.PNG)
 
 | Sentencias SQL |
-| --- |
+| SELECT 
+    ot.id_orden_trabajo,
+    ot.fecha_inicio,
+    ot.fecha_fin,
+    ot.prioridad,
+    e.nombre AS estado,
+    ot.id_plan,
+    pp.fecha_inicio AS plan_fecha_inicio,
+    pp.fecha_fin AS plan_fecha_fin,
+    op.fecha_entrega AS orden_pedido_fecha_entrega,
+    ot.fecha_creacion
+FROM 
+    orden_trabajo ot
+JOIN 
+    estado e ON ot.id_estado = e.id_estado
+JOIN 
+    plan_produccion pp ON ot.id_plan = pp.id_plan
+JOIN 
+    orden_pedido op ON ot.id_orden_pedido = op.id_orden_pedido;
+|
 | Eventos |
 
 
