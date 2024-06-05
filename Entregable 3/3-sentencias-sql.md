@@ -2,6 +2,13 @@
 ## Sentencias SQL
 ### 1. Almacén central 
 ### 2. Corte
+| Código requerimiento | RV201 |
+| --- | --- |
+| Codigo interfaz |  IV201 |
+| Imagen interfaz  |
+
+![Alt texasdt](Entregable1/Mockups-Figma/Corte/cortev2/orden_produccion.png)
+
 ### 3. Confección 
 ### 4. Almacén de tránsito 
 ### 5. Acabados
