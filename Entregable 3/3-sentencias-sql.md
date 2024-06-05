@@ -1037,6 +1037,94 @@ AND acab.nombre = 'Empaquetado';
 
 ### 7. PCP 
 
+####  7.1
+| Código requerimiento | RV701 |
+| --- | --- |
+| Codigo interfaz |  IV701 |
+| Imagen interfaz  |
+
+![](../Entregable%203/Prototipos/pcp/1.%20Ingresar%20órdenes%20de%20pedido%20a%20la%20línea%20de%20producción.jpg)
+| Sentencias SQL |
+| Eventos |
+| **1. Botón “Programar”: Cuando el usuario seleccione una Orden de Pedido y presione el botón “Programar” se iniciará la programación de la Orden de Producción|
+
+    SELECT 
+    id_orden_pedido,
+    COALESCE(fecha_creacion, 'Fecha no especificada') AS fecha_creacion,
+    COALESCE(fecha_fin, 'Fecha no especificada') AS fecha_fin,
+    COALESCE(id_dim_prenda, 'ID no especificado') AS id_dim_prenda,
+    COALESCE(estado, 'Estado no especificado') AS estado
+    FROM 
+    orden_pedido;
+
+);
+
+              
+####  7.2
+| Código requerimiento | RV702 |
+| --- | --- |
+| Codigo interfaz | IV702 |
+| Imagen interfaz  |
+
+![](../Entregable%203/Prototipos/pcp/2.%20Programar%20órdenes%20de%20producción.jpg)
+| Sentencias SQL |
+| Eventos |
+| **1. Botón "Programar": Cuando el usuario haya completado todos los campos se podrá registrar la programación de la orden de producción. |
+
+          -- Insertar datos en la tabla area
+          INSERT INTO area (id_area, nombre_area) VALUES (Texto, 'Texto'),
+          -- Insertar datos en la tabla dim_prenda
+          INSERT INTO dim_prenda (id_dim_prenda, tipo_prenda, estilo_prenda, talla_prenda, genero_prenda) VALUES (Texto, 'Texto','Texto', 'Texto', 'Texto'),
+          -- Insertar una nueva orden de producción
+          INSERT INTO orden_produccion (fecha_inicio, fecha_fin, id_area, id_dim_prenda, guia_confeccion, medidas_prenda) VALUES ('Texto', 'Texto', Texto, Texto, 'Texto', 'Texto');
+         -- Verificar la inserción
+          SELECT * FROM orden_produccion;
+
+####  7.3
+| Código requerimiento | RV703 |
+| --- | --- |
+| Codigo interfaz |  IV703 |
+| Imagen interfaz  |
+
+![](../Entregable%203/Prototipos/pcp/3.%20Controlar%20órdenes%20de%20producción.jpg)
+| Sentencias SQL |
+| Eventos |
+| **1. Botón “Editar": Cuando el usuario presione el botón "Editar" podrá iniciar una reprogramación. |
+
+          SELECT 
+          id_orden_produccion,
+          COALESCE(fecha_creacion, 'Fecha no especificada') AS fecha_creacion,
+          COALESCE(fecha_inicio, 'Fecha no especificada') AS fecha_inicio,
+          COALESCE(fecha_fin, 'Fecha no especificada') AS fecha_fin,
+          COALESCE(id_area, 'ID no especificado') AS id_area,
+          COALESCE(id_orden_trabajo, 'ID no especificado') AS id_orden_trabajo,
+          COALESCE(estado, 'Estado no especificado') AS estado
+          FROM 
+          orden_produccion;
+
+####  7.4
+| Código requerimiento | RV704 |
+| --- | --- |
+| Codigo interfaz |  IV704 |
+| Imagen interfaz  |
+
+![](../Entregable%203/Prototipos/pcp/4.%20Reprogramar%20órdenes%20de%20producción.jpg)
+| Sentencias SQL |
+| Eventos |
+| **1. Botón “Reprogramar”: Cuando el usuario presione el botón "Reprogramar" se actualizará los campos programados inicialmente. |
+
+              
+####  7.5
+| Código requerimiento | RV705 |
+| --- | --- |
+| Codigo interfaz | IV705 |
+| Imagen interfaz  |
+
+![](../Entregable%203/Prototipos/pcp/5.%20Visualizar%20órdenes%20de%20trabajo.jpg)
+| Sentencias SQL |
+| Eventos |
+| **1. Botón "Desacargar": Cuando el usuario presione el botón “Descargar” se podrá imprimir la orden de trabajo.|
+
 **[Ir a la seccion 4](4-carga-datos.md)**
 
 ***[Regresar al índice](./entregable%203-indice.md)***
