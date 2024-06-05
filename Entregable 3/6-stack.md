@@ -30,6 +30,9 @@
 ### App Web
 Despliegue: [ Render](https://render.com/)
 
+### Conexión Base de datos (local)
+![db](db.png)
+
 
 
 
