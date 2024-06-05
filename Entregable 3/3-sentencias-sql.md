@@ -666,7 +666,15 @@ FROM
 
 -- 5. GRILLA: Datos generales de la caja
 
-SELECT tipren.nombre AS Prenda, dimconf.id_dim_confeccion AS IDconfeccion, gconf.medida_longitud AS ml, gconf.medida_hombro AS mh, gconf.medida_pecho AS mp, gconf.medida_manga AS mma, gconf.medida_cintura AS mci, gconf.medida_cadera AS mca, gconf.medida_muslo AS mmu, espren.mombre AS estilo, ta.nombre AS Talla, ge.nombre AS Género, est.nombre AS Estado
+SELECT tipren.nombre AS Prenda, dimconf.id_dim_confeccion AS IDconfeccion,
+          COALESCE(gconf.medida_longitud AS ml,' '),
+          COALESCE(gconf.medida_hombro AS mh,' '),
+          COALESCE(gconf.medida_pecho AS mp,' '),
+          COALESCE(gconf.medida_manga AS mma,' '),
+          COALESCE(gconf.medida_cintura AS mci,' '),
+          COALESCE(gconf.medida_cadera AS mca,' '),
+          COALESCE(gconf.medida_muslo AS mmu,' '),
+          espren.mombre AS estilo, ta.nombre AS Talla, ge.nombre AS Género, est.nombre AS Estado
 FROM Caja_prenda cpren
 JOIN Prenda pren ON cpren.id_caja = pren.id_caja
 JOIN Dimension_prenda dimpren ON pren.id_dim_prenda = dimpren.id_dim_prenda
@@ -683,7 +691,7 @@ WHERE cpren.id_caja =  <4>
 -- 6. ACABADOS: Carga la grilla de acbados por orden de produccion y
 --caja de entrada, aqui se ingresa su caja de salida.
 --Planchado
-SELECT acab.nombre, acd.id_Actividad, acd.fecha_actividad, capre.id_caja AS Caja, casa.id_salida AS Salida
+SELECT acab.nombre, acd.id_Actividad, acd.fecha_actividad, capre.id_caja AS Caja, COALESCE(casa.id_salida,' ') AS Salida
 FROM Prenda pre
 Caja_prenda capre ON pre.id_caja = capre.id_caja
 JOIN Dimension_prenda_detalle dprende ON pre.id_dim_prenda = dprende.id_dim_prenda
@@ -699,7 +707,7 @@ AND aca.nombre = "Planchado"
 
 
 --Hangteado
-SELECT acab.nombre, acd.id_Actividad, acd.fecha_actividad, capre.id_caja AS Caja, casa.id_salida AS Salida
+SELECT acab.nombre, acd.id_Actividad, acd.fecha_actividad, capre.id_caja AS Caja, COALESCE(casa.id_salida,' ') AS Salida
 FROM Prenda pre
 Caja_prenda capre ON pre.id_caja = capre.id_caja
 JOIN Dimension_prenda_detalle dprende ON pre.id_dim_prenda = dprende.id_dim_prenda
@@ -714,7 +722,7 @@ WHERE capre.id_caja = <4>
 AND aca.nombre = "Hangteado"
 
 -- Embalaje
-SELECT acab.nombre, acd.id_Actividad, acd.fecha_actividad, capre.id_caja AS Caja, casa.id_salida AS Salida
+SELECT acab.nombre, acd.id_Actividad, acd.fecha_actividad, capre.id_caja AS Caja, COALESCE(casa.id_salida,' ') AS Salida
 FROM Prenda pre
 Caja_prenda capre ON pre.id_caja = capre.id_caja
 JOIN Dimension_prenda_detalle dprende ON pre.id_dim_prenda = dprende.id_dim_prenda
@@ -729,7 +737,7 @@ WHERE capre.id_caja = <4>
 AND aca.nombre = "Embalaje"
 
 -- Empaquetado
-SELECT acab.nombre, acd.id_Actividad, acd.fecha_actividad, capre.id_caja AS Caja, casa.id_salida AS Salida
+SELECT acab.nombre, acd.id_Actividad, acd.fecha_actividad, capre.id_caja AS Caja, COALESCE(casa.id_salida,' ') AS Salida
 FROM Prenda pre
 Caja_prenda capre ON pre.id_caja = capre.id_caja
 JOIN Dimension_prenda_detalle dprende ON pre.id_dim_prenda = dprende.id_dim_prenda
