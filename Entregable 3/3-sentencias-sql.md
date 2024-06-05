@@ -245,7 +245,63 @@
 ### 3. Confección 
 ### 4. Almacén de tránsito 
 ### 5. Acabados
-### 6. Calidad 
+### 6. Calidad
+####  6.1
+| Código requerimiento | RV601 |
+| --- | --- |
+| Codigo interfaz |  IV601 |
+| Imagen interfaz  |
+
+| Sentencias SQL |
+| --- |
+| Eventos |
+| **1. Botón “Registrar”: Cuando el usuario presione el botón “registrar” se registrará una Inspección de calidad |
+          INSERT INTO INSPECCION_CALIDAD(ID_INSPECCION, FECHA_INSPECCION, ESTADO, CANTIDAD_DEFECTUOSOS, ID_LOTE, ID_AQL_LOTE_RANGO, ID_AQL_NIVEL, ID_AQL_CODIGO, ID_AQL_SIGNIFICANCIA, ID_DESCRIPCION, ID_RESULTADO)
+          VALUES(<4>, <3>,’SOLICITADO’,0,<1>,<6>,<2>,<7>,<5>,NULL,NULL);
+              
+####  6.2
+| Código requerimiento | RV602 |
+| --- | --- |
+| Codigo interfaz | IV602 |
+| Imagen interfaz  |
+
+| Sentencias SQL |
+| --- |
+| Eventos |
+| **1. Botón Buscar Inspección: Cuando el usuario presione el botón “buscar” se buscará las inspecciones de calidad |
+          SELECT
+          I.ID_INSPECCION,
+          I.ID_LOTE,
+          I.FECHA_INSPECCION,
+          I.ID_AQL_LOTE_RANGO,
+          I.CANTIDAD_DEFECTUOSOS,
+          I.ID_AQL_CODIGO,
+          I.ID_AQL_NIVEL,
+          I.ID_AQL_SIGNIFICANCIA,
+          I.ESTADO,
+          I.ID_RESULTADO
+FROM INSPECCION_CALIDAD I
+WHERE I.ID_INSPECCION = <1>
+AND I.ID_LOTE = <2>
+AND I.FECHA_INSPECCION = <3>
+GROUP BY I.ID_INSPECCION;
+
+####  6.3
+| Código requerimiento | RV603 |
+| --- | --- |
+| Codigo interfaz |  IV603 |
+| Imagen interfaz  |
+          
+| Sentencias SQL |
+| --- |
+| Eventos |
+| **1. Botón “Registrar datos de Inspección”: Cuando el usuario presione el botón se actualizará la inspección seleccionada previamente |
+          UPDATE INSPECCION_CALIDAD SET
+          CANTIDAD_DEFECTUOSOS = <2>,
+          DESCRIPCION = <3>,
+          RESULTADO = <4>
+WHERE ID_INSPECCION = <1>;
+
 ### 7. PCP 
 
 **[Ir a la seccion 4](4-carga-datos.md)**
