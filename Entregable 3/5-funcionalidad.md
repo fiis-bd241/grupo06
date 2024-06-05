@@ -19,8 +19,8 @@
 * **Eliminar producto:** El Jefe de almacen de transito podra eliminar la cantidad de productos que recepcione en caso no llegue lo establecido en el sistema
 * **Añadir producto:** El Jefe de almacen de transito podra añadir la cantidad de productos que recepcione en caso no llegue lo establecido en el sistema
 * **Visualizar documentos de recepcion:** El Jefe de almacen de transito podra visualizar los documentos de recepciom en forma de historial
-* * **Visualizar documentos de recepcion por estado:** El Jefe de almacen de transito podra visualizar el estado en que se encuentran los documentos de recepcion: Recepcionado, Pendiente, Cancelado.
-* * **Visualizar documentos de recepcion por rango de fecha:** El Jefe de almacen de transito podra visualizar los documentos de recpecion por rango de fecha segun el dia/mes/año buscado.
+* **Visualizar documentos de recepcion por estado:** El Jefe de almacen de transito podra visualizar el estado en que se encuentran los documentos de recepcion: Recepcionado, Pendiente, Cancelado.
+* **Visualizar documentos de recepcion por rango de fecha:** El Jefe de almacen de transito podra visualizar los documentos de recpecion por rango de fecha segun el dia/mes/año buscado.
 
 ------------------------------------------------- Prendas Erroneas -----------------------------------------------------------------------
 * **Editar producto:** El operario de recepcion podra editar la cantidad de productos defectuosos en caso haya colocado un dato incorrecto.
