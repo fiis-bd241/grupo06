@@ -622,7 +622,74 @@ JOIN Dimension_confeccion dimconf ON ordpro.id_dim_confeccion = dimconf.id_dim_c
 JOIN Estilo_prenda estpren ON dimconf.id_estilo_prenda = estpren.id_estilo_prenda
 JOIN Talla ta ON dimconf.id_talla = ta.id_talla
 
+
 ```
+| Código Requerimiento    : RV006              | 
+|-----------------------------------------------|
+| **Código Interfaz**    : IV006        |
+| **Imagen Interfaz** | 
+|  ![IV006](../Entregable%203/Prototipos/acabados/acabado-2.png)   | 
+| **Sentencia SQL**   | 
+| **Eventos:** |
+```sql
+-- 1. OPERARIO: recurpera ID del operario según la caja carga de pagina
+SELECT
+    em.id_empleado
+FROM
+    Empleado em, Caja_prenda capren
+WHERE caprend.id_empleado = em_id_empleado
+AND capren.id_caja = <4>;
+
+-- 2. NOMBRE: recupera nombre del operario en carga de pagina
+SELECT
+    CONCAT(em.nombre,' ',em.primer_apellido,' ',em.segundo_apellido) AS nombreOpe 
+FROM
+    Empleado em, Caja_prenda capren
+WHERE caprend.id_empleado = em_id_empleado
+AND em.id_empleado = <1>;
+
+-- 3, CORREO: recuperar correo de operario en carga de pagina.
+SELECT
+    em.correo
+FROM
+    Empleado em, Caja_prenda capren
+WHERE caprend.id_empleado = em_id_empleado
+AND em.id_empleado = <1>;
+
+-- 4. ID CAJA:
+SELECT
+    id_caja
+FROM
+    Caja_prenda;
+
+-- 5. GRILLA: Datos generales de la caja
+
+SELECT tipren.nombre AS Prenda, dimconf.id_dim_confeccion AS IDconfeccion, gconf.medida_longitud AS ml, gconf.medida_hombro AS mh, gconf.medida_pecho AS mp, gconf.medida_manga AS mma, gconf.medida_cintura AS mci, gconf.medida_cadera AS mca, gconf.medida_muslo AS mmu, espren.mombre AS estilo, ta.nombre AS Talla, ge.nombre AS Género, est.nombre AS Estado
+FROM Caja_prenda cpren
+JOIN Prenda pren ON cpren.id_caja = pren.id_caja
+JOIN Dimension_prenda dimpren ON pren.id_dim_prenda = dimpren.id_dim_prenda
+JOIN Dimension_confeccion dimconf ON dimpren.id_dim_confeccion = dimpren.id_dim_confeccion
+JOIN Guia_confeccion gconf ON dimconf.id_guia_confeccion = gconf.id_guia_confeccion
+JOIN Tipo_prenda tipren ON dimconf.id_tipo_prenda = tipren.id_tipo_prenda
+JOIN Estilo_prenda espren ON dimconf.id_estilo_prenda = espren.id_estilo_prenda
+JOIN Talla ta ON dimconf.id_talla = ta.id_talla
+JOIN Genero ge ON dimconf.id_genero = ge.id_genero
+JOIN Estado est ON cpren.id_estado = est.id_estado
+WHERE cpren.id_caja =  <4>
+
+
+-- 6. ACABADOS: Carga la grilla de acbados por orden de produccion y
+--caja de entrada, aqui se ingresa su caja de salida.
+
+-- 7. GUARDAR CAMBIOS: Se realiza click en guardar cambios para guardar
+-- las modificaciones en Acabados.
+
+
+--
+```
+
+
+
 
 ### 6. Calidad
 
