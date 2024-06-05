@@ -60,3 +60,11 @@
 | IV603 | Registrar datos de Inspeccion | Pantalla para ingresar datos de inspeccion de calidad y registrarlas |
 
 ### 7. PCP 
+
+
+
+
+
+**[Ir a la seccion 3](3-sentencias-sql.md)**
+
+***[Regresar al índice](./entregable%203-indice.md)***
