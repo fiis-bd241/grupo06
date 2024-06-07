@@ -1,209 +1,14 @@
 import psycopg2
-import tkinter as tk
-from tkinter import simpledialog, messagebox
+from tkinter import messagebox
 import random
 from faker import Faker
 import re
 from datetime import timedelta
 import pytz
+import conectorBD
+from inserts1 import inserts1
 
 fake = Faker('es_ES')  # Usamos es_ES para generar datos en español
-
-def connect_to_database(host, port, database, user, password): #Conecta a la base de datos
-    try:
-        # Conectar a la base de datos
-        connection = psycopg2.connect(
-            host=host,
-            port=port,
-            database=database,
-            user=user,
-            password=password
-        )
-        messagebox.showinfo('Éxito', 'Conexión exitosa')
-        return connection
-    except psycopg2.Error as e:
-        messagebox.showerror('Error', f'Error al conectar a la base de datos: {e}')
-        return None
-
-def insert_cargos(cursor, cargos): #Inserta cargos
-    try:
-        for cargo in cargos:
-            cursor.execute("INSERT INTO cargo (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING RETURNING id_cargo;", (cargo,))
-            id_cargo = cursor.fetchone()
-            if id_cargo:
-                print(f"Inserted cargo: {cargo}")
-    except psycopg2.Error as e:
-        messagebox.showerror("Error", f"Error al insertar cargos: {e}")
-
-def insert_estados(cursor, estados): #Inserta estados
-    try:
-        for estado in estados:
-            cursor.execute("INSERT INTO estado (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING RETURNING id_estado;", (estado,))
-            id_estado = cursor.fetchone()
-            if id_estado:
-                print(f"Inserted estado: {estado}")
-    except psycopg2.Error as e:
-        messagebox.showerror("Error", f"Error al insertar estados: {e}")
-
-def insert_tipos_mp(cursor, tipos_mp): #Inserta tipos de materia prima
-    try:
-        for tipo_mp in tipos_mp:
-            cursor.execute("INSERT INTO tipo_materia_prima (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING RETURNING id_tipo_materia_prima;", (tipo_mp,))
-            id_tipo_materia_prima = cursor.fetchone()
-            if id_tipo_materia_prima:
-                print(f"Inserted tipo de materia prima: {tipo_mp}")
-    except psycopg2.Error as e:
-        messagebox.showerror("Error", f"Error al insertar tipos de materia prima: {e}")
-
-def insert_colores(cursor, colores): #Inserta colores
-    try:
-        for color in colores:
-            cursor.execute("INSERT INTO color (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING RETURNING id_color;", (color,))
-            id_color = cursor.fetchone()
-            if id_color:
-                print(f"Inserted color: {color}")
-    except psycopg2.Error as e:
-        messagebox.showerror("Error", f"Error al insertar colores: {e}")
-
-def insert_tipos_partes_prenda(cursor, tipos_partes_prenda): #Inserta tipos de partes de prenda
-    try:
-        for tipo_parte_prenda in tipos_partes_prenda:
-            cursor.execute("INSERT INTO tipo_parte_prenda (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING RETURNING id_tipo_parte_prenda;", (tipo_parte_prenda,))
-            id_tipo_parte_prenda = cursor.fetchone()
-            if id_tipo_parte_prenda:
-                print(f"Inserted tipo de parte de prenda: {tipo_parte_prenda}")
-    except psycopg2.Error as e:
-        messagebox.showerror("Error", f"Error al insertar tipos de partes de prenda: {e}")
-
-def insert_tipos_cortes(cursor, tipos_cortes): #Inserta tipos de cortes
-    try:
-        for tipo_corte in tipos_cortes:
-            cursor.execute("INSERT INTO tipo_corte (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING RETURNING id_tipo_corte;", (tipo_corte,))
-            id_tipo_corte = cursor.fetchone()
-            if id_tipo_corte:
-                print(f"Inserted tipo de corte: {tipo_corte}")
-    except psycopg2.Error as e:
-        messagebox.showerror("Error", f"Error al insertar tipos de cortes: {e}")
-
-def insert_tipos_lotes(cursor, tipos_lotes): #Inserta tipos de lotes
-    try:
-        for tipo_lote in tipos_lotes:
-            cursor.execute("INSERT INTO tipo_lote (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING RETURNING id_tipo_lote;", (tipo_lote,))
-            id_tipo_lote = cursor.fetchone()
-            if id_tipo_lote:
-                print(f"Inserted tipo de lote: {tipo_lote}")
-    except psycopg2.Error as e:
-        messagebox.showerror("Error", f"Error al insertar tipos de lotes: {e}")
-
-def insert_tipos_prendas(cursor, tipos_prendas): #Inserta tipos de prendas
-    try:
-        for tipo_prenda in tipos_prendas:
-            cursor.execute("INSERT INTO tipo_prenda (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING RETURNING id_tipo_prenda;", (tipo_prenda,))
-            id_tipo_prenda = cursor.fetchone()
-            if id_tipo_prenda:
-                print(f"Inserted tipo de prenda: {tipo_prenda}")
-    except psycopg2.Error as e:
-        messagebox.showerror("Error", f"Error al insertar tipos de prendas: {e}")
-
-def insert_estilos_prendas(cursor, estilos_prendas): #Inserta estilos de prendas
-    try:
-        for estilo_prenda in estilos_prendas:
-            cursor.execute("INSERT INTO estilo_prenda (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING RETURNING id_estilo_prenda;", (estilo_prenda,))
-            id_estilo_prenda = cursor.fetchone()
-            if id_estilo_prenda:
-                print(f"Inserted estilo de prenda: {estilo_prenda}")
-    except psycopg2.Error as e:
-        messagebox.showerror("Error", f"Error al insertar estilos de prendas: {e}")
-
-def insert_tallas(cursor, tallas): #Inserta tallas
-    try:
-        for talla in tallas:
-            cursor.execute("INSERT INTO talla (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING RETURNING id_talla;", (talla,))
-            id_talla = cursor.fetchone()
-            if id_talla:
-                print(f"Inserted talla: {talla}")
-    except psycopg2.Error as e:
-        messagebox.showerror("Error", f"Error al insertar tallas: {e}")
-
-def insert_generos(cursor, generos): #Inserta géneros
-    try:
-        for genero in generos:
-            cursor.execute("INSERT INTO genero (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING RETURNING id_genero;", (genero,))
-            id_genero = cursor.fetchone()
-            if id_genero:
-                print(f"Inserted género: {genero}")
-    except psycopg2.Error as e:
-        messagebox.showerror("Error", f"Error al insertar géneros: {e}")
-
-def insert_acabados(cursor, acabados): #Inserta acabados
-    try:
-        for acabado in acabados:
-            cursor.execute("INSERT INTO acabado (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING RETURNING id_acabado;", (acabado,))
-            id_acabado = cursor.fetchone()
-            if id_acabado:
-                print(f"Inserted acabado: {acabado}")
-    except psycopg2.Error as e:
-        messagebox.showerror("Error", f"Error al insertar acabados: {e}")
-
-def insert_areas(cursor, areas): #Inserta áreas
-    try:
-        for area in areas:
-            cursor.execute("INSERT INTO area (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING RETURNING id_area;", (area,))
-            id_area = cursor.fetchone()
-            if id_area:
-                print(f"Inserted area: {area}")
-    except psycopg2.Error as e:
-        messagebox.showerror("Error", f"Error al insertar áreas: {e}")
-
-def insert_aql_niveles(cursor, aql_niveles): #Inserta niveles AQL
-    try:
-        for aql_nivel in aql_niveles:
-            cursor.execute("INSERT INTO aql_nivel (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING RETURNING id_aql_nivel;", (aql_nivel,))
-            id_aql_nivel = cursor.fetchone()
-            if id_aql_nivel:
-                print(f"Inserted nivel AQL: {aql_nivel}")
-    except psycopg2.Error as e:
-        messagebox.showerror("Error", f"Error al insertar niveles AQL: {e}")
-
-def insert_aql_lote_rangos(cursor, aql_lote_rangos): #Inserta rangos de lote AQL
-    try:
-        for aql_lote_rango in aql_lote_rangos:
-            cursor.execute("INSERT INTO aql_lote_rango (min_lote, max_lote) VALUES (%s, %s) RETURNING id_aql_lote_rango;", (aql_lote_rango[0],aql_lote_rango[1]))
-            id_aql_lote_rango = cursor.fetchone()
-            if id_aql_lote_rango:
-                print(f"Inserted rango de lote AQL: min_lote={aql_lote_rango[0]}, max_lote={aql_lote_rango[1]}")
-    except psycopg2.Error as e:
-        messagebox.showerror("Error", f"Error al insertar rangos de lote AQL: {e}")
-
-def insert_aql_codigos(cursor, aql_codigos): #Inserta códigos AQL
-    try:
-        for aql_codigo in aql_codigos:
-            cursor.execute("INSERT INTO aql_codigo (id_aql_codigo, tamaño_muestra) VALUES (%s, %s) ON CONFLICT (tamaño_muestra) DO NOTHING RETURNING id_aql_codigo;", (aql_codigo[0], aql_codigo[1]))
-            id_aql_codigo = cursor.fetchone()
-            if id_aql_codigo:
-                print(f"Inserted código AQL: id_aql_codigo={aql_codigo[0]}, tamaño_muestra={aql_codigo[1]}")
-    except psycopg2.Error as e:
-        messagebox.showerror("Error", f"Error al insertar códigos AQL: {e}")
-
-def insert_aql_significancias(cursor, aql_significancias): #Inserta significancias AQL
-    try:
-        for aql_significancia in aql_significancias:
-            cursor.execute("INSERT INTO aql_significancia (nivel_significancia) VALUES (%s) ON CONFLICT (nivel_significancia) DO NOTHING RETURNING id_aql_significancia;", (aql_significancia,))
-            id_aql_significancia = cursor.fetchone()
-            if id_aql_significancia:
-                print(f"Inserted significancia AQL: {aql_significancia}")
-    except psycopg2.Error as e:
-        messagebox.showerror("Error", f"Error al insertar significancias AQL: {e}")
-
-def insert_resultados(cursor, resultados): #Inserta tipos de resultados
-    try:
-        for resultado in resultados:
-            cursor.execute("INSERT INTO resultado (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING RETURNING id_resultado;", (resultado,))
-            id_resultado = cursor.fetchone()
-            if id_resultado:
-                print(f"Inserted resultado: {resultado}")
-    except psycopg2.Error as e:
-        messagebox.showerror("Error", f"Error al insertar resultados: {e}")
 
 def insert_proveedor(cursor): #Inserta proveedores, direccion, telefono y email
     try:
@@ -1592,45 +1397,9 @@ def insert_lote_entrada(cursor):
 def insert_data(connection): #Insertar todos los datos en la base de datos
     cursor = connection.cursor()
 
-    # Valores de las tablas
-    cargos = ('Almacenero', 'Operario', 'Costurero', 'Inspector', 'Planificador', 'Jefe')
-    estados = ('Cancelado', 'En mantenimiento', 'No disponible', 'Atrasado', 'Obsoleto', 'No iniciado', 'Completado', 'Usado', 'En proceso', 'Entregado', 'Ocupado', 'Disponible')
-    tipos_mp = ('Franela','French Terry', 'Full Lycra', 'Jersey', 'Polialgodón', 'Poliéster', 'Piqué', 'Rib')
-    colores = ('Negro', 'Blanco', 'Gris', 'Azul', 'Rojo', 'Verde', 'Amarillo', 'Naranja', 'Morado', 'Rosa', 'Marrón', 'Beige', 'Turquesa', 'Borgoña', 'Celeste')
-    tipos_partes_prenda = ('Manga', 'Falda trasera', 'Pretina', 'Sisa', 'Pierna delantera', 'entrepierna', 'Falda delantera', 'Yugo', 'Bolsillo', 'Pierna trasera', 'Cuerpo delantero', 'Cintura', 'Bajo', 'Puño', 'Entrepierna', 'Cuello', 'Cuerpo trasero')
-    tipos_cortes = ('Largo de la manga', 'Ancho de la manga', 'Largo delantero', 'Ancho delantero', 'Largo trasero', 'Ancho trasero', 'Forma del cuello', 'Largo del cuello', 'Ancho del puño', 'Largo del puño', 'Ancho de la pretina', 'Largo de la pretina', 'Tamaño del bolsillo', 'Posición del bolsillo', 'Largo del yugo', 'Ancho del yugo', 'Forma de la sisa', 'Profundidad de la sisa', 'Largo de la pierna', 'Ancho de la pierna', 'Ancho de la cintura', 'Largo de la cintura', 'Largo de la entrepierna', 'Ancho del bajo', 'Largo del bajo')
-    tipos_lotes = ('Materia prima', 'Corte', 'Confección', 'Prenda')
-    tipos_prendas = ('Camisa', 'Polo', 'Blusa', 'Pantalón', 'Short', 'Falda')
-    estilos_prendas = ('Deportivo', 'Casual', 'Formal')
-    tallas = ('XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL')
-    generos = ('Masculino', 'Femenino')
-    acabados = ('Etiquetado','Hangteado', 'Embolsado', 'Embalaje', 'Encaje')
-    areas = ('Almacén Central', 'Corte', 'Confección', 'Almacén de tránsito', 'Acabado', 'Calidad', 'Planeamiento')
-    aql_niveles = ('G1', 'G2', 'G3', 'S1', 'S2', 'S3', 'S4')
-    aql_lote_rangos = ((2, 8), (9, 15), (16, 25), (26, 50), (51, 90), (91, 150), (151, 280), (281, 500), (501, 1200), (1201, 3200), (3201, 10000), (10001, 35000), (35001, 150000), (150001, 500000), (500001, 1000000))
-    aql_codigos = (('A', 2), ('B', 3), ('C', 5), ('D', 8), ('E', 13), ('F', 20), ('G', 32), ('H', 50), ('J', 80), ('K', 125), ('L', 200), ('M', 315), ('N', 500), ('P', 800), ('Q', 1250), ('R', 2000))
-    aql_significancias = (0.065, 0.10, 0.15, 0.25, 0.40, 0.65, 1.0, 1.5, 2.5, 4.0, 6.5)
-    resultados = ('Conforme', 'No conforme')
     zonas = ('Materia prima', 'Corte', 'Confección', 'Producto terminado', 'Tránsito')
 
-    insert_cargos(cursor, cargos)
-    insert_estados(cursor, estados)
-    insert_tipos_mp(cursor, tipos_mp)
-    insert_colores(cursor, colores)
-    insert_tipos_partes_prenda(cursor, tipos_partes_prenda)
-    insert_tipos_cortes(cursor, tipos_cortes)
-    insert_tipos_lotes(cursor, tipos_lotes)
-    insert_tipos_prendas(cursor, tipos_prendas)
-    insert_estilos_prendas(cursor, estilos_prendas)
-    insert_tallas(cursor, tallas)
-    insert_generos(cursor, generos)
-    insert_acabados(cursor, acabados)
-    insert_areas(cursor, areas)
-    insert_aql_niveles(cursor, aql_niveles)
-    insert_aql_lote_rangos(cursor, aql_lote_rangos)
-    insert_aql_codigos(cursor, aql_codigos)
-    insert_aql_significancias(cursor, aql_significancias)
-    insert_resultados(cursor, resultados)
+    inserts1(cursor)
     insert_proveedor(cursor)
     insert_empleados(cursor)
     insert_maquinas(cursor)
@@ -1677,19 +1446,12 @@ def insert_data(connection): #Insertar todos los datos en la base de datos
     cursor.close()
 
 def main(): #Función principal
-    # Crear la ventana principal
-    root = tk.Tk()
-    root.withdraw()  # Ocultar la ventana principal
 
     # Solicitar datos al usuario
-    host = simpledialog.askstring('Host', 'Ingrese el host de la base de datos (default localhost):', initialvalue='localhost')
-    port = simpledialog.askstring('Puerto', 'Ingrese el puerto de la base de datos (default 5432):', initialvalue='5432')
-    database = simpledialog.askstring('Base de Datos', 'Ingrese el nombre de la base de datos:')
-    user = simpledialog.askstring('Usuario', 'Ingrese su usuario (default postgres):', initialvalue='postgres')
-    password = simpledialog.askstring('Contraseña', 'Ingrese su contraseña:', show='*')
+    host, port, database, user, password = conectorBD.get_db_credentials()
 
     if host and port and database and user and password:
-        connection = connect_to_database(host, port, database, user, password)
+        connection = conectorBD.connect_to_database(host, port, database, user, password)
         if connection:
             insert_data(connection)
     else:
