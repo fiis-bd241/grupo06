@@ -18,8 +18,7 @@ def insert_proveedor(cursor): #Inserta proveedores, direccion, telefono y email
         return f"comercial@{re.sub('[^0-9a-zA-Z_]', '', denominacion_social)}.com"
     
     try:
-        print("Insertando proveedores en la base de datos...")
-
+        print("Insertando proveedores (proveedores, telefonos, direcciones, emails) en la base de datos...")
         for _ in range(20):# Generar registros para proveedor
             ruc = fake.unique.random_number(digits=11)
             denominacion_social = fake.company()[:30]
@@ -37,10 +36,7 @@ def insert_proveedor(cursor): #Inserta proveedores, direccion, telefono y email
             cursor.execute("INSERT INTO correo (direccion_correo) VALUES (%s) RETURNING id_correo;", (correo,))
             id_correo = cursor.fetchone()[0]
 
-            cursor.execute("""
-                INSERT INTO proveedor (ruc, denominacion_social, id_direccion, id_telefono, id_correo)
-                VALUES (%s, %s, %s, %s, %s);
-            """, (ruc, denominacion_social, id_direccion, id_telefono, id_correo))
+            cursor.execute("INSERT INTO proveedor (ruc, denominacion_social, id_direccion, id_telefono, id_correo) VALUES (%s, %s, %s, %s, %s);", (ruc, denominacion_social, id_direccion, id_telefono, id_correo))
 
         cursor.connection.commit()
         print("Proveedores insertados exitosamente.")
@@ -68,8 +64,7 @@ def insert_empleados(cursor):
         return f"{nombre}.{primer_apellido}@{email_domain}".lower()
 
     try:
-        print("Insertando empleados en la base de datos...")
-
+        print("Insertando empleados (empleados, telefonos, direcciones, emails) en la base de datos...")
         # Generar registros para empleados
         for area, (empleado_cargo, jefe_cargo) in area_cargo_relations.items():
             # Insertar jefe
@@ -98,10 +93,7 @@ def insert_empleados(cursor):
                 cursor.execute("INSERT INTO correo (direccion_correo) VALUES (%s) RETURNING id_correo;", (correo,))
                 id_correo = cursor.fetchone()[0]
 
-                cursor.execute("""
-                    INSERT INTO empleado (dni, nombre, segundo_apellido, primer_apellido, id_area, id_direccion, id_telefono, id_correo, id_cargo)
-                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s);
-                """, (dni, nombre, segundo_apellido, primer_apellido, id_area, id_direccion, id_telefono, id_correo, id_cargo))
+                cursor.execute("INSERT INTO empleado (dni, nombre, segundo_apellido, primer_apellido, id_area, id_direccion, id_telefono, id_correo, id_cargo) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s);", (dni, nombre, segundo_apellido, primer_apellido, id_area, id_direccion, id_telefono, id_correo, id_cargo))
 
             # Insertar otros empleados
             for _ in range(10):  # Diez empleados por área con otros cargos
@@ -129,12 +121,7 @@ def insert_empleados(cursor):
                 cursor.execute("INSERT INTO correo (direccion_correo) VALUES (%s) RETURNING id_correo;", (correo,))
                 id_correo = cursor.fetchone()[0]
 
-                cursor.execute("""
-                    INSERT INTO empleado (dni, nombre, segundo_apellido, primer_apellido, id_area, id_direccion, id_telefono, id_correo, id_cargo)
-                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s);
-                """, (dni, nombre, segundo_apellido, primer_apellido, id_area, id_direccion, id_telefono, id_correo, id_cargo))
-
-                print(f"Inserted empleado: {dni}, {nombre} {primer_apellido} {segundo_apellido}, área: {area}, cargo: {empleado_cargo}")
+                cursor.execute("INSERT INTO empleado (dni, nombre, segundo_apellido, primer_apellido, id_area, id_direccion, id_telefono, id_correo, id_cargo) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s);", (dni, nombre, segundo_apellido, primer_apellido, id_area, id_direccion, id_telefono, id_correo, id_cargo))
 
         cursor.connection.commit()
         print("Empleados insertados exitosamente.")
@@ -145,264 +132,376 @@ def insert_empleados(cursor):
         print(error)
         messagebox.showerror("Error", error)
         sys.exit(1)
-def insert_estados(cursor): # Inserta estados
-    estados = ('Cancelado', 'En mantenimiento', 'No disponible', 'Atrasado', 'Obsoleto', 'No iniciado', 'Completado', 'Usado', 'En proceso', 'Entregado', 'Ocupado', 'Disponible')
+
+def insert_maquinas(cursor): #Inserta máquinas
+    maquina_estado_relations = {
+        'Maquina': ('Disponible', 'No disponible', 'En mantenimiento'),
+    }
+
     try:
-        print("Insertando estados en la base de datos...")
-        for estado in estados:
-            cursor.execute("INSERT INTO estado (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING RETURNING id_estado;", (estado,))
+        print("Insertando máquinas en la base de datos...")
+        # Obtener todos los id_estado relacionados con 'Orden_pedido'
+        cursor.execute("SELECT id_estado FROM estado WHERE nombre IN %s;", (tuple(maquina_estado_relations['Maquina']),))
+        estados = cursor.fetchall()
+        estado_ids = [estado[0] for estado in estados]
+        
+        if not estado_ids:
+            raise ValueError("No se encontraron estados válidos en la tabla estado")
+
+        for _ in range(30):
+            capacidad_total = random.randint(2, 5) * 1000
+            id_estado = random.choice(estado_ids)  # Seleccionar un estado aleatorio
+
+            cursor.execute("INSERT INTO maquina (capacidad_total, id_estado) VALUES (%s, %s) RETURNING id_maquina;", (capacidad_total, id_estado))
+        
         cursor.connection.commit()
-        print("Estados insertados exitosamente.")
-    except psycopg2.Error as e:
+        print("Máquinas insertadas exitosamente.")
+    except (psycopg2.Error, ValueError) as e:
         cursor.connection.rollback()
-        error = f"Error al insertar estados: {e}"
+        error = f"Error al insertar máquinas: {e}"
         print(error)
-        messagebox.showerror('Error', error)
+        messagebox.showerror("Error", error)
         sys.exit(1)
 
-def insert_tipos_mp(cursor): #Inserta tipos de materia prima
-    tipos_materia_prima = ('Franela','French Terry', 'Full Lycra', 'Jersey', 'Polialgodón', 'Poliéster', 'Piqué', 'Rib')
+def insert_dimension_materia_prima(cursor): #Inserta dimensiones de materia prima
     try:
-        for tipo_mp in tipos_materia_prima:
-            cursor.execute("INSERT INTO tipo_materia_prima (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING RETURNING id_tipo_materia_prima;", (tipo_mp,))
+        print("Insertando dimensiones de materia prima en la base de datos...")
+        # Obtener todos los id_tipo_materia_prima
+        cursor.execute("SELECT id_tipo_materia_prima FROM tipo_materia_prima;")
+        tipos_materia_prima = cursor.fetchall()
+        tipo_materia_prima_ids = [tipo[0] for tipo in tipos_materia_prima]
+
+        # Obtener todos los id_color
+        cursor.execute("SELECT id_color FROM color;")
+        colores = cursor.fetchall()
+        color_ids = [color[0] for color in colores]
+
+        if not tipo_materia_prima_ids:
+            raise ValueError("No se encontraron tipos de materia prima en la tabla tipo_materia_prima")
+        if not color_ids:
+            raise ValueError("No se encontraron colores en la tabla color")
+
+        for _ in range(100):
+            id_tipo_materia_prima = random.choice(tipo_materia_prima_ids)
+            id_color = random.choice(color_ids)
+
+            cursor.execute("INSERT INTO dimension_materia_prima (id_tipo_materia_prima, id_color) VALUES (%s, %s) RETURNING id_dim_materia_prima;", (id_tipo_materia_prima, id_color))
         cursor.connection.commit()
-        print("Tipos de materia prima insertados exitosamente.")
-    except psycopg2.Error as e:
+        print("Dimensiones de materia prima insertadas exitosamente.")
+    except (psycopg2.Error, ValueError) as e:
         cursor.connection.rollback()
-        error = f"Error al insertar tipos de materia prima: {e}"
+        error = f"Error al insertar dimensiones de materia prima: {e}"
         print(error)
-        messagebox.showerror('Error', error)
+        messagebox.showerror("Error", error)
         sys.exit(1)
 
-def insert_colores(cursor): #Inserta colores
-    colores = ('Negro', 'Blanco', 'Gris', 'Azul', 'Rojo', 'Verde', 'Amarillo', 'Naranja', 'Morado', 'Rosa', 'Marrón', 'Beige', 'Turquesa', 'Borgoña', 'Celeste')
+def insert_dimension_parte_prenda(cursor): #Inserta dimensiones de materia prima
     try:
-        for color in colores:
-            cursor.execute("INSERT INTO color (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING RETURNING id_color;", (color,))
+        print("Insertando dimensiones de parte de prenda en la base de datos...")
+        # Obtener todos los id_tipo_parte_prenda
+        cursor.execute("SELECT id_tipo_parte_prenda FROM tipo_parte_prenda;")
+        tipos_parte_prenda = cursor.fetchall()
+        tipo_parte_prenda_ids = [tipo[0] for tipo in tipos_parte_prenda]
+
+        if not tipo_parte_prenda_ids:
+            raise ValueError("No se encontraron tipos de parte de prenda en la tabla tipo_parte_prenda")
+
+        for _ in range(100):
+            id_tipo_parte_prenda = random.choice(tipo_parte_prenda_ids)
+
+            cursor.execute("INSERT INTO dimension_parte_prenda (id_tipo_parte_prenda) VALUES (%s) RETURNING id_dim_parte_prenda;", (id_tipo_parte_prenda,))
         cursor.connection.commit()
-        print("Colores insertados correctamente")
-    except psycopg2.Error as e:
+        print("Dimensiones de parte de prenda insertadas exitosamente.")
+    except (psycopg2.Error, ValueError) as e:
         cursor.connection.rollback()
-        error = f"Error al insertar colores: {e}"
+        error = f"Error al insertar dimensiones de parte de prenda: {e}"
         print(error)
-        messagebox.showerror('Error', error)
+        messagebox.showerror("Error", error)
         sys.exit(1)
 
-def insert_tipos_partes_prenda(cursor): #Inserta tipos de partes de prenda
-    tipos_partes_prenda = ('Manga', 'Falda trasera', 'Pretina', 'Sisa', 'Pierna delantera', 'entrepierna', 'Falda delantera', 'Yugo', 'Bolsillo', 'Pierna trasera', 'Cuerpo delantero', 'Cintura', 'Bajo', 'Puño', 'Entrepierna', 'Cuello', 'Cuerpo trasero')
+def insert_dimension_confeccion(cursor): #Inserta dimensiones de materia prima
     try:
-        for tipo_parte_prenda in tipos_partes_prenda:
-            cursor.execute("INSERT INTO tipo_parte_prenda (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING RETURNING id_tipo_parte_prenda;", (tipo_parte_prenda,))
+        print("Insertando dimensiones de confección en la base de datos...")
+        # Obtener todos los id_tipo_prenda
+        cursor.execute("SELECT id_tipo_prenda FROM tipo_prenda;")
+        tipos_prenda = cursor.fetchall()
+        tipo_prenda_ids = [tipo[0] for tipo in tipos_prenda]
+
+        # Obtener todos los id_estilo_prenda
+        cursor.execute("SELECT id_estilo_prenda FROM estilo_prenda;")
+        estilos_prenda = cursor.fetchall()
+        estilo_prenda_ids = [estilo[0] for estilo in estilos_prenda]
+
+        # Obtener todos los id_talla
+        cursor.execute("SELECT id_talla FROM talla;")
+        tallas = cursor.fetchall()
+        talla_ids = [talla[0] for talla in tallas]
+
+        # Obtener todos los id_genero
+        cursor.execute("SELECT id_genero FROM genero;")
+        generos = cursor.fetchall()
+        genero_ids = [genero[0] for genero in generos]
+
+        # Verificación de listas
+        if not tipo_prenda_ids:
+            raise ValueError("No se encontraron tipos de prenda en la tabla tipo_prenda")
+        if not estilo_prenda_ids:
+            raise ValueError("No se encontraron estilos de prenda en la tabla estilo_prenda")
+        if not talla_ids:
+            raise ValueError("No se encontraron tallas en la tabla talla")
+        if not genero_ids:
+            raise ValueError("No se encontraron géneros en la tabla genero")
+
+        for _ in range(100):
+            id_tipo_prenda = random.choice(tipo_prenda_ids)
+            id_estilo_prenda = random.choice(estilo_prenda_ids)
+            id_talla = random.choice(talla_ids)
+            id_genero = random.choice(genero_ids)
+
+            # Generar y insertar guía de confección
+            medida_pecho = round(random.uniform(70, 90), 2)
+            medida_cintura = round(random.uniform(60, 90), 2)
+            medida_cadera = round(random.uniform(80, 90), 2)
+            medida_hombro = round(random.uniform(35, 60), 2)
+            medida_longitud = round(random.uniform(50, 90), 2)
+            medida_manga = round(random.uniform(50, 80), 2)
+            medida_muslo = round(random.uniform(40, 70), 2)
+
+            cursor.execute("INSERT INTO guia_confeccion (medida_pecho, medida_cintura, medida_cadera, medida_hombro, medida_longitud, medida_manga, medida_muslo) VALUES (%s, %s, %s, %s, %s, %s, %s) RETURNING id_guia_confeccion;", (medida_pecho, medida_cintura, medida_cadera, medida_hombro, medida_longitud, medida_manga, medida_muslo))
+            id_guia_confeccion = cursor.fetchone()[0]
+
+            # Insertar dimensión de confección
+            cursor.execute("INSERT INTO dimension_confeccion (id_tipo_prenda, id_estilo_prenda, id_guia_confeccion, id_talla, id_genero) VALUES (%s, %s, %s, %s, %s) RETURNING id_dim_confeccion;", (id_tipo_prenda, id_estilo_prenda, id_guia_confeccion, id_talla, id_genero))
+        
         cursor.connection.commit()
-        print("Tipos de partes de prenda insertados correctamente")
-    except psycopg2.Error as e:
+        print("Dimensiones de confección insertadas exitosamente.")
+    except (psycopg2.Error, ValueError) as e:
         cursor.connection.rollback()
-        error = f"Error al insertar tipos de partes de prenda: {e}"
+        error = f"Error al insertar dimensiones de confección: {e}"
         print(error)
-        messagebox.showerror('Error', error)
+        messagebox.showerror("Error", error)
         sys.exit(1)
 
-def insert_tipos_cortes(cursor): #Inserta tipos de cortes
-    tipos_cortes = ('Largo de la manga', 'Ancho de la manga', 'Largo delantero', 'Ancho delantero', 'Largo trasero', 'Ancho trasero', 'Forma del cuello', 'Largo del cuello', 'Ancho del puño', 'Largo del puño', 'Ancho de la pretina', 'Largo de la pretina', 'Tamaño del bolsillo', 'Posición del bolsillo', 'Largo del yugo', 'Ancho del yugo', 'Forma de la sisa', 'Profundidad de la sisa', 'Largo de la pierna', 'Ancho de la pierna', 'Ancho de la cintura', 'Largo de la cintura', 'Largo de la entrepierna', 'Ancho del bajo', 'Largo del bajo')
+def insert_orden_pedido(cursor): #Inserta órdenes de pedido    
+    orden_pedido_estado_relations = ('No iniciado', 'En proceso', 'Completado', 'Atrasado', 'Cancelado')
     try:
-        for tipo_corte in tipos_cortes:
-            cursor.execute("INSERT INTO tipo_corte (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING RETURNING id_tipo_corte;", (tipo_corte,))
+        print("Insertando órdenes de pedido en la base de datos...")
+        # Obtener todos los id_estado relacionados con 'Orden_pedido'
+        cursor.execute("SELECT id_estado FROM estado WHERE nombre IN %s;", (orden_pedido_estado_relations,))
+        estados = cursor.fetchall()
+        estado_ids = [estado[0] for estado in estados]
+
+        if not estado_ids:
+            raise ValueError("No se encontraron estados en la tabla estado")
+
+        for _ in range(100):
+            id_estado = random.choice(estado_ids)
+            cantidad = random.randint(5, 9) * 10000
+            fecha_creacion = fake.date_time_between(start_date='-1y', end_date='now', tzinfo=None)
+            
+            # Seleccionar un huso horario aleatorio
+            tz = random.choice(pytz.all_timezones)
+            timezone = pytz.timezone(tz)
+            fecha_entrega = fake.date_time_between_dates(datetime_start=fecha_creacion, datetime_end=fecha_creacion + timedelta(days=60), tzinfo=timezone)
+
+            cursor.execute("INSERT INTO orden_pedido (fecha_entrega, cantidad, id_estado, fecha_creacion) VALUES (%s, %s, %s, %s) RETURNING id_orden_pedido;", (fecha_entrega, cantidad, id_estado, fecha_creacion))
+        
         cursor.connection.commit()
-        print("Tipos de cortes insertados correctamente")
-    except psycopg2.Error as e:
+        print("Órdenes de pedido insertadas exitosamente.")
+    except (psycopg2.Error, ValueError) as e:
         cursor.connection.rollback()
-        error = f"Error al insertar tipos de cortes: {e}"
+        error = f"Error al insertar órdenes de pedido: {e}"
         print(error)
-        messagebox.showerror('Error', error)
+        messagebox.showerror("Error", error)
         sys.exit(1)
 
-def insert_tipos_lotes(cursor): #Inserta tipos de lotes
-    tipos_lotes = ('Materia prima', 'Corte', 'Confección', 'Prenda')
+def insert_plan_produccion(cursor): # Inserta órdenes de pedido
+    plan_produccion_estado_relations = ('No iniciado', 'En proceso', 'Completado', 'Atrasado', 'Cancelado')
     try:
-        for tipo_lote in tipos_lotes:
-            cursor.execute("INSERT INTO tipo_lote (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING RETURNING id_tipo_lote;", (tipo_lote,))
+        print("Insertando planes de producción en la base de datos...")
+        # Obtener todos los id_estado relacionados con 'Orden_pedido'
+        cursor.execute("SELECT id_estado FROM estado WHERE nombre IN %s;", (plan_produccion_estado_relations,))
+        estados = cursor.fetchall()
+        estado_ids = [estado[0] for estado in estados]
+
+        if not estado_ids:
+            raise ValueError("No se encontraron estados en la tabla estado")
+
+        for _ in range(100):
+            id_estado = random.choice(estado_ids)
+            
+            fecha_creacion = fake.date_time_between(start_date='-1y', end_date='now', tzinfo=None)
+            fecha_inicio = fake.date_time_between_dates(datetime_start=fecha_creacion, datetime_end=fecha_creacion + timedelta(days=10), tzinfo=None)
+            fecha_fin = fake.date_time_between_dates(datetime_start=fecha_inicio, datetime_end=fecha_inicio + timedelta(days=30), tzinfo=None)
+
+            cursor.execute("INSERT INTO plan_produccion (fecha_inicio, fecha_fin, id_estado, fecha_creacion) VALUES (%s, %s, %s, %s) RETURNING id_plan;", (fecha_inicio, fecha_fin, id_estado, fecha_creacion))
         cursor.connection.commit()
-        print("Tipos de lotes insertados correctamente")
-    except psycopg2.Error as e:
+        print("Planes de producción insertados exitosamente.")
+    except (psycopg2.Error, ValueError) as e:
         cursor.connection.rollback()
-        error = f"Error al insertar tipos de lotes: {e}"
+        error = f"Error al insertar planes de producción: {e}"
         print(error)
-        messagebox.showerror('Error', error)
+        messagebox.showerror("Error", error)
         sys.exit(1)
 
-def insert_tipos_prendas(cursor): #Inserta tipos de prendas
-    tipos_prendas = ('Camisa', 'Polo', 'Blusa', 'Pantalón', 'Short', 'Falda')
+def insert_zonas(cursor): # Inserta zonas
+    area_zona_relations = {
+        'Almacén Central': ('Materia prima', 'Corte', 'Confección', 'Producto terminado'),
+        'Almacén de tránsito': ('Tránsito',),
+    }
     try:
-        for tipo_prenda in tipos_prendas:
-            cursor.execute("INSERT INTO tipo_prenda (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING RETURNING id_tipo_prenda;", (tipo_prenda,))
+        print("Insertando zonas en la base de datos...")
+
+        for area, zona_list in area_zona_relations.items():
+            # Obtener el id_area correspondiente
+            cursor.execute("SELECT id_area FROM area WHERE nombre=%s;", (area,))
+            id_area = cursor.fetchone()
+
+            if not id_area:
+                raise ValueError(f"No se encontró el área '{area}' en la tabla area")
+
+            id_area = id_area[0]
+
+            # Obtener el último número de zona para este id_area
+            cursor.execute("SELECT MAX(id_zona) FROM zona WHERE id_zona BETWEEN %s AND %s;", (id_area * 100 + 1, id_area * 100 + 99))
+            
+            last_zone_number = cursor.fetchone()[0]
+
+            if last_zone_number is None:
+                last_zone_number = id_area * 100
+
+            for zona in zona_list:
+                # Incrementar el número de zona
+                next_zone_number = last_zone_number + 1
+                last_zone_number = next_zone_number  # Update the last zone number for the next iteration
+
+                cursor.execute("INSERT INTO zona (id_zona, nombre, id_area) VALUES (%s, %s, %s) ON CONFLICT (nombre) DO NOTHING RETURNING id_zona;", (next_zone_number, zona, id_area))
+
         cursor.connection.commit()
-        print("Tipos de prendas insertados correctamente")
-    except psycopg2.Error as e:
+        print("Zonas insertadas exitosamente.")
+
+    except (psycopg2.Error, ValueError) as e:
         cursor.connection.rollback()
-        error = f"Error al insertar tipos de prendas: {e}"
+        error = f"Error al insertar zonas: {e}"
         print(error)
-        messagebox.showerror('Error', error)
+        messagebox.showerror("Error", error)
         sys.exit(1)
 
-def insert_estilos_prendas(cursor): #Inserta estilos de prendas
-    estilos_prendas = ('Deportivo', 'Casual', 'Formal')
+def insert_aql_muestra(cursor): #Inserta AQL muestra
+    # Relaciones de aql_muestra
+    aql_muestra_relations = {
+        'G1': {(2, 8): 'A', (9, 15): 'A', (16, 25): 'B', (26, 50): 'C', (51, 90): 'C', (91, 150): 'D', (151, 280): 'E', (281, 500): 'F', (501, 1200): 'G', (1201, 3200): 'H', (3201, 10000): 'J', (10001, 35000): 'K', (35001, 150000): 'L', (150001, 500000): 'M', (500001, 1000000): 'N'},
+        'G2': {(2, 8): 'A', (9, 15): 'B', (16, 25): 'C', (26, 50): 'D', (51, 90): 'E', (91, 150): 'F', (151, 280): 'G', (281, 500): 'H', (501, 1200): 'J', (1201, 3200): 'K', (3201, 10000): 'L', (10001, 35000): 'M', (35001, 150000): 'N', (150001, 500000): 'P', (500001, 1000000): 'Q'},
+        'G3': {(2, 8): 'B', (9, 15): 'C', (16, 25): 'D', (26, 50): 'E', (51, 90): 'F', (91, 150): 'G', (151, 280): 'H', (281, 500): 'J', (501, 1200): 'K', (1201, 3200): 'L', (3201, 10000): 'M', (10001, 35000): 'N', (35001, 150000): 'P', (150001, 500000): 'Q', (500001, 1000000): 'R'},
+        'S1': {(2, 8): 'A', (9, 15): 'A', (16, 25): 'A', (26, 50): 'A', (51, 90): 'B', (91, 150): 'B', (151, 280): 'B', (281, 500): 'B', (501, 1200): 'C', (1201, 3200): 'C', (3201, 10000): 'C', (10001, 35000): 'C', (35001, 150000): 'D', (150001, 500000): 'D', (500001, 1000000): 'D'},
+        'S2': {(2, 8): 'A', (9, 15): 'A', (16, 25): 'A', (26, 50): 'B', (51, 90): 'B', (91, 150): 'B', (151, 280): 'C', (281, 500): 'C', (501, 1200): 'C', (1201, 3200): 'D', (3201, 10000): 'D', (10001, 35000): 'D', (35001, 150000): 'E', (150001, 500000): 'E', (500001, 1000000): 'E'},
+        'S3': {(2, 8): 'A', (9, 15): 'A', (16, 25): 'B', (26, 50): 'B', (51, 90): 'C', (91, 150): 'C', (151, 280): 'D', (281, 500): 'D', (501, 1200): 'E', (1201, 3200): 'E', (3201, 10000): 'F', (10001, 35000): 'F', (35001, 150000): 'G', (150001, 500000): 'G', (500001, 1000000): 'H'},
+        'S4': {(2, 8): 'A', (9, 15): 'A', (16, 25): 'B', (26, 50): 'C', (51, 90): 'C', (91, 150): 'D', (151, 280): 'E', (281, 500): 'E', (501, 1200): 'F', (1201, 3200): 'G', (3201, 10000): 'G', (10001, 35000): 'H', (35001, 150000): 'J', (150001, 500000): 'J', (500001, 1000000): 'K'}
+    }
+    
     try:
-        for estilo_prenda in estilos_prendas:
-            cursor.execute("INSERT INTO estilo_prenda (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING RETURNING id_estilo_prenda;", (estilo_prenda,))
+        print("Insertando AQL muestra en la base de datos...")
+        # Obtener todos los id_aql_nivel
+        cursor.execute("SELECT id_aql_nivel, nombre FROM aql_nivel;")
+        niveles = cursor.fetchall()
+        nivel_dict = {nivel[1]: nivel[0] for nivel in niveles}
+
+        # Obtener todos los id_aql_lote_rango
+        cursor.execute("SELECT id_aql_lote_rango, min_lote, max_lote FROM aql_lote_rango;")
+        lote_rangos = cursor.fetchall()
+        lote_rango_dict = {(lote[1], lote[2]): lote[0] for lote in lote_rangos}
+
+        # Obtener todos los id_aql_codigo
+        cursor.execute("SELECT id_aql_codigo FROM aql_codigo;")
+        codigos = cursor.fetchall()
+        codigo_dict = {codigo[0]: codigo[0] for codigo in codigos}
+
+        for nivel, rangos_codigos in aql_muestra_relations.items():
+            id_aql_nivel = nivel_dict.get(nivel)
+            if not id_aql_nivel:
+                raise ValueError(f"No se encontró el nivel '{nivel}' en la tabla aql_nivel")
+
+            for lote_rango, codigo in rangos_codigos.items():
+                id_aql_lote_rango = lote_rango_dict.get(lote_rango)
+                id_aql_codigo = codigo_dict.get(codigo)
+                if not id_aql_lote_rango:
+                    raise ValueError(f"No se encontró el rango de lote '{lote_rango}' en la tabla aql_lote_rango")
+                if not id_aql_codigo:
+                    raise ValueError(f"No se encontró el código '{codigo}' en la tabla aql_codigo")
+
+                cursor.execute("INSERT INTO aql_muestra (id_aql_nivel, id_aql_lote_rango, id_aql_codigo) VALUES (%s, %s, %s) ON CONFLICT DO NOTHING RETURNING id_aql_nivel, id_aql_lote_rango;", (id_aql_nivel, id_aql_lote_rango, id_aql_codigo))
+        
         cursor.connection.commit()
-        print("Estilos de prendas insertados correctamente")
-    except psycopg2.Error as e:
+        print("AQL muestra insertada exitosamente.")
+    except (psycopg2.Error, ValueError) as e:
         cursor.connection.rollback()
-        error = f"Error al insertar estilos de prendas: {e}"
+        error = f"Error al insertar AQL muestra: {e}"
         print(error)
-        messagebox.showerror('Error', error)
+        messagebox.showerror("Error", error)
         sys.exit(1)
 
-def insert_tallas(cursor): #Inserta tallas
-    tallas = ('XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL')
+def insert_aql_resultado_rango(cursor): #Inserta AQL resultado rango
+    # Relaciones de aql_resultado_rango
+    aql_resultado_rango_relations = {
+        0.065: {'A': (0, 1), 'B': (0, 1), 'C': (0, 1), 'D': (0, 1), 'E': (0, 1), 'F': (0, 1), 'G': (0, 1), 'H': (0, 1), 'J': (0, 1), 'K': (0, 1), 'L': (0, 1), 'M': (0, 1), 'N': (1, 2), 'P': (1, 2), 'Q': (2, 3), 'R': (3, 4)},
+        0.10: {'A': (0, 1), 'B': (0, 1), 'C': (0, 1), 'D': (0, 1), 'E': (0, 1), 'F': (0, 1), 'G': (0, 1), 'H': (0, 1), 'J': (0, 1), 'K': (0, 1), 'L': (0, 1), 'M': (1, 2), 'N': (1, 2), 'P': (2, 3), 'Q': (3, 4), 'R': (5, 6)},
+        0.15: {'A': (0, 1), 'B': (0, 1), 'C': (0, 1), 'D': (0, 1), 'E': (0, 1), 'F': (0, 1), 'G': (0, 1), 'H': (0, 1), 'J': (0, 1), 'K': (0, 1), 'L': (1, 2), 'M': (1, 2), 'N': (2, 3), 'P': (3, 4), 'Q': (5, 6), 'R': (7, 8)},
+        0.25: {'A': (0, 1), 'B': (0, 1), 'C': (0, 1), 'D': (0, 1), 'E': (0, 1), 'F': (0, 1), 'G': (0, 1), 'H': (0, 1), 'J': (0, 1), 'K': (1, 2), 'L': (1, 2), 'M': (2, 3), 'N': (3, 4), 'P': (5, 6), 'Q': (7, 8), 'R': (10, 11)},
+        0.40: {'A': (0, 1), 'B': (0, 1), 'C': (0, 1), 'D': (0, 1), 'E': (0, 1), 'F': (0, 1), 'G': (0, 1), 'H': (0, 1), 'J': (1, 2), 'K': (1, 2), 'L': (2, 3), 'M': (3, 4), 'N': (5, 6), 'P': (7, 8), 'Q': (10, 11), 'R': (14, 15)},
+        0.65: {'A': (0, 1), 'B': (0, 1), 'C': (0, 1), 'D': (0, 1), 'E': (0, 1), 'F': (0, 1), 'G': (0, 1), 'H': (1, 2), 'J': (1, 2), 'K': (2, 3), 'L': (3, 4), 'M': (5, 6), 'N': (7, 8), 'P': (10, 11), 'Q': (14, 15), 'R': (21, 22)},
+        1.0: {'A': (0, 1), 'B': (0, 1), 'C': (0, 1), 'D': (0, 1), 'E': (0, 1), 'F': (0, 1), 'G': (1, 2), 'H': (1, 2), 'J': (2, 3), 'K': (3, 4), 'L': (5, 6), 'M': (7, 8), 'N': (10, 11), 'P': (14, 15), 'Q': (21, 22), 'R': (21, 22)},
+        1.5: {'A': (0, 1), 'B': (0, 1), 'C': (0, 1), 'D': (0, 1), 'E': (0, 1), 'F': (1, 2), 'G': (1, 2), 'H': (2, 3), 'J': (3, 4), 'K': (5, 6), 'L': (7, 8), 'M': (10, 11), 'N': (14, 5), 'P': (21, 22), 'Q': (21, 22), 'R': (21, 22)},
+        2.5: {'A': (0, 1), 'B': (0, 1), 'C': (0, 1), 'D': (0, 1), 'E': (1, 2), 'F': (1, 2), 'G': (2, 3), 'H': (3, 4), 'J': (5, 6), 'K': (7, 8), 'L': (10, 11), 'M': (14, 15), 'N': (21, 22), 'P': (21, 22), 'Q': (21, 22), 'R': (21, 22)},
+        4.0: {'A': (0, 1), 'B': (0, 1), 'C': (0, 1), 'D': (1, 2), 'E': (1, 2), 'F': (2, 3), 'G': (3, 4), 'H': (5, 6), 'J': (7, 8), 'K': (10, 11), 'L': (14, 15), 'M': (21, 22), 'N': (21, 22), 'P': (21, 22), 'Q': (21, 22), 'R': (21, 22)},
+        6.5: {'A': (0, 1), 'B': (0, 1), 'C': (1, 2), 'D': (1, 2), 'E': (3, 4), 'F': (5, 6), 'G': (7, 8), 'H': (10, 11), 'J': (14, 15), 'K': (21, 22), 'L': (21, 22), 'M': (21, 22), 'N': (21, 22), 'P': (21, 22), 'Q': (21, 22), 'R': (21, 22)}
+    }
     try:
-        for talla in tallas:
-            cursor.execute("INSERT INTO talla (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING RETURNING id_talla;", (talla,))
+        print("Insertando AQL resultado rango en la base de datos...")
+
+        # Obtener todos los niveles de significancia AQL
+        cursor.execute("SELECT id_aql_significancia, nivel_significancia FROM aql_significancia;")
+        significancias = cursor.fetchall()
+        significancia_dict = {float(significancia[1]): significancia[0] for significancia in significancias}
+
+        # Obtener todos los códigos AQL
+        cursor.execute("SELECT id_aql_codigo FROM aql_codigo;")
+        codigos = cursor.fetchall()
+        codigo_dict = {codigo[0]: codigo[0] for codigo in codigos}
+
+        for nivel_significancia, rango_codigos in aql_resultado_rango_relations.items():
+            id_aql_significancia = significancia_dict.get(nivel_significancia)
+            if not id_aql_significancia:
+                raise ValueError(f"No se encontró la significancia '{nivel_significancia}' en la tabla aql_significancia")
+
+            for codigo, rango in rango_codigos.items():
+                id_aql_codigo = codigo_dict.get(codigo)
+                if not id_aql_codigo:
+                    raise ValueError(f"No se encontró el código AQL '{codigo}' en la tabla aql_codigo")
+
+                max_aceptacion, min_rechazo = rango
+                cursor.execute("INSERT INTO aql_resultado_rango (id_aql_codigo, id_aql_significancia, max_aceptacion, min_rechazo) VALUES (%s, %s, %s, %s);", (id_aql_codigo, id_aql_significancia, max_aceptacion, min_rechazo))
+        
         cursor.connection.commit()
-        print("Tallas insertadas correctamente")
-    except psycopg2.Error as e:
+        print("AQL resultado rango insertado exitosamente.")
+    except (psycopg2.Error, ValueError) as e:
         cursor.connection.rollback()
-        error = f"Error al insertar tallas: {e}"
+        error = f"Error al insertar AQL resultado rango: {e}"
         print(error)
-        messagebox.showerror('Error', error)
+        messagebox.showerror("Error", error)
         sys.exit(1)
 
-def insert_generos(cursor): #Inserta géneros
-    generos = ('Masculino', 'Femenino')
-    try:
-        for genero in generos:
-            cursor.execute("INSERT INTO genero (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING RETURNING id_genero;", (genero,))
-        cursor.connection.commit()
-        print("Géneros insertados correctamente")
-    except psycopg2.Error as e:
-        cursor.connection.rollback()
-        error = f"Error al insertar géneros: {e}"
-        print(error)
-        messagebox.showerror('Error', error)
-        sys.exit(1)
-
-def insert_acabados(cursor): #Inserta acabados
-    acabados = ('Etiquetado','Hangteado', 'Embolsado', 'Embalaje', 'Encaje')
-    try:
-        for acabado in acabados:
-            cursor.execute("INSERT INTO acabado (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING RETURNING id_acabado;", (acabado,))
-        cursor.connection.commit()
-        print("Acabados insertados correctamente")
-    except psycopg2.Error as e:
-        cursor.connection.rollback()
-        error = f"Error al insertar acabados: {e}"
-        print(error)
-        messagebox.showerror('Error', error)
-        sys.exit(1)
-
-def insert_areas(cursor): #Inserta áreas
-    areas = ('Almacén Central', 'Corte', 'Confección', 'Almacén de tránsito', 'Acabado', 'Calidad', 'Planeamiento')
-    try:
-        for area in areas:
-            cursor.execute("INSERT INTO area (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING RETURNING id_area;", (area,))
-        cursor.connection.commit()
-        print("Áreas insertadas correctamente")
-    except psycopg2.Error as e:
-        cursor.connection.rollback()
-        error = f"Error al insertar áreas: {e}"
-        print(error)
-        messagebox.showerror('Error', error)
-        sys.exit(1)
-
-def insert_aql_niveles(cursor): #Inserta niveles AQL
-    aql_niveles = ('G1', 'G2', 'G3', 'S1', 'S2', 'S3', 'S4')
-    try:
-        for aql_nivel in aql_niveles:
-            cursor.execute("INSERT INTO aql_nivel (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING RETURNING id_aql_nivel;", (aql_nivel,))
-        cursor.connection.commit()
-        print("Niveles AQL insertados correctamente")
-    except psycopg2.Error as e:
-        cursor.connection.rollback()
-        error = f"Error al insertar niveles AQL: {e}"
-        print(error)
-        messagebox.showerror('Error', error)
-        sys.exit(1)
-
-def insert_aql_lote_rangos(cursor): #Inserta rangos de lote AQL
-    aql_lote_rangos = ((2, 8), (9, 15), (16, 25), (26, 50), (51, 90), (91, 150), (151, 280), (281, 500), (501, 1200), (1201, 3200), (3201, 10000), (10001, 35000), (35001, 150000), (150001, 500000), (500001, 1000000))
-    try:
-        for aql_lote_rango in aql_lote_rangos:
-            cursor.execute("INSERT INTO aql_lote_rango (min_lote, max_lote) VALUES (%s, %s) RETURNING id_aql_lote_rango;", (aql_lote_rango[0],aql_lote_rango[1]))
-        cursor.connection.commit()
-        print("Rangos de lote AQL insertados correctamente")
-    except psycopg2.Error as e:
-        cursor.connection.rollback()
-        error = f"Error al insertar rangos de lote AQL: {e}"
-        print(error)
-        messagebox.showerror('Error', error)
-        sys.exit(1)
-
-def insert_aql_codigos(cursor): #Inserta códigos AQL
-    aql_codigos = (('A', 2), ('B', 3), ('C', 5), ('D', 8), ('E', 13), ('F', 20), ('G', 32), ('H', 50), ('J', 80), ('K', 125), ('L', 200), ('M', 315), ('N', 500), ('P', 800), ('Q', 1250), ('R', 2000))
-    try:
-        for aql_codigo in aql_codigos:
-            cursor.execute("INSERT INTO aql_codigo (id_aql_codigo, tamaño_muestra) VALUES (%s, %s) ON CONFLICT (tamaño_muestra) DO NOTHING RETURNING id_aql_codigo;", (aql_codigo[0], aql_codigo[1]))
-        cursor.connection.commit()
-        print("Códigos AQL insertados correctamente")
-    except psycopg2.Error as e:
-        cursor.connection.rollback()
-        error = f"Error al insertar códigos AQL: {e}"
-        print(error)
-        messagebox.showerror('Error', error)
-        sys.exit(1)
-
-def insert_aql_significancias(cursor): #Inserta significancias AQL
-    aql_significancias = (0.065, 0.10, 0.15, 0.25, 0.40, 0.65, 1.0, 1.5, 2.5, 4.0, 6.5)
-    try:
-        for aql_significancia in aql_significancias:
-            cursor.execute("INSERT INTO aql_significancia (nivel_significancia) VALUES (%s) ON CONFLICT (nivel_significancia) DO NOTHING RETURNING id_aql_significancia;", (aql_significancia,))
-        cursor.connection.commit()
-        print("Significancias AQL insertadas correctamente")
-    except psycopg2.Error as e:
-        cursor.connection.rollback()
-        error = f"Error al insertar significancias AQL: {e}"
-        print(error)
-        messagebox.showerror('Error', error)
-        sys.exit(1)
-
-def insert_resultados(cursor): #Inserta tipos de resultados
-    resultados = ('Conforme', 'No conforme')
-    try:
-        for resultado in resultados:
-            cursor.execute("INSERT INTO resultado (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING RETURNING id_resultado;", (resultado,))
-        cursor.connection.commit()
-        print("Resultados insertados correctamente")
-    except psycopg2.Error as e:
-        cursor.connection.rollback()
-        error = f"Error al insertar resultados: {e}"
-        print(error)
-        messagebox.showerror('Error', error)
-        sys.exit(1)
-
-def inserts1(cursor):
+def inserts2(cursor):
     insert_proveedor(cursor)
-    insert_estados(cursor)
-    insert_tipos_mp(cursor)
-    insert_colores(cursor)
-    insert_tipos_partes_prenda(cursor)
-    insert_tipos_cortes(cursor)
-    insert_tipos_lotes(cursor)
-    insert_tipos_prendas(cursor)
-    insert_estilos_prendas(cursor)
-    insert_tallas(cursor)
-    insert_generos(cursor)
-    insert_acabados(cursor)
-    insert_areas(cursor)
-    insert_aql_niveles(cursor)
-    insert_aql_lote_rangos(cursor)
-    insert_aql_codigos(cursor)
-    insert_aql_significancias(cursor)
-    insert_resultados(cursor)
+    insert_empleados(cursor)
+    insert_maquinas(cursor)
+    insert_dimension_materia_prima(cursor)
+    insert_dimension_parte_prenda(cursor)
+    insert_dimension_confeccion(cursor)
+    insert_orden_pedido(cursor)
+    insert_plan_produccion(cursor)
+    insert_zonas(cursor)
+    insert_aql_muestra(cursor)
+    insert_aql_resultado_rango(cursor)
 
 def main(): #Función prueba
     """Función principal para la ejecución del script."""
@@ -412,10 +511,10 @@ def main(): #Función prueba
     if all([host, port, database, user, password]):
         print("Conectando a la base de datos...")
         connection = conectorBD.connect_to_database(host, port, database, user, password)
-        cursor.connection.autocommit = False
+        connection.autocommit = False
         cursor = connection.cursor()
         inserts1(cursor)
-        insert_proveedor(cursor)
+        inserts2(cursor)
         cursor.close()
         print("Registros generados exitosamente.")
         messagebox.showinfo("Éxito", "Registros generados exitosamente")

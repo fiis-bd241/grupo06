@@ -304,7 +304,7 @@ def main(): #Función prueba
     if all([host, port, database, user, password]):
         print("Conectando a la base de datos...")
         connection = conectorBD.connect_to_database(host, port, database, user, password)
-        cursor.connection.autocommit = False
+        connection.autocommit = False
         cursor = connection.cursor()
         inserts1(cursor)
         cursor.close()
