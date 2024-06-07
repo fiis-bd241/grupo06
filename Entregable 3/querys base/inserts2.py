@@ -11,7 +11,7 @@ from inserts1 import inserts1
 
 fake = Faker('es_ES')
 
-def insert_proveedor(cursor): #Inserta proveedores, direccion, telefono y email
+def insert_proveedor(cursor): # Inserta proveedores, direccion, telefono y email
     # Función para generar correos basados en la denominación social del proveedor
     def generate_email(denominacion_social):
         denominacion_social = denominacion_social.replace(' ', '_').lower()
@@ -47,7 +47,7 @@ def insert_proveedor(cursor): #Inserta proveedores, direccion, telefono y email
         messagebox.showerror("Error", error)
         sys.exit(1)
 
-def insert_empleados(cursor):
+def insert_empleados(cursor): # Inserta empleados, telefonos, direcciones y emails
     area_cargo_relations = {
         'Almacén Central': ('Almacenero', 'Jefe'),
         'Corte': ('Operario', 'Jefe'),
@@ -133,7 +133,7 @@ def insert_empleados(cursor):
         messagebox.showerror("Error", error)
         sys.exit(1)
 
-def insert_maquinas(cursor): #Inserta máquinas
+def insert_maquinas(cursor): # Inserta máquinas
     maquina_estado_relations = {
         'Maquina': ('Disponible', 'No disponible', 'En mantenimiento'),
     }
@@ -152,7 +152,7 @@ def insert_maquinas(cursor): #Inserta máquinas
             capacidad_total = random.randint(2, 5) * 1000
             id_estado = random.choice(estado_ids)  # Seleccionar un estado aleatorio
 
-            cursor.execute("INSERT INTO maquina (capacidad_total, id_estado) VALUES (%s, %s) RETURNING id_maquina;", (capacidad_total, id_estado))
+            cursor.execute("INSERT INTO maquina (capacidad_total, id_estado) VALUES (%s, %s);", (capacidad_total, id_estado))
         
         cursor.connection.commit()
         print("Máquinas insertadas exitosamente.")
@@ -163,7 +163,7 @@ def insert_maquinas(cursor): #Inserta máquinas
         messagebox.showerror("Error", error)
         sys.exit(1)
 
-def insert_dimension_materia_prima(cursor): #Inserta dimensiones de materia prima
+def insert_dimension_materia_prima(cursor): # Inserta dimensiones de materia prima
     try:
         print("Insertando dimensiones de materia prima en la base de datos...")
         # Obtener todos los id_tipo_materia_prima
@@ -185,7 +185,7 @@ def insert_dimension_materia_prima(cursor): #Inserta dimensiones de materia prim
             id_tipo_materia_prima = random.choice(tipo_materia_prima_ids)
             id_color = random.choice(color_ids)
 
-            cursor.execute("INSERT INTO dimension_materia_prima (id_tipo_materia_prima, id_color) VALUES (%s, %s) RETURNING id_dim_materia_prima;", (id_tipo_materia_prima, id_color))
+            cursor.execute("INSERT INTO dimension_materia_prima (id_tipo_materia_prima, id_color) VALUES (%s, %s);", (id_tipo_materia_prima, id_color))
         cursor.connection.commit()
         print("Dimensiones de materia prima insertadas exitosamente.")
     except (psycopg2.Error, ValueError) as e:
@@ -195,7 +195,7 @@ def insert_dimension_materia_prima(cursor): #Inserta dimensiones de materia prim
         messagebox.showerror("Error", error)
         sys.exit(1)
 
-def insert_dimension_parte_prenda(cursor): #Inserta dimensiones de materia prima
+def insert_dimension_parte_prenda(cursor): # Inserta dimensiones de parte de prenda
     try:
         print("Insertando dimensiones de parte de prenda en la base de datos...")
         # Obtener todos los id_tipo_parte_prenda
@@ -209,7 +209,7 @@ def insert_dimension_parte_prenda(cursor): #Inserta dimensiones de materia prima
         for _ in range(100):
             id_tipo_parte_prenda = random.choice(tipo_parte_prenda_ids)
 
-            cursor.execute("INSERT INTO dimension_parte_prenda (id_tipo_parte_prenda) VALUES (%s) RETURNING id_dim_parte_prenda;", (id_tipo_parte_prenda,))
+            cursor.execute("INSERT INTO dimension_parte_prenda (id_tipo_parte_prenda) VALUES (%s);", (id_tipo_parte_prenda,))
         cursor.connection.commit()
         print("Dimensiones de parte de prenda insertadas exitosamente.")
     except (psycopg2.Error, ValueError) as e:
@@ -219,7 +219,7 @@ def insert_dimension_parte_prenda(cursor): #Inserta dimensiones de materia prima
         messagebox.showerror("Error", error)
         sys.exit(1)
 
-def insert_dimension_confeccion(cursor): #Inserta dimensiones de materia prima
+def insert_dimension_confeccion(cursor): # Inserta dimensiones de confección y guía de confección
     try:
         print("Insertando dimensiones de confección en la base de datos...")
         # Obtener todos los id_tipo_prenda
@@ -271,7 +271,7 @@ def insert_dimension_confeccion(cursor): #Inserta dimensiones de materia prima
             id_guia_confeccion = cursor.fetchone()[0]
 
             # Insertar dimensión de confección
-            cursor.execute("INSERT INTO dimension_confeccion (id_tipo_prenda, id_estilo_prenda, id_guia_confeccion, id_talla, id_genero) VALUES (%s, %s, %s, %s, %s) RETURNING id_dim_confeccion;", (id_tipo_prenda, id_estilo_prenda, id_guia_confeccion, id_talla, id_genero))
+            cursor.execute("INSERT INTO dimension_confeccion (id_tipo_prenda, id_estilo_prenda, id_guia_confeccion, id_talla, id_genero) VALUES (%s, %s, %s, %s, %s);", (id_tipo_prenda, id_estilo_prenda, id_guia_confeccion, id_talla, id_genero))
         
         cursor.connection.commit()
         print("Dimensiones de confección insertadas exitosamente.")
@@ -282,7 +282,7 @@ def insert_dimension_confeccion(cursor): #Inserta dimensiones de materia prima
         messagebox.showerror("Error", error)
         sys.exit(1)
 
-def insert_orden_pedido(cursor): #Inserta órdenes de pedido    
+def insert_orden_pedido(cursor): # Inserta órdenes de pedido    
     orden_pedido_estado_relations = ('No iniciado', 'En proceso', 'Completado', 'Atrasado', 'Cancelado')
     try:
         print("Insertando órdenes de pedido en la base de datos...")
@@ -304,7 +304,7 @@ def insert_orden_pedido(cursor): #Inserta órdenes de pedido
             timezone = pytz.timezone(tz)
             fecha_entrega = fake.date_time_between_dates(datetime_start=fecha_creacion, datetime_end=fecha_creacion + timedelta(days=60), tzinfo=timezone)
 
-            cursor.execute("INSERT INTO orden_pedido (fecha_entrega, cantidad, id_estado, fecha_creacion) VALUES (%s, %s, %s, %s) RETURNING id_orden_pedido;", (fecha_entrega, cantidad, id_estado, fecha_creacion))
+            cursor.execute("INSERT INTO orden_pedido (fecha_entrega, cantidad, id_estado, fecha_creacion) VALUES (%s, %s, %s, %s);", (fecha_entrega, cantidad, id_estado, fecha_creacion))
         
         cursor.connection.commit()
         print("Órdenes de pedido insertadas exitosamente.")
@@ -334,7 +334,7 @@ def insert_plan_produccion(cursor): # Inserta órdenes de pedido
             fecha_inicio = fake.date_time_between_dates(datetime_start=fecha_creacion, datetime_end=fecha_creacion + timedelta(days=10), tzinfo=None)
             fecha_fin = fake.date_time_between_dates(datetime_start=fecha_inicio, datetime_end=fecha_inicio + timedelta(days=30), tzinfo=None)
 
-            cursor.execute("INSERT INTO plan_produccion (fecha_inicio, fecha_fin, id_estado, fecha_creacion) VALUES (%s, %s, %s, %s) RETURNING id_plan;", (fecha_inicio, fecha_fin, id_estado, fecha_creacion))
+            cursor.execute("INSERT INTO plan_produccion (fecha_inicio, fecha_fin, id_estado, fecha_creacion) VALUES (%s, %s, %s, %s);", (fecha_inicio, fecha_fin, id_estado, fecha_creacion))
         cursor.connection.commit()
         print("Planes de producción insertados exitosamente.")
     except (psycopg2.Error, ValueError) as e:
@@ -354,7 +354,7 @@ def insert_zonas(cursor): # Inserta zonas
 
         for area, zona_list in area_zona_relations.items():
             # Obtener el id_area correspondiente
-            cursor.execute("SELECT id_area FROM area WHERE nombre=%s;", (area,))
+            cursor.execute("SELECT id_area FROM area WHERE nombre = %s;", (area,))
             id_area = cursor.fetchone()
 
             if not id_area:
@@ -363,7 +363,7 @@ def insert_zonas(cursor): # Inserta zonas
             id_area = id_area[0]
 
             # Obtener el último número de zona para este id_area
-            cursor.execute("SELECT MAX(id_zona) FROM zona WHERE id_zona BETWEEN %s AND %s;", (id_area * 100 + 1, id_area * 100 + 99))
+            cursor.execute("SELECT MAX(id_zona) FROM zona WHERE id_area = %s;", (id_area,))
             
             last_zone_number = cursor.fetchone()[0]
 
@@ -375,7 +375,7 @@ def insert_zonas(cursor): # Inserta zonas
                 next_zone_number = last_zone_number + 1
                 last_zone_number = next_zone_number  # Update the last zone number for the next iteration
 
-                cursor.execute("INSERT INTO zona (id_zona, nombre, id_area) VALUES (%s, %s, %s) ON CONFLICT (nombre) DO NOTHING RETURNING id_zona;", (next_zone_number, zona, id_area))
+                cursor.execute("INSERT INTO zona (id_zona, nombre, id_area) VALUES (%s, %s, %s) ON CONFLICT (nombre) DO NOTHING;", (next_zone_number, zona, id_area))
 
         cursor.connection.commit()
         print("Zonas insertadas exitosamente.")
@@ -429,7 +429,7 @@ def insert_aql_muestra(cursor): #Inserta AQL muestra
                 if not id_aql_codigo:
                     raise ValueError(f"No se encontró el código '{codigo}' en la tabla aql_codigo")
 
-                cursor.execute("INSERT INTO aql_muestra (id_aql_nivel, id_aql_lote_rango, id_aql_codigo) VALUES (%s, %s, %s) ON CONFLICT DO NOTHING RETURNING id_aql_nivel, id_aql_lote_rango;", (id_aql_nivel, id_aql_lote_rango, id_aql_codigo))
+                cursor.execute("INSERT INTO aql_muestra (id_aql_nivel, id_aql_lote_rango, id_aql_codigo) VALUES (%s, %s, %s) ON CONFLICT DO NOTHING;", (id_aql_nivel, id_aql_lote_rango, id_aql_codigo))
         
         cursor.connection.commit()
         print("AQL muestra insertada exitosamente.")
@@ -503,7 +503,7 @@ def inserts2(cursor):
     insert_aql_muestra(cursor)
     insert_aql_resultado_rango(cursor)
 
-def main(): #Función prueba
+def main(): # Función prueba
     """Función principal para la ejecución del script."""
 
     host, port, database, user, password = conectorBD.get_db_credentials()

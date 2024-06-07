@@ -11,7 +11,7 @@ def insert_cargos(cursor): # Inserta cargos
     try:
         print("Insertando cargos en la base de datos...")
         for cargo in cargos:
-            cursor.execute("INSERT INTO cargo (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING RETURNING id_cargo;", (cargo,))
+            cursor.execute("INSERT INTO cargo (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING;", (cargo,))
         cursor.connection.commit()
         print("Cargos insertados exitosamente.")
     except psycopg2.Error as e:
@@ -26,7 +26,7 @@ def insert_estados(cursor): # Inserta estados
     try:
         print("Insertando estados en la base de datos...")
         for estado in estados:
-            cursor.execute("INSERT INTO estado (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING RETURNING id_estado;", (estado,))
+            cursor.execute("INSERT INTO estado (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING;", (estado,))
         cursor.connection.commit()
         print("Estados insertados exitosamente.")
     except psycopg2.Error as e:
@@ -41,7 +41,7 @@ def insert_tipos_mp(cursor): #Inserta tipos de materia prima
     try:
         print("Insertando tipos de materia prima en la base de datos...")
         for tipo_mp in tipos_materia_prima:
-            cursor.execute("INSERT INTO tipo_materia_prima (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING RETURNING id_tipo_materia_prima;", (tipo_mp,))
+            cursor.execute("INSERT INTO tipo_materia_prima (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING;", (tipo_mp,))
         cursor.connection.commit()
         print("Tipos de materia prima insertados exitosamente.")
     except psycopg2.Error as e:
@@ -56,7 +56,7 @@ def insert_colores(cursor): #Inserta colores
     try:
         print("Insertando colores en la base de datos...")
         for color in colores:
-            cursor.execute("INSERT INTO color (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING RETURNING id_color;", (color,))
+            cursor.execute("INSERT INTO color (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING;", (color,))
         cursor.connection.commit()
         print("Colores insertados correctamente\n")
     except psycopg2.Error as e:
@@ -67,11 +67,11 @@ def insert_colores(cursor): #Inserta colores
         sys.exit(1)
 
 def insert_tipos_partes_prenda(cursor): #Inserta tipos de partes de prenda
-    tipos_partes_prenda = ('Manga', 'Falda trasera', 'Pretina', 'Sisa', 'Pierna delantera', 'entrepierna', 'Falda delantera', 'Yugo', 'Bolsillo', 'Pierna trasera', 'Cuerpo delantero', 'Cintura', 'Bajo', 'Puño', 'Entrepierna', 'Cuello', 'Cuerpo trasero')
+    tipos_partes_prenda = ('Manga', 'Falda trasera', 'Pretina', 'Sisa', 'Pierna delantera', 'Falda delantera', 'Yugo', 'Bolsillo', 'Pierna trasera', 'Cuerpo delantero', 'Cintura', 'Bajo', 'Puño', 'Entrepierna', 'Cuello', 'Cuerpo trasero')
     try:
         print("Insertando tipos de partes de prenda en la base de datos...")
         for tipo_parte_prenda in tipos_partes_prenda:
-            cursor.execute("INSERT INTO tipo_parte_prenda (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING RETURNING id_tipo_parte_prenda;", (tipo_parte_prenda,))
+            cursor.execute("INSERT INTO tipo_parte_prenda (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING;", (tipo_parte_prenda,))
         cursor.connection.commit()
         print("Tipos de partes de prenda insertados correctamente\n")
     except psycopg2.Error as e:
@@ -82,11 +82,11 @@ def insert_tipos_partes_prenda(cursor): #Inserta tipos de partes de prenda
         sys.exit(1)
 
 def insert_tipos_cortes(cursor): #Inserta tipos de cortes
-    tipos_cortes = ('Largo de la manga', 'Ancho de la manga', 'Largo delantero', 'Ancho delantero', 'Largo trasero', 'Ancho trasero', 'Forma del cuello', 'Largo del cuello', 'Ancho del puño', 'Largo del puño', 'Ancho de la pretina', 'Largo de la pretina', 'Tamaño del bolsillo', 'Posición del bolsillo', 'Largo del yugo', 'Ancho del yugo', 'Forma de la sisa', 'Profundidad de la sisa', 'Largo de la pierna', 'Ancho de la pierna', 'Ancho de la cintura', 'Largo de la cintura', 'Largo de la entrepierna', 'Ancho del bajo', 'Largo del bajo')
+    tipos_cortes = ('Largo de la manga', 'Ancho de la manga', 'Largo delantero', 'Ancho delantero', 'Largo trasero', 'Ancho trasero', 'Forma del cuello', 'Largo del cuello', 'Ancho del puño', 'Largo del puño', 'Ancho de la pretina', 'Largo de la pretina', 'Tamaño del bolsillo', 'Posición del bolsillo', 'Largo del yugo', 'Ancho del yugo', 'Forma de la sisa', 'Profundidad de la sisa', 'Largo de la pierna', 'Ancho de la pierna', 'Ancho de la cintura', 'Largo de la cintura', 'Largo de la entrepierna', 'Ancho del bajo', 'Largo del bajo', 'Largo de la falda', 'Ancho de la falda')
     try:
         print("Insertando tipos de cortes en la base de datos...")
         for tipo_corte in tipos_cortes:
-            cursor.execute("INSERT INTO tipo_corte (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING RETURNING id_tipo_corte;", (tipo_corte,))
+            cursor.execute("INSERT INTO tipo_corte (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING;", (tipo_corte,))
         cursor.connection.commit()
         print("Tipos de cortes insertados correctamente\n")
     except psycopg2.Error as e:
@@ -101,7 +101,7 @@ def insert_tipos_lotes(cursor): #Inserta tipos de lotes
     try:
         print("Insertando tipos de lotes en la base de datos...")
         for tipo_lote in tipos_lotes:
-            cursor.execute("INSERT INTO tipo_lote (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING RETURNING id_tipo_lote;", (tipo_lote,))
+            cursor.execute("INSERT INTO tipo_lote (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING;", (tipo_lote,))
         cursor.connection.commit()
         print("Tipos de lotes insertados correctamente\n")
     except psycopg2.Error as e:
@@ -116,7 +116,7 @@ def insert_tipos_prendas(cursor): #Inserta tipos de prendas
     try:
         print("Insertando tipos de prendas en la base de datos...")
         for tipo_prenda in tipos_prendas:
-            cursor.execute("INSERT INTO tipo_prenda (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING RETURNING id_tipo_prenda;", (tipo_prenda,))
+            cursor.execute("INSERT INTO tipo_prenda (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING;", (tipo_prenda,))
         cursor.connection.commit()
         print("Tipos de prendas insertados correctamente\n")
     except psycopg2.Error as e:
@@ -131,7 +131,7 @@ def insert_estilos_prendas(cursor): #Inserta estilos de prendas
     try:
         print("Insertando estilos de prendas en la base de datos...")
         for estilo_prenda in estilos_prendas:
-            cursor.execute("INSERT INTO estilo_prenda (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING RETURNING id_estilo_prenda;", (estilo_prenda,))
+            cursor.execute("INSERT INTO estilo_prenda (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING;", (estilo_prenda,))
         cursor.connection.commit()
         print("Estilos de prendas insertados correctamente\n")
     except psycopg2.Error as e:
@@ -146,7 +146,7 @@ def insert_tallas(cursor): #Inserta tallas
     try:
         print("Insertando tallas en la base de datos...")
         for talla in tallas:
-            cursor.execute("INSERT INTO talla (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING RETURNING id_talla;", (talla,))
+            cursor.execute("INSERT INTO talla (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING;", (talla,))
         cursor.connection.commit()
         print("Tallas insertadas correctamente\n")
     except psycopg2.Error as e:
@@ -161,7 +161,7 @@ def insert_generos(cursor): #Inserta géneros
     try:
         print("Insertando géneros en la base de datos...")
         for genero in generos:
-            cursor.execute("INSERT INTO genero (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING RETURNING id_genero;", (genero,))
+            cursor.execute("INSERT INTO genero (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING;", (genero,))
         cursor.connection.commit()
         print("Géneros insertados correctamente\n")
     except psycopg2.Error as e:
@@ -176,7 +176,7 @@ def insert_acabados(cursor): #Inserta acabados
     try:
         print("Insertando acabados en la base de datos...")
         for acabado in acabados:
-            cursor.execute("INSERT INTO acabado (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING RETURNING id_acabado;", (acabado,))
+            cursor.execute("INSERT INTO acabado (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING;", (acabado,))
         cursor.connection.commit()
         print("Acabados insertados correctamente\n")
     except psycopg2.Error as e:
@@ -191,7 +191,7 @@ def insert_areas(cursor): #Inserta áreas
     try:
         print("Insertando áreas en la base de datos...")
         for area in areas:
-            cursor.execute("INSERT INTO area (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING RETURNING id_area;", (area,))
+            cursor.execute("INSERT INTO area (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING;", (area,))
         cursor.connection.commit()
         print("Áreas insertadas correctamente\n")
     except psycopg2.Error as e:
@@ -206,7 +206,7 @@ def insert_aql_niveles(cursor): #Inserta niveles AQL
     try:
         print("Insertando niveles AQL en la base de datos...")
         for aql_nivel in aql_niveles:
-            cursor.execute("INSERT INTO aql_nivel (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING RETURNING id_aql_nivel;", (aql_nivel,))
+            cursor.execute("INSERT INTO aql_nivel (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING;", (aql_nivel,))
         cursor.connection.commit()
         print("Niveles AQL insertados correctamente\n")
     except psycopg2.Error as e:
@@ -221,7 +221,7 @@ def insert_aql_lote_rangos(cursor): #Inserta rangos de lote AQL
     try:
         print("Insertando rangos de lote AQL en la base de datos...")
         for aql_lote_rango in aql_lote_rangos:
-            cursor.execute("INSERT INTO aql_lote_rango (min_lote, max_lote) VALUES (%s, %s) RETURNING id_aql_lote_rango;", (aql_lote_rango[0],aql_lote_rango[1]))
+            cursor.execute("INSERT INTO aql_lote_rango (min_lote, max_lote) VALUES (%s, %s);", (aql_lote_rango[0],aql_lote_rango[1]))
         cursor.connection.commit()
         print("Rangos de lote AQL insertados correctamente\n")
     except psycopg2.Error as e:
@@ -236,7 +236,7 @@ def insert_aql_codigos(cursor): #Inserta códigos AQL
     try:
         print("Insertando códigos AQL en la base de datos...")
         for aql_codigo in aql_codigos:
-            cursor.execute("INSERT INTO aql_codigo (id_aql_codigo, tamaño_muestra) VALUES (%s, %s) ON CONFLICT (tamaño_muestra) DO NOTHING RETURNING id_aql_codigo;", (aql_codigo[0], aql_codigo[1]))
+            cursor.execute("INSERT INTO aql_codigo (id_aql_codigo, tamaño_muestra) VALUES (%s, %s) ON CONFLICT (tamaño_muestra) DO NOTHING;", (aql_codigo[0], aql_codigo[1]))
         cursor.connection.commit()
         print("Códigos AQL insertados correctamente\n")
     except psycopg2.Error as e:
@@ -251,7 +251,7 @@ def insert_aql_significancias(cursor): #Inserta significancias AQL
     try:
         print("Insertando significancias AQL en la base de datos...")
         for aql_significancia in aql_significancias:
-            cursor.execute("INSERT INTO aql_significancia (nivel_significancia) VALUES (%s) ON CONFLICT (nivel_significancia) DO NOTHING RETURNING id_aql_significancia;", (aql_significancia,))
+            cursor.execute("INSERT INTO aql_significancia (nivel_significancia) VALUES (%s) ON CONFLICT (nivel_significancia) DO NOTHING;", (aql_significancia,))
         cursor.connection.commit()
         print("Significancias AQL insertadas correctamente\n")
     except psycopg2.Error as e:
@@ -266,7 +266,7 @@ def insert_resultados(cursor): #Inserta tipos de resultados
     try:
         print("Insertando resultados en la base de datos...")
         for resultado in resultados:
-            cursor.execute("INSERT INTO resultado (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING RETURNING id_resultado;", (resultado,))
+            cursor.execute("INSERT INTO resultado (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING;", (resultado,))
         cursor.connection.commit()
         print("Resultados insertados correctamente\n")
     except psycopg2.Error as e:
