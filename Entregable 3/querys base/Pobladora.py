@@ -1395,8 +1395,8 @@ def insert_lote_entrada(cursor):
         messagebox.showerror("Error", f"Error al insertar Lote_entrada: {e}")
 
 def insert_data(connection): #Insertar todos los datos en la base de datos
+    cursor.connection.autocommit = False
     cursor = connection.cursor()
-
     zonas = ('Materia prima', 'Corte', 'Confección', 'Producto terminado', 'Tránsito')
 
     inserts1(cursor)

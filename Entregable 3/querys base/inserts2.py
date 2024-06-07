@@ -7,24 +7,144 @@ from datetime import timedelta
 import pytz
 import sys
 import conectorBD
+from inserts1 import inserts1
 
 fake = Faker('es_ES')
 
-def insert_cargos(cursor): # Inserta cargos
-    cargos = ('Almacenero', 'Operario', 'Costurero', 'Inspector', 'Planificador', 'Jefe')
+def insert_proveedor(cursor): #Inserta proveedores, direccion, telefono y email
+    # Función para generar correos basados en la denominación social del proveedor
+    def generate_email(denominacion_social):
+        denominacion_social = denominacion_social.replace(' ', '_').lower()
+        return f"comercial@{re.sub('[^0-9a-zA-Z_]', '', denominacion_social)}.com"
+    
     try:
-        print("Insertando cargos en la base de datos...")
-        for cargo in cargos:
-            cursor.execute("INSERT INTO cargo (nombre) VALUES (%s) ON CONFLICT (nombre) DO NOTHING RETURNING id_cargo;", (cargo,))
+        print("Insertando proveedores en la base de datos...")
+
+        for _ in range(20):# Generar registros para proveedor
+            ruc = fake.unique.random_number(digits=11)
+            denominacion_social = fake.company()[:30]
+
+            direccion = fake.address()
+            cursor.execute("INSERT INTO direccion (descripcion) VALUES (%s) RETURNING id_direccion;", (direccion,))
+            id_direccion = cursor.fetchone()[0]
+
+            telefono = fake.unique.random_number(digits=8, fix_len=True)
+            telefono = f"9{telefono}"  # Aseguramos que empieza con 9 y tiene 9 dígitos
+            cursor.execute("INSERT INTO telefono (numero) VALUES (%s) RETURNING id_telefono;", (telefono,))
+            id_telefono = cursor.fetchone()[0]
+
+            correo = generate_email(denominacion_social)
+            cursor.execute("INSERT INTO correo (direccion_correo) VALUES (%s) RETURNING id_correo;", (correo,))
+            id_correo = cursor.fetchone()[0]
+
+            cursor.execute("""
+                INSERT INTO proveedor (ruc, denominacion_social, id_direccion, id_telefono, id_correo)
+                VALUES (%s, %s, %s, %s, %s);
+            """, (ruc, denominacion_social, id_direccion, id_telefono, id_correo))
+
         cursor.connection.commit()
-        print("Cargos insertados exitosamente.")
+        print("Proveedores insertados exitosamente.")
     except psycopg2.Error as e:
         cursor.connection.rollback()
-        error = f"Error al insertar cargos: {e}"
+        error = f"Error al insertar proveedores: {e}"
         print(error)
-        messagebox.showerror('Error', error)
+        messagebox.showerror("Error", error)
         sys.exit(1)
 
+def insert_empleados(cursor):
+    area_cargo_relations = {
+        'Almacén Central': ('Almacenero', 'Jefe'),
+        'Corte': ('Operario', 'Jefe'),
+        'Confección': ('Costurero', 'Jefe'),
+        'Almacén de tránsito': ('Almacenero', 'Jefe'),
+        'Acabado': ('Operario', 'Jefe'),
+        'Calidad': ('Inspector', 'Jefe'),
+        'Planeamiento': ('Planificador', 'Jefe')
+    }
+
+    # Función para generar correos basados en nombre y primer apellido
+    def generate_email(nombre, primer_apellido):
+        email_domain = fake.free_email_domain()
+        return f"{nombre}.{primer_apellido}@{email_domain}".lower()
+
+    try:
+        print("Insertando empleados en la base de datos...")
+
+        # Generar registros para empleados
+        for area, (empleado_cargo, jefe_cargo) in area_cargo_relations.items():
+            # Insertar jefe
+            for _ in range(1):  # Un solo empleado jefe por área
+                dni = fake.unique.random_number(digits=8)
+                nombre = fake.first_name()[:15] + ' ' + fake.first_name()[:14]
+                primer_apellido = fake.last_name()[:15]
+                segundo_apellido = fake.last_name()[:15]
+
+                cursor.execute("SELECT id_area FROM area WHERE nombre=%s;", (area,))
+                id_area = cursor.fetchone()[0]
+
+                cursor.execute("SELECT id_cargo FROM cargo WHERE nombre=%s;", (jefe_cargo,))
+                id_cargo = cursor.fetchone()[0]
+
+                direccion = fake.address()
+                cursor.execute("INSERT INTO direccion (descripcion) VALUES (%s) RETURNING id_direccion;", (direccion,))
+                id_direccion = cursor.fetchone()[0]
+
+                telefono = fake.unique.random_number(digits=8, fix_len=True)
+                telefono = f"9{telefono}"  # Aseguramos que empieza con 9 y tiene 9 dígitos
+                cursor.execute("INSERT INTO telefono (numero) VALUES (%s) RETURNING id_telefono;", (telefono,))
+                id_telefono = cursor.fetchone()[0]
+
+                correo = generate_email(nombre, primer_apellido)
+                cursor.execute("INSERT INTO correo (direccion_correo) VALUES (%s) RETURNING id_correo;", (correo,))
+                id_correo = cursor.fetchone()[0]
+
+                cursor.execute("""
+                    INSERT INTO empleado (dni, nombre, segundo_apellido, primer_apellido, id_area, id_direccion, id_telefono, id_correo, id_cargo)
+                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s);
+                """, (dni, nombre, segundo_apellido, primer_apellido, id_area, id_direccion, id_telefono, id_correo, id_cargo))
+
+            # Insertar otros empleados
+            for _ in range(10):  # Diez empleados por área con otros cargos
+                dni = fake.unique.random_number(digits=8)
+                nombre = fake.first_name()[:15] + ' ' + fake.first_name()[:14]
+                primer_apellido = fake.last_name()[:15]
+                segundo_apellido = fake.last_name()[:15]
+
+                cursor.execute("SELECT id_area FROM area WHERE nombre=%s;", (area,))
+                id_area = cursor.fetchone()[0]
+
+                cursor.execute("SELECT id_cargo FROM cargo WHERE nombre=%s;", (empleado_cargo,))
+                id_cargo = cursor.fetchone()[0]
+
+                direccion = fake.address()
+                cursor.execute("INSERT INTO direccion (descripcion) VALUES (%s) RETURNING id_direccion;", (direccion,))
+                id_direccion = cursor.fetchone()[0]
+
+                telefono = fake.unique.random_number(digits=8, fix_len=True)
+                telefono = f"9{telefono}"  # Aseguramos que empieza con 9 y tiene 9 dígitos
+                cursor.execute("INSERT INTO telefono (numero) VALUES (%s) RETURNING id_telefono;", (telefono,))
+                id_telefono = cursor.fetchone()[0]
+
+                correo = generate_email(nombre, primer_apellido)
+                cursor.execute("INSERT INTO correo (direccion_correo) VALUES (%s) RETURNING id_correo;", (correo,))
+                id_correo = cursor.fetchone()[0]
+
+                cursor.execute("""
+                    INSERT INTO empleado (dni, nombre, segundo_apellido, primer_apellido, id_area, id_direccion, id_telefono, id_correo, id_cargo)
+                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s);
+                """, (dni, nombre, segundo_apellido, primer_apellido, id_area, id_direccion, id_telefono, id_correo, id_cargo))
+
+                print(f"Inserted empleado: {dni}, {nombre} {primer_apellido} {segundo_apellido}, área: {area}, cargo: {empleado_cargo}")
+
+        cursor.connection.commit()
+        print("Empleados insertados exitosamente.")
+        
+    except psycopg2.Error as e:
+        cursor.connection.rollback()
+        error = f"Error al insertar empleados: {e}"
+        print(error)
+        messagebox.showerror("Error", error)
+        sys.exit(1)
 def insert_estados(cursor): # Inserta estados
     estados = ('Cancelado', 'En mantenimiento', 'No disponible', 'Atrasado', 'Obsoleto', 'No iniciado', 'Completado', 'Usado', 'En proceso', 'Entregado', 'Ocupado', 'Disponible')
     try:
@@ -265,7 +385,7 @@ def insert_resultados(cursor): #Inserta tipos de resultados
         sys.exit(1)
 
 def inserts1(cursor):
-    insert_cargos(cursor)
+    insert_proveedor(cursor)
     insert_estados(cursor)
     insert_tipos_mp(cursor)
     insert_colores(cursor)
@@ -292,8 +412,10 @@ def main(): #Función prueba
     if all([host, port, database, user, password]):
         print("Conectando a la base de datos...")
         connection = conectorBD.connect_to_database(host, port, database, user, password)
+        cursor.connection.autocommit = False
         cursor = connection.cursor()
         inserts1(cursor)
+        insert_proveedor(cursor)
         cursor.close()
         print("Registros generados exitosamente.")
         messagebox.showinfo("Éxito", "Registros generados exitosamente")
