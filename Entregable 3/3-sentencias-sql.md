@@ -978,7 +978,7 @@ AND acab.nombre = 'Empaquetado';
 
           INSERT INTO INSPECCION_CALIDAD(ID_INSPECCION,
           FECHA_INSPECCION,
-          ESTADO,
+          ID_ESTADO,
           CANTIDAD_DEFECTUOSOS,
           ID_LOTE,
           ID_AQL_LOTE_RANGO,
@@ -987,7 +987,7 @@ AND acab.nombre = 'Empaquetado';
           ID_AQL_SIGNIFICANCIA,
           ID_DESCRIPCION,
           ID_RESULTADO)
-          VALUES(<4>, <3>,'SOLICITADO',0,<1>,<2>,<6>,<7>,<5>,NULL,NULL);
+          VALUES(<4>, <3>, 0, 0, <1>, <2>, <6>, <7>, <5>, NULL, NULL);
               
 ####  6.2
 | Código requerimiento | RV602 |
