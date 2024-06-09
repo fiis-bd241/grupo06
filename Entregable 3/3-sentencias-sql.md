@@ -1034,7 +1034,7 @@ AND acab.nombre = 'Empaquetado';
           UPDATE INSPECCION_CALIDAD SET
           CANTIDAD_DEFECTUOSOS = <2>,
           DESCRIPCION = <3>,
-          RESULTADO = <4>
+          ID_RESULTADO = <4>
           ID_ESTADO = 3
           WHERE ID_INSPECCION = <1>;
 
