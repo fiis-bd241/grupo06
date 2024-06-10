@@ -21,16 +21,16 @@
 | Motor de Base de Datos   | PostgreSQL <br> [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-14.0-blue.svg?style=for-the-badge&logo=postgresql&logoColor=white)]()    |
 
 ### Stack
-![Stack](stack.png)
+![Stack](../../Entregable%203/stack.png)
 
 ### Arquitectura
-![Arquqitectura](arquitectura-v2.png)
+![Arquqitectura](../../Entregable%203/arquitectura-v2.png)
 
 ### Front end
-[Vircatex](https://vircatex.netlify.app/) <br>
+[Vircatex - vercel](https://sistema-web-v-9i8pz9b50-javierarteagagonzales-projects.vercel.app/acabados/lotes) <br>
 
 ### App Web
-Despliegue: [ Render](https://render.com/)
+Despliegue Backend y PostgreSQL : [Render](https://render.com/)
 
 ### Conexión Base de datos (local)
-![db](../Entregable%203/db.png)
+![db](../../Entregable%203/db.png)
