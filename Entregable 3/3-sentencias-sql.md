@@ -5,9 +5,8 @@
 | Código requerimiento | RV101 |
 | --- | --- |
 | Codigo interfaz |  IV101 |
-| Imagen interfaz  |
+| ![](../Entregable%201/Mockups%20-%20Figma/almacen-central/consulta1.png)  |
 
-interfaz
 | Sentencias SQL |
 | --- |
 | Eventos |
@@ -29,9 +28,8 @@ interfaz
 | Código requerimiento | RV102 |
 | --- | --- |
 | Codigo interfaz |  IV102 |
-| Imagen interfaz  |
+| ![](../Entregable%201/Mockups%20-%20Figma/almacen-central/consulta2.png)  |
 
-interfaz
 | Sentencias SQL |
 | --- |
 | Eventos |
@@ -75,9 +73,8 @@ interfaz
 | Código requerimiento | RV103 |
 | --- | --- |
 | Codigo interfaz |  IV103 |
-| Imagen interfaz  |
+| ![](../Entregable%201/Mockups%20-%20Figma/almacen-central/consulta3.png)  |
 
-interfaz
 | Sentencias SQL |
 | --- |
 | Eventos |
@@ -95,9 +92,8 @@ interfaz
 | Código requerimiento | RV104 |
 | --- | --- |
 | Codigo interfaz |  IV104 |
-| Imagen interfaz  |
+| ![](../Entregable%201/Mockups%20-%20Figma/almacen-central/consulta4.png)  |
 
-interfaz
 | Sentencias SQL |
 | --- |
 | Eventos |
@@ -117,9 +113,8 @@ interfaz
 | Código requerimiento | RV105 |
 | --- | --- |
 | Codigo interfaz |  IV105 |
-| Imagen interfaz  |
+| ![](../Entregable%201/Mockups%20-%20Figma/almacen-central/consulta5.png)  |
 
-interfaz
 | Sentencias SQL |
 | --- |
 | Eventos |
@@ -138,9 +133,8 @@ interfaz
 | Código requerimiento | RV106 |
 | --- | --- |
 | Codigo interfaz |  IV106 |
-| Imagen interfaz  |
+| ![](../Entregable%201/Mockups%20-%20Figma/almacen-central/consulta6.png)  |
 
-interfaz
 | Sentencias SQL |
 | --- |
 | Eventos |
@@ -156,9 +150,8 @@ interfaz
 | Código requerimiento | RV107 |
 | --- | --- |
 | Codigo interfaz |  IV107 |
-| Imagen interfaz  |
+| ![](../Entregable%201/Mockups%20-%20Figma/almacen-central/consulta7.png)  |
 
-interfaz
 | Sentencias SQL |
 | --- |
 | Eventos |
