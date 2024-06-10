@@ -107,6 +107,7 @@
           JOIN lote l ON a.id_actividad = l.id_actividad
           JOIN materia_prima mp ON l.id_lote = mp.id_lote
           JOIN proveedor p ON mp.id_proveedor = p.id_proveedor
+          WHERE a.id_actividad = 'corte'
           GROUP BY a.id_actividad, p.denominacion_social, mp.id_materia_prima; 
 
 ####  1.5
@@ -127,6 +128,7 @@
           FROM lote l
           JOIN materia_prima mp ON l.id_lote = mp.id_lote
           JOIN proveedor p ON mp.id_proveedor = p.id_proveedor
+          WHERE l.estado = 'terminado'
           GROUP BY l.estado, p.denominacion_social, mp.id_materia_prima;
 
 ####  1.6
