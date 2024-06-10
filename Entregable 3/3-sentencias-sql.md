@@ -81,21 +81,15 @@ interfaz
 | Sentencias SQL |
 | --- |
 | Eventos |
-| **1. Botón Buscar:** Consulta de todos los lotes que están en un pasillo específico, junto con la información de la zona, el área, el proveedor y la materia prima. |
-          SELECT 
-          l.id_lote, 
-          z.nombre as nombre_zona, 
-          a.nombre as nombre_area, 
-          p.denominacion_social, 
-          mp.id_materia_prima
-          FROM pasillo p
-          JOIN estanteria e ON p.id_pasillo = e.id_pasillo
-          JOIN espacio es ON e.id_estanteria = es.id_estanteria
-          JOIN lote l ON es.id_lote = l.id_lote
-          JOIN materia_prima mp ON l.id_lote = mp.id_lote
-          JOIN proveedor p ON mp.id_proveedor = p.id_proveedor
-          JOIN zona z ON p.id_zona = z.id_zona
-          JOIN area a ON z.id_area = a.id_area;
+| **1. Botón Buscar:** Consulta de todos los lotes correspondientes a un proveedor específico, agrupados por materia prima y mostrando la cantidad de cada uno. |
+          SELECT    p.denominacion_social,
+                    mp.id_materia_prima, 
+                    COUNT(l.id_lote) as cantidad_lotes
+          FROM proveedor p
+          JOIN materia_prima mp ON p.id_proveedor = mp.id_proveedor
+          JOIN lote l ON mp.id_lote = l.id_lote
+          GROUP BY p.denominacion_social, mp.id_materia_prima;
+          WHERE p.denominacion_social = 'Textiles del Sol'
 
 ####  1.4
 | Código requerimiento | RV104 |
