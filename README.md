@@ -8,3 +8,4 @@ Bienvenidos al repositorio del Proyecto del Curso de diseño de base de datos (D
 3. [Entregable 1](Entregable%201/entregable%201-indice.md)
 4. [Entregable 2](Entregable%202/entregable%202-indice.md)
 5. [Entregable 3](Entregable%203/entregable%203-indice.md)
+6. [Entregable 4](Entregable%204/entregable%204-indice.md)
