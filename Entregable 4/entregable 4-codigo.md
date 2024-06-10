@@ -13,7 +13,7 @@ Despliegue Backend y PostgreSQL : [Render](https://render.com/)
 [Github]() 
 
 ### Conexión Base de datos (local)
-![db](./Entregable%203/db.png)
+![db](../Entregable%203/db.png)
 
 [Github - query]() 
 
