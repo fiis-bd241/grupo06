@@ -5,7 +5,7 @@
 | Código requerimiento | RV101 |
 | --- | --- |
 | Codigo interfaz |  IV101 |
-| ![](../Entregable%201/Mockups%20-%20Figma/almacen-central/consulta1.png)  |
+| Imagen interfaz | ![](../Entregable%201/Mockups%20-%20Figma/almacen-central/consulta1.png)  |
 
 | Sentencias SQL |
 | --- |
@@ -28,7 +28,7 @@
 | Código requerimiento | RV102 |
 | --- | --- |
 | Codigo interfaz |  IV102 |
-| ![](../Entregable%201/Mockups%20-%20Figma/almacen-central/consulta2.png)  |
+| Imagen interfaz |  ![](../Entregable%201/Mockups%20-%20Figma/almacen-central/consulta2.png)  |
 
 | Sentencias SQL |
 | --- |
@@ -73,7 +73,7 @@
 | Código requerimiento | RV103 |
 | --- | --- |
 | Codigo interfaz |  IV103 |
-| ![](../Entregable%201/Mockups%20-%20Figma/almacen-central/consulta3.png)  |
+| Imagen interfaz |  ![](../Entregable%201/Mockups%20-%20Figma/almacen-central/consulta3.png)  |
 
 | Sentencias SQL |
 | --- |
@@ -92,7 +92,7 @@
 | Código requerimiento | RV104 |
 | --- | --- |
 | Codigo interfaz |  IV104 |
-| ![](../Entregable%201/Mockups%20-%20Figma/almacen-central/consulta4.png)  |
+| Imagen interfaz |  ![](../Entregable%201/Mockups%20-%20Figma/almacen-central/consulta4.png)  |
 
 | Sentencias SQL |
 | --- |
@@ -113,7 +113,7 @@
 | Código requerimiento | RV105 |
 | --- | --- |
 | Codigo interfaz |  IV105 |
-| ![](../Entregable%201/Mockups%20-%20Figma/almacen-central/consulta5.png)  |
+| Imagen interfaz |  ![](../Entregable%201/Mockups%20-%20Figma/almacen-central/consulta5.png)  |
 
 | Sentencias SQL |
 | --- |
@@ -133,7 +133,7 @@
 | Código requerimiento | RV106 |
 | --- | --- |
 | Codigo interfaz |  IV106 |
-| ![](../Entregable%201/Mockups%20-%20Figma/almacen-central/consulta6.png)  |
+| Imagen interfaz |  ![](../Entregable%201/Mockups%20-%20Figma/almacen-central/consulta6.png)  |
 
 | Sentencias SQL |
 | --- |
@@ -150,7 +150,7 @@
 | Código requerimiento | RV107 |
 | --- | --- |
 | Codigo interfaz |  IV107 |
-| ![](../Entregable%201/Mockups%20-%20Figma/almacen-central/consulta7.png)  |
+| Imagen interfaz |  ![](../Entregable%201/Mockups%20-%20Figma/almacen-central/consulta7.png)  |
 
 | Sentencias SQL |
 | --- |
