@@ -5,9 +5,8 @@
 | Código requerimiento | RV101 |
 | --- | --- |
 | Codigo interfaz |  IV101 |
-| Imagen interfaz  |
+| Imagen interfaz | ![](../Entregable%201/Mockups%20-%20Figma/almacen-central/consulta1.png)  |
 
-interfaz
 | Sentencias SQL |
 | --- |
 | Eventos |
@@ -29,9 +28,8 @@ interfaz
 | Código requerimiento | RV102 |
 | --- | --- |
 | Codigo interfaz |  IV102 |
-| Imagen interfaz  |
+| Imagen interfaz |  ![](../Entregable%201/Mockups%20-%20Figma/almacen-central/consulta2.png)  |
 
-interfaz
 | Sentencias SQL |
 | --- |
 | Eventos |
@@ -75,35 +73,27 @@ interfaz
 | Código requerimiento | RV103 |
 | --- | --- |
 | Codigo interfaz |  IV103 |
-| Imagen interfaz  |
+| Imagen interfaz |  ![](../Entregable%201/Mockups%20-%20Figma/almacen-central/consulta3.png)  |
 
-interfaz
 | Sentencias SQL |
 | --- |
 | Eventos |
-| **1. Botón Buscar:** Consulta de todos los lotes que están en un pasillo específico, junto con la información de la zona, el área, el proveedor y la materia prima. |
-          SELECT 
-          l.id_lote, 
-          z.nombre as nombre_zona, 
-          a.nombre as nombre_area, 
-          p.denominacion_social, 
-          mp.id_materia_prima
-          FROM pasillo p
-          JOIN estanteria e ON p.id_pasillo = e.id_pasillo
-          JOIN espacio es ON e.id_estanteria = es.id_estanteria
-          JOIN lote l ON es.id_lote = l.id_lote
-          JOIN materia_prima mp ON l.id_lote = mp.id_lote
-          JOIN proveedor p ON mp.id_proveedor = p.id_proveedor
-          JOIN zona z ON p.id_zona = z.id_zona
-          JOIN area a ON z.id_area = a.id_area;
+| **1. Botón Buscar:** Consulta de todos los lotes correspondientes a un proveedor específico, agrupados por materia prima y mostrando la cantidad de cada uno. |
+          SELECT    p.denominacion_social,
+                    mp.id_materia_prima, 
+                    COUNT(l.id_lote) as cantidad_lotes
+          FROM proveedor p
+          JOIN materia_prima mp ON p.id_proveedor = mp.id_proveedor
+          JOIN lote l ON mp.id_lote = l.id_lote
+          GROUP BY p.denominacion_social, mp.id_materia_prima;
+          WHERE p.denominacion_social = 'Textiles del Sol'
 
 ####  1.4
 | Código requerimiento | RV104 |
 | --- | --- |
 | Codigo interfaz |  IV104 |
-| Imagen interfaz  |
+| Imagen interfaz |  ![](../Entregable%201/Mockups%20-%20Figma/almacen-central/consulta4.png)  |
 
-interfaz
 | Sentencias SQL |
 | --- |
 | Eventos |
@@ -117,15 +107,15 @@ interfaz
           JOIN lote l ON a.id_actividad = l.id_actividad
           JOIN materia_prima mp ON l.id_lote = mp.id_lote
           JOIN proveedor p ON mp.id_proveedor = p.id_proveedor
+          WHERE a.id_actividad = 'corte'
           GROUP BY a.id_actividad, p.denominacion_social, mp.id_materia_prima; 
 
 ####  1.5
 | Código requerimiento | RV105 |
 | --- | --- |
 | Codigo interfaz |  IV105 |
-| Imagen interfaz  |
+| Imagen interfaz |  ![](../Entregable%201/Mockups%20-%20Figma/almacen-central/consulta5.png)  |
 
-interfaz
 | Sentencias SQL |
 | --- |
 | Eventos |
@@ -138,15 +128,15 @@ interfaz
           FROM lote l
           JOIN materia_prima mp ON l.id_lote = mp.id_lote
           JOIN proveedor p ON mp.id_proveedor = p.id_proveedor
+          WHERE l.estado = 'terminado'
           GROUP BY l.estado, p.denominacion_social, mp.id_materia_prima;
 
 ####  1.6
 | Código requerimiento | RV106 |
 | --- | --- |
 | Codigo interfaz |  IV106 |
-| Imagen interfaz  |
+| Imagen interfaz |  ![](../Entregable%201/Mockups%20-%20Figma/almacen-central/consulta6.png)  |
 
-interfaz
 | Sentencias SQL |
 | --- |
 | Eventos |
@@ -162,9 +152,8 @@ interfaz
 | Código requerimiento | RV107 |
 | --- | --- |
 | Codigo interfaz |  IV107 |
-| Imagen interfaz  |
+| Imagen interfaz |  ![](../Entregable%201/Mockups%20-%20Figma/almacen-central/consulta7.png)  |
 
-interfaz
 | Sentencias SQL |
 | --- |
 | Eventos |
@@ -978,16 +967,16 @@ AND acab.nombre = 'Empaquetado';
 
           INSERT INTO INSPECCION_CALIDAD(ID_INSPECCION,
           FECHA_INSPECCION,
-          ESTADO,
+          ID_ESTADO,
           CANTIDAD_DEFECTUOSOS,
           ID_LOTE,
           ID_AQL_LOTE_RANGO,
           ID_AQL_NIVEL,
           ID_AQL_CODIGO,
           ID_AQL_SIGNIFICANCIA,
-          ID_DESCRIPCION,
+          DESCRIPCION,
           ID_RESULTADO)
-          VALUES(<4>, <3>,'SOLICITADO',0,<1>,<2>,<6>,<7>,<5>,NULL,NULL);
+          VALUES(<4>, <3>, 0, 0, <1>, <2>, <6>, <7>, <5>, NULL, NULL);
               
 ####  6.2
 | Código requerimiento | RV602 |
@@ -995,12 +984,13 @@ AND acab.nombre = 'Empaquetado';
 | Codigo interfaz | IV602 |
 | Imagen interfaz  |
 
-![](../Entregable%203/Prototipos/calidad/Registrar%20datos%20de%20Inspeccion.png)
+![](../Entregable%203/Prototipos/calidad/Revisar%20Inspecciones%202.png)
 | Sentencias SQL |
 | Eventos |
 | **1. Botón Buscar Inspección: Cuando el usuario presione el botón “buscar” se buscará las inspecciones de calidad |
 
           SELECT
+          OP.ID_ORDEN_PRODUCCION
           I.ID_INSPECCION,
           I.ID_LOTE,
           I.FECHA_INSPECCION,
@@ -1011,11 +1001,13 @@ AND acab.nombre = 'Empaquetado';
           I.ID_AQL_SIGNIFICANCIA,
           I.ESTADO,
           I.ID_RESULTADO
-          FROM INSPECCION_CALIDAD I
-          WHERE I.ID_INSPECCION = <1>
-          AND I.ID_LOTE = <2>
-          AND I.FECHA_INSPECCION = <3>
-          GROUP BY I.ID_INSPECCION;
+          FROM
+          INSPECCION_CALIDAD I
+          JOIN LOTE LT ON I.ID_LOTE = LT.ID_LOTE
+          JOIN ACTIVIDAD_DIARIA AD ON LT.ID_ACTIVIDAD = AD.ID_ACTIVIDAD
+          JOIN ORDEN_PRODUCCION OP ON AD.ID_ORDEN_PRODUCCION = OP.ID_ORDEN_PRODUCCION
+          WHERE OP.ID_ORDEN_PRODUCCION = <1>
+          ORDER BY OP.ID_ORDEN_PRODUCCION DESC;
 
 ####  6.3
 | Código requerimiento | RV603 |
@@ -1023,7 +1015,7 @@ AND acab.nombre = 'Empaquetado';
 | Codigo interfaz |  IV603 |
 | Imagen interfaz  |
 
-![](../Entregable%203/Prototipos/calidad/Revisar%20Inspecciones.png)
+![](../Entregable%203/Prototipos/calidad/Registrar%20datos%20de%20Inspeccion.png)
 | Sentencias SQL |
 | Eventos |
 | **1. Botón “Registrar datos de Inspección”: Cuando el usuario presione el botón se actualizará la inspección seleccionada previamente |
@@ -1031,8 +1023,8 @@ AND acab.nombre = 'Empaquetado';
           UPDATE INSPECCION_CALIDAD SET
           CANTIDAD_DEFECTUOSOS = <2>,
           DESCRIPCION = <3>,
-          RESULTADO = <4>
-          ESTADO = 'INSPECCIONADO'
+          ID_RESULTADO = <4>
+          ID_ESTADO = 3
           WHERE ID_INSPECCION = <1>;
 
 ### 7. PCP 
