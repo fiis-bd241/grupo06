@@ -441,8 +441,8 @@ CREATE TABLE orden_trabajo
 CREATE TABLE pasillo
 (
   id_pasillo NUMERIC(5),
-  largo_pasillo NUMERIC(4,2) NOT NULL,
-  ancho_pasillo NUMERIC(4,2) NOT NULL,
+  largo_pasillo NUMERIC(3,2) NOT NULL,
+  ancho_pasillo NUMERIC(3,2) NOT NULL,
   id_zona NUMERIC(3) NOT NULL,
   PRIMARY KEY (id_pasillo),
   FOREIGN KEY (id_zona) REFERENCES zona(id_zona)
@@ -479,9 +479,9 @@ CREATE TABLE pedido_detalle
 CREATE TABLE estanteria
 (
   id_estanteria NUMERIC(7),
-  ancho_estanteria NUMERIC(4,2) NOT NULL,
-  largo_estanteria NUMERIC(4,2) NOT NULL,
-  alto_estanteria NUMERIC(4,2) NOT NULL,
+  ancho_estanteria NUMERIC(3,2) NOT NULL,
+  largo_estanteria NUMERIC(3,2) NOT NULL,
+  alto_estanteria NUMERIC(3,2) NOT NULL,
   id_pasillo NUMERIC(5) NOT NULL,
   PRIMARY KEY (id_estanteria),
   FOREIGN KEY (id_pasillo) REFERENCES pasillo(id_pasillo)
@@ -635,9 +635,9 @@ CREATE TABLE prenda
 CREATE TABLE espacio
 (
   id_espacio NUMERIC(9),
-  ancho NUMERIC(4,2) NOT NULL,
-  largo NUMERIC(4,2) NOT NULL,
-  alto NUMERIC(4,2) NOT NULL,
+  ancho NUMERIC(3,2) NOT NULL,
+  largo NUMERIC(3,2) NOT NULL,
+  alto NUMERIC(3,2) NOT NULL,
   id_estado INT NOT NULL,
   id_lote INT,
   id_estanteria NUMERIC(7) NOT NULL,
