@@ -441,7 +441,7 @@ CREATE TABLE orden_trabajo
 CREATE TABLE pasillo
 (
   id_pasillo NUMERIC(5),
-  largo_pasillo NUMERIC(3,2) NOT NULL,
+  largo_pasillo NUMERIC(4,2) NOT NULL,
   ancho_pasillo NUMERIC(3,2) NOT NULL,
   id_zona NUMERIC(3) NOT NULL,
   PRIMARY KEY (id_pasillo),
