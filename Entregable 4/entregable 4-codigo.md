@@ -2,15 +2,15 @@
 ## Código
 
 ### Front end
-[Vircatex - vercel](https://sistema-web-v-9i8pz9b50-javierarteagagonzales-projects.vercel.app/acabados/lotes) 
+Abrir en Google Chrome: [Vircatex - render](https://sistema-web-v-f.onrender.com/#/acabados/lotes) 
 
-[Github]() 
+[Github FrontEnd - React](https://github.com/javierarteagagonzales/sistema-web-v-f) 
 
 
 ### App Web
 Despliegue Backend y PostgreSQL : [Render](https://render.com/)
 
-[Github]() 
+[Github backend - Django](https://github.com/javierarteagagonzales/sistema-web-v) 
 
 ### Conexión Base de datos (local)
 ![db](../Entregable%203/db.png)
