@@ -2,9 +2,7 @@ import psycopg2
 from tkinter import messagebox
 import random
 from faker import Faker
-import re
 from datetime import timedelta
-import pytz
 import sys
 import conectorBD
 from inserts1 import inserts1

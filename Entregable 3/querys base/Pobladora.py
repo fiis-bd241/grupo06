@@ -8,129 +8,9 @@ import pytz
 import conectorBD
 from inserts1 import inserts1
 from inserts2 import inserts2
-from inserts3 import inserts3
+from inserts3_4 import inserts3, inserts4
 
 fake = Faker('es_ES')  # Usamos es_ES para generar datos en español
-
-def insert_dim_confeccion_detalle(cursor): # Inserta dim_confeccion_detalle
-    try:
-        # Obtener todos los id_dim_confeccion de la tabla dimension_confeccion
-        cursor.execute("SELECT id_dim_confeccion FROM dimension_confeccion;")
-        dim_confeccion_ids = cursor.fetchall()
-        dim_confeccion_ids = [dim[0] for dim in dim_confeccion_ids]
-
-        # Obtener todos los id_dim_corte de la tabla dimension_corte
-        cursor.execute("SELECT id_dim_corte FROM dimension_corte;")
-        dim_corte_ids = cursor.fetchall()
-        dim_corte_ids = [dim[0] for dim in dim_corte_ids]
-
-        if not dim_confeccion_ids or not dim_corte_ids:
-            raise ValueError("No se encontraron registros en una o ambas tablas relacionadas")
-
-        for _ in range(100):
-            id_dim_confeccion = random.choice(dim_confeccion_ids)
-            id_dim_corte = random.choice(dim_corte_ids)
-
-            cursor.execute("""
-                INSERT INTO dim_confeccion_detalle (id_dim_confeccion, id_dim_corte)
-                VALUES (%s, %s) ON CONFLICT DO NOTHING;
-            """, (id_dim_confeccion, id_dim_corte))
-
-            print(f"Inserted dim_confeccion_detalle: id_dim_confeccion = {id_dim_confeccion}, id_dim_corte = {id_dim_corte}")
-
-    except (psycopg2.Error, ValueError) as e:
-        print(f"Error al insertar en la tabla dim_confeccion_detalle: {e}")
-
-def insert_dim_prenda_detalle(cursor): # Inserta dim_prenda_detalle
-    try:
-        # Obtener todos los id_dim_prenda de la tabla dimension_prenda
-        cursor.execute("SELECT id_dim_prenda FROM dimension_prenda;")
-        dim_prenda_ids = cursor.fetchall()
-        dim_prenda_ids = [dim[0] for dim in dim_prenda_ids]
-
-        # Obtener todos los id_acabado de la tabla acabado
-        cursor.execute("SELECT id_acabado FROM acabado;")
-        acabado_ids = cursor.fetchall()
-        acabado_ids = [acabado[0] for acabado in acabado_ids]
-
-        if not dim_prenda_ids or not acabado_ids:
-            raise ValueError("No se encontraron registros en una o ambas tablas relacionadas")
-
-        for _ in range(100):
-            id_dim_prenda = random.choice(dim_prenda_ids)
-            id_acabado = random.choice(acabado_ids)
-
-            cursor.execute("""
-                INSERT INTO dim_prenda_detalle (id_dim_prenda, id_acabado)
-                VALUES (%s, %s) ON CONFLICT DO NOTHING;
-            """, (id_dim_prenda, id_acabado))
-
-            print(f"Inserted dim_prenda_detalle: id_dim_prenda = {id_dim_prenda}, id_acabado = {id_acabado}")
-
-    except (psycopg2.Error, ValueError) as e:
-        print(f"Error al insertar en la tabla dim_prenda_detalle: {e}")
-
-def insert_pedido_detalle(cursor): # Inserta pedido_detalle
-    try:
-        # Obtener todos los id_orden_pedido de la tabla orden_pedido
-        cursor.execute("SELECT id_orden_pedido FROM orden_pedido;")
-        orden_pedido_ids = cursor.fetchall()
-        orden_pedido_ids = [pedido[0] for pedido in orden_pedido_ids]
-
-        # Obtener todos los id_dim_prenda de la tabla dimension_prenda
-        cursor.execute("SELECT id_dim_prenda FROM dimension_prenda;")
-        dim_prenda_ids = cursor.fetchall()
-        dim_prenda_ids = [dim[0] for dim in dim_prenda_ids]
-
-        if not orden_pedido_ids or not dim_prenda_ids:
-            raise ValueError("No se encontraron registros en una o ambas tablas relacionadas")
-
-        for _ in range(100):
-            id_orden_pedido = random.choice(orden_pedido_ids)
-            id_dim_prenda = random.choice(dim_prenda_ids)
-
-            cursor.execute("""
-                INSERT INTO pedido_detalle (id_orden_pedido, id_dim_prenda)
-                VALUES (%s, %s) ON CONFLICT DO NOTHING;
-            """, (id_orden_pedido, id_dim_prenda))
-
-            print(f"Inserted pedido_detalle: id_orden_pedido = {id_orden_pedido}, id_dim_prenda = {id_dim_prenda}")
-
-    except (psycopg2.Error, ValueError) as e:
-        print(f"Error al insertar en la tabla pedido_detalle: {e}")
-
-def insert_estanterias(cursor): # Inserta estanterias
-    try:
-        # Obtener los identificadores de los pasillos
-        cursor.execute("SELECT id_pasillo FROM pasillo;")
-        pasillos = cursor.fetchall()
-
-        for pasillo in pasillos:
-            pasillo_id = pasillo[0]
-            for _ in range(5):  # Insertar 5 estanterías por pasillo
-                # Generar dimensiones aleatorias para la estantería
-                ancho = round(random.uniform(0.5, 2.0), 2)
-                largo = round(random.uniform(0.5, 2.0), 2)
-                alto = round(random.uniform(1.0, 2.5), 2)
-
-                # Generar el ID de la estantería (usando un contador para cada pasillo)
-                cursor.execute("SELECT MAX(CAST(SUBSTRING(id_estanteria, 6) AS INTEGER)) FROM estanteria WHERE id_pasillo = %s;", (pasillo_id,))
-                last_shelf_number = cursor.fetchone()[0]
-
-                if last_shelf_number is None:
-                    last_shelf_number = 0
-
-                next_shelf_number = last_shelf_number + 1
-                id_estanteria = f"{pasillo_id}{next_shelf_number:02d}"
-
-                # Insertar la estantería en la base de datos
-                cursor.execute("INSERT INTO estanteria (id_estanteria, ancho_estanteria, largo_estanteria, alto_estanteria, id_pasillo) VALUES (%s, %s, %s, %s, %s) RETURNING id_estanteria;", (id_estanteria, ancho, largo, alto, pasillo_id))
-                inserted_id_estanteria = cursor.fetchone()
-                if inserted_id_estanteria:
-                    print(f"Inserted estanteria: {id_estanteria}, id_pasillo: {pasillo_id}")
-
-    except (psycopg2.Error, ValueError) as e:
-        messagebox.showerror("Error", f"Error al insertar estanterias: {e}")
 
 def insert_ordenes_produccion(cursor): # Inserta órdenes de producción
     orden_produccion_estado_relations = {
@@ -782,10 +662,7 @@ def insert_data(cursor): #Insertar todos los datos en la base de datos
     inserts1(cursor)
     inserts2(cursor)
     inserts3(cursor)
-    insert_dim_confeccion_detalle(cursor)
-    insert_dim_prenda_detalle(cursor)
-    insert_pedido_detalle(cursor)
-    insert_estanterias(cursor)
+    inserts4(cursor)
     insert_ordenes_produccion(cursor)
     insert_actividades_diarias(cursor)
     insert_lotes(cursor)
