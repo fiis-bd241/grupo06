@@ -2,7 +2,7 @@
 ## Código
 
 ### Front end
-[Vircatex - vercel](https://sistema-web-v-9i8pz9b50-javierarteagagonzales-projects.vercel.app/acabados/lotes) 
+Abrir en Google Chrome: [Vircatex - render](https://sistema-web-v-f.onrender.com/#/acabados/lotes) 
 
 [Github]() 
 
