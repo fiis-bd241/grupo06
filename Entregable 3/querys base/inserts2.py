@@ -219,13 +219,23 @@ def insert_dimension_parte_prenda(cursor): # Inserta dimensiones de parte de pre
         messagebox.showerror("Error", error)
         sys.exit(1)
 
-def insert_dimension_confeccion(cursor): # Inserta dimensiones de confección y guía de confección
+def insert_dimension_confeccion(cursor):
+    medidas_por_prenda = {
+        'Camisa': ['medida_longitud', 'medida_hombro', 'medida_pecho', 'medida_manga'],
+        'Polo': ['medida_longitud', 'medida_hombro', 'medida_pecho', 'medida_manga'],
+        'Blusa': ['medida_longitud', 'medida_hombro', 'medida_pecho', 'medida_manga', 'medida_cintura'],
+        'Pantalón': ['medida_longitud', 'medida_cintura', 'medida_cadera', 'medida_muslo'],
+        'Short': ['medida_longitud', 'medida_cintura', 'medida_cadera', 'medida_muslo'],
+        'Falda': ['medida_longitud', 'medida_cintura', 'medida_cadera']
+    }
+
     try:
         print("Insertando dimensiones de confección en la base de datos...")
+
         # Obtener todos los id_tipo_prenda
-        cursor.execute("SELECT id_tipo_prenda FROM tipo_prenda;")
+        cursor.execute("SELECT id_tipo_prenda, nombre FROM tipo_prenda;")
         tipos_prenda = cursor.fetchall()
-        tipo_prenda_ids = [tipo[0] for tipo in tipos_prenda]
+        tipo_prenda_dict = {tipo[0]: tipo[1] for tipo in tipos_prenda}
 
         # Obtener todos los id_estilo_prenda
         cursor.execute("SELECT id_estilo_prenda FROM estilo_prenda;")
@@ -243,7 +253,7 @@ def insert_dimension_confeccion(cursor): # Inserta dimensiones de confección y 
         genero_ids = [genero[0] for genero in generos]
 
         # Verificación de listas
-        if not tipo_prenda_ids:
+        if not tipo_prenda_dict:
             raise ValueError("No se encontraron tipos de prenda en la tabla tipo_prenda")
         if not estilo_prenda_ids:
             raise ValueError("No se encontraron estilos de prenda en la tabla estilo_prenda")
@@ -253,26 +263,42 @@ def insert_dimension_confeccion(cursor): # Inserta dimensiones de confección y 
             raise ValueError("No se encontraron géneros en la tabla genero")
 
         for _ in range(100):
-            id_tipo_prenda = random.choice(tipo_prenda_ids)
+            id_tipo_prenda = random.choice(list(tipo_prenda_dict.keys()))
+            nombre_tipo_prenda = tipo_prenda_dict[id_tipo_prenda]
             id_estilo_prenda = random.choice(estilo_prenda_ids)
             id_talla = random.choice(talla_ids)
             id_genero = random.choice(genero_ids)
 
-            # Generar y insertar guía de confección
-            medida_pecho = round(random.uniform(70, 90), 2)
-            medida_cintura = round(random.uniform(60, 90), 2)
-            medida_cadera = round(random.uniform(80, 90), 2)
-            medida_hombro = round(random.uniform(35, 60), 2)
-            medida_longitud = round(random.uniform(50, 90), 2)
-            medida_manga = round(random.uniform(50, 80), 2)
-            medida_muslo = round(random.uniform(40, 70), 2)
+            # Generar medidas basadas en el tipo de prenda
+            medidas = {}
+            for medida in medidas_por_prenda[nombre_tipo_prenda]:
+                if 'pecho' in medida:
+                    medidas[medida] = round(random.uniform(70, 90), 2)
+                elif 'cintura' in medida:
+                    medidas[medida] = round(random.uniform(60, 90), 2)
+                elif 'cadera' in medida:
+                    medidas[medida] = round(random.uniform(80, 90), 2)
+                elif 'hombro' in medida:
+                    medidas[medida] = round(random.uniform(35, 60), 2)
+                elif 'longitud' in medida:
+                    medidas[medida] = round(random.uniform(50, 90), 2)
+                elif 'manga' in medida:
+                    medidas[medida] = round(random.uniform(50, 80), 2)
+                elif 'muslo' in medida:
+                    medidas[medida] = round(random.uniform(40, 70), 2)
 
-            cursor.execute("INSERT INTO guia_confeccion (medida_pecho, medida_cintura, medida_cadera, medida_hombro, medida_longitud, medida_manga, medida_muslo) VALUES (%s, %s, %s, %s, %s, %s, %s) RETURNING id_guia_confeccion;", (medida_pecho, medida_cintura, medida_cadera, medida_hombro, medida_longitud, medida_manga, medida_muslo))
+            # Preparar y ejecutar la consulta de inserción para guia_confeccion
+            columns = ', '.join(medidas.keys())
+            placeholders = ', '.join(['%s'] * len(medidas))
+            values = tuple(medidas.values())
+
+            query = f"INSERT INTO guia_confeccion ({columns}) VALUES ({placeholders}) RETURNING id_guia_confeccion;"
+            cursor.execute(query, values)
             id_guia_confeccion = cursor.fetchone()[0]
 
             # Insertar dimensión de confección
             cursor.execute("INSERT INTO dimension_confeccion (id_tipo_prenda, id_estilo_prenda, id_guia_confeccion, id_talla, id_genero) VALUES (%s, %s, %s, %s, %s);", (id_tipo_prenda, id_estilo_prenda, id_guia_confeccion, id_talla, id_genero))
-        
+
         cursor.connection.commit()
         print("Dimensiones de confección insertadas exitosamente.")
     except (psycopg2.Error, ValueError) as e:

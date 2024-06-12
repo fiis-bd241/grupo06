@@ -172,7 +172,7 @@ def insert_generos(cursor): #Inserta géneros
         sys.exit(1)
 
 def insert_acabados(cursor): #Inserta acabados
-    acabados = ('Etiquetado','Hangteado', 'Embolsado', 'Embalaje', 'Encaje')
+    acabados = ('Hangteado', 'Vaporizado', 'Doblado', 'Embolsado', 'Encajado')
     try:
         print("Insertando acabados en la base de datos...")
         for acabado in acabados:

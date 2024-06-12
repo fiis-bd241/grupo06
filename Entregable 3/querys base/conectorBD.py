@@ -28,12 +28,32 @@ def get_db_credentials():
     root = tk.Tk()
     root.withdraw()  # Ocultar la ventana principal
 
+    mensaje_cancelación = "Ejecución cancelada por el usuario."
     # Solicitar datos al usuario
     host = simpledialog.askstring('Host', 'Ingrese el host de la base de datos (default localhost):', initialvalue='localhost')
+    if host is None:
+        messagebox.showinfo("Cancelado", mensaje_cancelación)
+        sys.exit(mensaje_cancelación)
+        
     port = simpledialog.askstring('Puerto', 'Ingrese el puerto de la base de datos (default 5432):', initialvalue='5432')
+    if port is None:
+        messagebox.showinfo("Cancelado", mensaje_cancelación)
+        sys.exit(mensaje_cancelación)
+        
     database = simpledialog.askstring('Base de Datos', 'Ingrese el nombre de la base de datos:')
+    if database is None:
+        messagebox.showinfo("Cancelado", mensaje_cancelación)
+        sys.exit(mensaje_cancelación)
+        
     user = simpledialog.askstring('Usuario', 'Ingrese su usuario (default postgres):', initialvalue='postgres')
+    if user is None:
+        messagebox.showinfo("Cancelado", mensaje_cancelación)
+        sys.exit(mensaje_cancelación)
+        
     password = simpledialog.askstring('Contraseña', 'Ingrese su contraseña:', show='*')
+    if password is None:
+        messagebox.showinfo("Cancelado", mensaje_cancelación)
+        sys.exit(mensaje_cancelación)
 
     return host, port, database, user, password
 

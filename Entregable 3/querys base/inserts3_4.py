@@ -45,7 +45,7 @@ def insert_dimension_corte(cursor): #Inserta dimensiones de corte
         messagebox.showerror("Error", error)
         sys.exit(1)
 
-def insert_parte_corte_detalle(cursor): # Inserta parte de corte detalle
+def insert_parte_corte_detalle(cursor): # Inserta parte de corte detalle    
     cortes_por_parte_prenda = {
         'Manga': ['Largo de la manga', 'Ancho de la manga'],
         'Cuerpo delantero': ['Largo delantero', 'Ancho delantero'],
@@ -128,7 +128,7 @@ def insert_dimension_prenda(cursor): #Inserta dimensiones de prenda
         messagebox.showerror("Error", error)
         sys.exit(1)
 
-def insert_orden_trabajo(cursor):
+def insert_orden_trabajo(cursor): # Inserta órdenes de trabajo
     entidad_estado_relations = ('No iniciado', 'En proceso', 'Completado', 'Atrasado', 'Cancelado')
     try:
         print("Insertando órdenes de trabajo en la base de datos...")
@@ -183,8 +183,8 @@ def insert_pasillo(cursor): # Inserta pasillos
         for zona in zonas:
             id_zona = zona[0]
             for _ in range(10):
-                ancho_pasillo = round(random.uniform(1.5, 2.0), 2)
-                largo_pasillo = round(random.uniform(1.5, 2.0), 2)
+                ancho_pasillo = round(random.uniform(2.0, 4.0), 1)
+                largo_pasillo = round(random.uniform(10.0, 15.0), 1)
 
                 # Obtener el último número de pasillo para este id_zona
                 cursor.execute("SELECT MAX(id_pasillo) FROM pasillo WHERE id_zona = %s;", (id_zona,))
@@ -208,6 +208,173 @@ def insert_pasillo(cursor): # Inserta pasillos
         sys.exit(1)
 
 
+def insert_dim_confeccion_detalle(cursor): # Inserta dim_confeccion_detalle
+    partes_por_prenda = {
+        'Camisa': ['Manga', 'Cuerpo delantero', 'Cuerpo trasero', 'Cuello', 'Puño', 'Pretina', 'Bolsillo', 'Yugo', 'Sisa'],
+        'Polo': ['Manga', 'Cuerpo delantero', 'Cuerpo trasero', 'Cuello', 'Puño', 'Pretina', 'Yugo', 'Sisa'],
+        'Blusa': ['Manga', 'Cuerpo delantero', 'Cuerpo trasero', 'Cuello', 'Puño', 'Pretina', 'Bolsillo', 'Yugo', 'Sisa'],
+        'Pantalón': ['Pierna delantera', 'Pierna trasera', 'Cintura', 'Entrepierna', 'Bajo'],
+        'Short': ['Pierna delantera', 'Pierna trasera', 'Cintura', 'Entrepierna', 'Bajo'],
+        'Falda': ['Falda delantera', 'Falda trasera', 'Pretina', 'Cintura', 'Bajo']
+    }
+
+    try:
+        print("Insertando dim_confeccion_detalle en la base de datos...")
+
+        # Obtener todos los id_dim_confeccion y el tipo de prenda correspondiente
+        cursor.execute("""
+            SELECT dc.id_dim_confeccion, tp.nombre
+            FROM dimension_confeccion dc
+            INNER JOIN tipo_prenda tp ON dc.id_tipo_prenda = tp.id_tipo_prenda;
+        """)
+        dim_confeccion_data = cursor.fetchall()
+        dim_confeccion_dict = {dim[0]: dim[1] for dim in dim_confeccion_data}
+        ids_dim_confeccion = [dim[0] for dim in dim_confeccion_data]
+
+        # Obtener todos los id_dim_corte con sus nombres
+        cursor.execute("""
+            SELECT dc.id_dim_corte, tpp.nombre
+            FROM dimension_corte dc
+            INNER JOIN dimension_parte_prenda dpp ON dc.id_dim_parte_prenda = dpp.id_dim_parte_prenda
+            INNER JOIN tipo_parte_prenda tpp ON dpp.id_tipo_parte_prenda = tpp.id_tipo_parte_prenda;
+        """)
+        dim_corte_data = cursor.fetchall()
+        dim_corte_dict = {dim[1]: [] for dim in dim_corte_data}
+        for dim in dim_corte_data:
+            dim_corte_dict[dim[1]].append(dim[0])
+
+        if not dim_confeccion_dict:
+            raise ValueError("No se encontraron registros en la tabla dimension_confeccion")
+        if not dim_corte_dict:
+            raise ValueError("No se encontraron registros en la tabla dimension_corte")
+
+        # Insertar datos en la tabla dim_confeccion_detalle
+        for id_dim_confeccion in ids_dim_confeccion:
+            partes_prenda = partes_por_prenda.get(dim_confeccion_dict.get(id_dim_confeccion))
+
+            for parte in partes_prenda:
+                id_dim_corte = random.choice(dim_corte_dict.get(parte, []))
+                cursor.execute("INSERT INTO dim_confeccion_detalle (id_dim_confeccion, id_dim_corte) VALUES (%s, %s);", (id_dim_confeccion, id_dim_corte))
+
+        cursor.connection.commit()
+        print("Dim_confeccion_detalle insertada exitosamente.")
+    except (psycopg2.Error, ValueError) as e:
+        cursor.connection.rollback()
+        error = f"Error al insertar en la tabla dim_confeccion_detalle: {e}"
+        print(error)
+        messagebox.showerror("Error", error)
+        sys.exit(1)
+
+def insert_dim_prenda_detalle(cursor): # Inserta dim_prenda_detalle
+    try:
+        print("Insertando detalles de prenda en la base de datos...")
+
+        # Obtener todos los id_dim_prenda y nombres de prenda de la tabla dimension_prenda
+        cursor.execute("SELECT id_dim_prenda FROM dimension_prenda;")
+        dim_prenda_data = cursor.fetchall()
+        dim_prenda_ids = [dim[0] for dim in dim_prenda_data]
+
+        # Obtener todos los id_acabado y sus nombres
+        cursor.execute("SELECT id_acabado FROM acabado;")
+        acabado_data = cursor.fetchall()
+        acabado_ids = [acabado[0] for acabado in acabado_data]
+
+        if not dim_prenda_ids:
+            raise ValueError("No se encontraron registros en la tabla dimension_prenda")
+        if not acabado_ids:
+            raise ValueError("No se encontraron registros en la tabla acabado")
+
+        # Insertar datos en la tabla dim_prenda_detalle
+        for id_dim_prenda in dim_prenda_ids:
+            # Seleccionar una cantidad aleatoria de acabados para cada prenda, asegurando al menos uno
+            num_acabados = random.randint(1, len(acabado_ids))
+            acabados_seleccionados = random.sample(acabado_ids, num_acabados)
+
+            for id_acabado in acabados_seleccionados:
+                cursor.execute("INSERT INTO dim_prenda_detalle (id_dim_prenda, id_acabado) VALUES (%s, %s);", (id_dim_prenda, id_acabado))
+
+        cursor.connection.commit()
+        print("Detalles de prenda insertados exitosamente.")
+    
+    except (psycopg2.Error, ValueError) as e:
+        cursor.connection.rollback()
+        error = f"Error al insertar detalles de prenda: {e}"
+        print(error)
+        messagebox.showerror("Error", error)
+        sys.exit(1)
+
+def insert_pedido_detalle(cursor): # Inserta pedido_detalle
+    try:
+        print("Insertando pedido_detalle en la base de datos...")
+
+        # Obtener todos los id_orden_pedido de la tabla orden_pedido
+        cursor.execute("SELECT id_orden_pedido FROM orden_pedido;")
+        orden_pedido_ids = cursor.fetchall()
+        orden_pedido_ids = [pedido[0] for pedido in orden_pedido_ids]
+
+        # Obtener todos los id_dim_prenda de la tabla dimension_prenda
+        cursor.execute("SELECT id_dim_prenda FROM dimension_prenda;")
+        dim_prenda_ids = cursor.fetchall()
+        dim_prenda_ids = [dim[0] for dim in dim_prenda_ids]
+
+        if not orden_pedido_ids or not dim_prenda_ids:
+            raise ValueError("No se encontraron registros en una o ambas tablas relacionadas")
+
+        for id_orden_pedido in orden_pedido_ids:
+            # Seleccionar una cantidad aleatoria de dimensiones prenda para cada pedido, asegurando al menos una
+            num_dim_prenda = random.randint(1, 5)
+            dim_prenda_seleccionadas = random.sample(dim_prenda_ids, num_dim_prenda)
+
+            for id_dim_prenda in dim_prenda_seleccionadas:
+                cursor.execute("INSERT INTO pedido_detalle (id_orden_pedido, id_dim_prenda) VALUES (%s, %s);", (id_orden_pedido, id_dim_prenda))
+
+        cursor.connection.commit()
+        print("Pedido_detalle insertado exitosamente.")
+
+    except (psycopg2.Error, ValueError) as e:
+        cursor.connection.rollback()
+        error = f"Error al insertar pedido_detalle: {e}"
+        print(error)
+        messagebox.showerror("Error", error)
+        sys.exit(1)
+
+def insert_estanterias(cursor): # Inserta estanterias
+    try:
+        print("Insertando estanterías en la base de datos...")
+        
+        # Obtener los identificadores de los pasillos
+        cursor.execute("SELECT id_pasillo, largo_pasillo, ancho_pasillo FROM pasillo;")
+        pasillos = cursor.fetchall()
+
+        for pasillo in pasillos:
+            id_pasillo = pasillo[0]
+            for _ in range(5):  # Insertar 5 estanterías por pasillo
+                # Generar dimensiones aleatorias para la estantería
+                ancho = round(pasillo[1] / 5, 2)
+                largo = round(random.choice([i * 0.1 for i in range(20, 31)]), 2)
+                alto = 8.50
+
+                # Obtener el último número de pasillo para este id_zona
+                cursor.execute("SELECT MAX(id_estanteria) FROM estanteria WHERE id_pasillo = %s;", (id_pasillo,))
+                
+                last_shelf_number = cursor.fetchone()[0]
+
+                if last_shelf_number is None:
+                    last_shelf_number = id_pasillo * 100
+
+                next_shelf_number = last_shelf_number + 1
+
+                # Insertar la estantería en la base de datos
+                cursor.execute("INSERT INTO estanteria (id_estanteria, ancho_estanteria, largo_estanteria, alto_estanteria, id_pasillo) VALUES (%s, %s, %s, %s, %s);", (next_shelf_number, ancho, largo, alto, id_pasillo))
+            
+        cursor.connection.commit()
+        print("Estanterías insertadas exitosamente.")
+    except (psycopg2.Error, ValueError) as e:
+        cursor.connection.rollback()
+        error = f"Error al insertar estanterías: {e}"
+        print(error)
+        messagebox.showerror("Error", error)
+        sys.exit(1)
 
 
 def inserts3(cursor):
@@ -216,6 +383,13 @@ def inserts3(cursor):
     insert_dimension_prenda(cursor)
     insert_orden_trabajo(cursor)
     insert_pasillo(cursor)
+
+def inserts4(cursor):
+    insert_dim_confeccion_detalle(cursor)
+    insert_dim_prenda_detalle(cursor)
+    insert_pedido_detalle(cursor)
+    insert_estanterias(cursor)
+
 
 def main(): #Función prueba
     """Función principal para la ejecución del script."""
@@ -230,6 +404,7 @@ def main(): #Función prueba
         inserts1(cursor)
         inserts2(cursor)
         inserts3(cursor)
+        inserts4(cursor)
         cursor.close()
         print("Registros generados exitosamente.")
         messagebox.showinfo("Éxito", "Registros generados exitosamente")
