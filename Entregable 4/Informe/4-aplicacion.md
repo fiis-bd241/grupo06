@@ -16,3 +16,25 @@ Despliegue Backend y PostgreSQL : [Render](https://render.com/)
 ![db](../../Entregable%203/db.png)
 
 [Regresar al Índice](./indice.md)
+
+## Versión final:
+Presentamos el flujo de pantallas de la App Web: **Sistema Vircatex**:
+* **Almacén Central**
+
+  
+* **Corte**
+
+  
+* **Confección**
+
+  
+* **Almacén de tránsito**
+
+  
+* **Acabados**
+
+  
+* **Inspección de calidad**
+
+  
+* **PCP**
