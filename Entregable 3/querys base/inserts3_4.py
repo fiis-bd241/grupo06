@@ -35,7 +35,7 @@ def insert_dimension_corte(cursor): #Inserta dimensiones de corte
             cursor.execute("INSERT INTO dimension_corte (id_dim_materia_prima, id_dim_parte_prenda) VALUES (%s, %s);", (id_dim_materia_prima, id_dim_parte_prenda))
         
         cursor.connection.commit()
-        print("Dimensiones de corte insertadas exitosamente.")
+        print("Dimensiones de corte insertadas exitosamente\n")
     except (psycopg2.Error, ValueError) as e:
         cursor.connection.rollback()
         error = f"Error al insertar dimensiones de corte: {e}"
@@ -93,7 +93,7 @@ def insert_parte_corte_detalle(cursor): # Inserta parte de corte detalle
                 cursor.execute("INSERT INTO parte_corte_detalle (id_dim_parte_prenda, id_tipo_corte, medida) VALUES (%s, %s, %s);", (id_dim_parte_prenda, id_tipo_corte, medida))
 
         cursor.connection.commit()  # Confirmar todas las inserciones exitosas
-        print("Parte de corte detalle insertada exitosamente.")
+        print("Parte de corte detalle insertada exitosamente\n")
     except (psycopg2.Error, ValueError) as e:
         cursor.connection.rollback()
         error = f"Error al insertar parte de corte detalle: {e}"
@@ -118,7 +118,7 @@ def insert_dimension_prenda(cursor): #Inserta dimensiones de prenda
             cursor.execute("INSERT INTO dimension_prenda (id_dim_confeccion) VALUES (%s);", (id_dim_confeccion,))
         
         cursor.connection.commit()
-        print("Dimensiones de prenda insertadas exitosamente.")
+        print("Dimensiones de prenda insertadas exitosamente\n")
     except (psycopg2.Error, ValueError) as e:
         cursor.connection.rollback()
         error = f"Error al insertar dimensiones de prenda: {e}"
@@ -152,10 +152,10 @@ def insert_orden_trabajo(cursor): # Inserta órdenes de trabajo
         if not orden_pedido_ids:
             raise ValueError("No se encontraron órdenes de pedido en la tabla orden_pedido")
      
-        for _ in range(100):
+        for _ in range(50):
             fecha_creacion = fake.date_time_between(start_date='-1y', end_date='now', tzinfo=None)
             fecha_inicio = fake.date_time_between_dates(datetime_start=fecha_creacion, datetime_end=fecha_creacion + timedelta(days=5), tzinfo=None)
-            fecha_fin = fake.date_time_between_dates(datetime_start=fecha_inicio, datetime_end=fecha_inicio + timedelta(days=10), tzinfo=None)
+            fecha_fin = fake.date_time_between_dates(datetime_start=fecha_inicio, datetime_end=fecha_inicio + timedelta(days=30), tzinfo=None)
             prioridad = random.randint(1, 5)
             id_plan = random.choice(plan_ids)
             id_orden_pedido = random.choice(orden_pedido_ids)
@@ -164,7 +164,7 @@ def insert_orden_trabajo(cursor): # Inserta órdenes de trabajo
             cursor.execute("INSERT INTO orden_trabajo (fecha_inicio, fecha_fin, prioridad, id_estado, id_plan, id_orden_pedido,fecha_creacion) VALUES (%s, %s, %s, %s, %s, %s, %s);", (fecha_inicio, fecha_fin, prioridad, id_estado, id_plan, id_orden_pedido, fecha_creacion))
         
         cursor.connection.commit()
-        print("Órdenes de trabajo insertadas exitosamente.")
+        print("Órdenes de trabajo insertadas exitosamente\n")
     except (psycopg2.Error, ValueError) as e:
         cursor.connection.rollback()
         error = f"Error al insertar órdenes de trabajo: {e}"
@@ -197,7 +197,7 @@ def insert_pasillo(cursor): # Inserta pasillos
                 cursor.execute("INSERT INTO pasillo (id_pasillo, ancho_pasillo, largo_pasillo, id_zona) VALUES (%s, %s, %s, %s);", (next_hall_number, ancho_pasillo, largo_pasillo, id_zona))
         
         cursor.connection.commit()
-        print("Pasillos insertados exitosamente.")
+        print("Pasillos insertados exitosamente\n")
     except (psycopg2.Error, ValueError) as e:
         cursor.connection.rollback()
         error = f"Error al insertar pasillos: {e}"
@@ -251,11 +251,13 @@ def insert_dim_confeccion_detalle(cursor): # Inserta dim_confeccion_detalle
             partes_prenda = partes_por_prenda.get(dim_confeccion_dict.get(id_dim_confeccion))
 
             for parte in partes_prenda:
+                if parte not in dim_corte_dict:
+                    continue
                 id_dim_corte = random.choice(dim_corte_dict.get(parte, []))
                 cursor.execute("INSERT INTO dim_confeccion_detalle (id_dim_confeccion, id_dim_corte) VALUES (%s, %s);", (id_dim_confeccion, id_dim_corte))
 
         cursor.connection.commit()
-        print("Dim_confeccion_detalle insertada exitosamente.")
+        print("Dim_confeccion_detalle insertada exitosamente\n")
     except (psycopg2.Error, ValueError) as e:
         cursor.connection.rollback()
         error = f"Error al insertar en la tabla dim_confeccion_detalle: {e}"
@@ -292,7 +294,7 @@ def insert_dim_prenda_detalle(cursor): # Inserta dim_prenda_detalle
                 cursor.execute("INSERT INTO dim_prenda_detalle (id_dim_prenda, id_acabado) VALUES (%s, %s);", (id_dim_prenda, id_acabado))
 
         cursor.connection.commit()
-        print("Detalles de prenda insertados exitosamente.")
+        print("Detalles de prenda insertados exitosamente\n")
     
     except (psycopg2.Error, ValueError) as e:
         cursor.connection.rollback()
@@ -327,7 +329,7 @@ def insert_pedido_detalle(cursor): # Inserta pedido_detalle
                 cursor.execute("INSERT INTO pedido_detalle (id_orden_pedido, id_dim_prenda) VALUES (%s, %s);", (id_orden_pedido, id_dim_prenda))
 
         cursor.connection.commit()
-        print("Pedido_detalle insertado exitosamente.")
+        print("Pedido_detalle insertado exitosamente\n")
 
     except (psycopg2.Error, ValueError) as e:
         cursor.connection.rollback()
@@ -352,7 +354,7 @@ def insert_estanterias(cursor): # Inserta estanterias
                 largo = round(random.choice([i * 0.1 for i in range(20, 31)]), 2)
                 alto = 8.50
 
-                # Obtener el último número de pasillo para este id_zona
+                # Obtener el último número de estanteria para este id_pasillo
                 cursor.execute("SELECT MAX(id_estanteria) FROM estanteria WHERE id_pasillo = %s;", (id_pasillo,))
                 
                 last_shelf_number = cursor.fetchone()[0]
@@ -364,9 +366,9 @@ def insert_estanterias(cursor): # Inserta estanterias
 
                 # Insertar la estantería en la base de datos
                 cursor.execute("INSERT INTO estanteria (id_estanteria, ancho_estanteria, largo_estanteria, alto_estanteria, id_pasillo) VALUES (%s, %s, %s, %s, %s);", (next_shelf_number, ancho, largo, alto, id_pasillo))
-            
+                
         cursor.connection.commit()
-        print("Estanterías insertadas exitosamente.")
+        print("Estanterías insertadas exitosamente\n")
     except (psycopg2.Error, ValueError) as e:
         cursor.connection.rollback()
         error = f"Error al insertar estanterías: {e}"

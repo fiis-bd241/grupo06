@@ -9,273 +9,9 @@ import conectorBD
 from inserts1 import inserts1
 from inserts2 import inserts2
 from inserts3_4 import inserts3, inserts4
+from inserts5_6_7 import inserts5_6_7
 
 fake = Faker('es_ES')  # Usamos es_ES para generar datos en español
-
-def insert_ordenes_produccion(cursor): # Inserta órdenes de producción
-    orden_produccion_estado_relations = {
-        'Orden_produccion': ('No iniciado', 'En proceso', 'Completado', 'Atrasado', 'Cancelado'),
-    }
-    
-    try:
-        # Obtener los identificadores de áreas
-        cursor.execute("SELECT id_area FROM area;")
-        areas = cursor.fetchall()
-
-        # Obtener todos los id_estado relacionados con 'orden_produccion'
-        cursor.execute("SELECT id_estado FROM estado WHERE nombre IN %s;", (tuple(orden_produccion_estado_relations['Orden_produccion']),))
-        estados = cursor.fetchall()
-        estado_ids = [estado[0] for estado in estados]
-
-        # Obtener los identificadores de las órdenes de trabajo
-        cursor.execute("SELECT id_orden_trabajo FROM orden_trabajo;")
-        ordenes_trabajo = cursor.fetchall()
-
-        for _ in range(150):  # Insertar 100 órdenes de producción
-            fecha_creacion = fake.date_time_between(start_date='-1y', end_date='now', tzinfo=None)
-            fecha_inicio = fake.date_time_between_dates(datetime_start=fecha_creacion, datetime_end=fecha_creacion + timedelta(days=5), tzinfo=None)
-            fecha_fin = fake.date_time_between_dates(datetime_start=fecha_inicio, datetime_end=fecha_inicio + timedelta(days=20), tzinfo=None)
-
-            cantidad = random.randint(10, 1000)
-
-            # Seleccionar un área aleatoria
-            id_area = random.choice(areas)
-
-            # Seleccionar un estado aleatorio
-            id_estado = random.choice(estado_ids)
-
-            # Seleccionar una orden de trabajo aleatoria
-            id_orden_trabajo = random.choice(ordenes_trabajo)
-
-            # Determinar qué dimensiones se van a llenar
-            dim_a_llenar = random.choice(['id_dim_prenda', 'id_dim_confeccion', 'id_dim_corte'])
-
-           # Obtener el identificador de la dimensión respectiva
-            if dim_a_llenar == 'id_dim_prenda':
-                cursor.execute("SELECT id_dim_prenda FROM dimension_prenda;")
-            elif dim_a_llenar == 'id_dim_confeccion':
-                cursor.execute("SELECT id_dim_confeccion FROM dimension_confeccion;")
-            else:
-                cursor.execute("SELECT id_dim_corte FROM dimension_corte;")
-
-            dim_id = random.choice(cursor.fetchall())[0]
-
-            # Insertar la orden de producción
-            cursor.execute("""
-                INSERT INTO orden_producción (fecha_inicio, fecha_fin, cantidad, id_estado, id_area, {}, id_orden_trabajo, fecha_creacion)
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s);
-            """.format(dim_a_llenar), (fecha_inicio, fecha_fin, cantidad, id_estado, id_area, dim_id, id_orden_trabajo, fecha_creacion))
-
-            print("Inserted orden de producción")
-
-    except (psycopg2.Error, ValueError) as e:
-        messagebox.showerror("Error", f"Error al insertar órdenes de producción: {e}")
-
-def insert_actividades_diarias(cursor): # Inserta actividades diarias
-    try:
-        # Obtener los identificadores de las órdenes de producción
-        cursor.execute("SELECT id_orden_producción FROM orden_producción;")
-        ordenes_produccion = cursor.fetchall()
-
-        for _ in range(300):  # Insertar 100 actividades diarias
-            fecha_actividad = fake.date_between(start_date='-1y', end_date='today')
-
-            # Seleccionar una orden de producción aleatoria
-            id_orden_produccion = random.choice(ordenes_produccion)[0]
-
-            # Insertar la actividad diaria
-            cursor.execute("""
-                INSERT INTO actividad_diaria (fecha_actividad, id_orden_producción)
-                VALUES (%s, %s);
-            """, (fecha_actividad, id_orden_produccion))
-
-            print("Inserted actividad diaria")
-
-    except psycopg2.Error as e:
-        messagebox.showerror("Error", f"Error al insertar actividades diarias: {e}")
-
-def insert_lotes(cursor):
-    lote_estado_relations = {
-        'Lote': ('Disponible', 'En proceso', 'Usado', 'Obsoleto'),
-    }
-    
-    try:
-        # Obtener todos los id_estado relacionados con 'lote'
-        cursor.execute("SELECT id_estado FROM estado WHERE nombre IN %s;", (tuple(lote_estado_relations['Lote']),))
-        estados = cursor.fetchall()
-        estado_ids = [estado[0] for estado in estados]
-
-        # Obtener los identificadores de los tipos de lote
-        cursor.execute("SELECT id_tipo_lote FROM tipo_lote;")
-        tipos_lote = cursor.fetchall()
-
-        # Obtener los identificadores de las actividades diarias ordenadas por fecha de actividad
-        cursor.execute("SELECT id_actividad, fecha_actividad FROM actividad_diaria ORDER BY fecha_actividad;")
-        actividades_diarias = cursor.fetchall()
-
-        for i in range(len(actividades_diarias)):
-            # Obtener los identificadores de las dimensiones de la orden de producción asociada
-            cursor.execute("SELECT id_dim_corte, id_dim_confeccion, id_dim_prenda FROM orden_producción WHERE id_orden_producción = %s;", (i + 1,))
-            dimensiones_orden_produccion = cursor.fetchone()
-            dim_corte, dim_confeccion, dim_prenda = dimensiones_orden_produccion
-
-            cantidad = random.randint(100, 1000)
-            id_estado = random.choice(estado_ids)
-            id_tipo_lote = random.choice(tipos_lote)[0]
-            id_actividad = actividades_diarias[i][0]
-            fecha_creacion = actividades_diarias[i][1]
-
-            # Insertar el lote
-            cursor.execute("""
-                INSERT INTO lote (cantidad, id_estado, id_tipo_lote, id_dim_corte, id_dim_confeccion, id_dim_prenda, id_actividad, fecha_creacion)
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s);
-            """, (cantidad, id_estado, id_tipo_lote, dim_corte, dim_confeccion, dim_prenda, id_actividad, fecha_creacion))
-
-            print("Inserted lote")
-
-    except psycopg2.Error as e:
-        messagebox.showerror("Error", f"Error al insertar lotes: {e}")
-
-def insert_empleado_actividad(cursor):
-    try:
-        # Obtener los identificadores de las actividades diarias
-        cursor.execute("SELECT id_actividad FROM actividad_diaria;")
-        actividades = cursor.fetchall()
-        actividades_ids = [actividad[0] for actividad in actividades]
-
-        # Obtener los identificadores de los empleados
-        cursor.execute("SELECT id_empleado FROM empleado;")
-        empleados = cursor.fetchall()
-        empleados_ids = [empleado[0] for empleado in empleados]
-
-        for _ in range(100):
-            id_actividad = random.choice(actividades_ids)
-            id_empleado = random.choice(empleados_ids)
-            cantidad_hecha = random.randint(10, 20)
-
-            cursor.execute("""
-                INSERT INTO empleado_actividad (id_actividad, id_empleado, cantidad_hecha)
-                VALUES (%s, %s, %s);
-            """, (id_actividad, id_empleado, cantidad_hecha))
-
-            print("Inserted empleado_actividad")
-
-    except psycopg2.Error as e:
-        messagebox.showerror("Error", f"Error al insertar empleado_actividad: {e}")
-
-def insert_maquina_actividad(cursor):
-    try:
-        # Obtener los identificadores de las actividades diarias
-        cursor.execute("SELECT id_actividad FROM actividad_diaria;")
-        actividades = cursor.fetchall()
-        actividades_ids = [actividad[0] for actividad in actividades]
-
-        # Obtener los identificadores de las máquinas
-        cursor.execute("SELECT id_maquina FROM maquina;")
-        maquinas = cursor.fetchall()
-        maquinas_ids = [maquina[0] for maquina in maquinas]
-
-        for _ in range(100):
-            id_actividad = random.choice(actividades_ids)
-            id_maquina = random.choice(maquinas_ids)
-            cantidad_hecha = random.randint(1,5) * 100
-
-            cursor.execute("""
-                INSERT INTO maquina_actividad (id_actividad, id_maquina, cantidad_hecha)
-                VALUES (%s, %s, %s);
-            """, (id_actividad, id_maquina, cantidad_hecha))
-
-            print("Inserted maquina_actividad")
-
-    except psycopg2.Error as e:
-        messagebox.showerror("Error", f"Error al insertar maquina_actividad: {e}")
-
-def insert_caja_prenda(cursor):
-    caja_prenda_estado_relations = {
-        'Caja_prenda': ('En proceso', 'Entregado', 'Obsoleto'),
-    }
-    
-    try:
-        # Obtener todos los id_estado relacionados con 'orden_produccion'
-        cursor.execute("SELECT id_estado FROM estado WHERE nombre IN %s;", (tuple(caja_prenda_estado_relations['Caja_prenda']),))
-        estados = cursor.fetchall()
-        estado_ids = [estado[0] for estado in estados]
-        
-        # Obtener los identificadores de las dimensiones de prenda
-        cursor.execute("SELECT id_dim_prenda FROM dimension_prenda;")
-        dimensiones_prenda = cursor.fetchall()
-        dimensiones_prenda_ids = [dim[0] for dim in dimensiones_prenda]
-
-        # Obtener los identificadores de las actividades diarias
-        cursor.execute("SELECT id_actividad FROM actividad_diaria;")
-        actividades = cursor.fetchall()
-        actividades_ids = [actividad[0] for actividad in actividades]
-
-        for _ in range(200):
-            cantidad = random.randint(2, 5) * 10
-            fecha_creacion = fake.date_time_between(start_date='-1y', end_date='now', tzinfo=None)
-            id_estado = random.choice(estado_ids)  # Supongamos que hay 3 estados
-            id_dim_prenda = random.choice(dimensiones_prenda_ids)
-            id_actividad = random.choice(actividades_ids)
-
-            cursor.execute("""
-                INSERT INTO caja_prenda (cantidad, fecha_creacion, id_estado, id_dim_prenda, id_actividad)
-                VALUES (%s, %s, %s, %s, %s);
-            """, (cantidad, fecha_creacion, id_estado, id_dim_prenda, id_actividad))
-
-            print("Inserted caja_prenda")
-
-    except psycopg2.Error as e:
-        messagebox.showerror("Error", f"Error al insertar caja_prenda: {e}")
-
-def insert_espacios(cursor): # Inserta espacios
-    espacio_estado_relations = {
-        'Espacio': ('Disponible', 'Ocupado', 'En mantenimiento'),
-    }
-    
-    try:
-        # Obtener los identificadores de las estanterías
-        cursor.execute("SELECT id_estanteria FROM estanteria;")
-        estanterias = cursor.fetchall()
-
-        # Obtener todos los id_estado relacionados con 'espacio'
-        cursor.execute("SELECT id_estado FROM estado WHERE nombre IN %s;", (tuple(espacio_estado_relations['Espacio']),))
-        estados = cursor.fetchall()
-        estado_ids = [estado[0] for estado in estados]
-
-        if not estado_ids:
-            raise ValueError("No se encontraron estados en la tabla estado")
-
-        for estanteria in estanterias:
-            id_estanteria = estanteria[0]
-
-            for _ in range(10):  # Insertar 10 espacios por estantería
-                # Generar dimensiones aleatorias para el espacio
-                ancho = round(random.uniform(0.5, 2.0), 2)
-                largo = round(random.uniform(0.5, 2.0), 2)
-                alto = round(random.uniform(1.0, 2.5), 2)
-
-                # Generar el ID de la estantería (usando un contador para cada pasillo)
-                cursor.execute("SELECT MAX(CAST(SUBSTRING(id_espacio, 8) AS INTEGER)) FROM espacio WHERE id_estanteria = %s;", (id_estanteria,))
-                last_shelf_number = cursor.fetchone()[0]
-
-                if last_shelf_number is None:
-                    last_shelf_number = 0
-
-                next_shelf_number = last_shelf_number + 1
-                id_espacio = f"{id_estanteria}{next_shelf_number:02d}"
-
-                # Seleccionar un estado aleatorio
-                id_estado = random.choice(estado_ids)
-
-                # Insertar el espacio en la base de datos
-                cursor.execute("INSERT INTO espacio (id_espacio, ancho, largo, alto, estado, id_estanteria) VALUES (%s, %s, %s, %s, %s) RETURNING id_espacio;", (id_espacio, ancho, largo, alto, id_estado, id_estanteria))
-                inserted_id_espacio = cursor.fetchone()[0]  # Se añade índice para obtener el valor directamente
-                if inserted_id_espacio:
-                    print(f"Inserted espacio: {inserted_id_espacio}, id_estanteria: {id_estanteria}")
-
-    except (psycopg2.Error, ValueError) as e:
-        messagebox.showerror("Error", f"Error al insertar espacios: {e}")
 
 def insert_materia_prima(cursor):
     try:
@@ -399,37 +135,92 @@ def insert_caja_lote(cursor):
     except psycopg2.Error as e:
         messagebox.showerror("Error", f"Error al insertar caja_lote: {e}")
 
-def insert_prenda(cursor):
+def insert_caja_prenda(cursor):
+    caja_prenda_estado_relations = {
+        'Caja_prenda': ('En proceso', 'Entregado', 'Obsoleto'),
+    }
+    
     try:
+        # Obtener todos los id_estado relacionados con 'orden_produccion'
+        cursor.execute("SELECT id_estado FROM estado WHERE nombre IN %s;", (tuple(caja_prenda_estado_relations['Caja_prenda']),))
+        estados = cursor.fetchall()
+        estado_ids = [estado[0] for estado in estados]
+        
         # Obtener los identificadores de las dimensiones de prenda
         cursor.execute("SELECT id_dim_prenda FROM dimension_prenda;")
         dimensiones_prenda = cursor.fetchall()
-        dimensiones_prenda_ids = [dim_prenda[0] for dim_prenda in dimensiones_prenda]
+        dimensiones_prenda_ids = [dim[0] for dim in dimensiones_prenda]
 
-        # Obtener los identificadores de los empleados
-        cursor.execute("SELECT id_empleado FROM empleado;")
-        empleados = cursor.fetchall()
-        empleados_ids = [empleado[0] for empleado in empleados]
+        # Obtener los identificadores de las actividades diarias
+        cursor.execute("SELECT id_actividad FROM actividad_diaria;")
+        actividades = cursor.fetchall()
+        actividades_ids = [actividad[0] for actividad in actividades]
 
-        # Obtener los identificadores de las cajas de prenda
-        cursor.execute("SELECT id_caja FROM caja_prenda;")
-        cajas_prenda = cursor.fetchall()
-        cajas_prenda_ids = [caja[0] for caja in cajas_prenda]
-
-        for _ in range(10000):
+        for _ in range(200):
+            cantidad = random.randint(2, 5) * 10
+            fecha_creacion = fake.date_time_between(start_date='-1y', end_date='now', tzinfo=None)
+            id_estado = random.choice(estado_ids)  # Supongamos que hay 3 estados
             id_dim_prenda = random.choice(dimensiones_prenda_ids)
-            id_empleado = random.choice(empleados_ids)
-            id_caja = random.choice(cajas_prenda_ids)
+            id_actividad = random.choice(actividades_ids)
 
             cursor.execute("""
-                INSERT INTO prenda (id_dim_prenda, id_empleado, id_caja)
-                VALUES (%s, %s, %s);
-            """, (id_dim_prenda, id_empleado, id_caja))
+                INSERT INTO caja_prenda (cantidad, fecha_creacion, id_estado, id_dim_prenda, id_actividad)
+                VALUES (%s, %s, %s, %s, %s);
+            """, (cantidad, fecha_creacion, id_estado, id_dim_prenda, id_actividad))
 
-            print("Inserted prenda")
+            print("Inserted caja_prenda")
 
     except psycopg2.Error as e:
-        messagebox.showerror("Error", f"Error al insertar prenda: {e}")
+        messagebox.showerror("Error", f"Error al insertar caja_prenda: {e}")
+
+def insert_espacios(cursor): # Inserta espacios
+    espacio_estado_relations = {
+        'Espacio': ('Disponible', 'Ocupado', 'En mantenimiento'),
+    }
+    
+    try:
+        # Obtener los identificadores de las estanterías
+        cursor.execute("SELECT id_estanteria FROM estanteria;")
+        estanterias = cursor.fetchall()
+
+        # Obtener todos los id_estado relacionados con 'espacio'
+        cursor.execute("SELECT id_estado FROM estado WHERE nombre IN %s;", (tuple(espacio_estado_relations['Espacio']),))
+        estados = cursor.fetchall()
+        estado_ids = [estado[0] for estado in estados]
+
+        if not estado_ids:
+            raise ValueError("No se encontraron estados en la tabla estado")
+
+        for estanteria in estanterias:
+            id_estanteria = estanteria[0]
+
+            for _ in range(10):  # Insertar 10 espacios por estantería
+                # Generar dimensiones aleatorias para el espacio
+                ancho = round(random.uniform(0.5, 2.0), 2)
+                largo = round(random.uniform(0.5, 2.0), 2)
+                alto = round(random.uniform(1.0, 2.5), 2)
+
+                # Generar el ID de la estantería (usando un contador para cada pasillo)
+                cursor.execute("SELECT MAX(CAST(SUBSTRING(id_espacio, 8) AS INTEGER)) FROM espacio WHERE id_estanteria = %s;", (id_estanteria,))
+                last_shelf_number = cursor.fetchone()[0]
+
+                if last_shelf_number is None:
+                    last_shelf_number = 0
+
+                next_shelf_number = last_shelf_number + 1
+                id_espacio = f"{id_estanteria}{next_shelf_number:02d}"
+
+                # Seleccionar un estado aleatorio
+                id_estado = random.choice(estado_ids)
+
+                # Insertar el espacio en la base de datos
+                cursor.execute("INSERT INTO espacio (id_espacio, ancho, largo, alto, estado, id_estanteria) VALUES (%s, %s, %s, %s, %s) RETURNING id_espacio;", (id_espacio, ancho, largo, alto, id_estado, id_estanteria))
+                inserted_id_espacio = cursor.fetchone()[0]  # Se añade índice para obtener el valor directamente
+                if inserted_id_espacio:
+                    print(f"Inserted espacio: {inserted_id_espacio}, id_estanteria: {id_estanteria}")
+
+    except (psycopg2.Error, ValueError) as e:
+        messagebox.showerror("Error", f"Error al insertar espacios: {e}")
 
 def insert_lote_salida(cursor):
     try:
@@ -510,6 +301,7 @@ def insert_inspeccion_calidad(cursor):
 
     except psycopg2.Error as e:
         messagebox.showerror("Error", f"Error al insertar inspeccion calidad: {e}")
+
 
 def insert_confeccion(cursor):
     try:
@@ -602,6 +394,38 @@ def insert_registro_transformacion_caja(cursor):
     except psycopg2.Error as e:
         messagebox.showerror("Error", f"Error al insertar registro_transformacion_caja: {e}")
 
+def insert_prenda(cursor):
+    try:
+        # Obtener los identificadores de las dimensiones de prenda
+        cursor.execute("SELECT id_dim_prenda FROM dimension_prenda;")
+        dimensiones_prenda = cursor.fetchall()
+        dimensiones_prenda_ids = [dim_prenda[0] for dim_prenda in dimensiones_prenda]
+
+        # Obtener los identificadores de los empleados
+        cursor.execute("SELECT id_empleado FROM empleado;")
+        empleados = cursor.fetchall()
+        empleados_ids = [empleado[0] for empleado in empleados]
+
+        # Obtener los identificadores de las cajas de prenda
+        cursor.execute("SELECT id_caja FROM caja_prenda;")
+        cajas_prenda = cursor.fetchall()
+        cajas_prenda_ids = [caja[0] for caja in cajas_prenda]
+
+        for _ in range(10000):
+            id_dim_prenda = random.choice(dimensiones_prenda_ids)
+            id_empleado = random.choice(empleados_ids)
+            id_caja = random.choice(cajas_prenda_ids)
+
+            cursor.execute("""
+                INSERT INTO prenda (id_dim_prenda, id_empleado, id_caja)
+                VALUES (%s, %s, %s);
+            """, (id_dim_prenda, id_empleado, id_caja))
+
+            print("Inserted prenda")
+
+    except psycopg2.Error as e:
+        messagebox.showerror("Error", f"Error al insertar prenda: {e}")
+
 def insert_caja_salida(cursor):
     try:
         # Obtener los identificadores de las cajas de lote
@@ -663,11 +487,7 @@ def insert_data(cursor): #Insertar todos los datos en la base de datos
     inserts2(cursor)
     inserts3(cursor)
     inserts4(cursor)
-    insert_ordenes_produccion(cursor)
-    insert_actividades_diarias(cursor)
-    insert_lotes(cursor)
-    insert_empleado_actividad(cursor)
-    insert_maquina_actividad(cursor)
+    inserts5_6_7(cursor)
     insert_caja_prenda(cursor)
     insert_espacios(cursor)
     insert_materia_prima(cursor)

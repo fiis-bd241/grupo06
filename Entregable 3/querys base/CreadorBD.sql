@@ -530,7 +530,7 @@ CREATE TABLE lote
   id_dim_corte INT,
   id_dim_confeccion INT,
   id_dim_materia_prima INT,
-  id_actividad INT NOT NULL,
+  id_actividad INT,
   fecha_creacion TIMESTAMP NOT NULL,
   PRIMARY KEY (id_lote),
   FOREIGN KEY (id_estado) REFERENCES estado(id_estado),
@@ -565,7 +565,7 @@ CREATE TABLE caja_prenda
 (
   id_caja SERIAL,
   cantidad INT NOT NULL,
-  fecha_creacion INT NOT NULL,
+  fecha_creacion TIMESTAMP NOT NULL,
   id_estado INT NOT NULL,
   id_dim_prenda INT NOT NULL,
   id_actividad INT NOT NULL,
@@ -620,18 +620,6 @@ CREATE TABLE caja_lote
   FOREIGN KEY (id_estado) REFERENCES estado(id_estado)
 );
 
-CREATE TABLE prenda
-(
-  id_prenda SERIAL,
-  id_dim_prenda INT NOT NULL,
-  id_empleado INT NOT NULL,
-  id_caja INT NOT NULL,
-  PRIMARY KEY (id_prenda),
-  FOREIGN KEY (id_dim_prenda) REFERENCES dimension_prenda(id_dim_prenda),
-  FOREIGN KEY (id_empleado) REFERENCES empleado(id_empleado),
-  FOREIGN KEY (id_caja) REFERENCES caja_prenda(id_caja)
-);
-
 CREATE TABLE espacio
 (
   id_espacio NUMERIC(9),
@@ -664,14 +652,14 @@ CREATE TABLE inspeccion_calidad
   id_inspeccion SERIAL,
   fecha_inspeccion TIMESTAMP NOT NULL,
   id_estado INT NOT NULL,
-  cantidad_defectuosos INT NOT NULL,
+  cantidad_defectuosos INT,
   id_lote INT NOT NULL,
   id_aql_lote_rango INT NOT NULL,
   id_aql_nivel INT NOT NULL,
   id_aql_codigo CHAR(1) NOT NULL,
   id_aql_significancia INT NOT NULL,
-  id_descripcion INT NOT NULL,
-  id_resultado INT NOT NULL,
+  id_descripcion INT,
+  id_resultado INT,
   PRIMARY KEY (id_inspeccion),
   FOREIGN KEY (id_estado) REFERENCES estado(id_estado),
   FOREIGN KEY (id_lote) REFERENCES lote(id_lote),
@@ -713,6 +701,18 @@ CREATE TABLE registro_transformacion_caja
   PRIMARY KEY (id_actividad, id_caja),
   FOREIGN KEY (id_actividad) REFERENCES actividad_diaria(id_actividad),
   FOREIGN KEY (id_caja) REFERENCES caja_lote(id_caja)
+);
+
+CREATE TABLE prenda
+(
+  id_prenda SERIAL,
+  id_dim_prenda INT NOT NULL,
+  id_empleado INT NOT NULL,
+  id_caja INT NOT NULL,
+  PRIMARY KEY (id_prenda),
+  FOREIGN KEY (id_dim_prenda) REFERENCES dimension_prenda(id_dim_prenda),
+  FOREIGN KEY (id_empleado) REFERENCES empleado(id_empleado),
+  FOREIGN KEY (id_caja) REFERENCES caja_prenda(id_caja)
 );
 
 CREATE TABLE caja_salida

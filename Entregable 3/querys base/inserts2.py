@@ -39,7 +39,7 @@ def insert_proveedor(cursor): # Inserta proveedores, direccion, telefono y email
             cursor.execute("INSERT INTO proveedor (ruc, denominacion_social, id_direccion, id_telefono, id_correo) VALUES (%s, %s, %s, %s, %s);", (ruc, denominacion_social, id_direccion, id_telefono, id_correo))
 
         cursor.connection.commit()
-        print("Proveedores insertados exitosamente.")
+        print("Proveedores insertados exitosamente\n")
     except psycopg2.Error as e:
         cursor.connection.rollback()
         error = f"Error al insertar proveedores: {e}"
@@ -124,7 +124,7 @@ def insert_empleados(cursor): # Inserta empleados, telefonos, direcciones y emai
                 cursor.execute("INSERT INTO empleado (dni, nombre, segundo_apellido, primer_apellido, id_area, id_direccion, id_telefono, id_correo, id_cargo) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s);", (dni, nombre, segundo_apellido, primer_apellido, id_area, id_direccion, id_telefono, id_correo, id_cargo))
 
         cursor.connection.commit()
-        print("Empleados insertados exitosamente.")
+        print("Empleados insertados exitosamente\n")
         
     except psycopg2.Error as e:
         cursor.connection.rollback()
@@ -155,7 +155,7 @@ def insert_maquinas(cursor): # Inserta máquinas
             cursor.execute("INSERT INTO maquina (capacidad_total, id_estado) VALUES (%s, %s);", (capacidad_total, id_estado))
         
         cursor.connection.commit()
-        print("Máquinas insertadas exitosamente.")
+        print("Máquinas insertadas exitosamente\n")
     except (psycopg2.Error, ValueError) as e:
         cursor.connection.rollback()
         error = f"Error al insertar máquinas: {e}"
@@ -187,7 +187,7 @@ def insert_dimension_materia_prima(cursor): # Inserta dimensiones de materia pri
 
             cursor.execute("INSERT INTO dimension_materia_prima (id_tipo_materia_prima, id_color) VALUES (%s, %s);", (id_tipo_materia_prima, id_color))
         cursor.connection.commit()
-        print("Dimensiones de materia prima insertadas exitosamente.")
+        print("Dimensiones de materia prima insertadas exitosamente\n")
     except (psycopg2.Error, ValueError) as e:
         cursor.connection.rollback()
         error = f"Error al insertar dimensiones de materia prima: {e}"
@@ -211,7 +211,7 @@ def insert_dimension_parte_prenda(cursor): # Inserta dimensiones de parte de pre
 
             cursor.execute("INSERT INTO dimension_parte_prenda (id_tipo_parte_prenda) VALUES (%s);", (id_tipo_parte_prenda,))
         cursor.connection.commit()
-        print("Dimensiones de parte de prenda insertadas exitosamente.")
+        print("Dimensiones de parte de prenda insertadas exitosamente\n")
     except (psycopg2.Error, ValueError) as e:
         cursor.connection.rollback()
         error = f"Error al insertar dimensiones de parte de prenda: {e}"
@@ -300,7 +300,7 @@ def insert_dimension_confeccion(cursor):
             cursor.execute("INSERT INTO dimension_confeccion (id_tipo_prenda, id_estilo_prenda, id_guia_confeccion, id_talla, id_genero) VALUES (%s, %s, %s, %s, %s);", (id_tipo_prenda, id_estilo_prenda, id_guia_confeccion, id_talla, id_genero))
 
         cursor.connection.commit()
-        print("Dimensiones de confección insertadas exitosamente.")
+        print("Dimensiones de confección insertadas exitosamente\n")
     except (psycopg2.Error, ValueError) as e:
         cursor.connection.rollback()
         error = f"Error al insertar dimensiones de confección: {e}"
@@ -333,7 +333,7 @@ def insert_orden_pedido(cursor): # Inserta órdenes de pedido
             cursor.execute("INSERT INTO orden_pedido (fecha_entrega, cantidad, id_estado, fecha_creacion) VALUES (%s, %s, %s, %s);", (fecha_entrega, cantidad, id_estado, fecha_creacion))
         
         cursor.connection.commit()
-        print("Órdenes de pedido insertadas exitosamente.")
+        print("Órdenes de pedido insertadas exitosamente\n")
     except (psycopg2.Error, ValueError) as e:
         cursor.connection.rollback()
         error = f"Error al insertar órdenes de pedido: {e}"
@@ -362,7 +362,7 @@ def insert_plan_produccion(cursor): # Inserta órdenes de pedido
 
             cursor.execute("INSERT INTO plan_produccion (fecha_inicio, fecha_fin, id_estado, fecha_creacion) VALUES (%s, %s, %s, %s);", (fecha_inicio, fecha_fin, id_estado, fecha_creacion))
         cursor.connection.commit()
-        print("Planes de producción insertados exitosamente.")
+        print("Planes de producción insertados exitosamente\n")
     except (psycopg2.Error, ValueError) as e:
         cursor.connection.rollback()
         error = f"Error al insertar planes de producción: {e}"
@@ -404,7 +404,7 @@ def insert_zonas(cursor): # Inserta zonas
                 cursor.execute("INSERT INTO zona (id_zona, nombre, id_area) VALUES (%s, %s, %s) ON CONFLICT (nombre) DO NOTHING;", (next_zone_number, zona, id_area))
 
         cursor.connection.commit()
-        print("Zonas insertadas exitosamente.")
+        print("Zonas insertadas exitosamente\n")
 
     except (psycopg2.Error, ValueError) as e:
         cursor.connection.rollback()
@@ -458,7 +458,7 @@ def insert_aql_muestra(cursor): #Inserta AQL muestra
                 cursor.execute("INSERT INTO aql_muestra (id_aql_nivel, id_aql_lote_rango, id_aql_codigo) VALUES (%s, %s, %s) ON CONFLICT DO NOTHING;", (id_aql_nivel, id_aql_lote_rango, id_aql_codigo))
         
         cursor.connection.commit()
-        print("AQL muestra insertada exitosamente.")
+        print("AQL muestra insertada exitosamente\n")
     except (psycopg2.Error, ValueError) as e:
         cursor.connection.rollback()
         error = f"Error al insertar AQL muestra: {e}"
@@ -508,13 +508,14 @@ def insert_aql_resultado_rango(cursor): #Inserta AQL resultado rango
                 cursor.execute("INSERT INTO aql_resultado_rango (id_aql_codigo, id_aql_significancia, max_aceptacion, min_rechazo) VALUES (%s, %s, %s, %s);", (id_aql_codigo, id_aql_significancia, max_aceptacion, min_rechazo))
         
         cursor.connection.commit()
-        print("AQL resultado rango insertado exitosamente.")
+        print("AQL resultado rango insertado exitosamente\n")
     except (psycopg2.Error, ValueError) as e:
         cursor.connection.rollback()
         error = f"Error al insertar AQL resultado rango: {e}"
         print(error)
         messagebox.showerror("Error", error)
         sys.exit(1)
+
 
 def inserts2(cursor):
     insert_proveedor(cursor)
@@ -528,6 +529,7 @@ def inserts2(cursor):
     insert_zonas(cursor)
     insert_aql_muestra(cursor)
     insert_aql_resultado_rango(cursor)
+
 
 def main(): # Función prueba
     """Función principal para la ejecución del script."""
