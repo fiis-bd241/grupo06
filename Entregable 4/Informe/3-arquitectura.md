@@ -36,7 +36,7 @@ Despliegue Backend y PostgreSQL : [Render](https://render.com/)
 ![db](../../Entregable%203/db.png)
 
 ### Producción
-![Servicios](./render-services.png)
+![Servicios](./render-services-1.png)
 
 
 [Regresar al Índice](./indice.md)
