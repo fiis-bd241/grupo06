@@ -21,20 +21,52 @@ Despliegue Backend y PostgreSQL : [Render](https://render.com/)
 Presentamos el flujo de pantallas de la App Web: **Sistema Vircatex**:
 * **Almacén Central**
 
+
+***Querys***
+```sql
+
+```
   
 * **Corte**
 
+
+***Querys***
+```sql
+
+```
   
 * **Confección**
+```sql
 
+```
   
 * **Almacén de tránsito**
 
+***Querys***
+```sql
+
+```
   
 * **Acabados**
 
+
+***Querys***
+```sql
+
+```
   
 * **Inspección de calidad**
 
-  
+
+***Querys***
+```sql
+
+```
+
 * **PCP**
+
+
+***Querys***
+```sql
+
+```
