@@ -20,4 +20,12 @@ Despliegue Backend y PostgreSQL : [Render](https://render.com/)
 
 [Github - query]() 
 
+## Gestión de la configuración
+### V 1.0
+[FrontEnd](https://vircatex.netlify.app/) 
+
+### V 1.1 Desarrollo FullStack
+[GitHub FrontEnd]() 
+[GitHub BackEnd]() 
+
 [Regresar al Índice](./indice.md)
