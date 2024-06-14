@@ -10,3 +10,5 @@
 * Elmasri, R., & Navathe, S. B. (2005). *Fundamentos de sistemas de bases de datos* (5ª ed., Trad. José Manuel Díaz). Pearson.
 * Wikipedia. (2023, 13 noviembre). *ISO/IEC 15288*. Wikipedia, la Enciclopedia Libre. Recuperado de [https://es.wikipedia.org/wiki/ISO/IEC_15288](https://es.wikipedia.org/wiki/ISO/IEC_15288)
 * Wikipedia. (2023b, 21 noviembre). *ISO/IEC 25000*. Wikipedia, la Enciclopedia Libre. Recuperado de [https://es.wikipedia.org/wiki/ISO/IEC_25000](https://es.wikipedia.org/wiki/ISO/IEC_25000)
+* Reyna Monteverde, T. (s.f.). *Administración de bases de datos*. Facultad de Ingeniería Industrial y de Sistemas, Perú.
+
