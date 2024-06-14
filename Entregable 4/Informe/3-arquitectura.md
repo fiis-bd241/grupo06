@@ -35,5 +35,8 @@ Despliegue Backend y PostgreSQL : [Render](https://render.com/)
 ### Conexión Base de datos (local)
 ![db](../../Entregable%203/db.png)
 
+### Producción
+![Servicios](./render-services.png)
+
 
 [Regresar al Índice](./indice.md)
