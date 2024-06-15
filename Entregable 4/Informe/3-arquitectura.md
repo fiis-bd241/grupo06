@@ -24,7 +24,7 @@
 ![Stack](../../Entregable%203/stack.png)
 
 ### Arquitectura
-![Arquqitectura](../../Entregable%203/arquitectura-v2.png)
+![Arquqitectura](arq.png)
 
 ### Front end
 [Vircatex - vercel](https://sistema-web-v-9i8pz9b50-javierarteagagonzales-projects.vercel.app/acabados/lotes) <br>
