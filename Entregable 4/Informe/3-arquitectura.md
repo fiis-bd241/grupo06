@@ -1,6 +1,47 @@
 # Entregable 4 del proyecto
 ## 1. Estructura de App Web
 
+Se detalla la estructura que se usa para desarrollarla app web:
+* **vback:** Django.
+* **venv:** Entorno virtual de python.
+* **virca:** Backend - Django Rest Framework y Python.
+* **vircatex:** Frontend - React y Javascript.
+
+![Estructura](estructura.png)
+  
+### Requirements:
+Archivo de componentes de instalación necesarios para el entorno de producción.
+```
+asgiref==3.8.1
+dj-database-url==2.2.0
+Django==5.0.6
+django-cors-headers==4.3.1
+djangorestframework==3.15.1
+gunicorn==22.0.0
+packaging==24.1
+psycopg2==2.9.9
+python-decouple==3.8
+sqlparse==0.5.0
+typing_extensions==4.12.2
+whitenoise==6.6.0
+```
+| Paquete                   | Versión  | Descripción                                                                                                              | Propósito                                                                                                                 |
+|---------------------------|----------|--------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
+| asgiref                   | 3.8.1    | Biblioteca de referencia para ASGI (Asynchronous Server Gateway Interface).                                               | Proporciona herramientas y utilidades para implementar servidores y aplicaciones ASGI.                                     |
+| dj-database-url           | 2.2.0    | Biblioteca para configurar la conexión a la base de datos usando URLs.                                                   | Simplifica la configuración de la base de datos, útil para despliegues en plataformas de nube.                             |
+| Django                    | 5.0.6    | Framework web de alto nivel para desarrollo rápido de aplicaciones web.                                                  | Proporciona herramientas para construir aplicaciones web robustas y escalables.                                            |
+| django-cors-headers       | 4.3.1    | Biblioteca que permite manejar CORS (Cross-Origin Resource Sharing) en Django.                                           | Facilita la configuración de CORS, esencial para aplicaciones con frontend separado del backend.                           |
+| djangorestframework       | 3.15.1   | Biblioteca potente y flexible para construir APIs web en Django.                                                        | Proporciona herramientas para crear APIs RESTful, incluyendo serializadores y vistas basadas en clases.                    |
+| gunicorn                  | 22.0.0   | Servidor HTTP WSGI para aplicaciones web Python.                                                                         | Desplegar aplicaciones Django en producción, robusto y de alto rendimiento.                                                |
+| packaging                 | 24.1     | Biblioteca para manejar versiones y dependencias de paquetes Python.                                                     | Ayuda a interpretar versiones de paquetes y dependencias.                                                                 |
+| psycopg2                  | 2.9.9    | Adaptador de base de datos PostgreSQL para Python.                                                                       | Permite que Django se comunique con una base de datos PostgreSQL.                                                          |
+| python-decouple           | 3.8      | Biblioteca para separar configuraciones y credenciales del código fuente.                                                | Facilita la gestión de configuraciones, cargándolas desde archivos de entorno.                                             |
+| sqlparse                  | 0.5.0    | Biblioteca para el análisis, formateación y manipulación de sentencias SQL.                                              | Usado por Django para formatear y manejar consultas SQL.                                                                   |
+| typing_extensions         | 4.12.2   | Biblioteca que proporciona funcionalidades adicionales para el módulo `typing` de Python.                                | Permite el uso de anotaciones de tipos más recientes en versiones anteriores de Python.                                    |
+| whitenoise                | 6.6.0    | Biblioteca que permite servir archivos estáticos directamente desde una aplicación Django en producción.                 | Facilita el manejo de archivos estáticos, mejorando el despliegue y el rendimiento.                                        |
+
+
+
 ## 2. Arquitectura y tecnología
 
 ### Arquitectura de Software
@@ -28,7 +69,7 @@
 ***Herramienta: LucidSpark***
 
 ### Front end
-[Vircatex - vercel](https://sistema-web-v-9i8pz9b50-javierarteagagonzales-projects.vercel.app/acabados/lotes) <br>
+[Vircatex - render](https://sistema-web-v-f.onrender.com/) <br>
 
 ### App Web
 Despliegue Backend y PostgreSQL : [Render](https://render.com/)
