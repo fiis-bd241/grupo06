@@ -74,7 +74,9 @@ join caja_prenda cp on dp.id_dim_prenda = cp.id_dim_prenda
 join prenda p on cp.id_caja = p.id_caja 
 where cp.id_caja = '101';
 
--- DETALLE CAJA: Mostrar, al cargar la página todos los detalles de una caja perteneciente a un lote que ingresa al área de acabados (Se muestra 'No hay datos' si en la DB no hay datos):
+-- DETALLE CAJA: Mostrar, al cargar la página todos los detalles de una
+-- caja perteneciente a un lote que ingresa al área de acabados
+-- (Se muestra 'No hay datos' si en la DB no hay datos):
 SELECT 
     COALESCE(subquery.id_caja::text, 'No hay datos') AS id_caja,
     subquery.cantidad, 
@@ -195,9 +197,26 @@ JOIN
 JOIN 
     prenda p ON cp.id_caja = p.id_caja;
 
--- VISTA:
-SELECT * FROM vista_datos_confeccion
-WHERE id_caja =' 101';
+-- ====== VISTAS: ==============
+-- ID Caja
+select id_caja from vista_datos_confeccion
+where id_caja =' 101';
+-- Cantidad
+select cantidad from vista_datos_confeccion
+where id_caja =' 101';
+-- ID guía
+select id_guia from vista_datos_confeccion
+where id_caja =' 101';
+-- Tipo prenda
+select tipo_prenda from vista_datos_confeccion
+where id_caja =' 101';
+
+-- GRILLA DETALLE
+select tipo_prenda,id_guia,ml,mh,mp,
+mm,mc,mca,mmu,estilo_prenda,talla,
+genero 
+from vista_datos_confeccion
+where id_caja =' 101';
 
 ```
 
