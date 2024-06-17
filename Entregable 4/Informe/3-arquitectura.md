@@ -59,7 +59,7 @@ whitenoise==6.6.0
 
 | Aspecto de Arquitectura | Detalle       |
 |--------------------------|---------------|
-| Motor de Base de Datos   | PostgreSQL <br> [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-14.0-blue.svg?style=for-the-badge&logo=postgresql&logoColor=white)]()    |
+| Motor de Base de Datos   | PostgreSQL <br> [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16.0-blue.svg?style=for-the-badge&logo=postgresql&logoColor=white)]()    |
 
 ### Stack
 ![Stack](../../Entregable%203/stack.png)
@@ -83,5 +83,43 @@ Despliegue Backend y PostgreSQL : [Render](https://render.com/)
 ### Producción
 ![Servicios](./render-services-1.png)
 
+### Herramientas
+#### Pruebas
+
+* **Postman**
+Es una plataforma colaborativa para el desarrollo de APIs que facilita la creación, prueba, documentación y monitoreo de APIs. Es ampliamente utilizada por desarrolladores y equipos de desarrollo debido a su robustez y a las múltiples características que ofrece.
+
+  - Funciones Principales:
+
+    - Colecciones: Permite organizar las solicitudes en colecciones para mantener las pruebas estructuradas y reutilizables.
+Variables de Entorno: Se pueden definir variables de entorno para manejar diferentes configuraciones (desarrollo, pruebas, producción) sin necesidad de cambiar los detalles de la solicitud.
+    - Pre-request Scripts y Test Scripts: Permite ejecutar scripts (usando JavaScript) antes de enviar la solicitud y después de recibir la respuesta para automatizar pruebas y validar respuestas.
+    - Historial de Solicitudes: Mantiene un historial de todas las solicitudes realizadas para fácil referencia y repetición.
+Autenticación: Soporta varios tipos de autenticación (Bearer Token, OAuth, API Key, etc.), facilitando las pruebas de seguridad.
+    - ocumentación de API: Genera documentación de API directamente desde las colecciones, útil para compartir con otros desarrolladores y equipos.
+Monitoreo y Automación: Ofrece herramientas para monitorear el rendimiento de la API y automatizar las pruebas con integraciones CI/CD.
+
+* **Thunder Client:**
+Thunder Client es una extensión ligera para Visual Studio Code diseñada para probar APIs RESTful de una manera rápida y sencilla. Es ideal para desarrolladores que prefieren no salir de su editor de código para realizar pruebas de API.
+
+  - Funciones Principales:
+
+    - Interfaz Integrada en VS Code: Se ejecuta directamente dentro de VS Code, eliminando la necesidad de cambiar de aplicación para probar APIs.
+Solicitudes Rápidas: Facilita la creación y ejecución de solicitudes HTTP de manera rápida sin necesidad de configuraciones extensas.
+    - Variables de Entorno: Permite definir variables de entorno similares a Postman para manejar diferentes configuraciones.
+Historial de Solicitudes: Guarda el historial de solicitudes realizadas para fácil referencia y repetición.
+    - Colecciones y Carpetas: Permite organizar las solicitudes en colecciones y carpetas para mantener el proyecto estructurado.
+Pre-request y Test Scripts: Soporta scripts de pre-request y de test utilizando JavaScript.
+    - Soporte de Autenticación: Soporta varios métodos de autenticación (Bearer Token, Basic Auth, etc.).
+   
+
+**Aplicación en el Desarrollo y Pruebas del Proyecto**
+Para el proyecto con Django, React y PostgreSQL, hemo usado las herramientas de la siguiente manera:
+
+- Probar Endpoints de Django: Postman o Thunder Client para enviar solicitudes GET, POST, PUT y DELETE a los endpoints de tu API Django para asegurarte de que respondan correctamente.
+
+- Validación de Datos: Verificar que las respuestas de la API correspondan con los datos esperados almacenados en PostgreSQL.
+
+- Documentación y Colaboración: Uso de Postman para generar documentación interactiva de la API.
 
 [Regresar al Índice](./indice.md)
