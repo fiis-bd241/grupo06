@@ -19,6 +19,10 @@ Despliegue Backend y PostgreSQL : [Render](https://render.com/)
 
 ## Versión final:
 Presentamos el flujo de pantallas de la App Web: **[Sistema Vircatex](https://sistema-web-v-f.onrender.com/)**:
+
+* **Home**
+![Home](./pantallas/home.png)
+
 * **Almacén Central**
 
 * **Corte**
