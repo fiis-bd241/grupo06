@@ -112,6 +112,8 @@ Historial de Solicitudes: Guarda el historial de solicitudes realizadas para fá
 Pre-request y Test Scripts: Soporta scripts de pre-request y de test utilizando JavaScript.
     - Soporte de Autenticación: Soporta varios métodos de autenticación (Bearer Token, Basic Auth, etc.).
    
+  ![Thunder Clientt](./images/thunder-client.jpeg)
+   
 
 **Aplicación en el Desarrollo y Pruebas del Proyecto**
 Para el proyecto con Django, React y PostgreSQL, hemo usado las herramientas de la siguiente manera:
@@ -121,5 +123,7 @@ Para el proyecto con Django, React y PostgreSQL, hemo usado las herramientas de 
 - Validación de Datos: Verificar que las respuestas de la API correspondan con los datos esperados almacenados en PostgreSQL.
 
 - Documentación y Colaboración: Uso de Postman para generar documentación interactiva de la API.
+
+
 
 [Regresar al Índice](./indice.md)
