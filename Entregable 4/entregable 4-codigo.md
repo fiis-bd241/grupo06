@@ -4,11 +4,13 @@
 ### Front end
 Abrir en Google Chrome: [Vircatex - render](https://sistema-web-v-f.onrender.com/#/acabados/lotes) 
 
-[Github FrontEnd - React]() 
+[Github FrontEnd - React](https://github.com/javierarteagagonzales/sistema-web-v-f) 
+
+[Github BackEnd - React](https://github.com/javierarteagagonzales/sistema-web-v) 
 
 
 ### App Web
-Despliegue Backend y PostgreSQL : [Render](https://render.com/)
+Despliegue FrontEnd, Backend y PostgreSQL : [Render](https://render.com/)
 
 [Github backend - Django]() 
 
@@ -18,7 +20,7 @@ Despliegue Backend y PostgreSQL : [Render](https://render.com/)
 ### Conexión Base de datos (render)
 ![db](postgres-render.png)
 
-[Github - query]() 
+[Github - querys SQL](./querys) 
 
 ## Gestión de la configuración
 ### V 1.0
