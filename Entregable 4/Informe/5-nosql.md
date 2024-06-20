@@ -125,6 +125,282 @@ Los escenarios OLAP requieren respuestas en tiempo real sobre conjuntos de datos
 | **Tolerancia a Fallos**   | Alta disponibilidad y replicación                | Diseñado para ser tolerante a fallos                |
 | **Uso Típico**            | Aplicaciones transaccionales y analíticas simples| Análisis de datos a gran escala y consultas complejas|
 
+### TUTORIAL
+<details>
+<summary>Abrir para ver</summary>
+    
+1. Crear una Nueva Tabla
+    
+Los datos de los taxis de la ciudad de Nueva York contienen detalles de millones de viajes en taxi, con columnas como horarios y ubicaciones de recogida y entrega, coste, propina, peajes, tipo de pago, etc. Creemos una tabla para almacenar estos datos...
+
+**Conéctese a la consola SQL**
+
+> Si necesita una conexión cliente SQL, su servicio ClickHouse Cloud tiene una consola SQL basada en web asociada.
+
+* **Conecte a la consola SQL**
+En la lista de servicios de ClickHouse Cloud, elija el servicio con el que va a trabajar y haga clic en Conectar. Desde aquí puedes Abrir la consola SQL:
+![Clickhouse](./images/ch1.png)
+
+* Crear la tabla trips
+```sql
+CREATE TABLE trips
+(
+    `trip_id` UInt32,
+    `vendor_id` Enum8('1' = 1, '2' = 2, '3' = 3, '4' = 4, 'CMT' = 5, 'VTS' = 6, 'DDS' = 7, 'B02512' = 10, 'B02598' = 11, 'B02617' = 12, 'B02682' = 13, 'B02764' = 14, '' = 15),
+    `pickup_date` Date,
+    `pickup_datetime` DateTime,
+    `dropoff_date` Date,
+    `dropoff_datetime` DateTime,
+    `store_and_fwd_flag` UInt8,
+    `rate_code_id` UInt8,
+    `pickup_longitude` Float64,
+    `pickup_latitude` Float64,
+    `dropoff_longitude` Float64,
+    `dropoff_latitude` Float64,
+    `passenger_count` UInt8,
+    `trip_distance` Float64,
+    `fare_amount` Float32,
+    `extra` Float32,
+    `mta_tax` Float32,
+    `tip_amount` Float32,
+    `tolls_amount` Float32,
+    `ehail_fee` Float32,
+    `improvement_surcharge` Float32,
+    `total_amount` Float32,
+    `payment_type` Enum8('UNK' = 0, 'CSH' = 1, 'CRE' = 2, 'NOC' = 3, 'DIS' = 4),
+    `trip_type` UInt8,
+    `pickup` FixedString(25),
+    `dropoff` FixedString(25),
+    `cab_type` Enum8('yellow' = 1, 'green' = 2, 'uber' = 3),
+    `pickup_nyct2010_gid` Int8,
+    `pickup_ctlabel` Float32,
+    `pickup_borocode` Int8,
+    `pickup_ct2010` String,
+    `pickup_boroct2010` String,
+    `pickup_cdeligibil` String,
+    `pickup_ntacode` FixedString(4),
+    `pickup_ntaname` String,
+    `pickup_puma` UInt16,
+    `dropoff_nyct2010_gid` UInt8,
+    `dropoff_ctlabel` Float32,
+    `dropoff_borocode` UInt8,
+    `dropoff_ct2010` String,
+    `dropoff_boroct2010` String,
+    `dropoff_cdeligibil` String,
+    `dropoff_ntacode` FixedString(4),
+    `dropoff_ntaname` String,
+    `dropoff_puma` UInt16
+)
+ENGINE = MergeTree
+PARTITION BY toYYYYMM(pickup_date)
+ORDER BY pickup_datetime;
+```
+
+2. Insertar la data
+
+Ahora que tienes una tabla creada, vamos a añadir los datos de taxis de NYC. Están en archivos CSV en S3, y puedes cargar los datos desde allí.
+
+* El siguiente comando inserta ~2.000.000 de filas en su tabla viajes desde dos archivos diferentes en S3: viajes_1.tsv.gz y viajes_2.tsv.gz:
+
+```sql
+INSERT INTO trips
+SELECT * FROM s3(
+    'https://datasets-documentation.s3.eu-west-3.amazonaws.com/nyc-taxi/trips_{1..2}.gz',
+    'TabSeparatedWithNames', "
+    `trip_id` UInt32,
+    `vendor_id` Enum8('1' = 1, '2' = 2, '3' = 3, '4' = 4, 'CMT' = 5, 'VTS' = 6, 'DDS' = 7, 'B02512' = 10, 'B02598' = 11, 'B02617' = 12, 'B02682' = 13, 'B02764' = 14, '' = 15),
+    `pickup_date` Date,
+    `pickup_datetime` DateTime,
+    `dropoff_date` Date,
+    `dropoff_datetime` DateTime,
+    `store_and_fwd_flag` UInt8,
+    `rate_code_id` UInt8,
+    `pickup_longitude` Float64,
+    `pickup_latitude` Float64,
+    `dropoff_longitude` Float64,
+    `dropoff_latitude` Float64,
+    `passenger_count` UInt8,
+    `trip_distance` Float64,
+    `fare_amount` Float32,
+    `extra` Float32,
+    `mta_tax` Float32,
+    `tip_amount` Float32,
+    `tolls_amount` Float32,
+    `ehail_fee` Float32,
+    `improvement_surcharge` Float32,
+    `total_amount` Float32,
+    `payment_type` Enum8('UNK' = 0, 'CSH' = 1, 'CRE' = 2, 'NOC' = 3, 'DIS' = 4),
+    `trip_type` UInt8,
+    `pickup` FixedString(25),
+    `dropoff` FixedString(25),
+    `cab_type` Enum8('yellow' = 1, 'green' = 2, 'uber' = 3),
+    `pickup_nyct2010_gid` Int8,
+    `pickup_ctlabel` Float32,
+    `pickup_borocode` Int8,
+    `pickup_ct2010` String,
+    `pickup_boroct2010` String,
+    `pickup_cdeligibil` String,
+    `pickup_ntacode` FixedString(4),
+    `pickup_ntaname` String,
+    `pickup_puma` UInt16,
+    `dropoff_nyct2010_gid` UInt8,
+    `dropoff_ctlabel` Float32,
+    `dropoff_borocode` UInt8,
+    `dropoff_ct2010` String,
+    `dropoff_boroct2010` String,
+    `dropoff_cdeligibil` String,
+    `dropoff_ntacode` FixedString(4),
+    `dropoff_ntaname` String,
+    `dropoff_puma` UInt16
+") SETTINGS input_format_try_infer_datetimes = 0
+```
+
+* Cuando insertamos las data, verificamos que trabaja
+
+```sql
+SELECT count() FROM trips
+```
+Deberías de ver 2M de filas (1,999,657 rows, para ser precisos).
+
+*Si se ejecuta una consulta que requiere cada fila, se observará que es necesario procesar un número considerablemente mayor de filas, pero el tiempo de ejecución sigue siendo rapidísimo:
+
+```sql
+SELECT DISTINCT(pickup_ntaname) FROM trips
+```
+
+3. Analizar la Data
+
+Vamos a ejecutar algunas consultas para analizar los 2M de filas de datos.
+
+Empezaremos con algunos cálculos sencillos, como calcular el importe medio de las propinas:
+
+```sql
+SELECT round(avg(tip_amount), 2) FROM trips
+```
+Respuesta:
+
+```sql
+┌─round(avg(tip_amount), 2)─┐
+│                      1.68 │
+└───────────────────────────┘
+```
+
+Esta consulta calcula el coste medio en función del número de pasajeros:
+  ```sql
+SELECT
+    passenger_count,
+    ceil(avg(total_amount),2) AS average_total_amount
+FROM trips
+GROUP BY passenger_count
+```
+El passenger_count oscila entre 0 y 9:
+
+```sql
+┌─passenger_count─┬─average_total_amount─┐
+│               0 │                22.69 │
+│               1 │                15.97 │
+│               2 │                17.15 │
+│               3 │                16.76 │
+│               4 │                17.33 │
+│               5 │                16.35 │
+│               6 │                16.04 │
+│               7 │                 59.8 │
+│               8 │                36.41 │
+│               9 │                 9.81 │
+└─────────────────┴──────────────────────┘
+```
+
+Esta consulta que calcula el número diario de recogidas por barrio:
+
+```sql
+SELECT
+    pickup_date,
+    pickup_ntaname,
+    SUM(1) AS number_of_trips
+FROM trips
+GROUP BY pickup_date, pickup_ntaname
+ORDER BY pickup_date ASC
+```
+Resultado:
+
+```sql
+┌─pickup_date─┬─pickup_ntaname───────────────────────────────────────────┬─number_of_trips─┐
+│  2015-07-01 │ Brooklyn Heights-Cobble Hill                             │              13 │
+│  2015-07-01 │ Old Astoria                                              │               5 │
+│  2015-07-01 │ Flushing                                                 │               1 │
+│  2015-07-01 │ Yorkville                                                │             378 │
+│  2015-07-01 │ Gramercy                                                 │             344 │
+│  2015-07-01 │ Fordham South                                            │               2 │
+│  2015-07-01 │ SoHo-TriBeCa-Civic Center-Little Italy                   │             621 │
+│  2015-07-01 │ Park Slope-Gowanus                                       │              29 │
+│  2015-07-01 │ Bushwick South                                           │               5 │
+```
+
+Veamos los trayectos a los aeropuertos de LaGuardia o JFK:
+
+```sql
+SELECT
+    pickup_datetime,
+    dropoff_datetime,
+    total_amount,
+    pickup_nyct2010_gid,
+    dropoff_nyct2010_gid,
+    CASE
+        WHEN dropoff_nyct2010_gid = 138 THEN 'LGA'
+        WHEN dropoff_nyct2010_gid = 132 THEN 'JFK'
+    END AS airport_code,
+    EXTRACT(YEAR FROM pickup_datetime) AS year,
+    EXTRACT(DAY FROM pickup_datetime) AS day,
+    EXTRACT(HOUR FROM pickup_datetime) AS hour
+FROM trips
+WHERE dropoff_nyct2010_gid IN (132, 138)
+ORDER BY pickup_datetime
+```
+Respuesta
+```sql
+┌─────pickup_datetime─┬────dropoff_datetime─┬─total_amount─┬─pickup_nyct2010_gid─┬─dropoff_nyct2010_gid─┬─airport_code─┬─year─┬─day─┬─hour─┐
+│ 2015-07-01 00:04:14 │ 2015-07-01 00:15:29 │         13.3 │                 -34 │                  132 │ JFK          │ 2015 │   1 │    0 │
+│ 2015-07-01 00:09:42 │ 2015-07-01 00:12:55 │          6.8 │                  50 │                  138 │ LGA          │ 2015 │   1 │    0 │
+│ 2015-07-01 00:23:04 │ 2015-07-01 00:24:39 │          4.8 │                -125 │                  132 │ JFK          │ 2015 │   1 │    0 │
+│ 2015-07-01 00:27:51 │ 2015-07-01 00:39:02 │        14.72 │                -101 │                  138 │ LGA          │ 2015 │   1 │    0 │
+│ 2015-07-01 00:32:03 │ 2015-07-01 00:55:39 │        39.34 │                  48 │                  138 │ LGA          │ 2015 │   1 │    0 │
+│ 2015-07-01 00:34:12 │ 2015-07-01 00:40:48 │         9.95 │                 -93 │                  132 │ JFK          │ 2015 │   1 │    0 │
+│ 2015-07-01 00:38:26 │ 2015-07-01 00:49:00 │         13.3 │                 -11 │                  138 │ LGA          │ 2015 │   1 │    0 │
+│ 2015-07-01 00:41:48 │ 2015-07-01 00:44:45 │          6.3 │                 -94 │                  132 │ JFK          │ 2015 │   1 │    0 │
+│ 2015-07-01 01:06:18 │ 2015-07-01 01:14:43 │        11.76 │                  37 │                  132 │ JFK          │ 2015 │   1 │    1 │
+```
+
+4. Realizar un Join:
+Escribamos algunas consultas que unan el taxi_zone_dictionary con la tabla trips.
+
+Podemos empezar con un simple JOIN que actúa de forma similar a la consulta anterior sobre aeropuertos:
+```sql
+SELECT
+    count(1) AS total,
+    Borough
+FROM trips
+JOIN taxi_zone_dictionary ON toUInt64(trips.pickup_nyct2010_gid) = taxi_zone_dictionary.LocationID
+WHERE dropoff_nyct2010_gid = 132 OR dropoff_nyct2010_gid = 138
+GROUP BY Borough
+ORDER BY total DESC
+```
+
+Respuesta
+```sql
+┌─total─┬─Borough───────┐
+│  7053 │ Manhattan     │
+│  6828 │ Brooklyn      │
+│  4458 │ Queens        │
+│  2670 │ Bronx         │
+│   554 │ Staten Island │
+│    53 │ EWR           │
+└───────┴───────────────┘
+
+6 rows in set. Elapsed: 0.034 sec. Processed 2.00 million rows, 4.00 MB (59.14 million rows/s., 118.29 MB/s.)
+```
+</details>
+
+
 
 ### Enlaces de referencia
 
