@@ -108,6 +108,17 @@ Los escenarios OLAP requieren respuestas en tiempo real sobre conjuntos de datos
   </tbody>
 </table>
 
+### Clientes SQL
+| SQL Client     | Descripción                                                                 | Características clave                                                                                   |
+|----------------|-----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
+| **DataGrip**       | Herramienta de JetBrains para bases de datos SQL y no SQL, incluido ClickHouse. | Soporte completo para SQL de ClickHouse, resaltado de sintaxis, completado de código, edición de datos. |
+| **DBeaver**        | Herramienta universal de base de datos que admite ClickHouse.                 | Interfaz intuitiva, soporte SQL completo, visualización de esquemas, importación/exportación de datos.  |
+| **DbVisualizer**   | Herramienta universal para bases de datos, compatible con ClickHouse.         | Edición y ejecución de consultas SQL, generación de informes, exportación e importación de datos.       |
+| **Jupyter Notebooks** | Entorno interactivo para análisis y prototipado, compatible con ClickHouse.   | Conexión mediante `clickhouse-driver` en Python, ideal para análisis exploratorio y generación de informes. |
+| **qStudio**        | Entorno interactivo para análisis de datos, compatible con ClickHouse.       | Interfaz gráfica para escribir y ejecutar consultas SQL, visualizaciones integradas, análisis avanzado.  |
+| **TABLUM.IO**      | Plataforma de visualización y análisis de datos, conectada a ClickHouse.     | Creación de paneles de control interactivos, visualizaciones avanzadas basadas en datos en tiempo real. |
+
+
 ### PostgreSQL vs Clickhouse
 
 | Característica            | PostgreSQL                                       | ClickHouse                                           |
@@ -125,7 +136,7 @@ Los escenarios OLAP requieren respuestas en tiempo real sobre conjuntos de datos
 | **Tolerancia a Fallos**   | Alta disponibilidad y replicación                | Diseñado para ser tolerante a fallos                |
 | **Uso Típico**            | Aplicaciones transaccionales y analíticas simples| Análisis de datos a gran escala y consultas complejas|
 
-### TUTORIAL
+### TUTORIAL (Ejemplo)
 <details>
 <summary>Abrir para ver</summary>
     
@@ -414,7 +425,17 @@ Respuesta
 ```
 </details>
 
+### TUTORIAL (Ejemplo con Docker)
+<details>
+<summary>Abrir para ver</summary>
 
+</details>
+
+### Aplicación al trabajo (Ejemplo con Docker)
+<details>
+<summary>Abrir para ver</summary>
+
+</details>
 
 ### Enlaces de referencia
 
