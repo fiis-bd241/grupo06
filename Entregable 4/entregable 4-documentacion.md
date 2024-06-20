@@ -16,6 +16,9 @@
 * Django Project. (s.f.). *Django documentation*. Recuperado de https://docs.djangoproject.com/en/5.0/
 * [ClickHouse](https://github.com/ClickHouse/ClickHouse). (n.d.). GitHub - ClickHouse/ClickHouse: ClickHouse® is a real-time analytics DBMS. GitHub.
 
-
+***Trabajos anteriores***
+* [Gestión cobranzas](https://github.com/EdwinSotto12311/GRUPO1DBD)
+* [Sistema de planillas](https://github.com/JordanLau21/DBD-Grupo2---23-2)
+* [Software para CEIIS](https://github.com/Dafi-18/DBD-Grupo-3)
 
 [Regresar al Índice](./entregable%204-indice.md)
