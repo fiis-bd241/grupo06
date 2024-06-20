@@ -7,4 +7,4 @@
 5. [Próximos pasos](proximos-pasos.md)
 6. [NoSQL](5-nosql.md)
 
-[Regresar al Índice](./entregable%204-indice.md)
+[Regresar al Índice](../entregable%204-indice.md)
