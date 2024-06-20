@@ -129,7 +129,7 @@ Los escenarios OLAP requieren respuestas en tiempo real sobre conjuntos de datos
 <details>
 <summary>Abrir para ver</summary>
     
-1. Crear una Nueva Tabla
+**1. Crear una Nueva Tabla**
     
 Los datos de los taxis de la ciudad de Nueva York contienen detalles de millones de viajes en taxi, con columnas como horarios y ubicaciones de recogida y entrega, coste, propina, peajes, tipo de pago, etc. Creemos una tabla para almacenar estos datos...
 
@@ -196,7 +196,7 @@ PARTITION BY toYYYYMM(pickup_date)
 ORDER BY pickup_datetime;
 ```
 
-2. Insertar la data
+**2. Insertar la data**
 
 Ahora que tienes una tabla creada, vamos a añadir los datos de taxis de NYC. Están en archivos CSV en S3, y puedes cargar los datos desde allí.
 
@@ -262,17 +262,17 @@ SELECT count() FROM trips
 ```
 Deberías de ver 2M de filas (1,999,657 rows, para ser precisos).
 
-*Si se ejecuta una consulta que requiere cada fila, se observará que es necesario procesar un número considerablemente mayor de filas, pero el tiempo de ejecución sigue siendo rapidísimo:
+* Si se ejecuta una consulta que requiere cada fila, se observará que es necesario procesar un número considerablemente mayor de filas, pero el tiempo de ejecución sigue siendo rapidísimo:
 
 ```sql
 SELECT DISTINCT(pickup_ntaname) FROM trips
 ```
 
-3. Analizar la Data
+**3. Analizar la Data**
 
 Vamos a ejecutar algunas consultas para analizar los 2M de filas de datos.
 
-Empezaremos con algunos cálculos sencillos, como calcular el importe medio de las propinas:
+**Empezaremos con algunos cálculos sencillos, como calcular el importe medio de las propinas:**
 
 ```sql
 SELECT round(avg(tip_amount), 2) FROM trips
@@ -285,7 +285,7 @@ Respuesta:
 └───────────────────────────┘
 ```
 
-Esta consulta calcula el coste medio en función del número de pasajeros:
+**Esta consulta calcula el coste medio en función del número de pasajeros:**
   ```sql
 SELECT
     passenger_count,
@@ -310,7 +310,7 @@ El passenger_count oscila entre 0 y 9:
 └─────────────────┴──────────────────────┘
 ```
 
-Esta consulta que calcula el número diario de recogidas por barrio:
+**Esta consulta que calcula el número diario de recogidas por barrio:**
 
 ```sql
 SELECT
@@ -336,7 +336,7 @@ Resultado:
 │  2015-07-01 │ Bushwick South                                           │               5 │
 ```
 
-Veamos los trayectos a los aeropuertos de LaGuardia o JFK:
+**Veamos los trayectos a los aeropuertos de LaGuardia o JFK:**
 
 ```sql
 SELECT
@@ -370,10 +370,24 @@ Respuesta
 │ 2015-07-01 01:06:18 │ 2015-07-01 01:14:43 │        11.76 │                  37 │                  132 │ JFK          │ 2015 │   1 │    1 │
 ```
 
-4. Realizar un Join:
+**4. Actualización de datos**
+
+Utilice el comando ALTER TABLE...UPDATE para actualizar las filas de una tabla:
+```sql
+ALTER TABLE [<database>.]<table> UPDATE <column> = <expression> WHERE <filter_expr>
+```
+**5. Borrado de datos**
+
+Utilice el comando ALTER TABLE para borrar filas:
+```sql
+ALTER TABLE [<database>.]<table> DELETE WHERE <filter_expr>
+```
+
+**6. Realizar un Join:**
+
 Escribamos algunas consultas que unan el taxi_zone_dictionary con la tabla trips.
 
-Podemos empezar con un simple JOIN que actúa de forma similar a la consulta anterior sobre aeropuertos:
+**Podemos empezar con un simple JOIN que actúa de forma similar a la consulta anterior sobre aeropuertos:**
 ```sql
 SELECT
     count(1) AS total,
