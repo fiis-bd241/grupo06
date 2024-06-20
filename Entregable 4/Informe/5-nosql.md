@@ -87,6 +87,24 @@ Los escenarios OLAP requieren respuestas en tiempo real sobre conjuntos de datos
   </tbody>
 </table>
 
+### PostgreSQL vs Clickhouse
+
+| Característica            | PostgreSQL                                       | ClickHouse                                           |
+|---------------------------|--------------------------------------------------|------------------------------------------------------|
+| **Modelo de Datos**       | Orientado a filas (row-oriented)                 | Orientado a columnas (column-oriented)               |
+| **Lenguaje de Consulta**  | SQL estándar con extensiones                     | SQL estándar con extensiones para OLAP               |
+| **Transacciones**         | Soporte completo para transacciones ACID         | Soporte básico para transacciones                    |
+| **Índices**               | B-tree, hash, GIN, GiST, etc.                    | Índices optimizados para columnas                    |
+| **Rendimiento OLAP**      | Adecuado pero menos eficiente para OLAP          | Alta velocidad para consultas analíticas complejas   |
+| **Compresión de Datos**   | Soporte básico                                  | Soporte nativo con múltiples algoritmos             |
+| **Escritura y Lectura**   | Bueno para OLTP                                  | Excelente para OLAP                                 |
+| **Escalabilidad Horizontal** | Replica en clústeres                           | Soporte para clústeres                              |
+| **Seguridad**             | Modelos robustos de autenticación y autorización | Básico                                              |
+| **Herramientas de Gestión** | Amplia gama de herramientas                     | Herramientas limitadas                              |
+| **Tolerancia a Fallos**   | Alta disponibilidad y replicación                | Diseñado para ser tolerante a fallos                |
+| **Uso Típico**            | Aplicaciones transaccionales y analíticas simples| Análisis de datos a gran escala y consultas complejas|
+
+
 ### Enlaces de referencia
 
 * [Official website](https://clickhouse.com/) tiene una rápida visión general de ClickHouse en la página principal.
