@@ -486,6 +486,42 @@ clickhouse-client --query "SELECT COUNT(*) FROM datasets.visits_v1"
 1680609
 ```
 
+* Agrupando hits y visits:
+```sql
+SELECT
+    CounterID,
+    hits,
+    visits
+FROM
+(
+    SELECT
+        CounterID % 100000 AS CounterID,
+        COUNT(*) AS hits
+    FROM datasets.hits_v1
+    GROUP BY CounterID
+) AS h
+FULL OUTER JOIN
+(
+    SELECT
+        CounterID % 100000 AS CounterID,
+        SUM(Sign) AS visits
+    FROM datasets.visits_v1
+    GROUP BY CounterID
+    HAVING visits > 0
+) AS v USING (CounterID)
+WHERE (hits = 0) OR (visits = 0)
+ORDER BY
+    hits + (visits * 10) DESC,
+    CounterID ASC
+LIMIT 20
+
+```
+
+Resultado:
+
+![Resultado](./images/3-query-result.png)
+
+
 #### Un ejemplo de JOIN:
 ```sql
 clickhouse-client --query "SELECT
@@ -516,6 +552,40 @@ FORMAT PrettyCompact"
 
 ![Resultado Join](./images/2-result.png)
 
+* Consulta: 
+
+```sql
+SELECT
+    CounterID,
+    hits,
+    visits
+FROM
+(
+    SELECT
+        CounterID % 100000 AS CounterID,
+        count() AS hits
+    FROM datasets.hits_v1
+    GROUP BY CounterID
+) AS h
+ANY LEFT JOIN
+(
+    SELECT
+        CounterID % 100000 AS CounterID,
+        sum(Sign) AS visits
+    FROM datasets.visits_v1
+    GROUP BY CounterID
+    HAVING visits > 0
+) AS v USING (CounterID)
+WHERE (hits = 0) OR (visits = 0)
+ORDER BY
+    hits + (visits * 10) DESC,
+    CounterID ASC
+LIMIT 20;
+```
+
+**Resultado**
+
+![Resultado Consulta](./images/4-consulta.png)
 </details>
 
 ### Aplicación al trabajo (Ejemplo con clickhouse-client)
