@@ -14,6 +14,8 @@
 * PostgreSQL Global Development Group. (s.f.). *PostgreSQL: documentation*. Recuperado de https://www.postgresql.org/docs/
 * React. (2023, 16 marzo). *Introducing React.dev – React*. Recuperado de https://react.dev/blog/2023/03/16/introducing-react-dev
 * Django Project. (s.f.). *Django documentation*. Recuperado de https://docs.djangoproject.com/en/5.0/
+* [ClickHouse](https://github.com/ClickHouse/ClickHouse). (n.d.). GitHub - ClickHouse/ClickHouse: ClickHouse® is a real-time analytics DBMS. GitHub.
+
 
 
 [Regresar al Índice](./entregable%204-indice.md)
