@@ -30,4 +30,63 @@
 * [Code Browser (github.dev)](https://github.dev/ClickHouse/ClickHouse) con resaltado de sintaxis, impulsado por github.dev.
 * [Contacts](https://clickhouse.com/company/contact) resuelve dudas.
 
+
+### Características Avanzadas de ClickHouse
+
+<table>
+  <thead>
+    <tr>
+      <th style="padding:10px;">Categoría</th>
+      <th style="padding:10px;">Descripción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style=" padding:10px;" colspan="2"><b>Índices y Particionamiento</b></td>
+    </tr>
+    <tr>
+      <td style="padding:10px;">Primary Key y Orden de Índices</td>
+      <td style="padding:10px;">ClickHouse permite definir una clave primaria y un orden de índice para optimizar las consultas. El índice primario no garantiza la unicidad, sino que organiza los datos para una lectura eficiente.</td>
+    </tr>
+    <tr>
+      <td style="padding:10px;">Particionamiento</td>
+      <td style="padding:10px;">Los datos pueden ser particionados para mejorar el rendimiento de las consultas y la gestión del almacenamiento. El particionamiento puede basarse en campos como fechas, útil para datos de series temporales.</td>
+    </tr>
+    <tr>
+      <td style="background-color:#e6f7ff; padding:10px;" colspan="2"><b>Ingesta y Procesamiento de Datos</b></td>
+    </tr>
+    <tr>
+      <td style="padding:10px;">Batch y Streaming</td>
+      <td style="padding:10px;">ClickHouse soporta tanto la ingesta en batch como en streaming, lo que lo hace flexible para diferentes flujos de trabajo de datos. Puedes usar Kafka, RabbitMQ o sistemas similares para la ingesta en tiempo real.</td>
+    </tr>
+    <tr>
+      <td style="padding:10px;">Materialized Views</td>
+      <td style="padding:10px;">Las vistas materializadas permiten almacenar resultados precomputados de consultas complejas, mejorando el rendimiento en consultas repetitivas.</td>
+    </tr>
+    <tr>
+      <td style="background-color:#e6f7ff; padding:10px;" colspan="2"><b>Alta Disponibilidad y Recuperación de Desastres</b></td>
+    </tr>
+    <tr>
+      <td style="padding:10px;">Replica Sets</td>
+      <td style="padding:10px;">ClickHouse soporta la replicación de datos entre nodos, proporcionando alta disponibilidad y tolerancia a fallos. Los datos se replican de manera asíncrona, asegurando que las copias de seguridad estén siempre disponibles.</td>
+    </tr>
+    <tr>
+      <td style="padding:10px;">Backups y Restauración</td>
+      <td style="padding:10px;">Las herramientas integradas permiten realizar backups incrementales y restauraciones, facilitando la recuperación ante desastres.</td>
+    </tr>
+    <tr>
+      <td style=" padding:10px;" colspan="2"><b>Interoperabilidad</b></td>
+    </tr>
+    <tr>
+      <td style="padding:10px;">Integración con Ecosistemas de Big Data</td>
+      <td style="padding:10px;">ClickHouse puede integrarse con herramientas y plataformas de big data como Hadoop, Spark, y herramientas de BI como Tableau, Grafana, y Power BI.</td>
+    </tr>
+    <tr>
+      <td style="padding:10px;">APIs y Conectores</td>
+      <td style="padding:10px;">Proporciona APIs y conectores para diferentes lenguajes de programación, facilitando su integración en aplicaciones existentes.</td>
+    </tr>
+  </tbody>
+</table>
+
+
 [Regresar al índice](./indice.md)
