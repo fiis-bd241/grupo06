@@ -30,20 +30,6 @@ Los escenarios OLAP requieren respuestas en tiempo real sobre conjuntos de datos
 - Los resultados deben devolverse en milisegundos o segundos.
 
 
-
-### Enlaces
-
-* [Official website](https://clickhouse.com/) tiene una rápida visión general de ClickHouse en la página principal.
-* [ClickHouse Cloud](https://clickhouse.cloud) ClickHouse como servicio, construido por los creadores y mantenedores.
-* [Tutorial](https://clickhouse.com/docs/en/getting_started/tutorial/) muestra cómo configurar y consultar un pequeño clúster ClickHouse.
-* [Documentation](https://clickhouse.com/docs/en/) ofrece información más detallada.
-* [YouTube channel](https://www.youtube.com/c/ClickHouseDB) tiene mucho contenido sobre ClickHouse en formato de vídeo.
-* [Slack](https://clickhouse.com/slack) y [Telegram](https://telegram.me/clickhouse_en) permiten chatear con los usuarios de ClickHouse en tiempo real.
-* [Blog](https://clickhouse.com/blog/) contiene diversos artículos relacionados con ClickHouse, así como anuncios e informes sobre eventos.
-* [Code Browser (github.dev)](https://github.dev/ClickHouse/ClickHouse) con resaltado de sintaxis, impulsado por github.dev.
-* [Contacts](https://clickhouse.com/company/contact) resuelve dudas.
-
-
 ### Características Avanzadas de ClickHouse
 
 <table>
@@ -101,5 +87,16 @@ Los escenarios OLAP requieren respuestas en tiempo real sobre conjuntos de datos
   </tbody>
 </table>
 
+### Enlaces de referencia
+
+* [Official website](https://clickhouse.com/) tiene una rápida visión general de ClickHouse en la página principal.
+* [ClickHouse Cloud](https://clickhouse.cloud) ClickHouse como servicio, construido por los creadores y mantenedores.
+* [Tutorial](https://clickhouse.com/docs/en/getting_started/tutorial/) muestra cómo configurar y consultar un pequeño clúster ClickHouse.
+* [Documentation](https://clickhouse.com/docs/en/) ofrece información más detallada.
+* [YouTube channel](https://www.youtube.com/c/ClickHouseDB) tiene mucho contenido sobre ClickHouse en formato de vídeo.
+* [Slack](https://clickhouse.com/slack) y [Telegram](https://telegram.me/clickhouse_en) permiten chatear con los usuarios de ClickHouse en tiempo real.
+* [Blog](https://clickhouse.com/blog/) contiene diversos artículos relacionados con ClickHouse, así como anuncios e informes sobre eventos.
+* [Code Browser (github.dev)](https://github.dev/ClickHouse/ClickHouse) con resaltado de sintaxis, impulsado por github.dev.
+* [Contacts](https://clickhouse.com/company/contact) resuelve dudas.
 
 [Regresar al índice](./indice.md)
