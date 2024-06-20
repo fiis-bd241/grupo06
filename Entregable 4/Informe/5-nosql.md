@@ -18,6 +18,19 @@
 
 </div>
 
+**ClickHouse®** es un sistema de gestión de bases de datos SQL de alto rendimiento orientado a columnas para el procesamiento analítico en línea (OLAP, por sus siglas en inglés). Está disponible tanto como software de código abierto como en una oferta en la nube.
+
+**¿Qué es OLAP?**
+
+Los escenarios OLAP requieren respuestas en tiempo real sobre conjuntos de datos grandes para consultas analíticas complejas con las siguientes características:
+
+- Los conjuntos de datos pueden ser masivos, con miles de millones o billones de filas.
+- Los datos están organizados en tablas que contienen muchas columnas.
+- Solo se seleccionan unas pocas columnas para responder a cualquier consulta específica.
+- Los resultados deben devolverse en milisegundos o segundos.
+
+
+
 ### Enlaces
 
 * [Official website](https://clickhouse.com/) tiene una rápida visión general de ClickHouse en la página principal.
