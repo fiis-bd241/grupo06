@@ -7,4 +7,4 @@
 5. [Próximos pasos](proximos-pasos.md)
 6. [NoSQL](5-nosql.md)
 
-[![Regresar al Índice](https://img.shields.io/badge/Regresar_al_Índice-Azul?style=for-the-badge&logoColor=white)](./entregable%204-indice.md)
+[![Regresar al Índice](https://img.shields.io/badge/Regresar_al_Índice-orange?style=for-the-badge&logoColor=white)](../entregable%204-indice.md)
