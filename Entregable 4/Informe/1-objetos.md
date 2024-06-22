@@ -1,10 +1,16 @@
 # Entregable 4 del proyecto
 ## 1. Objetos de BD
 Presentamos diversos objetos de base de datos, como índices y vistas, y las mostramos por módulos del sistema:
-
+- [Almacén Central](#almacén_central)
+- [Instalación](###instalación)
+- [Acabados](#acabados)
+- [Contribuyendo](###contribuyendo)
+- [Autores](###autores)
+- [Licencia](###licencia)
+- [PCP - Abastecimiento](#pcp)
 
 Acontinuamos le presentamos cada módulo:
-* **Almacén Central**
+## Almacén_Central
 
 
 ***Querys***
@@ -12,7 +18,7 @@ Acontinuamos le presentamos cada módulo:
 
 ```
   
-* **Corte**
+### Corte
 
 
 ***Querys***
@@ -20,19 +26,19 @@ Acontinuamos le presentamos cada módulo:
 
 ```
   
-* **Confección**
+### Confección
 ```sql
 
 ```
   
-* **Almacén de tránsito**
+### Almacén_de_tránsito
 
 ***Querys***
 ```sql
 
 ```
   
-* **Acabados**
+## Acabados
 1. Pantalla **Lotes de entrada**
 
 ***Querys***
@@ -475,7 +481,7 @@ WHERE
 
 
 
-* **Inspección de calidad**
+### Inspección_de_calidad
 
 
 ***Querys***
@@ -483,7 +489,7 @@ WHERE
 
 ```
 
-* **PCP**
+### PCP
 
 
 ***Querys***
