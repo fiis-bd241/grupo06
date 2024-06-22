@@ -2,11 +2,11 @@
 ## 1. Objetos de BD
 Presentamos diversos objetos de base de datos, como índices y vistas, y las mostramos por módulos del sistema:
 - [Almacén Central](#almacén_central)
-- [Instalación](###instalación)
+- [Corte](#corte)
+- [Confección](#confección)
+- [Almacén_de_tránsito](#almacén_de_tránsito)
 - [Acabados](#acabados)
-- [Contribuyendo](###contribuyendo)
-- [Autores](###autores)
-- [Licencia](###licencia)
+- [Inspección_de_calidad](#inspección_de_calidad)
 - [PCP - Abastecimiento](#pcp)
 
 Acontinuamos le presentamos cada módulo:
