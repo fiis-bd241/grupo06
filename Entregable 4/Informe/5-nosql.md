@@ -2,7 +2,7 @@
 ## NoSQL
 
 - [Base de datos NoSQL](#base-de-datos-nosql)
-- [Base de datos NoSQL Elegido - ClickHouse](#base-de-datos-no-sql-elegido)
+- [Base de datos NoSQL Elegido - ClickHouse](#base-de-datos-nosql-elegido)
     - [Caracteristicas](#características-de-clickhouse)
     - [Características Avanzadas de ClickHouse](#características-avanzadas-de-clickHouse)
     - [Clientes SQL](#clientes-sql)
