@@ -1,6 +1,20 @@
 # Entregable 4 del proyecto
+## NoSQL
+
+- [Base de datos NoSQL](#base-de-datos-nosql)
+- [Base de datos NoSQL Elegido - ClickHouse](#base-de-datos-no-sql-elegido)
+    - [Caracteristicas](#características-de-clickhouse)
+    - [Características Avanzadas de ClickHouse](#características-avanzadas-de-clickHouse)
+    - [Clientes SQL](#clientes-sql)
+    - [PostgreSQL vs Clickhouse](#postgresql-vs-clickhouse)
+    - [TUTORIAL (Ejemplo con clickhouse-client)](#tutorial-ejemplo-con-clickhouse-client)
+    - [Aplicación al trabajo (Ejemplo con clickhouse-client)](#aplicación-al-trabajo-ejemplo-con-clickhouse-client)
+    - [Enlaces de referencia](#enlaces-de-referencia)
+
+
 ## Base de datos NoSQL
 
+  [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue?style=for-the-badge)](#nosql)
 
 ## Base de datos NoSQL Elegido
 <div align=center>
@@ -29,7 +43,10 @@ Los escenarios OLAP requieren respuestas en tiempo real sobre conjuntos de datos
 - Solo se seleccionan unas pocas columnas para responder a cualquier consulta específica.
 - Los resultados deben devolverse en milisegundos o segundos.
 
-### Características de Clcikhouse
+  [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue?style=for-the-badge)](#nosql)
+  
+
+### Características de clickhouse
 
 | Característica                                          | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 |---------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -49,6 +66,8 @@ Los escenarios OLAP requieren respuestas en tiempo real sobre conjuntos de datos
 | **Control de Acceso Basado en Roles**                    | Implementa gestión de cuentas de usuario mediante consultas SQL y configuración de control de acceso basado en roles, siguiendo estándares como ANSI SQL y otros sistemas de gestión de bases de datos relacionales populares.                                                                                                                                                                                                                                                                                                                               |
 | **Limitaciones Potenciales**                             | Carece de transacciones completas y la capacidad de modificar o eliminar datos insertados con alta velocidad y baja latencia. Las operaciones de eliminación y actualización están disponibles pero pueden no ser tan eficientes en comparación con otras operaciones de lectura y escritura.                                                                                                                                                                                                                                                            |
 
+  [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue?style=for-the-badge)](#nosql)
+  
 
 
 ### Características Avanzadas de ClickHouse
@@ -108,6 +127,10 @@ Los escenarios OLAP requieren respuestas en tiempo real sobre conjuntos de datos
   </tbody>
 </table>
 
+  [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue?style=for-the-badge)](#nosql)
+
+
+
 ### Clientes SQL
 | SQL Client     | Descripción                                                                 | Características clave                                                                                   |
 |----------------|-----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
@@ -117,6 +140,8 @@ Los escenarios OLAP requieren respuestas en tiempo real sobre conjuntos de datos
 | **Jupyter Notebooks** | Entorno interactivo para análisis y prototipado, compatible con ClickHouse.   | Conexión mediante `clickhouse-driver` en Python, ideal para análisis exploratorio y generación de informes. |
 | **qStudio**        | Entorno interactivo para análisis de datos, compatible con ClickHouse.       | Interfaz gráfica para escribir y ejecutar consultas SQL, visualizaciones integradas, análisis avanzado.  |
 | **TABLUM.IO**      | Plataforma de visualización y análisis de datos, conectada a ClickHouse.     | Creación de paneles de control interactivos, visualizaciones avanzadas basadas en datos en tiempo real. |
+
+  [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue?style=for-the-badge)](#nosql)
 
 
 ### PostgreSQL vs Clickhouse
@@ -135,6 +160,10 @@ Los escenarios OLAP requieren respuestas en tiempo real sobre conjuntos de datos
 | **Herramientas de Gestión** | Amplia gama de herramientas                     | Herramientas limitadas                              |
 | **Tolerancia a Fallos**   | Alta disponibilidad y replicación                | Diseñado para ser tolerante a fallos                |
 | **Uso Típico**            | Aplicaciones transaccionales y analíticas simples| Análisis de datos a gran escala y consultas complejas|
+
+  [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue?style=for-the-badge)](#nosql)
+
+
 
 ### TUTORIAL (Ejemplo)
 <details>
@@ -425,6 +454,10 @@ Respuesta
 ```
 </details>
 
+  [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue?style=for-the-badge)](#nosql)
+
+
+
 ### TUTORIAL (Ejemplo con clickhouse-client)
 <details>
 <summary>Abrir para ver</summary>
@@ -588,11 +621,17 @@ LIMIT 20;
 ![Resultado Consulta](./images/4-consulta.png)
 </details>
 
+  [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue?style=for-the-badge)](#nosql)
+
+
+
 ### Aplicación al trabajo (Ejemplo con clickhouse-client)
 <details>
 <summary>Abrir para ver</summary>
 
 </details>
+
+  [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue?style=for-the-badge)](#nosql)
 
 ### Enlaces de referencia
 
@@ -605,5 +644,7 @@ LIMIT 20;
 * [Blog](https://clickhouse.com/blog/) contiene diversos artículos relacionados con ClickHouse, así como anuncios e informes sobre eventos.
 * [Code Browser (github.dev)](https://github.dev/ClickHouse/ClickHouse) con resaltado de sintaxis, impulsado por github.dev.
 * [Contacts](https://clickhouse.com/company/contact) resuelve dudas.
+
+  [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue?style=for-the-badge)](#nosql)
 
 [Regresar al índice](./indice.md)
