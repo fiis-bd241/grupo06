@@ -17,6 +17,8 @@ Acontinuamos le presentamos cada módulo:
 ```sql
 
 ```
+  [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue)](#1-objetos-de-bd)
+
   
 ### Corte
 
@@ -25,18 +27,26 @@ Acontinuamos le presentamos cada módulo:
 ```sql
 
 ```
-  
+
+  [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue)](#1-objetos-de-bd)
+
 ### Confección
 ```sql
 
 ```
-  
+
+  [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue)](#1-objetos-de-bd)
+
+
 ### Almacén_de_tránsito
 
 ***Querys***
 ```sql
 
 ```
+
+[![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue)](#1-objetos-de-bd)
+
   
 ## Acabados
 1. Pantalla **Lotes de entrada**
@@ -489,7 +499,9 @@ WHERE
 ```sql
 
 ```
+  [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue)](#1-objetos-de-bd)
 
+  
 ### PCP
 
 
@@ -497,6 +509,8 @@ WHERE
 ```sql
 
 ```
+
+  [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue)](#1-objetos-de-bd)
 
 
 [Regresar al Índice](./indice.md)
