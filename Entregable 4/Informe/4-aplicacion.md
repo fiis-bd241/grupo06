@@ -20,25 +20,50 @@ Despliegue Backend y PostgreSQL : [Render](https://render.com/)
 ## Versión final:
 Presentamos el flujo de pantallas de la App Web: **[Sistema Vircatex](https://sistema-web-v-f.onrender.com/)**:
 
-* **Home**
+- [Almacén Central](#almacén-central)
+- [Corte](#corte)
+- [Confección](#confección)
+- [Almacén_de_tránsito](#almacén-de-tránsito)
+- [Acabados](#acabados)
+- [Inspección_de_calidad](#inspección-de-calidad)
+- [PCP - Abastecimiento](#pcp)
+
+
+### Home
 ![Home](./pantallas/home.png)
 
-* **Almacén Central**
+  [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue?style=for-the-badge)](#versión-final)
 
-* **Corte**
+### Almacén Central
 
-* **Confección**
+  [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue?style=for-the-badge)](#versión-final)
+
+### Corte
+
+  [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue?style=for-the-badge)](#versión-final)
+
+### Confección
+
+  [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue?style=for-the-badge)](#versión-final)
   
-* **Almacén de tránsito**
+### Almacén de tránsito
 
-* **Acabados**
+  [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue?style=for-the-badge)](#versión-final)
 
-* **Inspección de calidad**
+### Acabados
 
-* **PCP**
+  [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue?style=for-the-badge)](#versión-final)
+
+### Inspección de calidad
+
+  [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue?style=for-the-badge)](#versión-final)
+
+### PCP
+
+  [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue?style=for-the-badge)](#versión-final)
 
 
-
+[Regresar al Índice](./indice.md)
 
 
 [Regresar al Índice](./indice.md)
