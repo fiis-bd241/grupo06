@@ -6,13 +6,10 @@ Abrir en Google Chrome: [Vircatex - render](https://sistema-web-v-f.onrender.com
 
 [Github FrontEnd - React](https://github.com/javierarteagagonzales/sistema-web-v-f) 
 
-[Github BackEnd - React](https://github.com/javierarteagagonzales/sistema-web-v) 
-
-
 ### App Web
 Despliegue FrontEnd, Backend y PostgreSQL : [Render](https://render.com/)
 
-[Github backend - Django]() 
+[Github BackEnd - React](https://github.com/javierarteagagonzales/sistema-web-v) 
 
 ### Conexión Base de datos (local)
 ![db](../Entregable%203/db.png)
