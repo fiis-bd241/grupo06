@@ -43,5 +43,3 @@ A continuación presentamos el versionado de Sistema Vircatex
 
 [![Regresar al Índice](https://img.shields.io/badge/Regresar_al_Índice-Verde?style=for-the-badge&logoColor=white)](./entregable%204-indice.md)
 
-
-[Regresar al Índice](./entregable%204-indice.md)
