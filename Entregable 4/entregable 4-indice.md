@@ -5,4 +5,4 @@
 3. [Código](./entregable%204-codigo.md)
 4. [Videos Individuales](./entregable%204-videos.md)
    
-[Regresar al Índice](../README.md)
+[![Regresar al Índice](https://img.shields.io/badge/Regresar_al_Índice-blue?style=for-the-badge&logoColor=white)](../README.md)
