@@ -1,4 +1,16 @@
 # Entregable 4 del proyecto
+
+## Estructura del proyecto
+
+Presentamos a continuación la estructura completa del proyecto de la App Web - Sistema Vircatex
+- [Estructura de App Web](#1-estructura-de-app-web)
+- [Arquitectura y tecnología](#2-arquitectura-y-tecnología)
+  - [Stack](#stack)
+  - [Arquitectura](#arquitectura)
+  - [Producción](#producción)
+  - [Herramientas](#herramientas)
+
+
 ## 1. Estructura de App Web
 
 Se detalla la estructura que se usa para desarrollarla app web:
@@ -41,6 +53,7 @@ whitenoise==6.6.0
 | whitenoise                | 6.6.0    | Biblioteca que permite servir archivos estáticos directamente desde una aplicación Django en producción.                 | Facilita el manejo de archivos estáticos, mejorando el despliegue y el rendimiento.                                        |
 
 
+  [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue?style=for-the-badge)](#estructura-del-proyecto)
 
 ## 2. Arquitectura y tecnología
 
@@ -61,6 +74,8 @@ whitenoise==6.6.0
 |--------------------------|---------------|
 | Motor de Base de Datos   | PostgreSQL <br> [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16.0-blue.svg?style=for-the-badge&logo=postgresql&logoColor=white)]()    |
 
+  [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue?style=for-the-badge)](#estructura-del-proyecto)
+
 ### Stack
 ![Stack](../../Entregable%203/stack.png)
 
@@ -80,8 +95,13 @@ Despliegue Backend y PostgreSQL : [Render](https://render.com/)
 ### Conexión Base de datos (render)
 ![db](../postgres-render.png)
 
+  [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue?style=for-the-badge)](#estructura-del-proyecto)
+
 ### Producción
 ![Servicios](./render-services-1.png)
+
+  [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue?style=for-the-badge)](#estructura-del-proyecto)
+
 
 ### Herramientas
 #### Pruebas
@@ -124,6 +144,6 @@ Para el proyecto con Django, React y PostgreSQL, hemo usado las herramientas de 
 
 - Documentación y Colaboración: Uso de Postman para generar documentación interactiva de la API.
 
-
+  [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue?style=for-the-badge)](#estructura-del-proyecto)
 
 [Regresar al Índice](./indice.md)
