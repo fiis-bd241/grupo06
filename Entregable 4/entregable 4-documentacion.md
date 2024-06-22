@@ -24,4 +24,5 @@
 * [Sistema de planillas](https://github.com/JordanLau21/DBD-Grupo2---23-2)
 * [Software para CEIIS](https://github.com/Dafi-18/DBD-Grupo-3)
 
-[Regresar al Índice](./entregable%204-indice.md)
+
+[![Regresar al Índice](https://img.shields.io/badge/Regresar_al_Índice-Verde?style=for-the-badge&logoColor=white)](./entregable%204-indice.md)
