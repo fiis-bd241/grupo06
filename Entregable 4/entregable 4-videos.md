@@ -28,4 +28,7 @@
 
 [![](../Integrantes/Niels%20Chavez/Niels%20Chavez.jpg)](https://www.youtube.com/)
 
-**[Regresar al índice](../README.md)**
+
+[![Regresar al Índice](https://img.shields.io/badge/Regresar_al_Índice-Verde?style=for-the-badge&logoColor=white)](./entregable%204-indice.md)
+
+**[Regresar al índice Principal](../README.md)**
