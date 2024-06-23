@@ -9,15 +9,6 @@
 
 ### Base de datos
 
-  [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue)](#guía-del-desarrollador)
-
-### FrontEnd
-
-  [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue)](#guía-del-desarrollador)
-
----
-
-### Backend
 
 > Pre-requisitos:
 > * Instalar Postgres
@@ -45,6 +36,19 @@
 
   [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue)](#guía-del-desarrollador)
 
+---
+
+
+### FrontEnd
+
+  [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue)](#guía-del-desarrollador)
+
+---
+
+### Backend
+
+  [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue)](#guía-del-desarrollador)
+  
 ---
 
 [Regresar a Próximos Pasos](../proximos-pasos.md)
