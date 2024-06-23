@@ -4,10 +4,11 @@
 2. [Video entrevista](../Empresa/Vircatex/Entrevista.md)
 3. [Acta de reunión](../Empresa/Vircatex/Acta%20de%20Reunión.pdf)
 4. [Recursos]()
-5. Acceso a API
+5. [Guía del desarrollador](./Informe/guia/desarrollador.md)
+6. Acceso a API desde backend
    * [Crear Backend con conexión Local](./archivos/b-local.md)
    * [Crear Backend con conexión remoto](./archivos/b-render.md)
-6. **REFERENCIAS:**
+7. **REFERENCIAS:**
 
 ***Bibliográficas***
 * Elmasri, R., & Navathe, S. B. (2005). *Fundamentos de sistemas de bases de datos* (5ª ed., Trad. José Manuel Díaz). Pearson.
