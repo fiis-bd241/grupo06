@@ -17,7 +17,12 @@ Despliegue FrontEnd, Backend y PostgreSQL : [Render](https://render.com/)
 ### Conexión Base de datos (render)
 ![db](postgres-render.png)
 
+### Querys e insert de data 
+
 [Github - querys SQL](./querys) 
+
+![Inserts](./Informe/gif/insert.gif)
+
 
 ## Gestión de la configuración:
 
