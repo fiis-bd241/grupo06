@@ -32,6 +32,8 @@ Presentamos el flujo de pantallas de la App Web: **[Sistema Vircatex](https://si
 ### Home
 ![Home](./pantallas/home.png)
 
+![Home1](./gif/1.gif)
+
   [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue?style=for-the-badge)](#versión-final)
 
 ### Almacén Central
