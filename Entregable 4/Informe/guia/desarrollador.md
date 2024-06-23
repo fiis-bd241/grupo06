@@ -51,4 +51,6 @@
   
 ---
 
+[Regresar a Documentación](../../entregable%204-documentacion.md)
+
 [Regresar a Próximos Pasos](../proximos-pasos.md)
