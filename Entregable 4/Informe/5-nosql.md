@@ -621,6 +621,8 @@ LIMIT 20;
 ![Resultado Consulta](./images/4-consulta.png)
 </details>
 
+![nosql](./gif/nosql1.gif)
+
   [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue?style=for-the-badge)](#nosql)
 
 
