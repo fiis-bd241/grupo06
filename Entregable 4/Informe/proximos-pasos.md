@@ -224,10 +224,10 @@ Este documento se mantendrá actualizado en el repositorio de GitHub del proyect
 
 ### Documentación Adicional
 
-- [Guía de Instalación]()
-- [Guía del Desarrollador]()
-- [Guía de Seguridad]()
-- [Guía de Usuario]()
+- [Guía de Instalación - Próximo]()
+- [Guía del Desarrollador](./guia/desarrollador.md)
+- [Guía de Seguridad - Próximo]()
+- [Guía de Usuario - Próximo]()
 
 ---
 
