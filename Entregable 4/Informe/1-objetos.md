@@ -14,9 +14,46 @@ Acontinuamos le presentamos cada módulo:
 
 
 ***Querys***
+<details>
+  <summary>SENTENCIAS SQL COMPLEJAS</summary>
+  
 ```sql
 
 ```
+</details>
+
+<details>
+  <summary>ÍNDICES</summary>
+  
+```sql
+
+```
+</details>
+
+<details>
+  <summary>VISTAS</summary>
+  
+```sql
+
+```
+</details>
+
+<details>
+  <summary>SECUENCIAS</summary>
+  
+```sql
+
+```
+</details>
+
+<details>
+  <summary>TRIGGERS</summary>
+  
+```sql
+
+```
+</details>
+
   [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue)](#1-objetos-de-bd)
 
   
@@ -24,16 +61,89 @@ Acontinuamos le presentamos cada módulo:
 
 
 ***Querys***
+<details>
+  <summary>SENTENCIAS SQL COMPLEJAS</summary>
+  
 ```sql
 
 ```
+</details>
+
+<details>
+  <summary>ÍNDICES</summary>
+  
+```sql
+
+```
+</details>
+
+<details>
+  <summary>VISTAS</summary>
+  
+```sql
+
+```
+</details>
+
+<details>
+  <summary>SECUENCIAS</summary>
+  
+```sql
+
+```
+</details>
+
+<details>
+  <summary>TRIGGERS</summary>
+  
+```sql
+
+```
+</details>
 
   [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue)](#1-objetos-de-bd)
 
 ### Confección
+***Querys***
+<details>
+  <summary>SENTENCIAS SQL COMPLEJAS</summary>
+  
 ```sql
 
 ```
+</details>
+
+<details>
+  <summary>ÍNDICES</summary>
+  
+```sql
+
+```
+</details>
+
+<details>
+  <summary>VISTAS</summary>
+  
+```sql
+
+```
+</details>
+
+<details>
+  <summary>SECUENCIAS</summary>
+  
+```sql
+
+```
+</details>
+
+<details>
+  <summary>TRIGGERS</summary>
+  
+```sql
+
+```
+</details>
 
   [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue)](#1-objetos-de-bd)
 
@@ -41,14 +151,50 @@ Acontinuamos le presentamos cada módulo:
 ### Almacén_de_tránsito
 
 ***Querys***
+<details>
+  <summary>SENTENCIAS SQL COMPLEJAS</summary>
+  
 ```sql
 
 ```
+</details>
+
+<details>
+  <summary>ÍNDICES</summary>
+  
+```sql
+
+```
+</details>
+
+<details>
+  <summary>VISTAS</summary>
+  
+```sql
+
+```
+</details>
+
+<details>
+  <summary>SECUENCIAS</summary>
+  
+```sql
+
+```
+</details>
+
+<details>
+  <summary>TRIGGERS</summary>
+  
+```sql
+
+```
+</details>
 
 [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue)](#1-objetos-de-bd)
 
   
-## Acabados
+### Acabados
 1. Pantalla **Lotes de entrada**
 
 ***Querys***
@@ -497,9 +643,46 @@ WHERE
 
 
 ***Querys***
+<details>
+  <summary>SENTENCIAS SQL COMPLEJAS</summary>
+  
 ```sql
 
 ```
+</details>
+
+<details>
+  <summary>ÍNDICES</summary>
+  
+```sql
+
+```
+</details>
+
+<details>
+  <summary>VISTAS</summary>
+  
+```sql
+
+```
+</details>
+
+<details>
+  <summary>SECUENCIAS</summary>
+  
+```sql
+
+```
+</details>
+
+<details>
+  <summary>TRIGGERS</summary>
+  
+```sql
+
+```
+</details>
+
   [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue)](#1-objetos-de-bd)
 
   
@@ -507,9 +690,45 @@ WHERE
 
 
 ***Querys***
+<details>
+  <summary>SENTENCIAS SQL COMPLEJAS</summary>
+  
 ```sql
 
 ```
+</details>
+
+<details>
+  <summary>ÍNDICES</summary>
+  
+```sql
+
+```
+</details>
+
+<details>
+  <summary>VISTAS</summary>
+  
+```sql
+
+```
+</details>
+
+<details>
+  <summary>SECUENCIAS</summary>
+  
+```sql
+
+```
+</details>
+
+<details>
+  <summary>TRIGGERS</summary>
+  
+```sql
+
+```
+</details>
 
   [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue)](#1-objetos-de-bd)
 
