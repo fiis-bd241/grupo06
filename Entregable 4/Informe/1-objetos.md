@@ -57,11 +57,11 @@ Acontinuamos le presentamos cada módulo:
   <summary>SENTENCIAS SQL COMPLEJAS</summary>
   
 ```sql
--- ========= INDICES =========
-2. Pantalla **Detalle de caja**
-```sql
+
+--Pantalla **Detalle de caja**
 --WHERE id_caja = '101' : Indica el id principal que será parte de la url para el detalle de caja.
 -- DETALLE CAJA: SENTENCIA SQL
+
 SELECT cp.id_caja as ID_Caja,
 cp.cantidad , 
 gconf.id_guia_confeccion as ID_guia,
@@ -174,7 +174,9 @@ WHERE NOT EXISTS (
 ```
 
 ***VIEW - Detalle caja***
+
 ```sql
+
 CREATE VIEW vista_datos_confeccion AS
 SELECT 
     cp.id_caja::text AS id_caja,
@@ -261,8 +263,8 @@ WHERE
   <summary>VISTAS</summary>
   
 ```sql
+
 -- ========= VISTAS =========
-```sql
 -- 1. CARGAR LOTES: lotes entrantes al área de acabados, en carga de página.
 create view entrante_aca as 
 SELECT le.id_entrada ,le.fecha_entrada,l.id_tipo_lote,l.cantidad, dc.id_dim_confeccion,dc.id_guia_confeccion
@@ -276,7 +278,6 @@ select * from entrante_aca
 where id_entrada='101';
 ```
 
-```
 </details>
 
 <details>
