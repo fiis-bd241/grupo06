@@ -164,6 +164,82 @@
           FROM lote_salida ls
           JOIN lote l ON ls.id_lote = l.id_lote
           WHERE ls.fecha_salida = '2022-01-01';
+
+####  1.8
+| Código requerimiento | RV107 |
+| --- | --- |
+| Codigo interfaz |  IV107 |
+| Imagen interfaz |  ![](../Entregable%201/Mockups%20-%20Figma/almacen-central/Agregar%20proveedor.png)  |
+
+| Sentencias SQL |
+| --- |
+| Eventos |
+| **1. Botón Agregar:** Agrega a un nuevo proveedor tras obtener los campos necesarios. |
+          CREATE OR REPLACE PROCEDURE insertar_proveedor
+          (
+            p_ruc VARCHAR(11),
+            p_denominacion_social VARCHAR(100),
+            p_direccion_proveedor VARCHAR(100),
+            p_numero_telefono VARCHAR(30),
+            p_correo_electronico VARCHAR(100)
+          )
+          BEGIN
+
+            -- 1. Insertar dirección del proveedor
+            INSERT INTO direccion
+            (
+              descripcion
+            )
+            VALUES
+            (
+              p_direccion_proveedor
+            );
+
+            SET @direccion_id = LAST_INSERT_ID();
+
+            -- 2. Insertar teléfono del proveedor
+            INSERT INTO telefono
+            (
+              numero
+            )
+            VALUES
+            (
+              p_numero_telefono
+            );
+
+            SET @telefono_id = LAST_INSERT_ID();
+
+            -- 3. Insertar correo electrónico del proveedor
+            INSERT INTO correo
+            (
+              direccion_correo
+            )
+            VALUES
+            (
+              p_correo_electronico
+            );
+
+            SET @correo_id = LAST_INSERT_ID();
+
+            -- 4. Insertar proveedor
+            INSERT INTO proveedor
+            (
+              ruc,
+              denominacion_social,
+              id_direccion,
+              id_telefono,
+              id_correo
+            )
+            VALUES
+            (
+              p_ruc,
+              p_denominacion_social,
+              @direccion_id,
+              @telefono_id,
+              @correo_id
+            );
+
+          END;
           
 ### 2. Corte
 ####  2.1
