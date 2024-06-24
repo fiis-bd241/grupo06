@@ -36,23 +36,38 @@ Presentamos el flujo de pantallas de la App Web: **[Sistema Vircatex](https://si
 
   [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue?style=for-the-badge)](#versión-final)
 
+---
+
 ### Almacén Central
 
   [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue?style=for-the-badge)](#versión-final)
+
+---
 
 ### Corte
 
   [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue?style=for-the-badge)](#versión-final)
 
+---
+
+
 ### Confección
 
   [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue?style=for-the-badge)](#versión-final)
+
+---
   
 ### Almacén de tránsito
 
   [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue?style=for-the-badge)](#versión-final)
 
+---
+
 ### Acabados
+
+<details>
+  <summary>VER TODO</summary>
+  
 #### Submenú 1: **General**: 
 **Navegación**: Acabados > General <br>
 Muestra los datos generales del área.<br>
@@ -88,10 +103,34 @@ class AcabadoListView(APIView):
 ```
 
 #### Submenú 2: **Lote-caja**: 
-Muestra las cajas asignadas a los operarios de acabados.<br>
 
+Muestra las cajas asignadas a los operarios de acabados y reporte entre fechas.
+
+**Navegación**: Acabados > lotes >
+
+![Acabados 22](./pantallas/lote-1.png)
+
+* Consulta: Reporte entre dos fechas
+
+```python
+def get_lote_entrada_vista(request):
+    with connection.cursor() as cursor:
+        cursor.execute("""
+            SELECT le.id_entrada, le.fecha_entrada, l.id_tipo_lote, l.cantidad, dc.id_dim_confeccion, dc.id_guia_confeccion
+            FROM lote_entrada le
+            JOIN lote l ON le.id_lote = l.id_lote
+            JOIN dimension_confeccion dc ON l.id_dim_confeccion = dc.id_dim_confeccion
+            LIMIT 200;
+        """)
+        columns = [col[0] for col in cursor.description]
+        results = [dict(zip(columns, row)) for row in cursor.fetchall()]
+    return JsonResponse(results, safe=False)
+```
+
+Cuando se hace click en el botón se direge a: "Reporte"
 
 **Navegación**: Acabados > lotes > Reporte
+
 ![Acabados 22](./pantallas/reporte.png)
 
 * Consulta: Reporte entre dos fechas
@@ -140,15 +179,41 @@ class ReporteAcabadosView(View):
         return JsonResponse(resultados, safe=False)
 ```
 
+
+#### Submenú 3: **Acabados**: 
+
+Muestra la búsqueda de operarios y muestra los detalles generales, las cajas asignada y la navegación hasta la asignación de acabados.
+
+**Navegación**: Acabados > acabados >
+
+![Acabados 31]()
+
+* Consulta: 
+
+```python
+
+```
+
+</details>
+
+
   [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue?style=for-the-badge)](#versión-final)
+
+---
+
 
 ### Inspección de calidad
 
   [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue?style=for-the-badge)](#versión-final)
 
+---
+
+
 ### PCP
 
   [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue?style=for-the-badge)](#versión-final)
+  
+---
 
 
 [Regresar al Índice](./indice.md)
