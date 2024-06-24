@@ -188,9 +188,19 @@ Muestra la búsqueda de operarios y muestra los detalles generales, las cajas as
 
 ![Acabados 31]()
 
-* Consulta: 
+* Consulta: Búsqueda de operarios. De despliega un Dropdown con la lista de nombres
 
 ```python
+class EmpleadoListView(View):
+    def get(self, request):
+         with connection.cursor() as cursor:
+            cursor.execute("SELECT id_empleado, nombre FROM empleado WHERE id_area = 5")
+            rows = cursor.fetchall()
+            result = [
+                    {'id_empleado': row[0], 'nombre': row[1]}
+                    for row in rows
+                ]
+            return JsonResponse(result, safe=False)
 
 ```
 
