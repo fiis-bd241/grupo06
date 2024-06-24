@@ -89,9 +89,9 @@ SELECT m.id_maquina, m.capacidad_total, e.nombre AS estado
 FROM maquina m
 JOIN estado e ON m.id_estado = e.id_estado;
 
--- Supongamos que deseas obtener todos los detalles de las máquinas en estado 'Activo'
+-- Supongamos que deseas obtener todos los detalles de las máquinas en estado 'Disponible'
 SELECT * FROM vista_maquinas
-WHERE estado = 'Activo';
+WHERE estado = 'Disponible';
 
 
 --2 muestra las actividades diarias junto con las máquinas utilizadas y detalles de las órdenes de producción.
