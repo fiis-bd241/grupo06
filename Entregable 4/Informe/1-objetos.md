@@ -9,7 +9,8 @@ Presentamos diversos objetos de base de datos, como índices y vistas, y las mos
 - [Inspección_de_calidad](#inspección_de_calidad)
 - [PCP - Abastecimiento](#pcp)
 
-Acontinuamos le presentamos cada módulo:
+---
+Acontinuación le presentamos cada módulo:
 ## Almacén_Central
 
 
@@ -55,7 +56,8 @@ Acontinuamos le presentamos cada módulo:
 </details>
 
   [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue)](#1-objetos-de-bd)
-
+  
+---
   
 ### Corte
 
@@ -166,7 +168,9 @@ $$ LANGUAGE plpgsql;
 </details>
 
   [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue)](#1-objetos-de-bd)
-
+  
+---
+ 
 ### Confección
 ***Querys***
 <details>
@@ -211,7 +215,9 @@ $$ LANGUAGE plpgsql;
 
   [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue)](#1-objetos-de-bd)
 
-
+  
+---
+ 
 ### Almacén_de_tránsito
 
 ***Querys***
@@ -256,7 +262,9 @@ $$ LANGUAGE plpgsql;
 </details>
 
 [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue)](#1-objetos-de-bd)
-
+  
+---
+ 
   
 ### Acabados
 
@@ -674,7 +682,9 @@ EXECUTE PROCEDURE VALIDAR_HORARIO_CAJA_ACAB_SALIDA();
   [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue)](#1-objetos-de-bd)
 
 
-
+  
+---
+ 
 
 
 ### Inspección_de_calidad
@@ -722,7 +732,9 @@ EXECUTE PROCEDURE VALIDAR_HORARIO_CAJA_ACAB_SALIDA();
 </details>
 
   [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue)](#1-objetos-de-bd)
-
+  
+---
+ 
   
 ### PCP
 
