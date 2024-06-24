@@ -377,33 +377,69 @@ where id_caja =' 101';
 
 <details>
   <summary>ÍNDICES</summary>
-  
+
+* **Índices:**
+1. Consultar datos de empleado del área acabados
+
 ```sql
--- ========= INDICES =========
--- 1. Consultar datos de empleado del área acabados
+-- 
+explain analyze
+select * from empleado e 
+where id_area =5;
+```
+![select1](./pantallas/1-ind-1a.png)
+
+```sql
+-- Índice:
+
 CREATE INDEX EMPL_ACABADO ON empleado(nombre, primer_apellido, id_area)
 
 EXPLAIN ANALYZE
 SELECT * FROM EMPL_ACABADO
 WHERE id_area=5;
+```
+![select1a](./pantallas/1-ind-1b.png)
 
--- 2. Actividad diaria: Ver la actividad que se realizó hoy en la empresa
-CREATE INDEX ACT_DIARIA ON actividad_diaria(cantidad_hecha)
+----
+
+2. Prendas: Consultar la relación de prendas de la caja 200 (12692 registros)
+```sql
+explain analyze
+select * from prenda
+where id_caja=200;
+```
+![select2](./pantallas/2-ind-2a.png)
+
+```sql
+CREATE INDEX PRENDA_CAJA ON prenda(id_caja)
 
 EXPLAIN ANALYZE
-SELECT * FROM ACT_DIARIA
-WHERE
+select * from prenda
+where id_caja=200;
+
 
 ```
+![select2a](./pantallas/2-ind-2b.png)
+
 </details>
 
 <details>
   <summary>VISTAS</summary>
+* Vistas
+-- 1. CARGAR LOTES: lotes 200 entrantes al área de acabados, en carga de página.
   
 ```sql
+explain analyze
+SELECT le.id_entrada ,le.fecha_entrada,l.id_tipo_lote,l.cantidad, dc.id_dim_confeccion,dc.id_guia_confeccion
+FROM lote_entrada le
+JOIN lote l on le.id_lote = l.id_lote
+join dimension_confeccion dc on l.id_dim_confeccion = dc.id_dim_confeccion
+LIMIT 200;
+```
+![select3a](./pantallas/3-ind-2.png)
 
--- ========= VISTAS =========
--- 1. CARGAR LOTES: lotes entrantes al área de acabados, en carga de página.
+```sql
+
 create view entrante_aca as 
 SELECT le.id_entrada ,le.fecha_entrada,l.id_tipo_lote,l.cantidad, dc.id_dim_confeccion,dc.id_guia_confeccion
 FROM lote_entrada le
@@ -411,10 +447,11 @@ JOIN lote l on le.id_lote = l.id_lote
 join dimension_confeccion dc on l.id_dim_confeccion = dc.id_dim_confeccion
 LIMIT 200;
 
--- BOTÖN BUSCAR
+--  BUSCAR
 select * from entrante_aca
 where id_entrada='101';
 ```
+![select3a](./pantallas/3-ind-2.png)
 
 </details>
 
@@ -600,27 +637,6 @@ CREATE TRIGGER ADVER_CAJA_SALIDA
 BEFORE INSERT ON EMPLOYEES
 EXECUTE PROCEDURE VALIDAR_HORARIO_CAJA_ACAB_SALIDA();
 
--- C) PRUEBA
-INSERT caja_salida 
-WHERE 
-
-
--- 2.
--- A)
--- B) TRIGGER
--- C) PRUEBA
-
--- A)
--- B) TRIGGER
--- C) PRUEBA
-
--- A)
--- B) TRIGGER
--- C) PRUEBA
-
--- A)
--- B) TRIGGER
--- C) PRUEBA
 
 ```
 </details>
