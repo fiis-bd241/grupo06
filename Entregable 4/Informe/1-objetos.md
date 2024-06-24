@@ -81,6 +81,40 @@ Acontinuamos le presentamos cada módulo:
   <summary>VISTAS</summary>
   
 ```sql
+-- ========= VISTAS =========
+-- 1 muestra detalles completos de las máquinas incluyendo su estado.
+
+CREATE VIEW vista_maquinas AS
+SELECT m.id_maquina, m.capacidad_total, e.nombre AS estado
+FROM maquina m
+JOIN estado e ON m.id_estado = e.id_estado;
+
+-- Supongamos que deseas obtener todos los detalles de las máquinas en estado 'Activo'
+SELECT * FROM vista_maquinas
+WHERE estado = 'Activo';
+
+
+--2 muestra las actividades diarias junto con las máquinas utilizadas y detalles de las órdenes de producción.
+
+CREATE VIEW vista_actividades_diarias AS
+SELECT ad.id_actividad, ad.fecha_actividad, op.id_orden_producción, ma.id_maquina, ma.cantidad_hecha
+FROM actividad_diaria ad
+JOIN orden_producción op ON ad.id_orden_producción = op.id_orden_producción
+JOIN maquina_actividad ma ON ad.id_actividad = ma.id_actividad;
+
+-- Obtener las actividades diarias realizadas en una fecha específica junto con las máquinas utilizadas y la orden de producción asociada
+SELECT * FROM vista_actividades_diarias
+WHERE fecha_actividad = '2024-06-22';
+
+-- 3 muestra detalles completos de las órdenes de producción incluyendo el estado y las dimensiones asociadas.
+
+CREATE VIEW vista_ordenes_produccion AS
+SELECT op.id_orden_producción, op.fecha_inicio, op.fecha_fin, op.cantidad, e.nombre AS estado, a.nombre AS area, op.fecha_creacion
+FROM orden_producción op
+JOIN estado e ON op.id_estado = e.id_estado
+JOIN area a ON op.id_area = a.id_area;
+
+-- Obtener todas las órdenes de producción que están en estado 'En Proceso':
 
 ```
 </details>
