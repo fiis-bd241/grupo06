@@ -115,6 +115,8 @@ JOIN estado e ON op.id_estado = e.id_estado
 JOIN area a ON op.id_area = a.id_area;
 
 -- Obtener todas las órdenes de producción que están en estado 'En Proceso':
+SELECT * FROM vista_ordenes_produccion
+WHERE estado = 'En Proceso';
 
 ```
 </details>
