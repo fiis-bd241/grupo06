@@ -73,7 +73,14 @@ Acontinuamos le presentamos cada módulo:
   <summary>ÍNDICES</summary>
   
 ```sql
+-- ========= INDICES =========
+-- Nos mostrará el plan de ejecución de la consulta y el tiempo de ejecución real, permitiéndonos evaluar la efectividad del índice creado
 
+CREATE INDEX idx_orden_produccion_estado_fecha_inicio ON orden_producción (id_estado, fecha_inicio);
+EXPLAIN ANALYZE
+SELECT * FROM orden_producción
+WHERE id_estado = 9 -- Que es el estado En proceso
+  AND fecha_inicio BETWEEN '2024-01-01' AND '2024-06-30';
 ```
 </details>
 
