@@ -259,128 +259,56 @@ $$ LANGUAGE plpgsql;
 
   
 ### Acabados
-1. Pantalla **Lotes de entrada**
 
 ***Querys***
 
 <details>
   <summary>SENTENCIAS SQL COMPLEJAS</summary>
   
-```sql
+* Consulta: Reporte entre dos fechas
+```python
+class ReporteAcabadosView(View):
+    def get(self, request):
+        fecha_inicio = request.GET.get('fecha_inicio')
+        fecha_fin = request.GET.get('fecha_fin')
 
---Pantalla **Detalle de caja**
---WHERE id_caja = '101' : Indica el id principal que será parte de la url para el detalle de caja.
--- DETALLE CAJA: SENTENCIA SQL
+        query = """
+        SELECT DISTINCT e.id_empleado, e.nombre, e.primer_apellido,
+                        e.segundo_apellido, e.id_correo, e.dni, e.id_cargo,
+                        caja_prenda.id_caja, caja_prenda.fecha_creacion,
+                        tipo_prenda.nombre 
+        FROM empleado e
+        JOIN prenda ON e.id_empleado = prenda.id_empleado
+        JOIN caja_prenda ON prenda.id_caja = caja_prenda.id_caja
+        JOIN dimension_prenda ON caja_prenda.id_dim_prenda = dimension_prenda.id_dim_prenda
+        JOIN dimension_confeccion ON dimension_prenda.id_dim_confeccion = dimension_confeccion.id_dim_confeccion
+        JOIN guia_confeccion ON dimension_confeccion.id_guia_confeccion = guia_confeccion.id_guia_confeccion
+        JOIN tipo_prenda ON dimension_confeccion.id_tipo_prenda = tipo_prenda.id_tipo_prenda
+        WHERE id_area=5 AND id_cargo=2
+        AND caja_prenda.fecha_creacion BETWEEN %s AND %s
+        """
 
-SELECT cp.id_caja as ID_Caja,
-cp.cantidad , 
-gconf.id_guia_confeccion as ID_guia,
-tp.nombre, ep.nombre ,t.nombre,
-g.nombre  ,
-    COALESCE(gconf.medida_longitud::text, ' ') AS ml,
-    COALESCE(gconf.medida_hombro::text, ' ') AS mh,
-    COALESCE(gconf.medida_pecho::text, ' ') AS mp,
-    COALESCE(gconf.medida_manga::text, ' ') AS mm,
-    COALESCE(gconf.medida_cintura::text, ' ') AS mc,
-    COALESCE(gconf.medida_cadera::text, ' ') AS mca,
-    COALESCE(gconf.medida_muslo::text, ' ') AS mmu
-FROM 
-dimension_confeccion dc
-JOIN guia_confeccion gconf ON dc.id_guia_confeccion = gconf.id_guia_confeccion
-JOIN tipo_prenda tp ON dc.id_tipo_prenda = tp.id_tipo_prenda
-JOIN estilo_prenda ep ON dc.id_estilo_prenda = ep.id_estilo_prenda
-JOIN talla t ON dc.id_talla = t.id_talla
-JOIN genero g ON dc.id_genero = g.id_genero
-join dimension_prenda dp on dc.id_dim_confeccion = dp.id_dim_confeccion 
-join caja_prenda cp on dp.id_dim_prenda = cp.id_dim_prenda
-join prenda p on cp.id_caja = p.id_caja 
-where cp.id_caja = '101';
+        with connection.cursor() as cursor:
+            cursor.execute(query, [fecha_inicio, fecha_fin])
+            rows = cursor.fetchall()
 
--- DETALLE CAJA: Mostrar, al cargar la página todos los detalles de una
--- caja perteneciente a un lote que ingresa al área de acabados
--- (Se muestra 'No hay datos' si en la DB no hay datos):
-SELECT 
-    COALESCE(subquery.id_caja::text, 'No hay datos') AS id_caja,
-    subquery.cantidad, 
-    subquery.id_guia AS id_guia,
-    subquery.tipo_prenda, 
-    subquery.estilo_prenda, 
-    subquery.talla, 
-    subquery.genero,
-    subquery.ml,
-    subquery.mh,
-    subquery.mp,
-    subquery.mm,
-    subquery.mc,
-    subquery.mca,
-    subquery.mmu
-FROM (
-    SELECT 
-        cp.id_caja::text AS id_caja,
-        cp.cantidad, 
-        gconf.id_guia_confeccion AS id_guia,
-        tp.nombre AS tipo_prenda, 
-        ep.nombre AS estilo_prenda, 
-        t.nombre AS talla, 
-        g.nombre AS genero,
-        COALESCE(gconf.medida_longitud::text, ' ') AS ml,
-        COALESCE(gconf.medida_hombro::text, ' ') AS mh,
-        COALESCE(gconf.medida_pecho::text, ' ') AS mp,
-        COALESCE(gconf.medida_manga::text, ' ') AS mm,
-        COALESCE(gconf.medida_cintura::text, ' ') AS mc,
-        COALESCE(gconf.medida_cadera::text, ' ') AS mca,
-        COALESCE(gconf.medida_muslo::text, ' ') AS mmu
-    FROM 
-        dimension_confeccion dc
-    JOIN 
-        guia_confeccion gconf ON dc.id_guia_confeccion = gconf.id_guia_confeccion
-    JOIN 
-        tipo_prenda tp ON dc.id_tipo_prenda = tp.id_tipo_prenda
-    JOIN 
-        estilo_prenda ep ON dc.id_estilo_prenda = ep.id_estilo_prenda
-    JOIN 
-        talla t ON dc.id_talla = t.id_talla
-    JOIN 
-        genero g ON dc.id_genero = g.id_genero
-    JOIN 
-        dimension_prenda dp ON dc.id_dim_confeccion = dp.id_dim_confeccion 
-    JOIN 
-        caja_prenda cp ON dp.id_dim_prenda = cp.id_dim_prenda
-    JOIN 
-        prenda p ON cp.id_caja = p.id_caja 
-    WHERE 
-        cp.id_caja = '101'
-) subquery
-UNION ALL
-SELECT 
-    'No hay datos' AS id_caja,
-    NULL AS cantidad, 
-    null AS id_guia,
-    NULL AS tipo_prenda, 
-    NULL AS estilo_prenda, 
-    NULL AS talla, 
-    NULL AS genero,
-    ' ' AS ml,
-    ' ' AS mh,
-    ' ' AS mp,
-    ' ' AS mm,
-    ' ' AS mc,
-    ' ' AS mca,
-    ' ' AS mmu
-WHERE NOT EXISTS (
-    SELECT 1 
-    FROM dimension_confeccion dc
-    JOIN guia_confeccion gconf ON dc.id_guia_confeccion = gconf.id_guia_confeccion
-    JOIN tipo_prenda tp ON dc.id_tipo_prenda = tp.id_tipo_prenda
-    JOIN estilo_prenda ep ON dc.id_estilo_prenda = ep.id_estilo_prenda
-    JOIN talla t ON dc.id_talla = t.id_talla
-    JOIN genero g ON dc.id_genero = g.id_genero
-    JOIN dimension_prenda dp ON dc.id_dim_confeccion = dp.id_dim_confeccion 
-    JOIN caja_prenda cp ON dp.id_dim_prenda = cp.id_dim_prenda
-    JOIN prenda p ON cp.id_caja = p.id_caja 
-    WHERE cp.id_caja = '101'
-);
+        resultados = [
+            {
+                "id_empleado": row[0],
+                "nombre": row[1],
+                "primer_apellido": row[2],
+                "segundo_apellido": row[3],
+                "id_correo": row[4],
+                "dni": row[5],
+                "id_cargo": row[6],
+                "id_caja": row[7],
+                "fecha_creacion": row[8],
+                "tipo_prenda": row[9],
+            }
+            for row in rows
+        ]
 
+        return JsonResponse(resultados, safe=False)
 ```
 
 ***VIEW - Detalle caja***
