@@ -140,6 +140,27 @@ WHERE estado = 'En Proceso';
   <summary>TRIGGERS</summary>
   
 ```sql
+-- ========= TRIGGERS =========
+-- Verificar si la cantidad utilizada en una actividad diaria no supera la capacidad total de la máquina asignada.
+
+CREATE OR REPLACE FUNCTION verificar_capacidad_maquina()
+RETURNS TRIGGER AS $$
+DECLARE
+    capacidad_maquina INT;
+BEGIN
+    -- Obtener la capacidad total de la máquina
+    SELECT capacidad_total INTO capacidad_maquina
+    FROM maquina
+    WHERE id_maquina = NEW.id_maquina;
+    
+    -- Verificar si la cantidad utilizada supera la capacidad de la máquina
+    IF NEW.cantidad_hecha > capacidad_maquina THEN
+        RAISE EXCEPTION 'La cantidad utilizada (%s) excede la capacidad de la máquina (%s)', NEW.cantidad_hecha, capacidad_maquina;
+    END IF;
+    
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
 
 ```
 </details>
