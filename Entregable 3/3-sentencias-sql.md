@@ -258,7 +258,7 @@
               o.fecha_inicio,
               o.fecha_fin,
               o.cantidad,
-              o.estado AS estado_orden,
+              e.nombre AS estado_orden,
               a.nombre AS area,
               tc.nombre AS tipo_corte,
               tmp.nombre AS tipo_materia_prima,
@@ -267,11 +267,15 @@
           FROM
               orden_producción o
           JOIN
+              estado e ON o.id_estado = e.id_estado
+          JOIN
               area a ON o.id_area = a.id_area
           JOIN
               dimension_corte dc ON o.id_dim_corte = dc.id_dim_corte
           JOIN
-              tipo_corte tc ON dc.id_tipo_corte = tc.id_tipo_corte
+              parte_corte_detalle pcd ON dc.id_dim_parte_prenda = pcd.id_dim_parte_prenda
+          JOIN
+              tipo_corte tc ON pcd.id_tipo_corte = tc.id_tipo_corte
           JOIN
               actividad_diaria ad ON o.id_orden_producción = ad.id_orden_producción
           JOIN
@@ -285,7 +289,7 @@
           WHERE
               a.nombre = 'Corte' -- Filtrar por área 'Corte'
           GROUP BY
-              o.id_orden_producción, o.fecha_inicio, o.fecha_fin, o.cantidad, o.estado, a.nombre, tc.nombre, tmp.nombre,       
+              o.id_orden_producción, o.fecha_inicio, o.fecha_fin, o.cantidad, e.nombre, a.nombre, tc.nombre, tmp.nombre,       
               o.id_orden_trabajo, o.fecha_creacion
           ORDER BY
               o.fecha_inicio DESC;
@@ -323,13 +327,15 @@
               o.cantidad AS cantidad_orden,
               m.id_maquina,
               ma.cantidad_hecha AS cantidad_realizar,
-              t.nombre AS tipo_corte
+              tc.nombre AS tipo_corte
           FROM actividad_diaria a
           JOIN maquina_actividad ma ON a.id_actividad = ma.id_actividad
           JOIN maquina m ON ma.id_maquina = m.id_maquina
           JOIN orden_producción o ON a.id_orden_producción = o.id_orden_producción
-          JOIN corte c ON o.id_dim_corte = c.id_dim_corte
-          JOIN dimension_corte t ON c.id_dim_corte = t.id_dim_corte
+          JOIN corte c ON c.id_lote = o.id_dim_corte  -- Ajuste en esta línea para relacionar correctamente
+          JOIN dimension_corte dc ON c.id_dim_corte = dc.id_dim_corte
+          JOIN parte_corte_detalle pcd ON dc.id_dim_parte_prenda = pcd.id_dim_parte_prenda
+          JOIN tipo_corte tc ON pcd.id_tipo_corte = tc.id_tipo_corte
           WHERE a.fecha_actividad = CURRENT_DATE
           ORDER BY o.id_orden_producción, m.id_maquina;
 
@@ -345,8 +351,8 @@
 | --- |
 | Eventos |
 | **1. Botón Operaio corte:** El oprario insertara los valores del corte que se realizaxo y la cantidad de lote usado |
-|**INSERT INTO lote (id_tipo_lote, cantidad, id_dim_corte, id_dim_confeccion, id_dim_materia_prima, id_actividad, fecha_creacion) VALUES (<1>, <2>, <3>, NULL, NULL, <4>, <6>);**|
-|**INSERT INTO Registro_uso_lote (id_actividad, id_lote, cantidad_usada) VALUES (<5>, <7>, <8>);**|
+|**INSERT INTO lote (id_tipo_lote, cantidad, id_dim_corte, id_estado, id_dim_confeccion, id_dim_materia_prima, id_actividad, fecha_creacion) VALUES (<1>, <2>, <3>, <4>, NULL, NULL, <5>, <6>); -- se coloca en id_tipo_lote el 2, porque el 2 es para el área de corte**|
+|**INSERT INTO Registro_uso_lote (id_actividad, id_lote, cantidad_usada) VALUES (NULL, <7>, <8>);**|
 
 ####  2.5
 | Código requerimiento | RV203 |
@@ -456,32 +462,33 @@
               op.cantidad,
               l.id_lote,
               l.cantidad AS cantidad_lote,
-              t.nombre AS tipo_corte,
-              COUNT(*) AS cantidad_cortes,
+              tc.nombre AS tipo_corte,
+              COUNT(c.id_corte) AS cantidad_cortes,
               e.nombre AS estado_orden,
               (SELECT
                   (SUM(l2.cantidad) / op.cantidad) * 100
-              FROM lote l2
-              INNER JOIN corte c2 ON l2.id_lote = c2.id_lote
-              WHERE l2.id_orden_producción = op.id_orden_producción) AS progreso_produccion
+               FROM lote l2
+               INNER JOIN corte c2 ON l2.id_lote = c2.id_lote
+               INNER JOIN orden_producción op2 ON op2.id_dim_corte = c2.id_dim_corte
+               WHERE op2.id_orden_producción = op.id_orden_producción) AS progreso_produccion
           FROM orden_producción op
-          INNER JOIN lote l ON op.id_orden_producción = l.id_orden_producción
-          INNER JOIN corte c ON l.id_lote = c.id_lote
-          INNER JOIN dimension_corte d ON c.id_dim_corte = d.id_dim_corte
-          INNER JOIN tipo_corte t ON d.id_tipo_corte = t.id_tipo_corte
-          INNER JOIN estado e ON op.estado = e.id_estado
+          INNER JOIN estado e ON op.id_estado = e.id_estado
+          INNER JOIN dimension_corte dc ON op.id_dim_corte = dc.id_dim_corte
+          INNER JOIN corte c ON dc.id_dim_corte = c.id_dim_corte
+          INNER JOIN lote l ON c.id_lote = l.id_lote
+          INNER JOIN parte_corte_detalle pcd ON dc.id_dim_parte_prenda = pcd.id_dim_parte_prenda
+          INNER JOIN tipo_corte tc ON pcd.id_tipo_corte = tc.id_tipo_corte
           GROUP BY
               op.id_orden_producción,
               op.cantidad,
               l.id_lote,
               l.cantidad,
-              t.nombre,
+              tc.nombre,
               e.nombre
           ORDER BY
               op.id_orden_producción,
-              t.nombre,
+              tc.nombre,
               cantidad_cortes DESC;
-          
 
 ### 3. Confección 
 ### 4. Almacén de tránsito 
