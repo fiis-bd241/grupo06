@@ -345,7 +345,7 @@
 | Codigo interfaz |  IV204 |
 | Imagen interfaz  |
 
-![](../Entregable%201/Mockups%20-%20Figma/Corte/corte_v2/operario_corte.png)
+![](../Entregable%201/Mockups%20-%20Figma/Corte/corte_v2/operario_corte2.png)
 
 | Sentencias SQL |
 | --- |
