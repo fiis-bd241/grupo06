@@ -20,7 +20,10 @@ source myenv/bin/activate
 python -m venv myenv
 myenv\Scripts\activate
 ```
-
+Si hay un error de PSSecurityException:
+```
+Set-ExecutionPolicy Unrestricted -Scope Process
+```
 ***Instala Django y psycopg2-binary (conector de PostgreSQL para Python).***
 
 ```
