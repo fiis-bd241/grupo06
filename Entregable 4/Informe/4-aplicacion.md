@@ -104,6 +104,10 @@ class AcabadoListView(APIView):
 
 #### Submenú 2: **Lote-caja**: 
 
+![Acabados sub2](./gif/sub2.gif)
+
+
+
 Muestra las cajas asignadas a los operarios de acabados y reporte entre fechas.
 
 **Navegación**: Acabados > lotes >
