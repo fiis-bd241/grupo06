@@ -104,6 +104,46 @@ Despliegue Backend y PostgreSQL : [Render](https://render.com/)
 
 
 ### Herramientas
+#### Entornos:
+* **Node.js v18.16.1**
+Descripción Formal:
+
+Node.js es un entorno de ejecución de JavaScript de código abierto y multiplataforma que permite ejecutar código JavaScript en el lado del servidor. Basado en el motor V8 de Google Chrome, Node.js es conocido por su capacidad para manejar múltiples conexiones simultáneas con alto rendimiento, gracias a su modelo de E/S no bloqueante y orientado a eventos.
+
+Versión:
+18.16.1
+
+    Características Clave:
+    
+    - Ecosistema de Paquetes: Node.js incluye npm (Node Package Manager), el gestor de paquetes más grande del mundo.
+    - Escalabilidad: Diseñado para construir aplicaciones escalables y de alto rendimiento.
+    - Event-Driven: Su arquitectura basada en eventos lo hace ideal para aplicaciones en tiempo real, como servidores web.
+    - Asincronismo: Su modelo de programación asincrónica mejora la eficiencia y el rendimiento.
+    - Extensibilidad: Compatible con la integración de varios módulos y bibliotecas.
+
+
+* **ENV (GNU coreutils) 8.32**
+
+env es una utilidad de línea de comandos que forma parte del paquete GNU Core Utilities (coreutils). Esta herramienta se utiliza para ejecutar un programa en un entorno modificado. env puede configurar variables de entorno para los procesos que se ejecuten con él, lo que resulta útil para cambiar temporalmente el entorno de ejecución.
+
+Versión:
+8.32
+
+Licencia:
+> Copyright © 2020 Free Software Foundation, Inc.
+> License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+> This is free software: you are free to change and redistribute it.
+> There is NO WARRANTY, to the extent permitted by law.
+
+
+    Características Clave:
+    
+    - Modificación del Entorno: Permite cambiar las variables de entorno antes de ejecutar un comando.
+    - Compatibilidad: Compatible con varios sistemas operativos basados en Unix.
+    - Simplicidad: Su sintaxis y uso son simples y directos.
+    - Scriptabilidad: Comúnmente utilizado en scripts de shell para asegurar que los comandos se ejecuten en un entorno controlado.
+
+
 #### Pruebas
 
 * **Postman**
