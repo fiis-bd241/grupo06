@@ -11,18 +11,21 @@
 | --- |
 | Eventos |
 | **1. Botón Buscar:** Consulta de todos los lotes que están en un estado específico, junto con la información del proveedor, la materia prima, el espacio en el que se encuentra y la fecha de entrada. |
-          SELECT    
-                    l.estado, 
-                    p.denominacion_social,
-                    mp.id_materia_prima,
-                    e.id_espacio,
-                    le.fecha_entrada
+          SELECT
+              l.id_lote,
+              p.denominacion_social,
+              e.id_espacio,
+              le.fecha_entrada,
+              tmp.nombre as tipo_materia_prima
           FROM lote l
           JOIN materia_prima mp ON l.id_lote = mp.id_lote
-          JOIN proveedor p ON mp.id_proveedor = p.id_proveedor
-          JOIN espacio e ON l.id_lote = e.id_lote
-          JOIN lote_entrada le ON l.id_lote = le.id_lote
-          WHERE l.estado = 'En almacen';
+          JOIN proveedor p on mp.id_proveedor = p.id_proveedor
+          JOIN espacio e on l.id_lote = e.id_lote
+          JOIN lote_entrada le on l.id_lote = le.id_lote
+          JOIN estado e2 on l.id_estado = e2.id_estado
+          JOIN dimension_materia_prima dmp on mp.id_dim_materia_prima = dmp.id_dim_materia_prima
+          JOIN tipo_materia_prima tmp ON dmp.id_tipo_materia_prima =tmp.id_tipo_materia_prima
+          WHERE e2.nombre = 'Disponible' AND tmp.nombre = 'Jersey';
 
 ####  1.2
 | Código requerimiento | RV102 |
@@ -175,71 +178,44 @@
 | --- |
 | Eventos |
 | **1. Botón Agregar:** Agrega a un nuevo proveedor tras obtener los campos necesarios. |
-          CREATE OR REPLACE PROCEDURE insertar_proveedor
-          (
-            p_ruc VARCHAR(11),
-            p_denominacion_social VARCHAR(100),
-            p_direccion_proveedor VARCHAR(100),
-            p_numero_telefono VARCHAR(30),
-            p_correo_electronico VARCHAR(100)
+         CREATE OR REPLACE PROCEDURE crear_proveedor(
+            -- Parametros para la nueva dirección
+            _descripcion_direccion VARCHAR(100),
+            -- Parametros para el nuevo correo
+            _direccion_correo VARCHAR(100),
+            -- Parametros para el nuevo telefono
+            _numero_telefono VARCHAR(30),
+            -- Parametros para el nuevo proveedor
+            _ruc NUMERIC(11),
+            _denominacion_social VARCHAR(100)
           )
+          AS $$  -- Double dollar signs for PL/pgSQL code block
+          DECLARE
+            -- Declarar variables locales
+            _id_direccion INT;
+            _id_correo INT;
+            _id_telefono INT;
           BEGIN
+            -- 1. Insertar nueva dirección y obtener su ID
+            INSERT INTO direccion (descripcion)
+            VALUES (_descripcion_direccion)
+            RETURNING id_direccion INTO _id_direccion;
 
-            -- 1. Insertar dirección del proveedor
-            INSERT INTO direccion
-            (
-              descripcion
-            )
-            VALUES
-            (
-              p_direccion_proveedor
-            );
+            -- 2. Insertar nuevo correo y obtener su ID
+            INSERT INTO correo (direccion_correo)
+            VALUES (_direccion_correo)
+            RETURNING id_correo INTO _id_correo;
 
-            SET @direccion_id = LAST_INSERT_ID();
+            -- 3. Insertar nuevo telefono y obtener su ID
+            INSERT INTO telefono (numero)
+            VALUES (_numero_telefono)
+            RETURNING id_telefono INTO _id_telefono;
 
-            -- 2. Insertar teléfono del proveedor
-            INSERT INTO telefono
-            (
-              numero
-            )
-            VALUES
-            (
-              p_numero_telefono
-            );
-
-            SET @telefono_id = LAST_INSERT_ID();
-
-            -- 3. Insertar correo electrónico del proveedor
-            INSERT INTO correo
-            (
-              direccion_correo
-            )
-            VALUES
-            (
-              p_correo_electronico
-            );
-
-            SET @correo_id = LAST_INSERT_ID();
-
-            -- 4. Insertar proveedor
-            INSERT INTO proveedor
-            (
-              ruc,
-              denominacion_social,
-              id_direccion,
-              id_telefono,
-              id_correo
-            )
-            VALUES
-            (
-              p_ruc,
-              p_denominacion_social,
-              @direccion_id,
-              @telefono_id,
-              @correo_id
-            );
-
-          END;
+            -- 4. Insertar nuevo proveedor utilizando las IDs obtenidas
+            INSERT INTO proveedor (ruc, denominacion_social, id_direccion, id_telefono, id_correo)
+            VALUES (_ruc, _denominacion_social, _id_direccion, _id_telefono, _id_correo);
+          END;  -- Notice the indentation here
+          $$ LANGUAGE plpgsql;
           
 ### 2. Corte
 ####  2.1
