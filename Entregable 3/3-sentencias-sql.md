@@ -312,8 +312,7 @@
           JOIN dimension_corte dc ON c.id_dim_corte = dc.id_dim_corte
           JOIN parte_corte_detalle pcd ON dc.id_dim_parte_prenda = pcd.id_dim_parte_prenda
           JOIN tipo_corte tc ON pcd.id_tipo_corte = tc.id_tipo_corte
-          WHERE a.fecha_actividad = CURRENT_DATE
-          ORDER BY o.id_orden_producción, m.id_maquina;
+          ORDER BY a.fecha_actividad DESC;
 
 ####  2.4
 | Código requerimiento | RV208 |
