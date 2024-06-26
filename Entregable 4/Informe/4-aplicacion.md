@@ -586,6 +586,9 @@ def datos_list_a(request):
 
 ```
 
+![Acabados 33](./pantallas/sub3acab.png)
+
+
 </details>
 
 
