@@ -82,14 +82,23 @@
 | --- |
 | Eventos |
 | **1. Botón Buscar:** Consulta de todos los lotes correspondientes a un proveedor específico, agrupados por materia prima y mostrando la cantidad de cada uno. |
-          SELECT    p.denominacion_social,
-                    mp.id_materia_prima, 
-                    COUNT(l.id_lote) as cantidad_lotes
-          FROM proveedor p
+          SELECT 
+              tmp.nombre AS materia_prima,
+              p.denominacion_social AS proveedor,
+              COUNT(*) AS cantidad_lotes
+          FROM 
+              proveedor p
           JOIN materia_prima mp ON p.id_proveedor = mp.id_proveedor
-          JOIN lote l ON mp.id_lote = l.id_lote
-          GROUP BY p.denominacion_social, mp.id_materia_prima;
-          WHERE p.denominacion_social = 'Textiles del Sol'
+          join lote l ON mp.id_lote = l.id_lote
+          JOIN dimension_materia_prima dmp on mp.id_dim_materia_prima = dmp.id_dim_materia_prima
+          JOIN tipo_materia_prima tmp ON dmp.id_tipo_materia_prima =tmp.id_tipo_materia_prima
+          WHERE 
+              l.id_estado = 12 AND
+              p.denominacion_social = 'Serna y Cabanillas S.Com.' and 
+              tmp.nombre = 'Full Lycra'
+          GROUP BY 
+              tmp.nombre, 
+              p.denominacion_social;
 
 ####  1.4
 | Código requerimiento | RV104 |
