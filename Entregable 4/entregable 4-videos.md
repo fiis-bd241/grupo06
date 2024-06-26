@@ -9,7 +9,7 @@
 
 ## Confeccion - William Valencia
 
-[![](../Integrantes/William%20Valencia/William%20Valencia.jpg)](https://www.youtube.com/_MZxRfZrbCo)
+[![](../Integrantes/William%20Valencia/William%20Valencia.jpg)](https://www.youtube.com/watch?v=_MZxRfZrbCo)
 
 ## Almacen de transito - Fabrizio Garcia
 
