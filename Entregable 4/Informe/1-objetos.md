@@ -78,11 +78,17 @@ Acontinuación le presentamos cada módulo:
 -- ========= INDICES =========
 -- Nos mostrará el plan de ejecución de la consulta y el tiempo de ejecución real, permitiéndonos evaluar la efectividad del índice creado
 
-CREATE INDEX idx_orden_produccion_estado_fecha_inicio ON orden_producción (id_estado, fecha_inicio);
+CREATE INDEX idx_orden_produccion_estado_fecha_inicio7 ON orden_producción (id_estado, fecha_inicio);
 EXPLAIN ANALYZE
 SELECT * FROM orden_producción
 WHERE id_estado = 9 -- Que es el estado En proceso
-  AND fecha_inicio BETWEEN '2024-01-01' AND '2024-06-30';
+  AND fecha_inicio BETWEEN '2023-01-01' AND '2023-12-30';
+
+![](./pantallas/Corte/idx_orden_produccion_estado_fecha_inicio7_antes.png)
+
+
+
+
 ```
 </details>
 
