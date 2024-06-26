@@ -63,13 +63,6 @@ Acontinuación le presentamos cada módulo:
 
 
 ***Querys***
-<details>
-  <summary>SENTENCIAS SQL COMPLEJAS</summary>
-  
-```sql
-
-```
-</details>
 
 <details>
   <summary>ÍNDICES</summary>
@@ -165,14 +158,6 @@ JOIN area a ON op.id_area = a.id_area;
 -- Obtener todas las órdenes de producción que están en estado 'En Proceso':
 SELECT * FROM vista_ordenes_produccion
 WHERE estado = 'En Proceso';
-
-```
-</details>
-
-<details>
-  <summary>SECUENCIAS</summary>
-  
-```sql
 
 ```
 </details>
