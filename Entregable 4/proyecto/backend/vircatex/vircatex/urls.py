@@ -27,4 +27,15 @@ from pcp.views import *
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("acabado/", acabado_list, name="acabado_list"),
+    path('ordenes-produccion-confeccion/', OrdenesProduccionConfView.as_view(), name='ordenes-produccion-confeccion'),
+    path('descripcion-confeccion/<int:id_orden_produccion>/', DescripcionConfeccionView.as_view(), name='descripcion-confeccion'),
+    path('empleados-confeccion/', EmpleadosConfView.as_view(), name='empleados-confeccion'),
+    path('asignar-empleado-confeccion/', AsignarEmpleadoConfView.as_view(), name='asignar-empleado-confeccion'),
+    path('ordenes-confeccion-asignadas-hoy/', OrdenesConfAsignadasEmplView.as_view(), name='ordenes-confeccion-asignadas-hoy'),
+    path('lista-empleados-confeccion/', EmpleadosConfRegistroView.as_view(), name='ordenes-asignadas-hoy'),
+    path('ordenes-confeccion-empleado/', OrdenesConfEmplView.as_view(), name='ordenes-confeccion-empleado'),
+    path('actualizar-cantidad/', ActualizarCantidadView.as_view(), name='actualizar-cantidad'),
+    path('lotes-corte-empleado/', LotesCorteEmPView.as_view(), name='lotes-corte-empleado'),
+    path('insertar-consumo-lote-corte/', InsertarConsumoLoteCutView.as_view(), name='insertar-consumo-lote-corte'),
+
 ]
