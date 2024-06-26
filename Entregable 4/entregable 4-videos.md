@@ -17,7 +17,7 @@
 
 ## Acabados - Javier Arteaga
 
-[![](../Integrantes/Javier%20Arteaga/Javier%20Arteaga.jpg)](https://www.youtube.com/)
+[![](../Integrantes/Javier%20Arteaga/Javier%20Arteaga.jpg)](https://www.youtube.com/watch?v=ObTiKyj-0g4)
 
 
 ## Calidad - Juan Villanueva
