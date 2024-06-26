@@ -2,7 +2,7 @@
 ## Código
 
 ### Front end
-Abrir en Google Chrome: [Vircatex - render](https://sistema-web-v-f.onrender.com/#/acabados/lotes) 
+Abrir en Google Chrome: [Vircatex - render](https://sistema-web-v-f.onrender.com/) 
 
 [Github FrontEnd - React](https://github.com/javierarteagagonzales/sistema-web-v-f) 
 
