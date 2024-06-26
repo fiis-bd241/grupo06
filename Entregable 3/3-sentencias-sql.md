@@ -104,18 +104,34 @@
 | Código requerimiento | RV104 |
 | --- | --- |
 | Codigo interfaz |  IV104 |
-| Imagen interfaz |  ![](../Entregable%201/Mockups%20-%20Figma/almacen-central/consulta6.png)  |
+| Imagen interfaz |  ![](../Entregable%201/Mockups%20-%20Figma/almacen-central/consulta6v2.png)  |
 
 | Sentencias SQL |
 | --- |
 | Eventos |
 | **1. Botón Buscar:** Consulta de todos los lotes que han entrado en el almacén en una fecha específica. |
-          SELECT 
-          le.fecha_entrada, 
-          l.id_lote
-          FROM lote_entrada le
-          JOIN lote l ON le.id_lote = l.id_lote
-          WHERE le.fecha_entrada = '2022-01-01';
+          SELECT
+              le.fecha_entrada,
+              l.id_lote,
+              tmp.nombre AS nombre_material,
+              p.denominacion_social AS nombre_proveedor,
+              l.cantidad
+          FROM
+              lote_entrada le
+          JOIN
+              lote l ON le.id_lote = l.id_lote
+          JOIN
+              materia_prima mp ON l.id_lote = mp.id_lote
+          JOIN
+              dimension_materia_prima dmp ON mp.id_dim_materia_prima = dmp.id_dim_materia_prima
+          JOIN
+              tipo_materia_prima tmp ON dmp.id_tipo_materia_prima = tmp.id_tipo_materia_prima
+          JOIN
+              proveedor p ON mp.id_proveedor = p.id_proveedor
+          WHERE
+              DATE(le.fecha_entrada) = DATE('2024-06-25') AND
+              tmp.nombre = 'Full Lycra' and 
+              p.denominacion_social = 'Fábrica Españolas S.C.P'
 
 ####  1.5
 | Código requerimiento | RV105 |
