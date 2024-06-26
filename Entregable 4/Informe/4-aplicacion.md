@@ -51,7 +51,7 @@ Presentamos el flujo de pantallas de la App Web: **[Sistema Vircatex](https://si
   
   #### Submenú 1: Corte > Ordenes de produccion
   Muestra los datos que debe tener una orden de produccion para el area de corte, luego de dar asignar se colora otra ventana
-  link imagen
+  ![Acabados 1](./pantalla/Corte/vista_Orden_Produccion.png)
 
   *Consulta 1: Lista de ordenes de produccion
   
