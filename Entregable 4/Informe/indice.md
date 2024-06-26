@@ -1,5 +1,6 @@
 # Entregable 4 - Informe
 ## Índice
+[Introducción](intro.md)
 1. [Objetos de BD](1-objetos.md)
 2. [Proceso Batch](2-proceso-batch.md)
 3. [Arquitectura](3-arquitectura.md)
