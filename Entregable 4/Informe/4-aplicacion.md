@@ -152,7 +152,7 @@ class AsignarView(View):
 **Navegación**: Corte > operario corte > Actividades
 Muestra las actividades que debe realizar cada maquina al dia
 
-![](./pantallas/Corte/vista_actividades_maquina_dia.png.png)
+![](./pantallas/Corte/vista_actividades_maquina_dia.png)
 
 *Consulta:
 ```python
@@ -345,7 +345,6 @@ class LotesView(View):
 #### Submenú 6: 
 **Navegación**: Corte > detalles corte > Corte x OP
 Muestra el detalle del numero de cortes por el orden de produccion
-
 ![](./pantallas/Corte/Vista_corteXOP.png)
 
 *Consulta:
