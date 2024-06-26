@@ -74,22 +74,55 @@ Acontinuación le presentamos cada módulo:
 <details>
   <summary>ÍNDICES</summary>
   
+* **Índices:**
+1. Consultar datos en actividad_diaria en los campos fecha_actividad, id_orden_producción
+
 ```sql
--- ========= INDICES =========
--- Nos mostrará el plan de ejecución de la consulta y el tiempo de ejecución real, permitiéndonos evaluar la efectividad del índice creado
-
-CREATE INDEX idx_orden_produccion_estado_fecha_inicio7 ON orden_producción (id_estado, fecha_inicio);
+-- 
 EXPLAIN ANALYZE
-SELECT * FROM orden_producción
-WHERE id_estado = 9 -- Que es el estado En proceso
-  AND fecha_inicio BETWEEN '2023-01-01' AND '2023-12-30';
+SELECT * FROM actividad_diaria
+WHERE fecha_actividad = '2024-01-22'
+  AND id_orden_producción = 1;
 
-![](./pantallas/Corte/idx_orden_produccion_estado_fecha_inicio7_antes.png)
+```
+![](./pantallas/Corte/idx_actividad_fecha_orden1_antes.png)
 
+```sql
+-- Índice:
 
+CREATE INDEX idx_actividad_fecha_orden1 ON actividad_diaria (fecha_actividad, id_orden_producción);
+EXPLAIN ANALYZE
+SELECT * FROM actividad_diaria
+WHERE fecha_actividad = '2024-01-22'
+  AND id_orden_producción = 1;
+
+```
+![](./pantallas/Corte/idx_actividad_fecha_orden1_despues.png)
+
+----
+
+2. Índice en lote en los campos de id_estado, fecha_creacion
+```sql
+EXPLAIN ANALYZE
+SELECT * FROM lote
+WHERE id_estado = 9
+  AND fecha_creacion >= '2024-01-01';
+
+```
+![select2](./pantallas/Corte/idx_lote_estado_fecha_creacion1_antes.png)
+
+```sql
+CREATE INDEX idx_lote_estado_fecha_creacion1 ON lote (id_estado, fecha_creacion);
+EXPLAIN ANALYZE
+SELECT * FROM lote
+WHERE id_estado = 9
+  AND fecha_creacion >= '2024-01-01';
 
 
 ```
+![select2a](./pantallas/Corte/idx_lote_estado_fecha_creacion1_despues.png)
+
+
 </details>
 
 <details>
