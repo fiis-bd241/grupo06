@@ -145,7 +145,20 @@ class AsignarView(View):
 
         return JsonResponse({'status': 'success'})
 ```
+#### Submenú 2: Corte > operario corte > Actividades
+![](./pantallas/Corte/vista_actividades_maquina_dia.png.png)
 
+#### Submenú 3: Corte > operario corte > Corte de lote
+![](./pantallas/Corte/vista_insert_corte_lote.png)
+
+#### Submenú 4: Corte > detalles corte > Actividades - Maquina
+![](./pantallas/Corte/vista_actividad_diaria_maquina.png)
+
+#### Submenú 5: Corte > detalles corte > Lotes
+![](./pantallas/Corte/vista_numero_lotes_dia_mes.png)
+
+#### Submenú 6: Corte > detalles corte > Corte x OP
+![](./pantallas/Corte/Vista_corteXOP.png)
 
 
 </details>
