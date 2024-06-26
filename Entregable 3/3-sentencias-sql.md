@@ -353,12 +353,10 @@
               maquina_actividad ma ON ad.id_actividad = ma.id_actividad
           JOIN 
               maquina m ON ma.id_maquina = m.id_maquina
-          WHERE 
-              ad.fecha_actividad = '2024-06-03'  -- Aquí especificas la fecha deseada
           GROUP BY 
               ma.id_maquina, m.capacidad_total, ad.fecha_actividad
           ORDER BY 
-              cantidad_actividades DESC;  -- Ordenar la cantidad de actividades de forma descendente
+              fecha_actividad DESC;  -- Ordenar la cantidad de actividades de forma descendente
 
 ####  2.6
 | Código requerimiento | RV204 |
