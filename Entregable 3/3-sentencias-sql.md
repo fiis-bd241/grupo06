@@ -10,7 +10,7 @@
 | Sentencias SQL |
 | --- |
 | Eventos |
-| **1. Botón Buscar:** Consulta de todos los lotes que están en un estado específico, junto con la información del proveedor, la materia prima, el espacio en el que se encuentra y la fecha de entrada. |
+| **1. Botón Buscar:** Consulta de todos los lotes que están en un estado y material específico, junto con el nombre del proveedor, la materia prima y la fecha de entrada. |
           SELECT
               l.id_lote,
               p.denominacion_social,
