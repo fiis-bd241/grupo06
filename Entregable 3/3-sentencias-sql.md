@@ -99,54 +99,11 @@
           GROUP BY 
               tmp.nombre, 
               p.denominacion_social;
-
+              
 ####  1.4
 | Código requerimiento | RV104 |
 | --- | --- |
 | Codigo interfaz |  IV104 |
-| Imagen interfaz |  ![](../Entregable%201/Mockups%20-%20Figma/almacen-central/consulta4.png)  |
-
-| Sentencias SQL |
-| --- |
-| Eventos |
-| **1. Botón Buscar:** Consulta de todos los lotes que están asociados a una actividad específica, junto con la información del proveedor y la materia prima correspondiente. |
-         SELECT 
-         a.id_actividad, 
-         COUNT(l.id_lote) as cantidad_lotes, 
-         p.denominacion_social, 
-         mp.id_materia_prima
-          FROM actividad_diaria a
-          JOIN lote l ON a.id_actividad = l.id_actividad
-          JOIN materia_prima mp ON l.id_lote = mp.id_lote
-          JOIN proveedor p ON mp.id_proveedor = p.id_proveedor
-          WHERE a.id_actividad = 'corte'
-          GROUP BY a.id_actividad, p.denominacion_social, mp.id_materia_prima; 
-
-####  1.5
-| Código requerimiento | RV105 |
-| --- | --- |
-| Codigo interfaz |  IV105 |
-| Imagen interfaz |  ![](../Entregable%201/Mockups%20-%20Figma/almacen-central/consulta5.png)  |
-
-| Sentencias SQL |
-| --- |
-| Eventos |
-| **1. Botón Buscar:** Consulta de todos los lotes que están en un estado específico, junto con la información del proveedor y la materia prima correspondiente. |
-          SELECT 
-          l.estado, 
-          COUNT(l.id_lote) as cantidad_lotes, 
-          p.denominacion_social, 
-          mp.id_materia_prima
-          FROM lote l
-          JOIN materia_prima mp ON l.id_lote = mp.id_lote
-          JOIN proveedor p ON mp.id_proveedor = p.id_proveedor
-          WHERE l.estado = 'terminado'
-          GROUP BY l.estado, p.denominacion_social, mp.id_materia_prima;
-
-####  1.6
-| Código requerimiento | RV106 |
-| --- | --- |
-| Codigo interfaz |  IV106 |
 | Imagen interfaz |  ![](../Entregable%201/Mockups%20-%20Figma/almacen-central/consulta6.png)  |
 
 | Sentencias SQL |
@@ -160,10 +117,10 @@
           JOIN lote l ON le.id_lote = l.id_lote
           WHERE le.fecha_entrada = '2022-01-01';
 
-####  1.7
-| Código requerimiento | RV107 |
+####  1.5
+| Código requerimiento | RV105 |
 | --- | --- |
-| Codigo interfaz |  IV107 |
+| Codigo interfaz |  IV105 |
 | Imagen interfaz |  ![](../Entregable%201/Mockups%20-%20Figma/almacen-central/consulta7.png)  |
 
 | Sentencias SQL |
@@ -177,10 +134,10 @@
           JOIN lote l ON ls.id_lote = l.id_lote
           WHERE ls.fecha_salida = '2022-01-01';
 
-####  1.8
-| Código requerimiento | RV107 |
+####  1.6
+| Código requerimiento | RV106 |
 | --- | --- |
-| Codigo interfaz |  IV107 |
+| Codigo interfaz |  IV106 |
 | Imagen interfaz |  ![](../Entregable%201/Mockups%20-%20Figma/almacen-central/Agregar%20proveedor.png)  |
 
 | Sentencias SQL |
