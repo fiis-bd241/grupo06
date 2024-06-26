@@ -76,7 +76,7 @@
 | Código requerimiento | RV103 |
 | --- | --- |
 | Codigo interfaz |  IV103 |
-| Imagen interfaz |  ![](../Entregable%201/Mockups%20-%20Figma/almacen-central/consulta3.png)  |
+| Imagen interfaz |  ![](../Entregable%201/Mockups%20-%20Figma/almacen-central/consulta3v2.png)  |
 
 | Sentencias SQL |
 | --- |
