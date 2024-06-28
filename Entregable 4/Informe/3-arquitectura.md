@@ -70,11 +70,54 @@ tzdata==2024.1
 | Editor de código             | Visual Studio Code <br> [![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-1.65.0-blue.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)]()                                |
 | Bibliotecas                  | Material UI <br> [![Material UI](https://img.shields.io/badge/Material%20UI-v5.0.0-blue.svg?style=for-the-badge&logo=material-ui&logoColor=white)]() |
 
+
+**React**
+
+React es una biblioteca de JavaScript de código abierto desarrollada por Facebook. Se utiliza para construir interfaces de usuario (UI) de una sola página de manera eficiente. React emplea un modelo basado en componentes, permitiendo a los desarrolladores construir UIs complejas a partir de componentes pequeños y reutilizables. Utiliza un DOM virtual para mejorar el rendimiento y facilita el manejo del estado de la aplicación con su sistema de gestión de estado como React Context o bibliotecas como Redux.
+
+
+**Django**
+
+Django es un framework de desarrollo web de alto nivel para Python que fomenta un desarrollo rápido y un diseño limpio y pragmático. Ofrece una estructura completa para el desarrollo web, incluyendo un ORM (Object-Relational Mapping), un sistema de plantillas, validación de formularios, administración, autenticación, enrutamiento y más. Django sigue el principio DRY (Don't Repeat Yourself) y el patrón MVC (Model-View-Controller), aunque en su jerga se utiliza MVT (Model-View-Template).
+
+
+**Django Security**
+
+Django Security se refiere a las características y prácticas de seguridad incorporadas en el framework Django. Estas incluyen la protección contra ataques comunes en aplicaciones web, tales como inyección de SQL, cross-site scripting (XSS), cross-site request forgery (CSRF) y clickjacking. Django incluye middleware de seguridad, configuración segura por defecto y recomendaciones para prácticas seguras de desarrollo web.
+
+**JavaScript**
+
+JavaScript es un lenguaje de programación de alto nivel, dinámico y basado en prototipos, utilizado principalmente para el desarrollo del front-end de aplicaciones web. Es el lenguaje nativo de los navegadores web y permite la creación de contenido interactivo y dinámico en sitios web.
+
+**Python**
+
+Python es un lenguaje de programación interpretado, de alto nivel y con una sintaxis clara y legible. Es conocido por su simplicidad y productividad, lo que lo hace ideal para el desarrollo de back-end con frameworks como Django. Python soporta múltiples paradigmas de programación, incluyendo la programación orientada a objetos, imperativa y funcional.
+
+**Editor de código: Visual Studio Code**
+
+Visual Studio Code (VS Code) es un editor de código fuente desarrollado por Microsoft. Es ligero, rápido y extensible, soportando una amplia gama de lenguajes de programación y tecnologías. VS Code ofrece características como autocompletado, depuración integrada, terminal incorporado, y una vasta colección de extensiones para mejorar la productividad del desarrollo.
+
+**Bibliotecas: Material UI**
+
+Material UI es una biblioteca de componentes de interfaz de usuario para React que implementa el sistema de diseño Material Design de Google. Proporciona una colección de componentes de React que se pueden personalizar y utilizar para construir aplicaciones web atractivas y consistentes. Material UI incluye componentes pre-estilizados para botones, formularios, diálogos, tablas y más, facilitando el desarrollo de UIs modernas y receptivas.
+
+
 ### Arquitectura de Datos
 
 | Aspecto de Arquitectura | Detalle       |
 |--------------------------|---------------|
 | Motor de Base de Datos   | PostgreSQL <br> [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16.0-blue.svg?style=for-the-badge&logo=postgresql&logoColor=white)]()    |
+
+**PostgreSQL** es un sistema de gestión de bases de datos relacional y orientado a objetos de código abierto, conocido por su robustez, extensibilidad y cumplimiento de estándares SQL.
+
+* Características Técnicas de PostgreSQL:
+
+  - Conformidad con los estándares SQL: PostgreSQL cumple con muchos de los estándares SQL, lo que garantiza la portabilidad y la compatibilidad de las aplicaciones.
+  - Extensibilidad: PostgreSQL permite a los desarrolladores crear nuevos tipos de datos, operadores, funciones, índices y métodos de acceso, lo que lo hace altamente flexible y adaptable a necesidades específicas.
+  - Integridad de Datos: Ofrece características avanzadas para mantener la integridad de los datos, como claves primarias y foráneas, restricciones únicas y de verificación, y transacciones ACID (Atomicidad, Consistencia, Aislamiento, Durabilidad).
+  - Soporte para JSON: PostgreSQL tiene un sólido soporte para datos JSON, permitiendo el almacenamiento y manipulación de datos en formato JSON, y facilitando su uso como base de datos híbrida relacional/noSQL.
+  - Rendimiento y Escalabilidad: Ofrece herramientas y técnicas de optimización de rendimiento como índices avanzados (B-tree, Hash, GIN, GiST), particionamiento de tablas y paralelización de consultas.
+
 
   [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue?style=for-the-badge)](#estructura-del-proyecto)
 
