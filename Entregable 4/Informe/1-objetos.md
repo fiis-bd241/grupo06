@@ -785,7 +785,75 @@ EXECUTE PROCEDURE VALIDAR_HORARIO_CAJA_ACAB_SALIDA();
   <summary>SENTENCIAS SQL COMPLEJAS</summary>
   
 ```sql
+class InspeccionesAPIView(APIView):
 
+    def get(self, request, *args, **kwargs):
+        id_orden_produccion = request.query_params.get('id_orden_produccion', None)
+        query = """
+            SELECT
+                OP.ID_ORDEN_PRODUCCION,
+                I.ID_INSPECCION,
+                I.ID_LOTE,
+                I.FECHA_INSPECCION,
+                I.CANTIDAD_DEFECTUOSOS,
+                I.ID_AQL_CODIGO,
+                AN.NOMBRE,
+                AS.NIVEL_SIGNIFICANCIA,
+                E.NOMBRE,
+                R.NOMBRE
+            FROM INSPECCION_CALIDAD I
+            JOIN LOTE LT ON I.ID_LOTE = LT.ID_LOTE
+            JOIN ACTIVIDAD_DIARIA AD ON LT.ID_ACTIVIDAD = AD.ID_ACTIVIDAD
+            JOIN ORDEN_PRODUCCION OP ON AD.ID_ORDEN_PRODUCCION = OP.ID_ORDEN_PRODUCCION
+            JOIN AQL_NIVEL AN ON AN.ID_AQL_NIVEL = I.ID_AQL_NIVEL
+            JOIN AQL_NIVEL_SIGNIFICANCIA AS ON AS.ID_NIVEL_SIGNIFICANCIA = I.ID_NIVEL_SIGNIFICANCIA
+            JOIN ESTADO E ON E.ID_ESTADO = I.ID_ESTADO
+            JOIN RESULTADO R ON R.ID_RESULTADO = I.ID_RESULTADO
+            JOIN AQL_RESULTADO_RANGO ARS ON ARS.ID_AQL_CODIGO = I.ID_AQL_CODIGO
+        """
+        if id_orden_produccion:
+            query += " WHERE OP.ID_ORDEN_PRODUCCION = %s"
+            query_params = [id_orden_produccion]
+        else:
+            query_params = []
+
+        query += " ORDER BY OP.ID_ORDEN_PRODUCCION DESC"
+
+        with connection.cursor() as cursor:
+            cursor.execute(query, query_params)
+            rows = cursor.fetchall()
+            columns = [col[0] for col in cursor.description]
+            results = [dict(zip(columns, row)) for row in rows]
+
+        return JsonResponse(results, safe=False)
+
+    @method_decorator(csrf_exempt)
+    def post(self, request, *args, **kwargs):
+        data = request.data
+        id_inspeccion = data.get('id_inspeccion')
+        cantidad_defectuosos = data.get('cantidad_defectuosos')
+
+        if not id_inspeccion or cantidad_defectuosos is None:
+            return Response({"error": "Datos incompletos"}, status=status.HTTP_400_BAD_REQUEST)
+
+        with connection.cursor() as cursor:
+            cursor.execute("""
+                SELECT ARS.MAX_ACEPTACION
+                FROM INSPECCION_CALIDAD I
+                JOIN AQL_RESULTADO_RANGO ARS ON ARS.ID_AQL_CODIGO = I.ID_AQL_CODIGO
+                WHERE I.ID_INSPECCION = %s
+            """, [id_inspeccion])
+            max_aceptacion = cursor.fetchone()[0]
+
+            id_resultado = 0 if cantidad_defectuosos < max_aceptacion else 1
+
+            cursor.execute("""
+                UPDATE INSPECCION_CALIDAD
+                SET CANTIDAD_DEFECTUOSOS = %s, ID_ESTADO = 1, ID_RESULTADO = %s
+                WHERE ID_INSPECCION = %s
+            """, [cantidad_defectuosos, id_resultado, id_inspeccion])
+
+        return Response({"message": "Inspección actualizada correctamente"}, status=status.HTTP_200_OK)
 ```
 </details>
 
@@ -809,7 +877,81 @@ EXECUTE PROCEDURE VALIDAR_HORARIO_CAJA_ACAB_SALIDA();
   <summary>SECUENCIAS</summary>
   
 ```sql
+CREATE TABLE inspeccion_calidad
+(
+  id_inspeccion SERIAL,
+  fecha_inspeccion TIMESTAMP NOT NULL,
+  id_estado INT NOT NULL,
+  cantidad_defectuosos INT,
+  id_lote INT NOT NULL,
+  id_aql_lote_rango INT NOT NULL,
+  id_aql_nivel INT NOT NULL,
+  id_aql_codigo CHAR(1) NOT NULL,
+  id_aql_significancia INT NOT NULL,
+  id_descripcion INT,
+  id_resultado INT,
+  PRIMARY KEY (id_inspeccion),
+  FOREIGN KEY (id_estado) REFERENCES estado(id_estado),
+  FOREIGN KEY (id_lote) REFERENCES lote(id_lote),
+  FOREIGN KEY (id_aql_lote_rango, id_aql_nivel) REFERENCES aql_muestra(id_aql_lote_rango, id_aql_nivel),
+  FOREIGN KEY (id_aql_codigo, id_aql_significancia) REFERENCES aql_resultado_rango(id_aql_codigo, id_aql_significancia),
+  FOREIGN KEY (id_descripcion) REFERENCES inspeccion_descripcion(id_descripcion),
+  FOREIGN KEY (id_resultado) REFERENCES resultado(id_resultado)
+);
 
+CREATE TABLE aql_nivel
+(
+  id_aql_nivel SERIAL,
+  nombre CHAR(2) NOT NULL,
+  PRIMARY KEY (id_aql_nivel),
+  UNIQUE (nombre)
+);
+
+CREATE TABLE aql_lote_rango
+(
+  id_aql_lote_rango SERIAL,
+  min_lote INT NOT NULL,
+  max_lote INT NOT NULL,
+  PRIMARY KEY (id_aql_lote_rango)
+);
+
+CREATE TABLE aql_codigo
+(
+  id_aql_codigo CHAR(1),
+  tamaño_muestra INT NOT NULL,
+  PRIMARY KEY (id_aql_codigo),
+  UNIQUE (tamaño_muestra)
+);
+
+CREATE TABLE aql_significancia
+(
+  id_aql_significancia SERIAL,
+  nivel_significancia NUMERIC(4,3) NOT NULL,
+  PRIMARY KEY (id_aql_significancia),
+  UNIQUE (nivel_significancia)
+);
+
+CREATE TABLE aql_muestra
+(
+  id_aql_nivel INT,
+  id_aql_lote_rango INT,
+  id_aql_codigo CHAR(1) NOT NULL,
+  PRIMARY KEY (id_aql_nivel, id_aql_lote_rango),
+  FOREIGN KEY (id_aql_codigo) REFERENCES aql_codigo(id_aql_codigo),
+  FOREIGN KEY (id_aql_lote_rango) REFERENCES aql_lote_rango(id_aql_lote_rango),
+  FOREIGN KEY (id_aql_nivel) REFERENCES aql_nivel(id_aql_nivel)
+);
+
+CREATE TABLE aql_resultado_rango
+(
+  id_aql_codigo CHAR(1),
+  id_aql_significancia INT,
+  max_aceptacion INT NOT NULL,
+  min_rechazo INT NOT NULL,
+  PRIMARY KEY (id_aql_codigo, id_aql_significancia),
+  FOREIGN KEY (id_aql_codigo) REFERENCES aql_codigo(id_aql_codigo),
+  FOREIGN KEY (id_aql_significancia) REFERENCES aql_significancia(id_aql_significancia)
+);
 ```
 </details>
 
