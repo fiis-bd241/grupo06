@@ -118,6 +118,22 @@ Material UI es una biblioteca de componentes de interfaz de usuario para React q
   - Soporte para JSON: PostgreSQL tiene un sólido soporte para datos JSON, permitiendo el almacenamiento y manipulación de datos en formato JSON, y facilitando su uso como base de datos híbrida relacional/noSQL.
   - Rendimiento y Escalabilidad: Ofrece herramientas y técnicas de optimización de rendimiento como índices avanzados (B-tree, Hash, GIN, GiST), particionamiento de tablas y paralelización de consultas.
 
+* ¿Por qué elegir PostgreSQL frente a Oracle?
+
+| **Características**                | **PostgreSQL**                                                     | **Oracle**                                                |
+|------------------------------------|--------------------------------------------------------------------|-----------------------------------------------------------|
+| **Costo**                          | Gratuito, de código abierto                                        | Licencias costosas                                         |
+| **Licencia**                       | PostgreSQL License (similar a MIT)                                 | Licencia comercial restrictiva                             |
+| **Cumplimiento de Estándares SQL** | Alta conformidad con los estándares SQL                            | Alta conformidad, pero con extensiones propietarias        |
+| **Extensibilidad**                 | Altamente extensible, soporte para nuevos tipos de datos, funciones, operadores, y métodos de indexación | Extensible, pero con mayor complejidad y costo             |
+| **Soporte para JSON**              | Robusto y eficiente                                                | Soporte disponible, pero menos intuitivo                   |
+| **Rendimiento y Escalabilidad**    | Excelente rendimiento y capacidad de manejar grandes volúmenes de datos y usuarios concurrentes  | Alto rendimiento y escalabilidad, pero con mayores costos |
+| **Seguridad**                      | Características de seguridad avanzadas, incluyendo RLS, autenticación basada en roles, cifrado de datos | Seguridad avanzada, pero depende de la licencia y configuración|
+| **Comunidad y Ecosistema**         | Gran comunidad activa y amplio ecosistema de herramientas y extensiones | Soporte comercial sólido, pero menor comunidad activa      |
+| **Integración con Herramientas y Frameworks** | Fácil integración con Django, React y otras herramientas populares | Integración disponible, pero puede ser más compleja        |
+| **Replicación y Alta Disponibilidad** | Soporte para replicación en caliente, recuperación ante desastres, y alta disponibilidad | Características avanzadas disponibles, pero costosas       |
+| **Documentación y Soporte**        | Extensa documentación, soporte comunitario y comercial disponible  | Documentación detallada, pero soporte principalmente comercial |
+
 
   [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue?style=for-the-badge)](#estructura-del-proyecto)
 
