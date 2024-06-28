@@ -145,6 +145,9 @@ Despliegue Backend y PostgreSQL : [Render](https://render.com/)
 ### Producción
 ![Servicios](./render-services-1.png)
 
+* Si desea ver el software funcional después del 10/07 contacte al administrador: jarteagag@uni.pe
+![Servicios](./images/render-expira.png)
+
   [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue?style=for-the-badge)](#estructura-del-proyecto)
 
 
