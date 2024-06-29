@@ -16,7 +16,7 @@
 
 ### Alistar entorno Clickhouse y PostgreSQL
 #### CLickhouse
-* **Pasos**
+* **PASOS**
   1. Iniciar localmente ***Clickhouse***. Esto te llevará a la consola interactiva de ClickHouse, donde podrás ejecutar comandos SQL.:
 
 ```
@@ -73,6 +73,16 @@ for tabla in tablas:
     query = f"CREATE TABLE postgres_{tabla} AS postgres_db.{tabla};"
     client.execute(query)
 ```
+
+4. **Verificar** Tablas.
+```sql
+SHOW TABLES;
+```
+![tablas](./images/show-tables.png)
+
+### Consultas Clickhouse - Postgres
+* **Caso 1:**
+* **Caso 2:**
 
 
   [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue?style=for-the-badge)](#nosql)
