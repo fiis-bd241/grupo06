@@ -784,6 +784,7 @@ class OrdenPedidoListView(View):
             ]
             return JsonResponse(result, safe=False)
 ---
+</details>
 
 *Lista orden de producción:
 
