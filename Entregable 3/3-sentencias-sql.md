@@ -179,43 +179,47 @@
 | --- |
 | Eventos |
 | **1. Botón Agregar:** Agrega a un nuevo proveedor tras obtener los campos necesarios. |
-         CREATE OR REPLACE PROCEDURE crear_proveedor(
-            -- Parametros para la nueva dirección
-            _descripcion_direccion VARCHAR(100),
-            -- Parametros para el nuevo correo
-            _direccion_correo VARCHAR(100),
-            -- Parametros para el nuevo telefono
-            _numero_telefono VARCHAR(30),
-            -- Parametros para el nuevo proveedor
-            _ruc NUMERIC(11),
-            _denominacion_social VARCHAR(100)
+        CREATE OR REPLACE PROCEDURE crear_o_actualizar_proveedor(
+              _descripcion_direccion VARCHAR(100),
+              _direccion_correo VARCHAR(100),
+              _numero_telefono VARCHAR(30),
+              _ruc NUMERIC(11),
+              _denominacion_social VARCHAR(100)
           )
-          AS $$  -- Double dollar signs for PL/pgSQL code block
+          AS $$
           DECLARE
-            -- Declarar variables locales
-            _id_direccion INT;
-            _id_correo INT;
-            _id_telefono INT;
+              _id_direccion INT;
+              _id_correo INT;
+              _id_telefono INT;
+              _id_proveedor INT;
           BEGIN
-            -- 1. Insertar nueva dirección y obtener su ID
-            INSERT INTO direccion (descripcion)
-            VALUES (_descripcion_direccion)
-            RETURNING id_direccion INTO _id_direccion;
+              -- Buscar si el proveedor ya existe
+              SELECT id_proveedor INTO _id_proveedor FROM proveedor WHERE ruc = _ruc;
 
-            -- 2. Insertar nuevo correo y obtener su ID
-            INSERT INTO correo (direccion_correo)
-            VALUES (_direccion_correo)
-            RETURNING id_correo INTO _id_correo;
+              -- Si el proveedor existe, actualizar los datos
+              IF _id_proveedor IS NOT NULL THEN
+                  UPDATE proveedor SET denominacion_social = _denominacion_social WHERE id_proveedor = _id_proveedor;
+                  UPDATE direccion SET descripcion = _descripcion_direccion WHERE id_direccion = (SELECT                               id_direccion FROM proveedor WHERE id_proveedor = _id_proveedor);
+                  UPDATE correo SET direccion_correo = _direccion_correo WHERE id_correo = (SELECT id_correo FROM                     proveedor WHERE id_proveedor = _id_proveedor);
+                    UPDATE telefono SET numero = _numero_telefono WHERE id_telefono = (SELECT id_telefono FROM                     proveedor WHERE id_proveedor = _id_proveedor);
+              ELSE
+                  -- Si el proveedor no existe, insertar un nuevo proveedor
+                  INSERT INTO direccion (descripcion)
+                  VALUES (_descripcion_direccion)
+                  RETURNING id_direccion INTO _id_direccion;
 
-            -- 3. Insertar nuevo telefono y obtener su ID
-            INSERT INTO telefono (numero)
-            VALUES (_numero_telefono)
-            RETURNING id_telefono INTO _id_telefono;
+                  INSERT INTO correo (direccion_correo)
+                  VALUES (_direccion_correo)
+                  RETURNING id_correo INTO _id_correo;
 
-            -- 4. Insertar nuevo proveedor utilizando las IDs obtenidas
-            INSERT INTO proveedor (ruc, denominacion_social, id_direccion, id_telefono, id_correo)
-            VALUES (_ruc, _denominacion_social, _id_direccion, _id_telefono, _id_correo);
-          END;  -- Notice the indentation here
+                  INSERT INTO telefono (numero)
+                  VALUES (_numero_telefono)
+                  RETURNING id_telefono INTO _id_telefono;
+
+                  INSERT INTO proveedor (ruc, denominacion_social, id_direccion, id_telefono, id_correo)
+                  VALUES (_ruc, _denominacion_social, _id_direccion, _id_telefono, _id_correo);
+              END IF;
+          END;
           $$ LANGUAGE plpgsql;
           
 ### 2. Corte
