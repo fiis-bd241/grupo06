@@ -658,6 +658,7 @@ class AcabadoListView(APIView):
 
 **Navegación 2.1: Acabados > Acabados > Lotes-cajas** <br>
 **Descripción:** Esta pantalla se consulta, al cargar la página,todas la cajas que entran al área de operarios, donde se pueden vicualizar todas las características. En esta pantalla se integran todas las funcionalidades en una pantalla (Que se prensentó en el submenú - versión 1) **operario de acabados**.
+
 ![Acabados22](./pantallas/acabados/1-2-reporte.png)
     - **Funcionalidades de la pantalla**
 
@@ -669,7 +670,10 @@ class AcabadoListView(APIView):
 
 
 **Navegación 2.2: Acabados > Acabados > Lotes** <br>
-**Descripción:** Esta pantalla 
+**Descripción:** Esta pantalla muestra los datos de un lote de entrada al área de acabados, así como también, las cajas contenidas que ingresan al aire.
+> En esta pantalla se muestra los datos y observaciones de calida con respecto al lote.
+
+![Acabados22](./pantallas/acabados/lotes.png)
 
 
 
