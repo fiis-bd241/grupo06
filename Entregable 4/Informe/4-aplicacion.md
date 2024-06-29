@@ -416,7 +416,7 @@ class ProductionOrderView(View):
 ### Acabados
 
 <details>
-  <summary>VER TODO</summary>
+  <summary>VERSIÓN 1</summary>
   
 #### Submenú 1: **General**: 
 **Navegación**: Acabados > General <br>
@@ -591,6 +591,70 @@ def datos_list_a(request):
 
 </details>
 
+
+<details>
+  <summary>VERSIÓN 2 - MEJORAS</summary>
+  
+#### Submenú 1: **General**: 
+**Rol:** Supervisor
+**Navegación**: Acabados > General <br>
+Muestra los datos generales del área.<br>
+Se realizan dos consultas a la BD.
+![Acabados 1](./images/generalaca.png)
+
+* Consulta 1: Lista de Operarios
+
+```python
+class EmpleadoListView(View):
+    def get(self, request):
+         with connection.cursor() as cursor:
+            cursor.execute("SELECT id_empleado, nombre FROM empleado WHERE id_area = 5")
+            rows = cursor.fetchall()
+            result = [
+                    {'id_empleado': row[0], 'nombre': row[1]}
+                    for row in rows
+                ]
+            return JsonResponse(result, safe=False)
+```
+
+* Consulta 2: Lista de Acabados
+
+```python
+class AcabadoListView(APIView):
+    def get(self, request):
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT id_acabado, nombre FROM acabado")
+            data = cursor.fetchall()
+        
+        # Formatear los resultados en un diccionario
+        resultados = [{'id_acabado': row[0], 'nombre': row[1]} for row in data]
+```
+
+#### Submenú 2: **Lotes**: 
+**Rol:** Supervisor<br>
+
+**Descripción:** Este submenú responde a los requerimientos de:
+* Visualizar el progreso de acabados tanto por cajas y lotes, como el progreso diario y semanal. 
+* Así también se tiene que visualizar la relación de cajas por lote listos para procesar en el área de acabados.
+* También se podrá asignar, modificar o eliminar al operario que a una caja que va a ser procesada (Un operario maneja una caja desde el comienzo de su acabado hasta su empacado).
+> Es importante destacar que tendremos que ver si esta caja tiene algín comentario o desaprobación del área de calidad, por lo cual tendremos que hacer consultas a su tablas respectivas para solo visualizar estados de la cajas.
+
+**Navegación 1:** Acabados > Lotes <br>
+**Descripción:** Esta primera pantalla contiene diferentes botones que brindarán los servicios para ser procesados o consultados por el **supervisor de acabados**.
+
+
+#### Submenú 3: **Acabados**: 
+**Rol:** Supervisor<br>
+
+**Descripción:** Este submenú responde a los requerimientos de:
+* la consulta por operarios y sus cajas. En esta primera versión de la app (Sin autenticación ni autorización), se propone la visualización en general.
+* Registrar cuando se realizan los acabados, esto responde a que cuando ingresan la cajas, ingresan con un ***ID***, pero al final del proceso, se le asigna otro ***ID***.
+* También se visualiza el progreso del día y el progreso de acabados por cada operario según su avance.
+
+**Navegación 1:** Acabados > Acabados <br>
+**Descripción:** Esta primera pantalla contiene diferentes botones que brindarán los servicios para ser procesados o consultados por el **operario de acabados**.
+
+</details>
 
   [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue?style=for-the-badge)](#versión-final)
 
