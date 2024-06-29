@@ -760,9 +760,9 @@ class AcabadoListView(APIView):
 
 <details>
   <summary></summary>
----
 
 *Lista orden de pedido:
+---
 class OrdenPedidoListView(View):
     def get(self, request):
         with connection.cursor() as cursor:
@@ -782,8 +782,9 @@ class OrdenPedidoListView(View):
                 for row in rows
             ]
             return JsonResponse(result, safe=False)
-
+---
 *Lista orden de producción:
+---
 class OrdenProduccionView(View):
     def get(self, request):
         try:
@@ -803,8 +804,9 @@ class OrdenProduccionView(View):
 
         except Exception as e:
             return JsonResponse({'error': str(e)}, status=500)
-
+---
 *Programar producción:
+---
 class ProgramarProduccionView(View):
     def post(self, request):
         try:
