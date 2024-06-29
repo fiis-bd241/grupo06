@@ -742,8 +742,6 @@ class AcabadoListView(APIView):
     * **Registro:** Botón para registrar, que dirige a la pestaña para registrar avance de acabados e ID de salida.
 
 
-</details>
-
   [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue?style=for-the-badge)](#versión-final)
 
 ---
@@ -783,8 +781,7 @@ class OrdenPedidoListView(View):
                 for row in rows
             ]
             return JsonResponse(result, safe=False)
----
-</details>
+```
 
 *Lista orden de producción:
 
@@ -808,7 +805,7 @@ class OrdenProduccionView(View):
 
         except Exception as e:
             return JsonResponse({'error': str(e)}, status=500)
----
+```
 
 *Programar producción:
 
@@ -860,12 +857,9 @@ class ProgramarProduccionView(View):
             }
             return JsonResponse(response_data, status=500)
   
----
+```
 
   [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue?style=for-the-badge)](#versión-final)
-  
----
-
 
 [Regresar al Índice](./indice.md)
 
