@@ -732,12 +732,14 @@ class AcabadoListView(APIView):
 
 **Navegación 3-2: Acabados > Acabados > Registro** <br>
 **Descripción:** En esta pantalla se registran el avance de acabado por cajas.
-![Acabados3]()
+![Acabados3](./pantallas/acabados/acabados.png)
 
 
 **Navegación 3-3: Acabados > Acabados > Progreso** <br>
 **Descripción:** En esta pantalla se consulta el progreso diario y mensual según cada operario
-![Acabados3]()
+![Acabados3](./pantallas/acabados/progreso-operario.png)
+* **FUNCIONALIDADES**
+    * **Registro:** Botón para registrar, que dirige a la pestaña para registrar avance de acabados e ID de salida.
 
 
 </details>
