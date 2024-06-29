@@ -149,7 +149,7 @@ Este documento se mantendrá actualizado en el repositorio de GitHub del proyect
 ¡Gracias por su colaboración y compromiso con el éxito de este proyecto!
 
 ---
-
+<!--CONTRIBUTORS-->
 
 
 [Regresar al Índice](../entregable%204-indice.md)
