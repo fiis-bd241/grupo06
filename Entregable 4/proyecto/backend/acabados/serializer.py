@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import (
+from core.models import (
     Acabado, ActividadDiaria, AqlCodigo, AqlLoteRango, AqlMuestra, AqlNivel, AqlResultadoRango, 
     AqlSignificancia, Area, AuthGroup, AuthGroupPermissions, AuthPermission, AuthUser, 
     AuthUserGroups, AuthUserUserPermissions, CajaLote, CajaPrenda, CajaSalida, Cargo, Color, 
@@ -8,7 +8,7 @@ from .models import (
     DjangoAdminLog, DjangoContentType, DjangoMigrations, DjangoSession, Empleado, 
     EmpleadoActividad, Espacio, Estado, Estanteria, EstiloPrenda, Genero, GuiaConfeccion, 
     InspeccionCalidad, InspeccionDescripcion, Lote, LoteEntrada, LoteSalida, Maquina, 
-    MaquinaActividad, MateriaPrima, OrdenPedido, OrdenProduccin
+    MaquinaActividad, MateriaPrima, OrdenPedido, OrdenProducción
 )
 
 class AcabadoSerializer(serializers.ModelSerializer):
@@ -273,5 +273,5 @@ class OrdenPedidoSerializer(serializers.ModelSerializer):
 
 class OrdenProduccinSerializer(serializers.ModelSerializer):
     class Meta:
-        model = OrdenProduccin
+        model = OrdenProducción
         fields = '__all__'
