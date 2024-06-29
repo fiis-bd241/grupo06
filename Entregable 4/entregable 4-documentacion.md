@@ -25,5 +25,10 @@
 * [Sistema de planillas](https://github.com/JordanLau21/DBD-Grupo2---23-2)
 * [Software para CEIIS](https://github.com/Dafi-18/DBD-Grupo-3)
 
+***Inteligencia Artificial:***
+
+- OpenAI. (2024). ChatGPT (versión GPT-4.0). [https://www.openai.com](https://www.openai.com)
+- GitHub. (2024). GitHub Copilot. [https://copilot.github.com](https://copilot.github.com)
+
 
 [![Regresar al Índice](https://img.shields.io/badge/Regresar_al_Índice-Verde?style=for-the-badge&logoColor=white)](./entregable%204-indice.md)
