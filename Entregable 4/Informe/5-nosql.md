@@ -107,9 +107,14 @@ SHOW TABLES;
 
 * **APLICACIÓN AL TRABAJO**
 
-  1. 
+  1. **Ver** registros de confección:
+![count confeccion](./images/count_confeccion.png)
+
+  2. **Consulta** registros de confección:
 
 [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue?style=for-the-badge)](#nosql)
+
+
 
 ## Base de datos NoSQL Elegido
 <div align=center>
