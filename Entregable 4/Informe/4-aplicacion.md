@@ -761,6 +761,8 @@ class AcabadoListView(APIView):
   [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue?style=for-the-badge)](#versión-final)
   
 ---
+<details>
+  <summary>VER TODO</summary>
 
 
 [Regresar al Índice](./indice.md)
