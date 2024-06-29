@@ -678,7 +678,10 @@ class AcabadoListView(APIView):
 
 
 **Navegación 2.4: Acabados > Acabados > Registro-acabado** <br>
-**Descripción:** Esta pantalla 
+**Descripción:** Esta pantalla se registra, modifica o elimina un acabado registrado en el sistema.
+![Acabados241](./pantallas/acabados/3-4-registro-acabado-a.png)
+![Acabados241](./pantallas/acabados/3-4-registro-acabado-b.png)
+![Acabados241](./pantallas/acabados/3-4-registro-acabado-c.png)
 
 
 **Navegación 2.5: Acabados > Acabados > Habilitar** <br>
