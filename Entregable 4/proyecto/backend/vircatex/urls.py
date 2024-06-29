@@ -27,7 +27,7 @@ from pcp.views import *
 urlpatterns = [
     path("admin/", admin.site.urls),
     
-    #acabados
+    # acabados
     path('acabados/', include([
         path('empleados/', EmpleadoListView.as_view(), name='empleado_list'),
         path('datosa/', DatosListAView.as_view(), name='datos_list_a'),
@@ -35,8 +35,28 @@ urlpatterns = [
         path('acabados/', AcabadoListView.as_view(), name='acabados-list'),
         path('lote-entrada-vista/', LoteEntradaVista.as_view(), name='lote-entrada-vista'),
     ])),
+
+    # almacen central
+    path('almacen_central/', include([
+        path('lotes/', LoteListView.as_view(), name='lote-list'),
+        path('lotes_entre_fechas/', LotesEntreFechasView.as_view()),
+        path('proveedor_materia_prima/', ProveedorMateriaPrimaView.as_view()),
+        path('lote_entrada/', LotesEntradaView.as_view()),
+        path('lote_salida/', LotesSalidaView.as_view()),
+        path('crear_proveedor/', CrearProveedorView.as_view()),
+    ]))
+
+    # almacen de tránsito
+    path('almacen_transito/', include([
+
+    ]))
+
+    # calidad
+    path('calidad/', include([
+
+    ])),
     
-    #confección
+    # confección
     path('confeccion/', include([
         path('ordenes-produccion/', OrdProdConfView.as_view(), name='ord-prod-conf'),
         path('descripcion/<int:id_orden_produccion>/', DescConfView.as_view(), name='desc-conf'),
@@ -49,14 +69,15 @@ urlpatterns = [
         path('lotes-corte-empleado/<int:id_empleado>/', LtsCteEmpView.as_view(), name='lts-cte-emp'),
         path('insertar-consumo-lote-corte/', InsConsLteCteView.as_view(), name='ins-cons-lte-cte'),
     ])),
+
+    # corte
+    path('corte/', include([
+
+    ])),
+
+    # pcp
+    path('pcp/', include([
+
+    ])),
     
-    #almacen central
-    path('almacen_central/', include([
-        path('lotes/', LoteListView.as_view(), name='lote-list'),
-        path('lotes_entre_fechas/', LotesEntreFechasView.as_view()),
-        path('proveedor_materia_prima/', ProveedorMateriaPrimaView.as_view()),
-        path('lote_entrada/', LotesEntradaView.as_view()),
-        path('lote_salida/', LotesSalidaView.as_view()),
-        path('crear_proveedor/', CrearProveedorView.as_view()),
-    ]))
 ]

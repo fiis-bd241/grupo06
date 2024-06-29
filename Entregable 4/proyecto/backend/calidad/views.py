@@ -3,8 +3,6 @@ from django.db import connection
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from django.views.decorators.csrf import csrf_exempt
-from django.utils.decorators import method_decorator
 
 class InspeccionesAPIView(APIView):
 
@@ -48,7 +46,6 @@ class InspeccionesAPIView(APIView):
 
         return JsonResponse(results, safe=False)
 
-    @method_decorator(csrf_exempt)
     def post(self, request, *args, **kwargs):
         data = request.data
         id_inspeccion = data.get('id_inspeccion')
