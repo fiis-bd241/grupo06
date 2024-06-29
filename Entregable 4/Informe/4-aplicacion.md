@@ -758,11 +758,105 @@ class AcabadoListView(APIView):
 
 ### PCP
 
+<details>
+  <summary></summary>
+---
+
+*Lista orden de pedido:
+class OrdenPedidoListView(View):
+    def get(self, request):
+        with connection.cursor() as cursor:
+            cursor.execute("""
+                SELECT id_ordenpedido, fecha_creacion, fecha_fin, id_dimprenda, estado
+                FROM orden_pedido
+            """)
+            rows = cursor.fetchall()
+            result = [
+                {
+                    'id_ordenpedido': row[0],
+                    'fecha_creacion': row[1].strftime('%Y-%m-%d') if row[1] else None,
+                    'fecha_fin': row[2].strftime('%Y-%m-%d') if row[2] else None,
+                    'id_dimprenda': row[3],
+                    'estado': row[4]
+                }
+                for row in rows
+            ]
+            return JsonResponse(result, safe=False)
+
+*Lista orden de producción:
+class OrdenProduccionView(View):
+    def get(self, request):
+        try:
+            ordenes_produccion = OrdenProduccion.objects.all().values(
+                'id_ordenproduccion', 
+                'fecha_creacion', 
+                'fecha_inicio', 
+                'fecha_final', 
+                'id_area__id',  # Accede al ID del área relacionada
+                'id_ordentrabajo__id',  # Accede al ID de la orden de trabajo relacionada
+                'estado'
+            )
+
+            result = list(ordenes_produccion)  # Convertir queryset a lista de diccionarios
+
+            return JsonResponse(result, safe=False)
+
+        except Exception as e:
+            return JsonResponse({'error': str(e)}, status=500)
+
+*Programar producción:
+class ProgramarProduccionView(View):
+    def post(self, request):
+        try:
+            # Obtener datos del cuerpo de la solicitud POST
+            tipo_prenda_id = request.POST.get('tipo_prenda_id')
+            estilo_prenda_id = request.POST.get('estilo_prenda_id')
+            talla_prenda_id = request.POST.get('talla_prenda_id')
+            genero_prenda_id = request.POST.get('genero_prenda_id')
+            guia_confeccion_id = request.POST.get('guia_confeccion_id')
+            medidas_prenda_id = request.POST.get('medidas_prenda_id')
+
+            # Obtener las instancias de los modelos relacionados
+            tipo_prenda = get_object_or_404(TipoPrenda, id=tipo_prenda_id)
+            estilo_prenda = get_object_or_404(EstiloPrenda, id=estilo_prenda_id)
+            talla_prenda = get_object_or_404(TallaPrenda, id=talla_prenda_id)
+            genero_prenda = get_object_or_404(GeneroPrenda, id=genero_prenda_id)
+            guia_confeccion = get_object_or_404(GuiaConfeccion, id=guia_confeccion_id)
+            medidas_prenda = get_object_or_404(MedidasPrenda, id=medidas_prenda_id)
+
+            # Crear una nueva instancia de OrdenProduccion
+            nueva_programacion = OrdenProduccion.objects.create(
+                tipo_prenda=tipo_prenda,
+                estilo_prenda=estilo_prenda,
+                talla_prenda=talla_prenda,
+                genero_prenda=genero_prenda,
+                guia_confeccion=guia_confeccion,
+                medidas_prenda=medidas_prenda,
+                estado='Programada'  # Definir el estado inicial
+                # Otros campos relevantes pueden ser definidos aquí
+            )
+
+            # Devolver una respuesta JSON indicando el éxito
+            response_data = {
+                'success': True,
+                'message': 'Producción programada exitosamente.'
+            }
+
+            return JsonResponse(response_data)
+
+        except Exception as e:
+            # En caso de error, devolver un mensaje de error
+            response_data = {
+                'success': False,
+                'message': f'Error al programar la producción: {str(e)}'
+            }
+            return JsonResponse(response_data, status=500)
+  
+---
+
   [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue?style=for-the-badge)](#versión-final)
   
 ---
-<details>
-  <summary>VER TODO</summary>
 
 
 [Regresar al Índice](./indice.md)
