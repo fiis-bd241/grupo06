@@ -44,12 +44,12 @@ urlpatterns = [
         path('lote_entrada/', LotesEntradaView.as_view()),
         path('lote_salida/', LotesSalidaView.as_view()),
         path('crear_proveedor/', CrearProveedorView.as_view()),
-    ]))
+    ])),
 
     # almacen de tránsito
     path('almacen_transito/', include([
 
-    ]))
+    ])),
 
     # calidad
     path('calidad/', include([
