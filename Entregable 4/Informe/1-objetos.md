@@ -1053,6 +1053,16 @@ class ReporteProduccionView(View):
   
 ```sql
 
+-- Índice para consultar datos de las áreas o departamentos
+CREATE INDEX idx_produccion_id_area ON produccion (id_area);
+
+-- Índice para consultar datos del personal (encargado)
+CREATE INDEX idx_produccion_id_encargado ON produccion (id_encargado);
+
+-- Índice para consultar datos de la orden de producción
+CREATE INDEX idx_produccion_id_ordenproduccion ON produccion (id_ordenproduccion);
+
+
 ```
 </details>
 
