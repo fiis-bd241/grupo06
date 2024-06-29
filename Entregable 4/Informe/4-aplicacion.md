@@ -674,8 +674,9 @@ class AcabadoListView(APIView):
 
 
 **Navegación 2.3: Acabados > Acabados > Progreso** <br>
-**Descripción:** Esta pantalla 
+**Descripción:** Esta pantalla muestra las cajas según sus característica y las tablas de cantidades.
 
+![Acabados241](./pantallas/acabados/3-3-progreso.png)
 
 **Navegación 2.4: Acabados > Acabados > Registro-acabado** <br>
 **Descripción:** Esta pantalla se registra, modifica o elimina un acabado registrado en el sistema.
