@@ -203,5 +203,65 @@ class CrearProveedorView(APIView):
         _ruc = data.get('_ruc')
         _denominacion_social = data.get('_denominacion_social')
         with connection.cursor() as cursor:
-            cursor.execute("CALL crear_proveedor(%s, %s, %s, %s, %s)", [_descripcion_direccion, _direccion_correo, _numero_telefono, _ruc, _denominacion_social])
-        return JsonResponse({"message": "Proveedor creado exitosamente"}, status=201)
+            cursor.execute("CALL crear_o_actualizar_proveedor(%s, %s, %s, %s, %s)", [_descripcion_direccion, _direccion_correo, _numero_telefono, _ruc, _denominacion_social])
+        return JsonResponse({"message": "Proveedor creado o actualizado exitosamente"}, status=201)
+
+class EliminarProveedorView(APIView):
+    def delete(self, request, *args, **kwargs):
+        ruc = kwargs.get('ruc')
+        with connection.cursor() as cursor:
+            cursor.callproc("eliminar_proveedor_con_ruc", [ruc])
+        return JsonResponse({"message": "Proveedor eliminado exitosamente"}, status=200)
+
+class CrearLoteView(APIView):
+    def post(self, request, *args, **kwargs):
+        data = JSONParser().parse(request)
+        cantidad = data.get('cantidad')
+        id_estado = data.get('id_estado')
+        id_tipo_lote = data.get('id_tipo_lote')
+        id_dim_corte = data.get('id_dim_corte')
+        id_dim_confeccion = data.get('id_dim_confeccion')
+        id_dim_materia_prima = data.get('id_dim_materia_prima')
+        id_actividad = data.get('id_actividad')
+        fecha_creacion = data.get('fecha_creacion')
+        with connection.cursor() as cursor:
+            cursor.execute("INSERT INTO lote (cantidad, id_estado, id_tipo_lote, id_dim_corte, id_dim_confeccion, id_dim_materia_prima, id_actividad, fecha_creacion) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)", [cantidad, id_estado, id_tipo_lote, id_dim_corte, id_dim_confeccion, id_dim_materia_prima, id_actividad, fecha_creacion])
+        return JsonResponse({"message": "Lote de entrada creado exitosamente"}, status=201)
+
+class CrearLoteEntradaView(APIView):
+    def post(self, request, *args, **kwargs):
+        data = JSONParser().parse(request)
+        id_lote = data.get('id_lote')
+        id_espacio = data.get('id_espacio')  # Asegúrate de que este valor se proporciona en la solicitud POST
+        with connection.cursor() as cursor:
+            # Verificar si el id_lote existe en la tabla lote
+            cursor.execute("SELECT * FROM lote WHERE id_lote = %s", [id_lote])
+            row = cursor.fetchone()
+            if row is None:
+                return JsonResponse({"message": "El lote no existe en la tabla lote"}, status=400)
+            # Verificar si el id_lote ya existe en la tabla lote_entrada
+            cursor.execute("SELECT * FROM lote_entrada WHERE id_lote = %s", [id_lote])
+            row = cursor.fetchone()
+            if row is not None:
+                return JsonResponse({"message": "El lote ya existe en lote_entrada"}, status=400)
+            # Insertar el nuevo lote en la tabla lote_entrada
+            cursor.execute("INSERT INTO lote_entrada (id_lote, id_espacio, fecha_entrada) VALUES (%s, %s, CURRENT_TIMESTAMP)", [id_lote, id_espacio])
+        return JsonResponse({"message": "Lote de entrada creado exitosamente"}, status=201)
+
+class MoverLoteSalidaView(APIView):
+    def post(self, request, *args, **kwargs):
+        data = JSONParser().parse(request)
+        id_lote = data.get('id_lote')
+        area_envio = data.get('area_envio')  # Asegúrate de que este valor se proporciona en la solicitud POST
+        with connection.cursor() as cursor:
+            # Verificar si el id_lote existe en la tabla lote_entrada
+            cursor.execute("SELECT * FROM lote_entrada WHERE id_lote = %s", [id_lote])
+            row = cursor.fetchone()
+            if row is None:
+                return JsonResponse({"message": "El lote no existe en lote_entrada"}, status=400)
+            # Insertar el nuevo lote en la tabla lote_salida
+            cursor.execute("INSERT INTO lote_salida (id_lote, area_envio, fecha_salida) VALUES (%s, %s, CURRENT_TIMESTAMP)", [id_lote, area_envio])
+            # Eliminar el lote de la tabla lote_entrada
+            cursor.execute("DELETE FROM lote_entrada WHERE id_lote = %s", [id_lote])
+        return JsonResponse({"message": "Lote movido a salida exitosamente"}, status=201)
+
