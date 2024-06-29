@@ -127,6 +127,8 @@ Muestra los datos que recibe el jefe de corte de almacén central, sobre la orde
 
 *Consulta 2: Botón Asignar: el jefe de corte asigna en cada orden de producción la fecha que la a realizar la actividad, que máquina lo va a realizar, y la cantidad ya hecha de la orden de producción si es que esa orden de producción ya se recibió y no se ha terminado.
 
+  ![Corte1](./pantallas/Corte/vista_asignar.png)
+
 ```python
 class AsignarView(View):
     def post(self, request, id_orden_produccion):
