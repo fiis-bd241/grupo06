@@ -98,8 +98,21 @@ SHOW TABLES;
   ```
 ![empleado](./images/empleado.png)
 
+* **Caso 3: UPDATE** Cambiar nombre a acabado "Hangteado".
+```sql
+ALTER TABLE postgres_acabado UPDATE nombre = 'Etiquet' WHERE id_acabado = 1;  
+```
 
-#### DBeaver
+* **Caso 4: DELETE** Eliminar empleados del área de acabados con el id '50' y '51'.
+```sql
+-- Verificar los empleados en el área 5
+SELECT id_empleado FROM postgres_empleado WHERE id_area = '5';
+
+-- Eliminar empleados con id_empleado 50 y 51
+ALTER TABLE postgres_empleado DELETE WHERE id_empleado IN (50, 51);
+```
+
+#### DBeaver:
 * **PASOS**
   1. Nueva *Conexión*
   
@@ -110,7 +123,55 @@ SHOW TABLES;
   1. **Ver** registros de confección:
 ![count confeccion](./images/count_confeccion.png)
 
-  2. **Consulta** registros de confección:
+  2. **Consulta** Lista de cajas en la producción para realizar el acabado 'Hangteado':
+```sql
+select 
+    c.id_confeccion, 
+    tl.nombre, 
+    cl.id_caja,
+    acab.nombre, 
+    e.nombre
+from 
+    confeccion c 
+    join lote l on c.id_lote = l.id_lote 
+    join tipo_lote tl on l.id_tipo_lote = tl.id_tipo_lote 
+    join empleado e on c.id_empleado = e.id_empleado
+    join caja_lote cl on c.id_caja = cl.id_caja
+    join dimension_confeccion dc on c.id_dim_confeccion = dc.id_dim_confeccion
+    join dimension_prenda dp on dc.id_dim_confeccion = dp.id_dim_confeccion 
+    join dim_prenda_detalle dpd on dpd.id_dim_prenda = dp.id_dim_prenda 
+    join acabado acab on dpd.id_acabado = acab.id_acabado 
+where 
+    acab.id_acabado = '1' 
+    and e.nombre IN (select nombre from empleado where empleado.id_area = '5');
+```
+![explain1](./images/1acab-explain.png)
+![explain2](./images/2acab-explain.png)
+![explain3](./images/3acab-explain.png)
+
+* ***Consulta en Clickhouse***
+```sql
+select 
+    c.id_confeccion, 
+    tl.nombre, 
+    cl.id_caja,
+    acab.nombre, 
+    e.nombre
+from 
+    postgres_confeccion c 
+    join postgres_lote l on c.id_lote = l.id_lote 
+    join postgres_tipo_lote tl on l.id_tipo_lote = tl.id_tipo_lote 
+    join postgres_empleado e on c.id_empleado = e.id_empleado
+    join postgres_caja_lote cl on c.id_caja = cl.id_caja
+    join postgres_dimension_confeccion dc on c.id_dim_confeccion = dc.id_dim_confeccion
+    join postgres_dimension_prenda dp on dc.id_dim_confeccion = dp.id_dim_confeccion 
+    join postgres_dim_prenda_detalle dpd on dpd.id_dim_prenda = dp.id_dim_prenda 
+    join postgres_acabado acab on dpd.id_acabado = acab.id_acabado 
+where 
+    acab.id_acabado = '1' 
+    and e.nombre IN (select nombre from postgres_empleado where postgres_empleado.id_area = '5');
+```
+![resultado client](./images/resulta-client.png)
 
 [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue?style=for-the-badge)](#nosql)
 
@@ -143,8 +204,15 @@ Los escenarios OLAP requieren respuestas en tiempo real sobre conjuntos de datos
 - Solo se seleccionan unas pocas columnas para responder a cualquier consulta específica.
 - Los resultados deben devolverse en milisegundos o segundos.
 
+
+
+
   [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue?style=for-the-badge)](#nosql)
   
+
+
+
+
 
 ### Características de clickhouse
 
