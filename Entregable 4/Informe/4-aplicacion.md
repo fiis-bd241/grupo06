@@ -654,6 +654,32 @@ class AcabadoListView(APIView):
 * **Cancelar:** Este botón borra el filtro anterior.
 * **Operario:** AL final de cada fila de la tabla, hay un botón que muestra un popup, donde se puede asignar, modificar o eliminar al operario por cada caja entrante.
 ![Acabados221](./pantallas/acabados/1-2-1.operario-popup.png)
+
+
+**Navegación 2.2: Acabados > Acabados > Lotes** <br>
+**Descripción:** Esta pantalla 
+
+
+
+**Navegación 2.3: Acabados > Acabados > Progreso** <br>
+**Descripción:** Esta pantalla 
+
+
+**Navegación 2.4: Acabados > Acabados > Registro-acabado** <br>
+**Descripción:** Esta pantalla 
+
+
+**Navegación 2.5: Acabados > Acabados > Habilitar** <br>
+**Descripción:** Esta pantalla 
+
+
+
+**Navegación 2.6: Acabados > Acabados > Programa** <br>
+**Descripción:** Esta pantalla 
+
+**Navegación 2.7: Acabados > Acabados > Asignar-Operario** <br>
+**Descripción:** Esta pantalla 
+
 ---
 #### Submenú 3: **Acabados**: 
 **Rol:** Supervisor<br>
