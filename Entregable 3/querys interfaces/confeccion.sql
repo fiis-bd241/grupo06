@@ -157,7 +157,6 @@
 -- Registro de progreso 1
 
 	-- Mostrar Empleado con la cantidad de ordenes asignadas
-	
 	SELECT id_empleado, nombre, primer_apellido, segundo_apellido,
 		   COUNT(id_actividad) AS ordenes
 	FROM vista_emp_ops_confección
@@ -246,7 +245,7 @@
 
 -- Registro de progreso 4
 
-	-- Mostrar la lista de lotes de corte que el empleado puede usar según su ordenes asignadad
+	-- Mostrar la lista de lotes de corte que el empleado puede usar según su ordenes asignadas
 	SELECT id_lote
 	FROM vista_lote_corte_emp
 	WHERE id_orden_producción IN (SELECT id_orden_producción

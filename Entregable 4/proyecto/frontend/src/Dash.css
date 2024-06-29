@@ -1,0 +1,41 @@
+.estadis {
+  padding: 0px 10px 0px 10px;
+  text-align: center;
+}
+
+.javier-est1 {
+  font-weight: 600;
+  color: white;
+}
+.javier-est2 {
+  font-size: 20px;
+  font-weight: 900;
+  color: white;
+}
+.javier-est3 {
+    font-weight: 500;
+    color: #ff9ced;
+}
+.card1,.card3{
+    display: grid; 
+    place-items: center;
+    background-color: #565678;
+}
+.javier-est1a {
+    font-weight: 600;
+    color: #565678;
+  }
+  .javier-est2a {
+    font-size: 20px;
+    font-weight: 900;
+    color: #565678;
+  }
+  .card2,.card4 {
+    display: grid; 
+    place-items: center;
+}
+.acabadoc{
+  display: grid;
+  place-items: center;
+  background-color: #565678;
+}
