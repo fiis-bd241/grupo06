@@ -701,9 +701,22 @@ class AcabadoListView(APIView):
 * Registrar cuando se realizan los acabados, esto responde a que cuando ingresan la cajas, ingresan con un ***ID***, pero al final del proceso, se le asigna otro ***ID***.
 * También se visualiza el progreso del día y el progreso de acabados por cada operario según su avance.
 
-**Navegación 1: Acabados > Acabados** <br>
+**Navegación 3: Acabados > Acabados** <br>
 **Descripción:** Esta primera pantalla contiene diferentes botones que brindarán los servicios para ser procesados o consultados por el **operario de acabados**.
+![Acabados3](./pantallas/acabados/submenu-3.png)
 
+**Navegación 3-1: Acabados > Acabados > Operarios** <br>
+**Descripción:** En esta pantalla se consulta las cajas asignadas por cada operarios, así como tambión los lotes que tienen los operarios.
+![Acabados3]()
+
+**Navegación 3-2: Acabados > Acabados > Registro** <br>
+**Descripción:** En esta pantalla se registran el avance de acabado por cajas.
+![Acabados3]()
+
+
+**Navegación 3-3: Acabados > Acabados > Progreso** <br>
+**Descripción:** En esta pantalla se consulta el progreso diario y mensual según cada operario
+![Acabados3]()
 
 
 </details>
