@@ -785,6 +785,7 @@ EXECUTE PROCEDURE VALIDAR_HORARIO_CAJA_ACAB_SALIDA();
   <summary>SENTENCIAS SQL COMPLEJAS</summary>
   
 ```sql
+Ver una inspeccion de calidad por orden de produccion y actualizar datos si se requiere
 class InspeccionesAPIView(APIView):
 
     def get(self, request, *args, **kwargs):
@@ -854,6 +855,21 @@ class InspeccionesAPIView(APIView):
             """, [cantidad_defectuosos, id_resultado, id_inspeccion])
 
         return Response({"message": "Inspección actualizada correctamente"}, status=status.HTTP_200_OK)
+```
+```sql
+Ver todas las inspecciones de calidad
+class TodasInspeccionesAPIView(APIView):
+
+    def get(self, request, *args, **kwargs):
+        query = "SELECT * FROM vista_inspecciones_calidad ORDER BY ID_ORDEN_PRODUCCION DESC"
+        
+        with connection.cursor() as cursor:
+            cursor.execute(query)
+            rows = cursor.fetchall()
+            columns = [col[0] for col in cursor.description]
+            results = [dict(zip(columns, row)) for row in rows]
+
+        return JsonResponse(results, safe=False)
 ```
 </details>
 
