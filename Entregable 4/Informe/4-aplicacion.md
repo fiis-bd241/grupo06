@@ -686,7 +686,8 @@ class AcabadoListView(APIView):
 
 
 **Navegación 2.5: Acabados > Acabados > Habilitar** <br>
-**Descripción:** Esta pantalla 
+**Descripción:** Esta pantalla se utiliza para habilitar el ingreso de registro de acabados para los operarios.
+![Acabados25](./pantallas/acabados/3-5-habilitar.png)
 
 
 
