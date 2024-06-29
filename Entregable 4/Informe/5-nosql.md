@@ -82,8 +82,18 @@ SHOW TABLES;
 
 ### Consultas Clickhouse - Postgres
 * **Caso 1:**
-* **Caso 2:**
+  - Proveedores:
+  ```sql
+  SELECT * FROM postgres_proveedor;
+  ```
+![proveedores](./images/proveedor.png)
 
+* **Caso 2:**
+  - Empleados:
+  ```sql
+  SELECT * FROM postgres_empleado;
+  ```
+![empleado](./images/empleado.png)
 
   [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue?style=for-the-badge)](#nosql)
 
