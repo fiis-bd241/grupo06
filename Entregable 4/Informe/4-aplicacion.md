@@ -50,8 +50,9 @@ Presentamos el flujo de pantallas de la App Web: **[Sistema Vircatex](https://si
   <summary>VER TODO</summary>
   
   #### Submenú 1: 
-  **Navegación**: Corte > Ordenes de produccion
-  Muestra los datos que debe tener una orden de produccion para el area de corte, luego de dar asignar se colora otra ventana
+  **Navegación**: Corte > Ordenes de produccion.
+  
+Muestra los datos que recibe el jefe de corte de almacén central, sobre la orden de producción lo cual observa si la orden está en proceso, la cantidad que debe realizar, tipo de corte, etc; luego presiona asignar para más detalle.
   
   ![Corte1](./pantallas/Corte/vista_Orden_Produccion.png)
 
@@ -124,7 +125,7 @@ Presentamos el flujo de pantallas de la App Web: **[Sistema Vircatex](https://si
         return JsonResponse(data, safe=False)
   ```
 
-*Consulta 2: Para Asignar
+*Consulta 2: Botón Asignar: el jefe de corte asigna en cada orden de producción la fecha que la a realizar la actividad, que máquina lo va a realizar, y la cantidad ya hecha de la orden de producción si es que esa orden de producción ya se recibió y no se ha terminado.
 
 ```python
 class AsignarView(View):
@@ -149,8 +150,9 @@ class AsignarView(View):
 ```
 
 #### Submenú 2: 
-**Navegación**: Corte > operario corte > Actividades
-Muestra las actividades que debe realizar cada maquina al dia
+**Navegación**: Corte > operario corte > Actividades.
+
+El operario recibe un informe para que programe la máquina, lo cual vemos en la pantalla y nos muestra las actividades que debe realizar cada maquina al día, donde se detalla la cantidad que hay en esa orden de producción, la cantidad hecha, el tipo de corte.
 
 ![](./pantallas/Corte/vista_actividades_maquina_dia.png)
 
@@ -184,8 +186,9 @@ def actividad_diaria(request):
 ```
 
 #### Submenú 3: 
-**Navegación**: Corte > operario corte > Corte de lote
-inserta datos de la cantidad de corte realizado y la cantidad de lote usado
+**Navegación**: Corte > operario corte > Corte de lote.
+
+Inserta datos de la cantidad de corte realizado y la cantidad de lote usado, en qué estado se encuentra dicha orden de producción
 
 ![](./pantallas/Corte/vista_insert_corte_lote.png)
 
@@ -227,8 +230,9 @@ def insertar_datos(request):
 ```
 
 #### Submenú 4: 
-**Navegación**: Corte > detalles corte > Actividades - Maquina
-Muestra las actividades diarias por maquina luego de apretar ver actividad se muestra el detalle de la actividad
+**Navegación**: Corte > detalles corte > Actividades - Maquina.
+
+En esta sección el jefe de corte observa el reporte de las actividades diarias de la maquinas, la capacidad de la maquina cantidad de actividades, luego presiona el botón ver actividad y nos muestra el detalle de la actividad.
 
 ![](./pantallas/Corte/vista_actividad_diaria_maquina.png)
 
@@ -268,7 +272,10 @@ def actividades(request):
 
     return JsonResponse(data, safe=False)
 ```
-*Consulta 2:
+*Consulta 2: Botón ver actividad: Nos muestra el detalle de la actividad, como las máquinas realizan várias actividades, nos muestra el detalle de estas actividades, con la cantidad de cortes, el progreso que esta actividad tiene.
+
+![](./pantallas/Corte/cortes_actividad.png)
+
 ```python
 def actividad_detalle(request, actividad_id):
     with connection.cursor() as cursor:
@@ -305,8 +312,9 @@ def actividad_detalle(request, actividad_id):
 ```
 
 #### Submenú 5: 
-**Navegación**: Corte > detalles corte > Lotes
-Muestra los numero de lotes por dia en el mes
+**Navegación**: Corte > detalles corte > Lotes.
+
+El jefe de corte observa el número de lotes por día en el mes, para analizar que día se hizo menos y el por qué.
 
 ![](./pantallas/Corte/vista_numero_lotes_dia_mes.png)
 
@@ -332,7 +340,7 @@ class LotesView(View):
             GROUP BY 
                 l.fecha_creacion::date
             ORDER BY 
-                dia DESC;
+                cantidad_lotes DESC;
         """
         with connection.cursor() as cursor:
             cursor.execute(query)
@@ -343,8 +351,10 @@ class LotesView(View):
 ```
 
 #### Submenú 6: 
-**Navegación**: Corte > detalles corte > Corte x OP
-Muestra el detalle del numero de cortes por el orden de produccion
+**Navegación**: Corte > detalles corte > Corte x OP.
+
+Muestra el detalle del número de cortes por el orden de producción, el jefe de corte visualizará dicho detalle cual es la cantidad de esa orden de producción, que cantidad de cortes y el tipo de corte, si la orden está en proceso, atrasado, etc; y el progreso dependiendo del estado.
+
 ![](./pantallas/Corte/Vista_corteXOP.png)
 
 *Consulta:
