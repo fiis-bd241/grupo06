@@ -725,7 +725,10 @@ class AcabadoListView(APIView):
 
 **Navegación 3-1: Acabados > Acabados > Operarios** <br>
 **Descripción:** En esta pantalla se consulta las cajas asignadas por cada operarios, así como tambión los lotes que tienen los operarios.
-![Acabados3]()
+![Acabados31](./pantallas/acabados/operario.png)
+* **FUNCIONALIDADES**
+    * **Ver Detalles de caja**
+    * **Ver Detalles de lote**
 
 **Navegación 3-2: Acabados > Acabados > Registro** <br>
 **Descripción:** En esta pantalla se registran el avance de acabado por cajas.
