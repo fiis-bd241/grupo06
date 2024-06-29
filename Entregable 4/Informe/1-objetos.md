@@ -1015,6 +1015,36 @@ CREATE TABLE aql_resultado_rango
   
 ```sql
 
+class ReporteProduccionView(View):
+    def get(self, request):
+        fecha_inicio = request.GET.get('fecha_inicio')
+        fecha_fin = request.GET.get('fecha_fin')
+
+        query = """
+        SELECT id_ordenproduccion, fecha_creacion, fecha_inicio, fecha_final, id_area, id_ordentrabajo, estado
+        FROM produccion
+        WHERE fecha_inicio BETWEEN %s AND %s
+        """
+
+        with connection.cursor() as cursor:
+            cursor.execute(query, [fecha_inicio, fecha_fin])
+            rows = cursor.fetchall()
+
+        resultados = [
+            {
+                "id_ordenproduccion": row[0],
+                "fecha_creacion": row[1],
+                "fecha_inicio": row[2],
+                "fecha_final": row[3],
+                "id_area": row[4],
+                "id_ordentrabajo": row[5],
+                "estado": row[6],
+            }
+            for row in rows
+        ]
+
+        return JsonResponse(resultados, safe=False)
+
 ```
 </details>
 
