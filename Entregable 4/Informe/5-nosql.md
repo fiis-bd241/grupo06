@@ -796,10 +796,14 @@ LIMIT 20;
 
 
 ### Aplicación al trabajo (Ejemplo con clickhouse-client)
-<details>
-<summary>Abrir para ver</summary>
 
-</details>
+Se realiza un revisión de consultas de todas las tabla de postgres y se importan a clickhouse.
+
+A partir de este proceso, he realizado una inspección de la tabla confección que ha sido alimentado con aprox. 300000 registros (contiene las ordenes totales cruzadas de confección).
+
+Y dado el nivel transaccional y de consultas, se puede optimizar el tiempo de respuesta para la aplicación. Así también, se puede realizar Update's and delete's de manera óptima, con un motor que permita dichas operaciones. 
+
+Para el actual trabajo, he trabajado con Clickhouse Client, DBeaver, MergeTree y ClickHouse Cloud. 
 
   [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue?style=for-the-badge)](#nosql)
 
