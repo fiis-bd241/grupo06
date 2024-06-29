@@ -1071,6 +1071,25 @@ CREATE INDEX idx_produccion_id_ordenproduccion ON produccion (id_ordenproduccion
   
 ```sql
 
+Vista de orden de Producción:
+
+CREATE OR REPLACE VIEW vista_produccion_completa AS
+SELECT 
+    p.id_ordenproduccion,
+    p.fecha_creacion,
+    p.fecha_inicio,
+    p.fecha_final,
+    a.nombre AS nombre_area,
+    e.nombre AS nombre_encargado,
+    p.id_ordentrabajo,
+    p.estado
+FROM 
+    produccion p
+JOIN 
+    area a ON p.id_area = a.id_area
+JOIN 
+    encargado e ON p.id_encargado = e.id_encargado;
+
 ```
 </details>
 
@@ -1079,6 +1098,66 @@ CREATE INDEX idx_produccion_id_ordenproduccion ON produccion (id_ordenproduccion
   
 ```sql
 
+CREATE TABLE orden_pedido
+(
+  id_orden_pedido SERIAL,
+  cantidad INT NOT NULL,
+  fecha_entrega TIMESTAMPTZ NOT NULL,
+  id_estado INT NOT NULL,
+  fecha_creacion TIMESTAMP NOT NULL,
+  PRIMARY KEY (id_orden_pedido),
+  FOREIGN KEY (id_estado) REFERENCES estado(id_estado)
+);
+
+CREATE TABLE orden_producción
+(
+  id_orden_producción SERIAL,
+  fecha_fin DATE NOT NULL,
+  fecha_inicio DATE NOT NULL,
+  cantidad INT NOT NULL,
+  id_estado INT NOT NULL,
+  id_area INT NOT NULL,
+  id_dim_prenda INT,
+  id_dim_confeccion INT,
+  id_dim_corte INT,
+  id_orden_trabajo INT NOT NULL,
+  fecha_creacion TIMESTAMP NOT NULL,
+  PRIMARY KEY (id_orden_producción),
+  FOREIGN KEY (id_estado) REFERENCES estado(id_estado),
+  FOREIGN KEY (id_area) REFERENCES area(id_area),
+  FOREIGN KEY (id_dim_prenda) REFERENCES dimension_prenda(id_dim_prenda),
+  FOREIGN KEY (id_dim_confeccion) REFERENCES dimension_confeccion(id_dim_confeccion),
+  FOREIGN KEY (id_dim_corte) REFERENCES dimension_corte(id_dim_corte),
+  FOREIGN KEY (id_orden_trabajo) REFERENCES orden_trabajo(id_orden_trabajo)
+);
+
+CREATE TABLE orden_trabajo
+(
+  id_orden_trabajo SERIAL,
+  fecha_inicio DATE NOT NULL,
+  fecha_fin DATE NOT NULL,
+  prioridad INT NOT NULL,
+  id_estado INT NOT NULL,
+  id_plan INT NOT NULL,
+  id_orden_pedido INT NOT NULL,
+  fecha_creacion TIMESTAMP NOT NULL,
+  PRIMARY KEY (id_orden_trabajo),
+  FOREIGN KEY (id_estado) REFERENCES estado(id_estado),
+  FOREIGN KEY (id_plan) REFERENCES plan_produccion(id_plan),
+  FOREIGN KEY (id_orden_pedido) REFERENCES orden_pedido(id_orden_pedido)  
+);
+
+CREATE TABLE plan_produccion
+(
+  id_plan SERIAL,
+  fecha_inicio DATE NOT NULL,
+  fecha_fin DATE NOT NULL,
+  id_estado INT NOT NULL,
+  fecha_creacion TIMESTAMP NOT NULL,
+  PRIMARY KEY (id_plan),
+  FOREIGN KEY (id_estado) REFERENCES estado(id_estado)
+);
+
 ```
 </details>
 
@@ -1086,6 +1165,19 @@ CREATE INDEX idx_produccion_id_ordenproduccion ON produccion (id_ordenproduccion
   <summary>TRIGGERS</summary>
   
 ```sql
+
+CREATE OR REPLACE FUNCTION actualizar_vista_produccion() RETURNS TRIGGER AS $$
+BEGIN
+    -- No es necesario hacer nada aquí porque la vista se actualiza automáticamente con los cambios en la tabla base.
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER trigger_actualizar_vista_produccion
+AFTER INSERT OR UPDATE OR DELETE ON produccion
+FOR EACH ROW
+EXECUTE FUNCTION actualizar_vista_produccion();
+
 
 ```
 </details>
