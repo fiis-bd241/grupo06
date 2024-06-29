@@ -700,7 +700,15 @@ class AcabadoListView(APIView):
 ![Acabados261](./pantallas/acabados/3-3-progreso.png)
 
 **Navegación 2.7: Acabados > Acabados > Asignar-Operario** <br>
-**Descripción:** Esta pantalla 
+**Descripción:** Esta pantalla Muestra el reporte de operarios, operarios por caja y operarios por lotes.
+![Acabados27](./pantallas/acabados/asignar.png)
+* **FUNCIONALIDADES**
+    * **Asignar Operario a caja:** Asignar, modificar o eliminar un operario a una caja determinada, que a su vez, son un grupo de cajas.
+![Acabados27a](./pantallas/acabados/asignar-caja.png)
+
+    * **Asignar Operario a lote:** Asignar, modificar o eliminar un operario a un lote determinado.
+![Acabados27b](./pantallas/acabados/asignar-lote.png)
+
 
 ---
 #### Submenú 3: **Acabados**: 
