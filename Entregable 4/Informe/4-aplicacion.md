@@ -597,7 +597,7 @@ def datos_list_a(request):
   
 #### Submenú 1: **General**: 
 **Rol:** Supervisor
-**Navegación**: Acabados > General <br>
+**Navegación 1**: Acabados > General <br>
 Muestra los datos generales del área.<br>
 Se realizan dos consultas a la BD.
 ![Acabados 1](./images/generalaca.png)
@@ -638,11 +638,23 @@ class AcabadoListView(APIView):
 * Así también se tiene que visualizar la relación de cajas por lote listos para procesar en el área de acabados.
 * También se podrá asignar, modificar o eliminar al operario que a una caja que va a ser procesada (Un operario maneja una caja desde el comienzo de su acabado hasta su empacado).
 > Es importante destacar que tendremos que ver si esta caja tiene algín comentario o desaprobación del área de calidad, por lo cual tendremos que hacer consultas a su tablas respectivas para solo visualizar estados de la cajas.
-
-**Navegación 1:** Acabados > Lotes <br>
+---
+**Navegación 2: Acabados > Lotes**<br>
 **Descripción:** Esta primera pantalla contiene diferentes botones que brindarán los servicios para ser procesados o consultados por el **supervisor de acabados**.
 
+![Acabados21](./pantallas/acabados/1%20princ.png)
 
+**Navegación 2.1: Acabados > Acabados > Lotes-cajas** <br>
+**Descripción:** Esta pantalla se consulta, al cargar la página,todas la cajas que entran al área de operarios, donde se pueden vicualizar todas las características. En esta pantalla se integran todas las funcionalidades en una pantalla (Que se prensentó en el submenú - versión 1) **operario de acabados**.
+![Acabados22](./pantallas/acabados/1-2-reporte.png)
+    - **Funcionalidades de la pantalla**
+
+* **Filtrado entre fechas:** Con este filtro se visualiza el mismo reporte entre las fechas indicadas.
+* **Imprimir:** Este botón imprime en pdf con un formato de la empresa el reporte que se elige en el filtro anterior.
+* **Cancelar:** Este botón borra el filtro anterior.
+* **Operario:** AL final de cada fila de la tabla, hay un botón que muestra un popup, donde se puede asignar, modificar o eliminar al operario por cada caja entrante.
+![Acabados221](./pantallas/acabados/1-2-1.operario-popup.png)
+---
 #### Submenú 3: **Acabados**: 
 **Rol:** Supervisor<br>
 
@@ -651,8 +663,10 @@ class AcabadoListView(APIView):
 * Registrar cuando se realizan los acabados, esto responde a que cuando ingresan la cajas, ingresan con un ***ID***, pero al final del proceso, se le asigna otro ***ID***.
 * También se visualiza el progreso del día y el progreso de acabados por cada operario según su avance.
 
-**Navegación 1:** Acabados > Acabados <br>
+**Navegación 1: Acabados > Acabados** <br>
 **Descripción:** Esta primera pantalla contiene diferentes botones que brindarán los servicios para ser procesados o consultados por el **operario de acabados**.
+
+
 
 </details>
 
