@@ -14,6 +14,67 @@
 
 ## Base de datos NoSQL
 
+### Alistar entorno Clickhouse y PostgreSQL
+#### CLickhouse
+* **Pasos**
+  1. Iniciar localmente ***Clickhouse***. Esto te llevará a la consola interactiva de ClickHouse, donde podrás ejecutar comandos SQL.:
+
+```
+  clickhouse-client
+
+``` 
+Obtendrás una repuesta (Si lo tienes instalado).
+```
+ClickHouse client version 22.2.2.1.
+Connecting to localhost:9000 as user default.
+Connected to ClickHouse server version 22.2.2 revision 54455.
+```
+
+2. **Crear** Base de datos que apunte a PostgreSQL.
+```
+CREATE DATABASE postgres_db ENGINE = PostgreSQL(
+    'localhost:5432',
+    'proba1',
+    'postgres',
+    'prueba'
+);
+```
+
+3. **Automatizar** la creación de tablas:
+
+Crear archivo *creacion-tablas.py*
+```python
+from clickhouse_driver import Client
+
+# Conectar al cliente de ClickHouse
+client = Client('localhost')
+
+# Lista de tablas en PostgreSQL
+tablas = [
+    'direccion', 'proveedor', 'telefono', 'correo', 'area', 'empleado',
+    'cargo', 'estado', 'maquina', 'color', 'dimension_materia_prima', 
+    'tipo_materia_prima', 'tipo_parte_prenda', 'dimension_parte_prenda',
+    'tipo_prenda', 'dimension_confeccion', 'estilo_prenda', 'guia_confeccion',
+    'talla', 'genero', 'orden_pedido', 'plan_produccion', 'zona', 'aql_codigo',
+    'aql_muestra', 'aql_lote_rango', 'aql_nivel', 'aql_resultado_rango', 
+    'aql_significancia', 'dimension_corte', 'parte_corte_detalle', 'tipo_corte', 
+    'dimension_prenda', 'orden_trabajo', 'pasillo', 'dim_confeccion_detalle', 
+    'dim_prenda_detalle', 'acabado', 'pedido_detalle', 'estanteria', 
+    'orden_producción', 'actividad_diaria', 'lote', 'tipo_lote', 
+    'empleado_actividad', 'maquina_actividad', 'caja_prenda', 'materia_prima', 
+    'corte', 'registro_uso_lote', 'caja_lote', 'espacio', 'lote_salida', 
+    'inspeccion_calidad', 'inspeccion_descripcion', 'resultado', 'confeccion', 
+    'registro_lote_caja', 'registro_transformacion_caja', 'prenda', 
+    'caja_salida', 'lote_entrada'
+]
+
+# Crear tablas en ClickHouse
+for tabla in tablas:
+    query = f"CREATE TABLE postgres_{tabla} AS postgres_db.{tabla};"
+    client.execute(query)
+```
+
+
   [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue?style=for-the-badge)](#nosql)
 
 ## Base de datos NoSQL Elegido
