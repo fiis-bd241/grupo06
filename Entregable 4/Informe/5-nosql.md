@@ -81,6 +81,7 @@ SHOW TABLES;
 ![tablas](./images/show-tables.png)
 
 ### Consultas Clickhouse - Postgres
+#### Clickhouse Client
 * **Caso 1:**
   - Proveedores:
   ```sql
@@ -92,10 +93,23 @@ SHOW TABLES;
   - Empleados:
   ```sql
   SELECT * FROM postgres_empleado;
+
+  -- 77 rows in set. Elapsed: 0.076 sec. 
   ```
 ![empleado](./images/empleado.png)
 
-  [![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue?style=for-the-badge)](#nosql)
+
+#### DBeaver
+* **PASOS**
+  1. Nueva *Conexión*
+  
+![conexion dbeaver](./images/con-dbeaver.png)
+
+* **APLICACIÓN AL TRABAJO**
+
+  1. 
+
+[![Volver al inicio](https://img.shields.io/badge/Volver_al_inicio-blue?style=for-the-badge)](#nosql)
 
 ## Base de datos NoSQL Elegido
 <div align=center>
