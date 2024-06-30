@@ -12,54 +12,47 @@ from datetime import datetime
 # Muestra las órdenes de producción de confección con filtros opcionales
 class OrdProdConfView(APIView):
     def get(self, request):
-        # Leer el cuerpo de la solicitud como JSON
-        try:
-            body_unicode = request.body.decode('utf-8')
-            body = json.loads(body_unicode)
-        except (json.JSONDecodeError, UnicodeDecodeError):
-            return Response({"error": "Cuerpo de solicitud no válido"}, status=400)
-        
-        estado = body.get('estado', None)
-        fecha_inicio = body.get('fecha_inicio', None)
-        fecha_fin = body.get('fecha_fin', None)
-        
+        estado = request.query_params.get('estado', None)
+        fecha_inicio = request.query_params.get('fecha_inicio', None)
+        fecha_fin = request.query_params.get('fecha_fin', None)
+
         # Validar el estado si se proporciona
         if estado and estado not in ['No iniciado', 'En proceso', 'Atrasado']:
             return Response({"error": "Estado no válido"}, status=400)
-        
+
         # Validar y parsear fechas si se proporcionan
         if fecha_inicio:
             fecha_inicio = parse_date(fecha_inicio)
             if not fecha_inicio:
                 return Response({"error": "Fecha de inicio no válida"}, status=400)
-        
+
         if fecha_fin:
             fecha_fin = parse_date(fecha_fin)
             if not fecha_fin:
                 return Response({"error": "Fecha de fin no válida"}, status=400)
-        
+
         # Construir el query con filtros dinámicos
         query = "SELECT * FROM vista_op_confección WHERE 1=1"
         params = []
-        
+
         if estado:
             query += " AND estado = %s"
             params.append(estado)
-        
+
         if fecha_inicio:
             query += " AND fecha_inicio >= %s"
             params.append(fecha_inicio)
-        
+
         if fecha_fin:
             query += " AND fecha_fin <= %s"
             params.append(fecha_fin)
-        
+
         with connection.cursor() as cursor:
             cursor.execute(query, params)
             rows = cursor.fetchall()
             columns = [col[0] for col in cursor.description]
-        
-        # Convert the rows into a list of dictionaries
+
+        # Convertir las filas en una lista de diccionarios
         results = [dict(zip(columns, row)) for row in rows]
         return Response(results)
 
