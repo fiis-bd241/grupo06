@@ -4,12 +4,12 @@
 ### Front end
 Abrir en Google Chrome: [Vircatex - render](https://sistema-web-v-f.onrender.com/) 
 
-[Github FrontEnd - React](https://github.com/javierarteagagonzales/sistema-web-v-f) 
+[Github FrontEnd - React](https://github.com/javierarteagagonzales) 
 
 ### App Web
 Despliegue FrontEnd, Backend y PostgreSQL : [Render](https://render.com/)
 
-[Github BackEnd - React](https://github.com/javierarteagagonzales/sistema-web-v) 
+[Github BackEnd - React](https://github.com/javierarteagagonzales) 
 
 ### Conexión Base de datos (local)
 ![db](../Entregable%203/db.png)
@@ -142,9 +142,9 @@ A continuación presentamos el versionado de Sistema Vircatex
 
 ### V 1.2.1. Desarrollo FullStack con Querys SQL
 
-[Github FrontEnd - React](https://github.com/javierarteagagonzales/sistema-web-v-f) 
+[Github FrontEnd - React](https://github.com/javierarteagagonzales/) 
 
-[Github BackEnd - React](https://github.com/javierarteagagonzales/sistema-web-v) 
+[Github BackEnd - React](https://github.com/javierarteagagonzales/) 
 
 
 [![Regresar al Índice](https://img.shields.io/badge/Regresar_al_Índice-Verde?style=for-the-badge&logoColor=white)](./entregable%204-indice.md)
